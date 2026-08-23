@@ -6,15 +6,15 @@ skill:
 capabilities:
   - id: keyword.library.competition.analyze
     type: manual
-    purpose: 为Sheet2 F1至F4完整词按SIF Top3两项计算固定竞争等级和结构
+    purpose: 为Sheet2中通用词库资格为纳入的F1至F4完整词按SIF Top3两项计算固定竞争等级和结构
     status: planned
-    input: 锁定F1至F4人口、Keyword_ID、第一板块Top3、周期和规则版本
+    input: 锁定资格纳入的F1至F4人口、Keyword_ID、第一板块Top3、周期和规则版本
     output: 十二列竞争Sheet、manifest、异常和质检结果
     permission: local-draft-and-verify
     risk: 仅用Top3两项；缺值冲突或周期单位不明时不出等级
   - id: keyword.competition.sif-top3.query
     type: mcp
-    purpose: 只对第一板块Top3缺失或冲突的F1至F4完整词补查SIF
+    purpose: 只对资格纳入且第一板块Top3缺失或冲突的F1至F4完整词补查SIF
     status: planned
     input: 完整英文关键词、站点、获准批次和缺失冲突清单
     output: 同一查询周期的Top3点击份额和Top3转化份额及原始证据
@@ -24,7 +24,7 @@ capabilities:
     type: manual
     purpose: 写入并验证十二列竞争Sheet的人口、主键、阈值、矩阵和空值门
     status: planned
-    input: F1至F4人口、Top3两项、周期、规则版本和异常
+    input: 资格纳入的F1至F4人口、Top3两项、周期、规则版本和异常
     output: 竞争工作簿、manifest、公式渲染和闭环结果
     permission: local-draft-and-verify
     risk: 不覆盖上游；主键人口或等级不可复算时阻断

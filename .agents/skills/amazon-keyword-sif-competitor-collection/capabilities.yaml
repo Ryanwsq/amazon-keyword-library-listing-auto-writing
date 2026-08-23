@@ -16,7 +16,7 @@ capabilities:
     purpose: 在解析前保存每次SIF完整响应，再装配七列关键词明细和核心词候选摘要
     status: planned
     input: 单次SIF返回、请求参数、Run_ID、本机忽略目录和抓取时间
-    output: 版本化原始响应、七列明细工作簿、核心词候选摘要、来源清单、行数核对、哈希、异常和紧凑主任务回传
+    output: 版本化原始响应、七列明细工作簿、不执行语义晋级的核心词候选摘要、来源清单、行数核对、哈希、异常和紧凑主任务回传
     permission: local-draft
     risk: 不覆盖旧响应；原始返回未落盘时不得继续汇总；主任务消息不得展开原始长响应
   - id: keyword.source.competitor-traffic.web-query

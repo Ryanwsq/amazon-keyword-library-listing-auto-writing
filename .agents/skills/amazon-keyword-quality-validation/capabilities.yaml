@@ -8,7 +8,7 @@ capabilities:
     type: manual
     purpose: 独立只读验证全链路、过程文件夹、七Sheet最终工作簿和21项装配门
     status: planned
-    input: 锁定Run、revision、模块版本、全部manifests/哈希、两个交付对象和唯一问题文档
+    input: 锁定Run、revision、分层锚点、单一种子、通用词库资格人口、模块版本、全部manifests/哈希、两个交付对象和唯一问题文档
     output: 两Sheet质量工作簿、quality manifest、预览、Gate结果和QA结论
     permission: local-read-and-verify
     risk: 不修复不重跑不外部补数；硬门失败不得pass；缺证据必须incomplete

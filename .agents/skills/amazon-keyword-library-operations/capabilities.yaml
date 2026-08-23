@@ -9,14 +9,14 @@ capabilities:
     purpose: 锁定一次用户输入和运行版本并协调长期副任务、汇合门、最终交付和独立验收
     status: planned
     input: 产品事实、竞品、Run_ID、仓库revision、站点、规则版本和授权范围
-    output: 输入锁、任务路由、阶段状态、冲突清单和验收结论
+    output: 输入锁、分层锚点、单一卖家精灵种子、任务路由、阶段状态、冲突清单和验收结论
     permission: local-draft
     risk: 不代做专责业务判断；正式只读运行中不修改规则；QA未通过不标记完成
   - id: keyword.source.merge-and-assemble
     type: manual
     purpose: 机械合并SIF、Amazon联想和卖家精灵锁定回传并装配第一板块两Sheet工作簿
     status: planned
-    input: 三来源最小工作簿、manifests、哈希、状态、类目锚点和SKU事实
+    input: 三来源最小工作簿、manifests、哈希、状态、分层类目锚点、单一种子和SKU事实
     output: Sheet1关键词池、Sheet2任务信息与类目锚点、合并manifest和完成状态
     permission: local-draft-and-verify
     risk: 不语义删词；不把缺值填0；Amazon联想未执行时第一板块不得完成

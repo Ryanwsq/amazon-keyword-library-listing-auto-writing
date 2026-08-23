@@ -15,17 +15,17 @@
 | `amazon-keyword-library-operations` | `keyword.library.version.manage`、`keyword.source.merge-and-assemble` | 主任务编排、版本、三来源机械合并、第一板块两Sheet总门与验收 | draft |
 | `amazon-keyword-sif-competitor-collection` | `keyword.source.competitor-traffic.query`、`keyword.source.sif.persist-and-verify` | 逐竞品SIF反查、完整响应本机落盘、七列明细和锚点候选证据 | draft |
 | `amazon-keyword-amazon-autocomplete` | `keyword.source.autocomplete.capture` | 固定内置浏览器环境的Amazon可见联想矩阵 | draft |
-| `amazon-keyword-sellersprite-expansion` | `keyword.source.keyword-mining.query`、`keyword.source.sellersprite.paginate-and-verify` | 卖家精灵四字段、2–3个收敛Pass、四列表装配和损失风险 | draft |
-| `amazon-keyword-category-cleaning` | `keyword.library.clean` | 第二板块一级品类相关性三去向清洗 | draft |
-| `amazon-keyword-word-frequency` | `keyword.library.word-frequency` | 只用Sheet2统计去介词单词和以介词为断点的相邻双词，输出独立词频Sheet | draft |
+| `amazon-keyword-sellersprite-expansion` | `keyword.source.keyword-mining.query`、`keyword.source.sellersprite.paginate-and-verify` | 细分核心词优先否则一级品类核心大词的单一种子、四字段、2–3个收敛Pass和损失风险 | draft |
+| `amazon-keyword-category-cleaning` | `keyword.library.clean` | 第二板块一级品类三去向与Sheet2通用词库资格清洗 | draft |
+| `amazon-keyword-word-frequency` | `keyword.library.word-frequency` | 只用资格纳入的Sheet2统计去介词单词和以介词为断点的相邻双词 | draft |
 | `amazon-keyword-classification` | `keyword.library.classify` 及分类/输出子能力 | Sheet2 F1–F5/LT与动态语义列、Sheet4流量分类和五列最小否词库 | draft |
-| `amazon-keyword-competition-analysis` | `keyword.library.competition.analyze`、`keyword.competition.sif-top3.query`、`keyword.competition.outputs.write-and-verify` | 为Sheet2 F1–F4建立Top3-only独立竞争Sheet，按完整词、周期和完整性输出等级 | draft |
-| `amazon-keyword-trend-analysis` | `keyword.library.trend.analyze` 及两个查询/输出子能力 | 只用卖家精灵至少24个月数据生成F1–F3月/季度环同比矩阵和两图 | draft |
-| `amazon-keyword-final-workbook-assembly` | `keyword.workbook.final.assemble`、`keyword.workbook.sheet-manifest.verify` | 装配过程文件夹和七Sheet最终工作簿，以三去向全人口建立50+N总表 | draft |
+| `amazon-keyword-competition-analysis` | `keyword.library.competition.analyze`、`keyword.competition.sif-top3.query`、`keyword.competition.outputs.write-and-verify` | 为资格纳入的Sheet2 F1–F4建立Top3-only独立竞争Sheet | draft |
+| `amazon-keyword-trend-analysis` | `keyword.library.trend.analyze` 及两个查询/输出子能力 | 为资格纳入的F1–F3生成至少24月、月/季度环同比矩阵和两图 | draft |
+| `amazon-keyword-final-workbook-assembly` | `keyword.workbook.final.assemble`、`keyword.workbook.sheet-manifest.verify` | 装配过程文件夹和七Sheet最终工作簿，以三去向全人口建立51+N总表 | draft |
 | `amazon-keyword-quality-validation` | `keyword.quality.validate` | 独立只读复核全链路、两对象交付、七Sheet和21项装配门 | draft |
 | `amazon-keyword-library-publication` | `keyword.library.publish` | 经审查知识的脱敏项目内发布 | draft |
 
-当前共有十个业务Skill（SIF、Amazon联想、卖家精灵、品类清洗、词频、关键词分类、竞争、趋势、最终装配、独立质量验证）和两个项目维护Skill（operations、publication）。2026-08-21输出合同固定两Sheet第一板块、四Sheet清洗、介词过滤词频、Top3-only竞争、24月趋势、三去向50+N总表和七Sheet最终工作簿；质量验证只读执行21项装配门。十二个Skill均为`draft`，全部能力为`planned`，没有真实P1三案例前不得声称已验证。
+当前共有十个业务Skill（SIF、Amazon联想、卖家精灵、品类清洗、词频、关键词分类、竞争、趋势、最终装配、独立质量验证）和两个项目维护Skill（operations、publication）。2026-08-23合同固定分层核心、卖家精灵单一种子、两Sheet第一板块、四Sheet清洗与Sheet2通用词库资格、资格纳入人口的介词过滤词频/Top3-only竞争/24月趋势、三去向51+N总表和七Sheet最终工作簿；质量验证只读执行21项装配门。十二个Skill均为`draft`，全部能力为`planned`，没有真实P1三案例前不得声称已验证。
 
 2026-08-20 已完成以下结构调整，并通过当前仓库 P0：
 

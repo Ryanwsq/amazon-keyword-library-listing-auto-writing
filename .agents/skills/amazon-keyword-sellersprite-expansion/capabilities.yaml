@@ -7,7 +7,7 @@ capabilities:
     type: mcp
     purpose: 通过获准卖家精灵适配器以四字段有界Pass逐页挖掘主任务确认的代表种子
     status: planned
-    input: 站点、查询月份、单个代表种子、Pass、页码、每页20条和固定returnFields参数
+    input: 站点、查询月份、单个核心大词或优先细分核心词种子、种子依据、Pass、页码、每页20条和固定returnFields参数
     output: 单页英文关键词、中文翻译、ABA月排名、月搜索量、声明总数页数、分页状态和错误状态
     permission: approved-read
     risk: 不自行选择种子或请求其他字段；缺页、循环、整页重复或无进展时只阻断受影响Pass
@@ -15,7 +15,7 @@ capabilities:
     type: manual
     purpose: 保存并核对卖家精灵逐页实际响应，机械融合并装配四字段工作簿
     status: planned
-    input: 逐页原始响应、Run_ID、查询月份、代表种子、Pass、站点和本机忽略目录
+    input: 逐页原始响应、Run_ID、查询月份、单一代表种子、种子层级、Pass、站点和本机忽略目录
     output: 版本化原始页、实际行数闭环、四字段工作簿、重复/缺失/冲突/损失清单和紧凑主任务回传
     permission: local-draft
     risk: 不删除原始重复、不补0或精确词重拉；主任务回传不展开业务长响应；分页门失败时不得宣称完成
@@ -23,7 +23,7 @@ capabilities:
     type: manual
     purpose: 卖家精灵MCP不可用时通过已登录网页执行相同四字段分页扩词
     status: planned
-    input: 站点、查询月份、代表种子、Pass、页码、每页20条和网页证据目录
+    input: 站点、查询月份、单一代表种子、种子层级、Pass、页码、每页20条和网页证据目录
     output: 查询条件、页面或导出原始证据、四字段结果、分页轨迹和入口状态
     permission: approved-read
     risk: 只允许同一卖家精灵提供商；不得改变种子、月份、字段或分页，无法证明入口间无遗漏重复时重新完整采集受影响Pass

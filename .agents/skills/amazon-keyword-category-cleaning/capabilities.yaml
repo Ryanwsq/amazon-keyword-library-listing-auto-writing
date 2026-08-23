@@ -9,6 +9,6 @@ capabilities:
     purpose: 按V2.1一级品类边界将第一板块完整词池分配到品类相关、其他摘除和二类词
     status: planned
     input: 锁定的两Sheet第一板块工作簿、Keyword_ID、规范流量、类目锚点、SKU事实和版本
-    output: 四Sheet清洗工作簿、三去向人口闭环、manifest和问题摘要
+    output: 四Sheet清洗工作簿、三去向与通用词库资格人口闭环、manifest和问题摘要
     permission: local-draft-and-verify
-    risk: 不因SKU配置删除同品类词；不打第三板块标签；主键或人口不闭合时阻断
+    risk: 不因SKU配置删除同品类词；不把品类相关自动等同为产品强相关；不打第三板块标签；主键、去向或资格人口不闭合时阻断

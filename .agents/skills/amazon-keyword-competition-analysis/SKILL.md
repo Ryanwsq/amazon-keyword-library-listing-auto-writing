@@ -1,17 +1,17 @@
 ---
 name: amazon-keyword-competition-analysis
-description: Build the standalone competition-analysis sheet for classified Amazon Sheet2 F1-F4 keywords using only exact SIF Top3 click and conversion shares. Use for关键词头部锁定竞争等级、Top3结构分化和竞争输出质检；do not use for trend charts, source mining, classification, negative targeting or ad eligibility.
+description: Build the standalone competition-analysis sheet for product-library-eligible classified Amazon Sheet2 F1-F4 keywords using only exact SIF Top3 click and conversion shares. Use for关键词头部锁定竞争等级、Top3结构分化和竞争输出质检；do not use for trend charts, source mining, classification, negative targeting or ad eligibility.
 ---
 
 # Amazon Keyword Competition Analysis
 
 ## 目标
 
-为Sheet2 F1–F4完整词建立固定十二列竞争Sheet，只使用同周期SIF Top3点击/转化份额计算头部集中和锁定等级。
+为Sheet2中`通用词库资格=纳入`的F1–F4完整词建立固定十二列竞争Sheet，只使用同周期SIF Top3点击/转化份额计算头部集中和锁定等级。
 
 ## 输入
 
-锁定的分类Sheet2 F1–F4人口、Keyword_ID、第一板块Top3、站点、周期、竞争版本和获准SIF补查范围。
+锁定的分类Sheet2总人口、`通用词库资格=纳入`的F1–F4人口、Keyword_ID、第一板块Top3、站点、周期、竞争版本和获准SIF补查范围。
 
 ## 输出
 
@@ -25,7 +25,7 @@ description: Build the standalone competition-analysis sheet for classified Amaz
 
 ## 执行步骤
 
-1. 读取知识、判断边界和`references/output-contract.md`，锁定F1–F4人口、主键、周期和版本；不读取SKU事实。
+1. 读取知识、判断边界和`references/output-contract.md`，锁定Sheet2资格人口、`纳入`且为F1–F4的人口、主键、周期和版本；不读取SKU事实，不重算通用词库资格。
 2. 按完整关键词复用第一板块SIF Top3。同词多记录一致时合并来源，不平均。
 3. 任一Top3缺失或冲突时，才按完整词精确补拉SIF；同一行两项必须来自同一查询周期。补拉后仍缺失/冲突、周期或单位不明时不出等级。
 4. 将可确认的0–1小数转换为百分比；单位不能确认时停止。
@@ -35,7 +35,7 @@ description: Build the standalone competition-analysis sheet for classified Amaz
 
 ## 质量标准
 
-- 人口恰好等于Sheet2 F1–F4；F5/Sheet3/Sheet4零混入。
+- 人口恰好等于Sheet2中`通用词库资格=纳入`的F1–F4；`不纳入/待复核`、F5、Sheet3和Sheet4零混入。
 - 正式输入只有Top3点击和转化份额，且为完整词精确、同周期值。
 - 阈值、差值和矩阵可复算；缺值/冲突/周期或单位不明行无等级。
 - 无CPC、SPR、商品数、市场CVR、Top3 ASIN、比较池、样本门、置信度或广告建议。
@@ -43,4 +43,4 @@ description: Build the standalone competition-analysis sheet for classified Amaz
 
 ## 异常处理
 
-SIF补查不可用时保留第一板块值和缺口，不回退其他来源。主键/人口、周期或单位无法锁定时阻断相应等级并回传主任务。
+SIF补查不可用时保留第一板块值和缺口，不回退其他来源。通用词库资格、主键/人口、周期或单位无法锁定时阻断相应等级并回传主任务。

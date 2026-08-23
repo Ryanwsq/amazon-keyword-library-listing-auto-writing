@@ -478,10 +478,72 @@ def validate_repository_files(errors: List[str]) -> int:
     return checked
 
 
+def validate_keyword_contract_sync(errors: List[str]) -> None:
+    """Check critical cross-file invariants introduced by the current contract."""
+
+    required_phrases = {
+        Path(".agents/skills/amazon-keyword-library-operations/references/source-merge-contract.md"): {
+            "可选细分核心词",
+            "单一卖家精灵种子",
+            "有细分核心词时种子等于该词",
+        },
+        Path(".agents/skills/amazon-keyword-sellersprite-expansion/references/source-contract.md"): {
+            "一个主任务确认的代表种子",
+            "存在已确认产品细分核心词时",
+        },
+        Path(".agents/skills/amazon-keyword-category-cleaning/references/workbook-contract.md"): {
+            "固定十四列",
+            "通用词库资格",
+            "目标细分同对象扩展",
+            "纳入+不纳入+待复核=Sheet2人口",
+        },
+        Path(".agents/skills/amazon-keyword-classification/references/output-contract.md"): {
+            "完整保留第二板块十四列",
+            "通用词库资格",
+        },
+        Path(".agents/skills/amazon-keyword-word-frequency/references/workbook-contract.md"): {
+            "通用词库资格=纳入",
+        },
+        Path(".agents/skills/amazon-keyword-competition-analysis/references/output-contract.md"): {
+            "通用词库资格=纳入",
+        },
+        Path(".agents/skills/amazon-keyword-trend-analysis/references/output-contract.md"): {
+            "通用词库资格=纳入",
+        },
+        Path(".agents/skills/amazon-keyword-final-workbook-assembly/references/workbook-contract.md"): {
+            "Fixed 51 fields plus N semantic columns",
+            "最终去向=品类相关",
+            "通用词库资格=纳入",
+        },
+        Path(".agents/skills/amazon-keyword-quality-validation/references/quality-contract.md"): {
+            "14/13/12列",
+            "固定51列+N动态列",
+            "Gate 2必须验证锚点/种子层级与资格人口",
+        },
+        Path("docs/end-to-end-workflow.md"): {
+            "单一种子",
+            "通用词库资格",
+            "固定51列加N个动态语义列",
+        },
+    }
+
+    for relative, phrases in required_phrases.items():
+        path = ROOT / relative
+        if not path.is_file():
+            continue
+        text = path.read_text(encoding="utf-8")
+        for phrase in sorted(phrases):
+            if phrase not in text:
+                errors.append(
+                    f"{relative}: current keyword contract missing {phrase!r}"
+                )
+
+
 def main() -> int:
     errors: List[str] = []
     validate_required_paths(errors)
     skill_count, draft_count, verified_count = validate_skills(errors)
+    validate_keyword_contract_sync(errors)
     file_count = validate_repository_files(errors)
 
     if errors:

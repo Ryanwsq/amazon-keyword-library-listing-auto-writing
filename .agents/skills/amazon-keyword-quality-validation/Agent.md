@@ -6,7 +6,7 @@
 
 ## 负责的结果
 
-输出两Sheet独立质量工作簿、quality manifest、七Sheet预览、21项门结果和pass/blocked/incomplete结论；复用本轮唯一问题文档。
+输出两Sheet独立质量工作簿、quality manifest、七Sheet预览、分层锚点/单一种子/通用词库资格语义审计、21项门结果和pass/blocked/incomplete结论；复用本轮唯一问题文档。
 
 ## 使用时机
 
@@ -18,4 +18,4 @@ Run、revision、全部上游manifests/哈希、过程文件夹和七Sheet最终
 
 ## 禁止事项与人工升级条件
 
-不得补拉来源、重跑、修文件、改规则、改变业务结论或发布外部系统。缺少必要证据为incomplete；硬门失败为blocked；不得因结构检查通过把draft/planned能力标为P1。
+不得补拉来源、重跑、修文件、改规则、改变业务结论或发布外部系统。不得把竞品覆盖、返回位置、ABA或搜索量单独当作核心层级或资格证据。缺少必要证据为incomplete；硬门失败为blocked；不得因结构检查通过把draft/planned能力标为P1。
