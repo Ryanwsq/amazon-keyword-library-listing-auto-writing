@@ -8,7 +8,7 @@ capabilities:
     type: manual
     purpose: 协调Sheet2动态语义与流量分类、Sheet4流量分类和五列否词库
     status: planned
-    input: 锁定的Sheet2/3/4、Keyword_ID、ABA、站点、周期和分类版本
+    input: 锁定的Sheet2/3/4、Keyword_ID、ABA、品类关系、通用词库资格、站点、周期和分类版本
     output: 两Sheet分类过程工作簿、否词库、manifest和质检结果
     permission: local-draft-and-verify
     risk: 不读取SKU事实卡；不改变三去向；不生成广告或竞争趋势判断
@@ -16,10 +16,10 @@ capabilities:
     type: manual
     purpose: 为Sheet2追加F1至F5、F5唯一主分组、LT和品类自适应动态语义列
     status: planned
-    input: Sheet2十三列人口和当前品类语义
-    output: 十三列加四固定列加N动态语义列的Sheet2
+    input: Sheet2十四列人口和当前品类语义
+    output: 十四列加四固定列加N动态语义列的Sheet2
     permission: local-draft
-    risk: ABA缺失不伪造层；动态列必须非空且仅由词面支持
+    risk: ABA缺失不伪造层；动态列必须非空且仅由词面支持；品类关系和通用词库资格不得改写
   - id: keyword.classification.sheet4.apply
     type: manual
     purpose: 为Sheet4二类词只追加流量层、主分组、LT和分类状态
