@@ -6,15 +6,15 @@ skill:
 capabilities:
   - id: keyword.workbook.final.assemble
     type: manual
-    purpose: 装配过程文件夹和八Sheet最终工作簿，建立三去向51加N最终总表及分类Sheet4机械复制的二类词Sheet
+    purpose: 装配过程文件夹和八Sheet最终工作簿，建立三去向51加N最终总表、锁定显示名的通用词库及分类Sheet4机械复制的二类词Sheet
     status: planned
     input: 全部锁定上游工作簿、manifests、哈希、版本、人口和SKU事实卡
     output: 过程性文件目录、process-manifest.json和最终关键词词库XLSX
     permission: local-draft-and-verify
-    risk: 不改变上游判断；二类词只复制分类Sheet4；详细Top3不进总表；最终工作簿不混入其他过程Sheet
+    risk: 不改变上游判断；二类词只复制分类Sheet4；详细Top3不进总表；最终工作簿不混入其他过程Sheet；三种行级数据状态必须传递至QA清单
   - id: keyword.workbook.sheet-manifest.verify
     type: manual
-    purpose: 验证两个顶层对象、八Sheet顺序、二类词人口与十六列、51加N字段、资格人口、主键和21项装配门
+    purpose: 验证两个顶层对象、八Sheet顺序、二类词人口与十六列、51加N字段、通用词库显示名、数据缺口传递、资格人口、主键和21项装配门
     status: planned
     input: 装配后的两个对象、上游哈希和当前合同
     output: 完成门结果、公式渲染检查、差异和交付状态

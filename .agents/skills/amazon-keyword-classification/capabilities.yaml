@@ -19,7 +19,7 @@ capabilities:
     input: Sheet2十四列人口和当前品类语义
     output: 十四列加四固定列加N动态语义列的Sheet2
     permission: local-draft
-    risk: ABA缺失不伪造层；动态列必须非空且仅由词面支持；品类关系和通用词库资格不得改写
+    risk: ABA缺失写关键词ABA排名缺失且不伪造层；搜索量缺口区分搜索量缺失与没有搜索量；动态列必须非空且仅由词面支持；品类关系和通用词库资格不得改写
   - id: keyword.classification.sheet4.apply
     type: manual
     purpose: 为Sheet4二类词只追加流量层、主分组、LT和分类状态
@@ -43,4 +43,4 @@ capabilities:
     input: 分类结果、否词结果、上游哈希和版本
     output: 工作簿、manifest、渲染和异常摘要
     permission: local-draft-and-verify
-    risk: 主键或人口不闭合时阻断
+    risk: 主键或人口不闭合时阻断；ABA/搜索量行级缺口不停止整批但必须进入最终QA确认清单

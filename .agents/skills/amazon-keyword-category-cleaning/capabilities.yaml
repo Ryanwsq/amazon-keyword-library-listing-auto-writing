@@ -11,4 +11,4 @@ capabilities:
     input: 锁定的两Sheet第一板块工作簿、Keyword_ID、规范流量、类目锚点、SKU事实和版本
     output: 四Sheet清洗工作簿、三去向与通用词库资格人口闭环、manifest和问题摘要
     permission: local-draft-and-verify
-    risk: 不因SKU配置删除同品类词；不把品类相关自动等同为产品强相关；不打第三板块标签；主键、去向或资格人口不闭合时阻断
+    risk: 不因SKU配置删除同品类词；不把品类相关自动等同为产品强相关；一级品类归属不明进Sheet3、仅目标细分关系不明才在Sheet2待复核；不打第三板块标签；主键、去向或资格人口不闭合时阻断
