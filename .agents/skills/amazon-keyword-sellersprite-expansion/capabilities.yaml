@@ -5,25 +5,25 @@ skill:
 capabilities:
   - id: keyword.source.keyword-mining.query
     type: mcp
-    purpose: 通过获准卖家精灵适配器以四字段有界Pass逐页挖掘主任务确认的代表种子
+    purpose: 网页端不可用时通过同一卖家精灵提供商适配器以四字段有界Pass挖掘主任务确认的代表种子
     status: planned
     input: 站点、查询月份、单个核心大词或优先细分核心词种子、种子依据、Pass、页码、每页20条和固定returnFields参数
     output: 单页英文关键词、中文翻译、ABA月排名、月搜索量、声明总数页数、分页状态和错误状态
     permission: approved-read
-    risk: 不自行选择种子或请求其他字段；缺页、循环、整页重复或无进展时只阻断受影响Pass
+    risk: 仅作同提供商备用；不自行选择种子或请求其他字段；缺页、循环、整页重复或无进展时只阻断受影响Pass
   - id: keyword.source.sellersprite.paginate-and-verify
     type: manual
-    purpose: 保存并核对卖家精灵逐页实际响应，机械融合并装配四字段工作簿
+    purpose: 保存并核对卖家精灵完整官方导出或获准逐页备用证据，机械融合并装配四字段工作簿
     status: planned
-    input: 逐页原始响应、Run_ID、查询月份、单一代表种子、种子层级、Pass、站点和本机忽略目录
-    output: 版本化原始页、实际行数闭环、四字段工作簿、重复/缺失/冲突/损失清单和紧凑主任务回传
+    input: 官方导出原始文件或逐页备用响应、导出任务身份、Run_ID、查询月份、过滤条件、单一代表种子、种子层级、Pass、站点和本机忽略目录
+    output: 版本化原始导出/页面证据、页面声明总数与实际行数闭环、四字段工作簿、重复/缺失/冲突/损失清单和紧凑主任务回传
     permission: local-draft
     risk: 不删除原始重复、不补0或精确词重拉；主任务回传不展开业务长响应；分页门失败时不得宣称完成
   - id: keyword.source.sellersprite.web-query
     type: manual
-    purpose: 卖家精灵MCP不可用时通过已登录网页执行相同四字段分页扩词
+    purpose: 通过拥有副任务内置浏览器中的已登录卖家精灵网页端执行完整官方导出优先的扩词
     status: planned
-    input: 站点、查询月份、单一代表种子、种子层级、Pass、页码、每页20条和网页证据目录
-    output: 查询条件、页面或导出原始证据、四字段结果、分页轨迹和入口状态
+    input: 站点、查询月份、过滤条件、单一代表种子、种子层级、Pass、完整导出参数、逐页备用参数和网页证据目录
+    output: 查询条件、导出任务身份/时间、页面声明总数、原始文件、四字段结果、完整性轨迹和入口状态
     permission: approved-read
-    risk: 只允许同一卖家精灵提供商；不得改变种子、月份、字段或分页，无法证明入口间无遗漏重复时重新完整采集受影响Pass
+    risk: 不读取或留存凭据；不得改变种子、月份、过滤或字段；官方导出不可用且逐页无法证明完整性时状态必须降级

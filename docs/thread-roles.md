@@ -8,7 +8,7 @@
 |---|---|---|---|
 | `keyword-main` | `Amazon关键词词库｜主任务｜main` | `amazon-keyword-library-operations`、`amazon-keyword-library-publication` | 输入与版本锁定、长期副任务调度、三来源机械合并、完成门、跨模块裁决、总知识与端到端同步、最终验收和交付 |
 
-当前 Codex 任务已绑定 `keyword-main` 逻辑角色。主任务不替代副任务执行其模块，也不在只读验证中边运行边修改规则。
+当前 Codex 任务已绑定 `keyword-main` 逻辑角色。主任务不替代副任务执行其模块，也不在只读验证中边运行边修改规则；副任务不可用、未初始化、操作不便或证据在主任务可见都不是代跑理由。只有用户了解影响并明确批准的一次性Run例外才可接收已经产生的证据，且不得成为默认路由或P1证据。
 
 ## Persistent side tasks
 
