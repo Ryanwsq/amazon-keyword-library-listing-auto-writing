@@ -512,6 +512,8 @@ def validate_keyword_contract_sync(errors: List[str]) -> None:
         },
         Path(".agents/skills/amazon-keyword-final-workbook-assembly/references/workbook-contract.md"): {
             "Fixed 51 fields plus N semantic columns",
+            "固定十六列",
+            "恰好八个可见Sheet",
             "最终去向=品类相关",
             "通用词库资格=纳入",
         },
@@ -519,11 +521,14 @@ def validate_keyword_contract_sync(errors: List[str]) -> None:
             "14/13/12列",
             "固定51列+N动态列",
             "Gate 2必须验证锚点/种子层级与资格人口",
+            "Gate 6必须验证二类词Sheet",
         },
         Path("docs/end-to-end-workflow.md"): {
             "单一种子",
             "通用词库资格",
             "固定51列加N个动态语义列",
+            "最终`二类词`Sheet机械复制",
+            "恰好八个可见Sheet",
         },
     }
 

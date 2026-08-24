@@ -51,7 +51,7 @@
 
 ## Independent quality-validation gate
 
-最终装配产生过程文件夹和七Sheet最终工作簿后，主任务必须把锁定的Run、仓库revision、阶段清单、合同版本和本机产物路由给`keyword-quality-reviewer`。质量副任务只读执行21项装配门，输出两Sheet质量工作簿、quality manifest、必要预览并复用同一问题文档；只返回`pass`、`blocked`或`incomplete`，不得修改上游、补造证据或调用业务外部系统。没有独立质量回传时，主任务不得把正式只读验证标记完成。
+最终装配产生过程文件夹和八Sheet最终工作簿后，主任务必须把锁定的Run、仓库revision、阶段清单、合同版本和本机产物路由给`keyword-quality-reviewer`。质量副任务只读执行21项装配门，特别核对最终`二类词`Sheet与分类Sheet4的人口、十六列、主键和值一致，输出两Sheet质量工作簿、quality manifest、必要预览并复用同一问题文档；只返回`pass`、`blocked`或`incomplete`，不得修改上游、补造证据或调用业务外部系统。没有独立质量回传时，主任务不得把正式只读验证标记完成。
 
 ## Persistent ownership rule
 
