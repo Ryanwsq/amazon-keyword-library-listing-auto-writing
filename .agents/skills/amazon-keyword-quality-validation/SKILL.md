@@ -1,13 +1,13 @@
 ---
 name: amazon-keyword-quality-validation
-description: Independently validate a locked Amazon keyword-library run across sources, cleaning, classification, analysis, process artifacts and the seven-sheet final workbook. Use for跨阶段主键人口、版本、公式、渲染、图表和21项完成门；do not use to fix files, rerun sources, change rules or publish externally.
+description: Independently validate a locked Amazon keyword-library run across sources, cleaning, classification, analysis, process artifacts and the eight-sheet final workbook. Use for跨阶段主键人口、二类词Sheet、版本、公式、渲染、图表和21项完成门；do not use to fix files, rerun sources, change rules or publish externally.
 ---
 
 # Amazon Keyword Quality Validation
 
 ## 目标
 
-对锁定Run执行独立只读验收，验证全链路、两个顶层对象、七Sheet最终工作簿和21项装配门，输出可追溯结论而不修复上游。
+对锁定Run执行独立只读验收，验证全链路、两个顶层对象、八Sheet最终工作簿和21项装配门，输出可追溯结论而不修复上游。
 
 ## 输入
 
@@ -17,7 +17,7 @@ Run_ID、仓库revision、站点、全部模块版本、过程文件夹、最终
 
 - `独立质量验证.xlsx`：固定两个Sheet。
 - `quality-manifest.json`。
-- 最终七Sheet必要预览和同一问题文档引用。
+- 最终八Sheet必要预览和同一问题文档引用。
 - QA结论`pass/blocked/incomplete`和交付状态。
 
 ## 可调用能力
@@ -31,9 +31,9 @@ Run_ID、仓库revision、站点、全部模块版本、过程文件夹、最终
 3. 验证第二板块四Sheet、三去向、主键、理由和人口闭环；核对一级品类核心大词、可选细分核心词、主执行锚点、强等价表达、宽泛/相邻流量词及单一卖家精灵种子没有混层，并核对Sheet2通用词库资格、配置/并列连接、其他语言词序已整批按中心购买对象执行且有Sheet2误放、Sheet3误摘和资格误纳反向抽查。
 4. 验证分类两Sheet、N动态列、F1–F5、F5主分组/LT和五列否词库。
 5. 验证词频、竞争和趋势均只使用`通用词库资格=纳入`的适用人口，再验证词频固定介词删除/断点、竞争十二列与Top3矩阵、趋势来源优先级/单一提供商、24月/两矩阵/两张实际搜索量图。
-6. 验证最终总表三去向51+N、SKU事实、通用词库按品类相关且资格纳入机械筛选、独立四个分析Sheet及七Sheet顺序。
+6. 验证最终总表三去向51+N、SKU事实、通用词库按品类相关且资格纳入机械筛选、最终`二类词`与分类Sheet4人口/十六列/主键/值一致、独立四个分析Sheet及八Sheet顺序。
 7. 执行过程文件哈希/敏感信息检查和21项装配门；每个失败Gate引用唯一问题文档中的同一根因问题ID。
-8. 为最终七Sheet各生成至少一个可复核预览；趋势图单独核对序列和范围。
+8. 为最终八Sheet各生成至少一个可复核预览；趋势图单独核对序列和范围。
 9. 写入两Sheet质量工作簿和最小quality manifest。硬门失败不得输出pass。
 
 ## 质量标准
@@ -48,4 +48,4 @@ Run_ID、仓库revision、站点、全部模块版本、过程文件夹、最终
 
 ## 异常处理
 
-缺少revision、manifest、必需产物、哈希、锚点/种子层级、通用词库资格人口或预览时结论`incomplete`。已执行检查发现硬门失败为`blocked`。质量任务只报告所有者和建议下一步，不直接修复。
+缺少revision、manifest、必需产物、哈希、锚点/种子层级、通用词库资格人口、二类词Sheet闭环或预览时结论`incomplete`。已执行检查发现硬门失败为`blocked`。质量任务只报告所有者和建议下一步，不直接修复。

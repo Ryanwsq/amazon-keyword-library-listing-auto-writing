@@ -21,11 +21,11 @@
 | `amazon-keyword-classification` | `keyword.library.classify` 及分类/输出子能力 | Sheet2 F1–F5/LT与动态语义列、Sheet4流量分类和五列最小否词库 | draft |
 | `amazon-keyword-competition-analysis` | `keyword.library.competition.analyze`、`keyword.competition.sif-top3.query`、`keyword.competition.outputs.write-and-verify` | 为资格纳入的Sheet2 F1–F4建立Top3-only独立竞争Sheet | draft |
 | `amazon-keyword-trend-analysis` | `keyword.library.trend.analyze` 及两个查询/输出子能力 | 为资格纳入的F1–F3生成至少24月、月/季度环同比矩阵和两图 | draft |
-| `amazon-keyword-final-workbook-assembly` | `keyword.workbook.final.assemble`、`keyword.workbook.sheet-manifest.verify` | 装配过程文件夹和七Sheet最终工作簿，以三去向全人口建立51+N总表 | draft |
-| `amazon-keyword-quality-validation` | `keyword.quality.validate` | 独立只读复核全链路、两对象交付、七Sheet和21项装配门 | draft |
+| `amazon-keyword-final-workbook-assembly` | `keyword.workbook.final.assemble`、`keyword.workbook.sheet-manifest.verify` | 装配过程文件夹和八Sheet最终工作簿，以三去向全人口建立51+N总表并机械复制二类词Sheet | draft |
+| `amazon-keyword-quality-validation` | `keyword.quality.validate` | 独立只读复核全链路、两对象交付、八Sheet、二类词闭环和21项装配门 | draft |
 | `amazon-keyword-library-publication` | `keyword.library.publish` | 经审查知识的脱敏项目内发布 | draft |
 
-当前共有十个业务Skill（SIF、Amazon联想、卖家精灵、品类清洗、词频、关键词分类、竞争、趋势、最终装配、独立质量验证）和两个项目维护Skill（operations、publication）。2026-08-23合同固定分层核心、卖家精灵单一种子、两Sheet第一板块、四Sheet清洗与Sheet2通用词库资格、资格纳入人口的介词过滤词频/Top3-only竞争/24月趋势、三去向51+N总表和七Sheet最终工作簿；质量验证只读执行21项装配门。十二个Skill均为`draft`，全部能力为`planned`，没有真实P1三案例前不得声称已验证。
+当前共有十个业务Skill（SIF、Amazon联想、卖家精灵、品类清洗、词频、关键词分类、竞争、趋势、最终装配、独立质量验证）和两个项目维护Skill（operations、publication）。2026-08-24合同固定分层核心、卖家精灵单一种子、两Sheet第一板块、四Sheet清洗与Sheet2通用词库资格、资格纳入人口的介词过滤词频/Top3-only竞争/24月趋势、三去向51+N总表、分类Sheet4机械复制的二类词独立Sheet和八Sheet最终工作簿；质量验证只读执行21项装配门。十二个Skill均为`draft`，全部能力为`planned`，没有真实P1三案例前不得声称已验证。
 
 2026-08-20 已完成以下结构调整，并通过当前仓库 P0：
 
