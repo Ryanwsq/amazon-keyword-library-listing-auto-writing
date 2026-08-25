@@ -8,7 +8,7 @@ capabilities:
     type: manual
     purpose: 按V2.1一级品类边界将第一板块完整词池分配到品类相关、其他摘除和二类词
     status: planned
-    input: 锁定的两Sheet第一板块工作簿、Keyword_ID、规范流量、类目锚点、SKU事实和版本
+    input: 锁定的两Sheet第一板块工作簿、Keyword_ID、规范流量、目标类目稳定产品类型细分确认、类目锚点、SKU事实和版本
     output: 四Sheet清洗工作簿、三去向与通用词库资格人口闭环、manifest和问题摘要
     permission: local-draft-and-verify
-    risk: 不因SKU配置删除同品类词；不把品类相关自动等同为产品强相关；一级品类归属不明进Sheet3、仅目标细分关系不明才在Sheet2待复核；不打第三板块标签；主键、去向或资格人口不闭合时阻断
+    risk: 不用SKU配置差异改变同品类完整商品去向/资格；不把品类相关自动等同为产品强相关或把同类词批量转为二类词；类目存在多个稳定类型时仅决定性稳定替代类型按四门进入Sheet4；一级品类归属不明进Sheet3、仅目标细分关系不明才在Sheet2待复核；不打第三板块标签；主键、去向或资格人口不闭合时阻断
