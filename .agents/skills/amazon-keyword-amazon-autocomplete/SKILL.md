@@ -7,11 +7,11 @@ description: Capture the required Amazon US search-box autocomplete matrix in th
 
 ## 目标
 
-在固定可复核环境中，只围绕主一级品类核心大词采集必选 Amazon 搜索框可见联想矩阵。
+在固定可复核环境中，只围绕核心层级选定的唯一联想锚点采集必选 Amazon 搜索框可见联想矩阵。
 
 ## 输入
 
-锁定的 `Run_ID`、唯一一级品类核心大词、站点 US、真实品类功能/配置探针、规格敏感性判断、本机忽略输出目录，以及首选 Codex 内置浏览器或获准普通 Chrome 备用入口。本模块不使用可能等于细分核心词的主执行锚点。
+锁定的 `Run_ID`、唯一一级品类核心大词、可选且已确认的细分核心词、按核心层级选定的唯一联想锚点、站点 US、真实品类功能/配置探针、规格敏感性判断、本机忽略输出目录，以及首选 Codex 内置浏览器或获准普通 Chrome 备用入口。细分核心词非空时联想锚点必须使用该词；细分核心词为空时才使用唯一一级品类核心大词。强等价表达、宽泛/相邻流量词、卖点、配置和场景词不得成为本模块新增种子。
 
 ## 输出
 
@@ -23,7 +23,7 @@ description: Capture the required Amazon US search-box autocomplete matrix in th
 
 ## 执行步骤
 
-1. 完整读取 `knowledge/index.md`、`../../../docs/keyword-judgment-boundaries.md` 和 `references/source-contract.md`，核对唯一一级品类核心大词、探针、固定环境和停止门。
+1. 完整读取 `knowledge/index.md`、`../../../docs/keyword-judgment-boundaries.md` 和 `references/source-contract.md`，核对唯一一级品类核心大词、可选细分核心词、联想锚点选择关系、探针、固定环境和停止门。
 2. 首选 Codex 内置浏览器；当前设备无法稳定识别或操作时，记录首选入口失败事实并切换普通 Chrome。无论入口都必须打开 Amazon US，确认未登录、Department=`All`、配送邮编=`10001`，并记录真实浏览器入口；不写无痕模式。
 3. 依次执行基础输入、后置 A–Z、前置 A–Z、`for/with/without`、真实品类功能/配置的前后组合；规格敏感产品再执行0–9，否则记录不适用。
 4. 每个输入等待下拉建议稳定，只读取当次搜索框上方关键词联想区的建议和顺序；不按 Enter、不进入结果页、不递归扩展新词、不使用`how/what/why`。普通关键词建议行、关键词建议卡片和关键词建议组内选项都必须完整可见；关键词建议被该区域内轮播或横向控件遮挡时，在输入不变的前提下用该区域控件使其完整显示，并保存操作前后证据。仍无法完整显示的建议只记异常，不进入来源事件；状态提示数量不能替代可见文本。底部商品卡、价格卡和商品轮播全部排除，即使完整可见也不形成来源事件，不操作商品轮播来采集其内容。
