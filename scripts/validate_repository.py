@@ -482,20 +482,28 @@ def validate_keyword_contract_sync(errors: List[str]) -> None:
     """Check critical cross-file invariants introduced by the current contract."""
 
     required_phrases = {
+        Path("AGENTS.md"): {
+            "卖家精灵关键词挖掘首选其长期副任务内置浏览器中的已登录官网和完整官方导出",
+            "最终交付固定为一个过程文件夹和一个八Sheet最终工作簿",
+        },
         Path(".agents/skills/amazon-keyword-library-operations/references/source-merge-contract.md"): {
             "可选细分核心词",
-            "单一卖家精灵种子",
-            "有细分核心词时种子等于该词",
+            "Amazon联想锚点",
+            "卖家精灵种子集合",
+            "有细分核心词时恰好包含一级核心词和细分核心词",
         },
         Path(".agents/skills/amazon-keyword-sellersprite-expansion/references/source-contract.md"): {
-            "一个主任务确认的代表种子",
-            "存在已确认产品细分核心词时",
+            "种子按`一级品类核心大词、产品细分核心词`锁定为两个",
+            "首选本长期副任务内置浏览器中的已登录卖家精灵官网及其完整官方导出",
+            "同一机械键跨种子/Pass只保留一个业务行",
         },
         Path(".agents/skills/amazon-keyword-category-cleaning/references/workbook-contract.md"): {
             "固定十四列",
             "通用词库资格",
             "目标细分同对象扩展",
             "纳入+不纳入+待复核=Sheet2人口",
+            "目标同对象的普通非变物扩展不以显式出现细分核心词/强等价表达或SKU配置一致为纳入硬门",
+            "反向抽查同时覆盖Sheet2误放、通用词库资格误纳",
         },
         Path(".agents/skills/amazon-keyword-classification/references/output-contract.md"): {
             "完整保留第二板块十四列",
@@ -509,6 +517,9 @@ def validate_keyword_contract_sync(errors: List[str]) -> None:
         },
         Path(".agents/skills/amazon-keyword-trend-analysis/references/output-contract.md"): {
             "通用词库资格=纳入",
+            "workbook -> 全部worksheet -> 各自全部drawing -> 各自全部chart",
+            "2=auditor_failure",
+            "manifest/OOXML包声明存在图表或公式而审计得到零",
         },
         Path(".agents/skills/amazon-keyword-final-workbook-assembly/references/workbook-contract.md"): {
             "Fixed 51 fields plus N semantic columns",
@@ -516,15 +527,24 @@ def validate_keyword_contract_sync(errors: List[str]) -> None:
             "恰好八个可见Sheet",
             "最终去向=品类相关",
             "通用词库资格=纳入",
+            "存在细分核心词时Amazon联想锚点为细分核心词",
+            "独立QA产物一经返回即不可变",
+            "process manifest不得列出或哈希自身",
+            "普通64位SHA-256必须单独分类并放行",
+            "Office内部GUID只允许合同脚本中绑定到精确OOXML部件的已知固定值",
         },
         Path(".agents/skills/amazon-keyword-quality-validation/references/quality-contract.md"): {
             "14/13/12列",
             "固定51列+N动态列",
             "Gate 2必须验证锚点/种子层级与资格人口",
             "Gate 6必须验证二类词Sheet",
+            "QA在最终封包前只生成一次最小白名单产物",
+            "QA在装配最终封包后只读比较质量目录白名单",
+            "Sheet2`通用词库资格=不纳入`、Sheet3和Sheet4反查假阴性",
         },
         Path("docs/end-to-end-workflow.md"): {
-            "单一种子",
+            "一至两个卖家精灵种子",
+            "官网完整导出优先",
             "通用词库资格",
             "固定51列加N个动态语义列",
             "最终`二类词`Sheet机械复制",
