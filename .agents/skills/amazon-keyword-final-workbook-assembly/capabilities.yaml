@@ -20,3 +20,23 @@ capabilities:
     output: 完成门结果、公式渲染检查、差异和交付状态
     permission: local-verify
     risk: 任一硬门失败不得标记完成
+  - id: keyword.workbook.delivery-privacy.audit
+    type: cli
+    purpose: 独立扫描两对象交付的文本、路径、XLSX业务字符串和OOXML结构并区分任务UUID、SHA-256与精确Office内部GUID
+    status: planned
+    scope: 只读锁定交付内容并仅在交付外写结构化隐私报告，覆盖文件与目录路径、文本正文、可读二进制元数据及XLSX/XLSM全部XML和rels部件
+    input: QA占位清理后的两对象交付根和位于交付外的报告路径
+    output: 不回显敏感原文的零命中状态、分类计数、文件与目录人口、发现项指纹和排除process-manifest自身的内容指纹
+    permission: local-read-and-external-report-write
+    denied: 不修改交付或上游原件，不调用外部服务，不以泛01a匹配SHA-256，不把任意UUID按Office结构放行，不在报告中写真实任务ID或机器绝对路径
+    risk: 完整UUID、机器绝对路径、非许可OOXML UUID、软链接或不可读XLSX任一命中即失败；普通SHA-256及精确绑定部件的Office GUID必须放行
+  - id: keyword.workbook.post-qa-package.seal
+    type: cli
+    purpose: 按四阶段生命周期清理装配QA占位、锁定不可变QA白名单、重算最终哈希并封装待最终增量QA的两对象候选
+    status: planned
+    scope: 只处理锁定候选交付、交付外恢复隔离目录和交付外已通过隐私报告；写操作限于移出装配自有QA占位及最后单次写入process-manifest
+    input: 顶层两对象、四分区过程目录、完整21门候选manifest、不可变最小QA产物、交付外隔离目录和匹配当前内容指纹的隐私报告
+    output: QA目录固定白名单、独立QA文件锁、最终工作簿锁、排除自身的完整过程文件清单与哈希、Gate21为pending_post_packaging_QA的incomplete封包及只读复核结果
+    permission: local-post-qa-package-and-verify
+    denied: 不修改最终业务工作簿或QA拥有文件，不建立自哈希或循环回写，不容许未列入文件，不把Gate21或交付状态写成pass/completed，verify-final阶段不写任何文件，不调用外部服务
+    risk: 顶层结构、QA白名单、隐私指纹、21门、最终工作簿锁或过程文件人口与哈希任一不闭合即阻断
