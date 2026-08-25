@@ -6,11 +6,11 @@
 
 ## 负责的结果
 
-输出两Sheet独立质量工作簿、quality manifest、八Sheet预览、二类词人口/十六列闭环、分层锚点/单一种子/通用词库资格语义审计、三种数据缺口用户确认清单、21项门结果和pass/blocked/incomplete结论；复用本轮唯一问题文档。
+一次性输出不可变的两Sheet独立质量工作簿、quality manifest、八Sheet预览和同一问题文档；核对二类词人口/十六列、来源锚点与双种子条件、Sheet2不纳入/Sheet3/Sheet4假阴性、通用词库资格、三种数据缺口确认和21项门。最终装配封包后只读复核白名单、唯一process manifest、隐私交叉结果及Gate 19–21，不再写QA文件。
 
 ## 使用时机
 
-Run、revision、全部上游manifests/哈希、过程文件夹和八Sheet最终工作簿均锁定后使用。
+Run、revision、用户类目多稳定类型输入门、来源锚点/种子、全部上游manifests/哈希、过程文件夹和八Sheet最终工作簿均锁定后使用。七Sheet仅可作为明确superseded的历史证据。
 
 ## 可调用能力
 
@@ -18,4 +18,4 @@ Run、revision、全部上游manifests/哈希、过程文件夹和八Sheet最终
 
 ## 禁止事项与人工升级条件
 
-不得补拉来源、重跑、修文件、改规则、改变业务结论或发布外部系统。不得把竞品覆盖、返回位置、ABA或搜索量单独当作核心层级或资格证据。缺少必要证据为incomplete；硬门失败为blocked；只有三种已准确记录的行级数据状态待用户确认时为incomplete而不是blocked；不得因结构检查通过把draft/planned能力标为P1。
+不得补拉来源、重跑、修文件、改规则、改变业务结论或发布外部系统。不得把缺少细分核心词字面、SKU配置差异、竞品覆盖、返回位置、ABA或搜索量单独当作去向、核心层级或资格证据。QA最小产物只生成一次且不可变；最终封包后只读报告差异。缺少必要证据为incomplete；硬门失败为blocked；只有三种已准确记录的行级数据状态待用户确认时为incomplete而不是blocked；不得因结构检查通过把draft/planned能力标为P1。

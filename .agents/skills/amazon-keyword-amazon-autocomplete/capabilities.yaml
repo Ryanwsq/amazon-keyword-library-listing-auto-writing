@@ -5,9 +5,9 @@ skill:
 capabilities:
   - id: keyword.source.autocomplete.capture
     type: manual
-    purpose: 在Codex内置浏览器或普通Chrome备用入口的固定环境采集一级品类核心大词Amazon可见联想矩阵
+    purpose: 在Codex内置浏览器或普通Chrome备用入口的固定环境采集按核心层级选定的唯一锚点Amazon可见联想矩阵
     status: planned
-    input: Run_ID、唯一一级品类核心大词、US未登录、All、10001、品类探针和本机输出目录
+    input: Run_ID、唯一一级品类核心大词、可选细分核心词、唯一联想锚点、US未登录、All、10001、品类探针和本机输出目录
     output: 每个输入的状态、全部可见建议、顺序、环境、时间、执行次数和证据指针
     permission: approved-read
     risk: 必选来源；两个获准浏览器入口都不可用时记not_executed，不用结果页、网页搜索或API替代，不采集未完整可见选项，排除底部商品卡、价格卡和商品轮播

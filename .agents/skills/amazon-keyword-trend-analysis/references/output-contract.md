@@ -43,9 +43,30 @@
 3. 月环比、月同比、季环比和季同比只保留在表格矩阵，不得成为图表序列或纵轴。
 4. 两图各有`关键词数`条理论序列，图例使用英文关键词；不得因序列多删除关键词。
 
+## Stable OOXML audit
+
+Artifact Tool完成生成、重载和公式检查后，必须运行包级审计器：
+
+```bash
+python3 .agents/skills/amazon-keyword-trend-analysis/scripts/audit_trend_ooxml.py \
+  <trend-workbook.xlsx> \
+  --manifest <trend-manifest.json> \
+  --json-out <verification-directory>/trend-ooxml-audit.json
+```
+
+审计器必须枚举`workbook -> 全部worksheet -> 各自全部drawing -> 各自全部chart`关系，解析常见前缀/默认OOXML命名空间和包内相对/绝对关系目标；不得只检查首个Sheet、首个drawing或固定`xl/charts`路径。月度图与季度图必须分别识别，所有series的分类与数值引用都须落入manifest锁定的实际搜索量辅助区；series名称、源公式和数值单元格格式不得显示MoM、QoQ、YoY、环比、同比或百分比证据。
+
+manifest至少声明：
+
+- `population.actual`和`formula_count`；
+- `charts.count=2`；
+- `charts.monthly`、`charts.quarterly`各自的`metric`、`source_range`、`series`和`percentage_series=0`。
+
+退出码固定为：`0=pass`、`1=business_failure`、`2=auditor_failure`。关系断裂、目标部件缺失、输入不可解析，或manifest/OOXML包声明存在图表或公式而审计得到零，均属于`auditor_failure`；此时不能据此否定工作簿，也不能静默放行，必须停止该验证门并修复或更换审计路径后重跑。`business_failure`只用于审计器已完整解析后发现的人口、公式、月/季图、实际量引用或百分比序列合同不闭合。
+
 ## Manifest
 
-记录输入哈希、人口/唯一主键、站点、来源优先级、选定提供商/入口、查询时间、查询月份、逐词有效/缺失月份、环同比空值/零分母、不完整季度、两矩阵尺寸、图表年月/季度范围和序列、公式/渲染、输出哈希、原始响应相对目录、状态和唯一问题文档。
+记录输入哈希、人口/唯一主键、站点、来源优先级、选定提供商/入口、查询时间、查询月份、逐词有效/缺失月份、环同比空值/零分母、不完整季度、两矩阵尺寸、图表年月/季度范围和序列、`formula_count`、两图实际搜索量`source_range`、公式/渲染、输出哈希、原始响应相对目录、状态和唯一问题文档。
 
 ## Status
 

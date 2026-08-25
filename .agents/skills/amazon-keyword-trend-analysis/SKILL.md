@@ -33,7 +33,7 @@ description: Build one product-library-eligible monthly and quarterly trend shee
 5. 计算月环比/月同比。当前或基准缺失、基准为0时留空。
 6. 按完整自然季度求和；任一月缺失则该词该季度搜索量、环比、同比全部留空。表格展示最近4完整季度；季度图只使用锁定观察范围内三个日历月均存在的完整自然季度。
 7. 写入关键词索引、36行月度矩阵、12行季度矩阵和两张实际搜索量折线图。月度图横轴为全部可用完整年月、纵轴为实际月搜索量；季度图横轴为全部可用完整自然季度、纵轴为三个完整月之和。每个关键词在每张图恰好一条线；环比和同比只留在表格，不进入图表序列。
-8. 验证人口、月份、季度、空值、公式、矩阵列、图表范围和序列数；渲染Sheet及两图。
+8. 验证人口、月份、季度、空值、公式、矩阵列、图表范围和序列数；渲染Sheet及两图。Artifact Tool重载后，按`references/output-contract.md`调用`scripts/audit_trend_ooxml.py`遍历全部worksheet及其drawing/chart关系，分别闭合月度图、季度图和实际搜索量引用。审计结果为`auditor_failure`时先停止并修复审计证据链，不得把审计器自身失效误记为工作簿业务失败或静默通过。
 
 ## 质量标准
 
@@ -41,6 +41,7 @@ description: Build one product-library-eligible monthly and quarterly trend shee
 - 每词使用同一锁定提供商的精确完整词且至少查询24个完整月；来源、入口、时间和月份覆盖可追溯。
 - 月度固定12×3，季度固定4×3，每词在两矩阵恰好一列。
 - 两图各有`关键词数`条实际搜索量序列；月/季环同比百分比序列均为零。
+- OOXML包级审计覆盖全部worksheet、drawing和chart关系；业务manifest或工作簿声明存在图表/公式而解析结果为零时必须返回`auditor_failure`。
 - 无趋势标签、季节性、广告资格或行动建议。
 - Skill保持draft/planned，未完成真实三案例不称verified。
 
