@@ -1,7 +1,7 @@
 # Amazon关键词词库端到端流程
 
 - Last synchronized: 2026-08-25
-- Sync reason: 已同步本次用户逐项确认的条件式Amazon联想锚点、卖家精灵官网完整导出优先和一至两个种子、机械固定任务身份门、同类目稳定二类词、配置安全与非字面细分词资格、语义假阴性反查、趋势包级审计、隐私扫描和QA后四阶段封包。当前有效合同仍为V2.1清洗基线、八Sheet、三去向和21项门；F5唯一主标签跨Run优先级继续不处理。本次只修规则与检查能力，不重跑任何关键词数据或历史工作簿，不产生P1。
+- Sync reason: 已同步本次用户逐项确认的条件式Amazon联想锚点、卖家精灵官网完整导出优先和一至两个种子、机械固定任务身份门、同类目稳定二类词、配置安全与非字面细分词资格、语义假阴性反查、趋势包级审计、隐私扫描和QA后四阶段封包；发布Skill知识索引已复核刷新，无新增流程变化。当前有效合同仍为V2.1清洗基线、八Sheet、三去向和21项门；F5唯一主标签跨Run优先级继续不处理。本次只修规则与检查能力，不重跑任何关键词数据或历史工作簿，不产生P1。
 - Baseline: cleaning V2.1; word-frequency component V2.2; Post-V2.1 output contract 2026-08-21
 - Maturity: all twelve Skills remain draft/planned; P1 pending; 2026-08-25 post-run corrections synchronized; no F5 priority rule added
 
