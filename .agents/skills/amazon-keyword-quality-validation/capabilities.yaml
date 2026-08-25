@@ -6,9 +6,9 @@ skill:
 capabilities:
   - id: keyword.quality.validate
     type: manual
-    purpose: 独立只读验证全链路、过程文件夹、八Sheet最终工作簿、二类词人口与十六列、分类行级数据缺口清单和21项装配门
+    purpose: 独立只读验证全链路、来源锚点/双种子条件、清洗假阴性、过程文件夹、八Sheet最终工作簿、二类词人口与十六列、分类行级数据缺口清单和21项装配门
     status: planned
-    input: 锁定Run、revision、分层锚点、单一种子、通用词库资格人口、模块版本、全部manifests/哈希、两个交付对象和唯一问题文档
-    output: 两Sheet质量工作簿、quality manifest、预览、数据缺口用户确认清单、Gate结果和QA结论
+    input: 锁定Run、revision、用户类目多稳定类型输入门、分层锚点、Amazon联想锚点、卖家精灵种子/官方导出Pass、通用词库资格人口、模块版本、全部manifests/哈希、两个交付对象和唯一问题文档
+    output: 一次性不可变的两Sheet质量工作簿、quality manifest、预览、数据缺口用户确认清单、Gate结果，以及最终封包后的只读Gate19-21差异结论
     permission: local-read-and-verify
-    risk: 不修复不重跑不外部补数；硬门失败不得pass；缺证据或待用户确认必须incomplete
+    risk: 不修复不重跑不外部补数；QA产物只生成一次且最终封包后不写入；硬门失败不得pass；缺证据或待用户确认必须incomplete
