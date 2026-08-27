@@ -6,7 +6,7 @@
 
 | Logical role | Task title | Supporting Skills | Responsibility |
 |---|---|---|---|
-| `keyword-main` | `Amazon关键词词库｜主任务｜main` | `amazon-keyword-library-operations`、`amazon-keyword-library-publication` | 输入与版本锁定、长期副任务调度、三来源机械合并、完成门、跨模块裁决、总知识与端到端同步、最终验收和交付 |
+| `keyword-main` | `Amazon关键词词库｜主任务｜main` | `amazon-keyword-library-operations`、`amazon-keyword-library-publication` | 输入与版本锁定、核心层级及多细分类目强等价简称闭环、长期副任务调度、三来源机械合并、完成门、跨模块裁决、总知识与端到端同步、最终验收和交付 |
 
 当前 Codex 任务已绑定 `keyword-main` 逻辑角色。主任务不替代副任务执行其模块，也不在只读验证中边运行边修改规则；副任务不可用、未初始化、操作不便或证据在主任务可见都不是代跑理由。每次派发前必须用本机忽略映射核对逻辑角色、固定标题、Task ID/host、执行cwd、Run、revision和输出目录，任一不符即停止，不创建临时替代任务。只有用户了解影响并明确批准的一次性Run例外才可接收已经产生的证据，且不得成为默认路由或P1证据。
 
@@ -25,7 +25,7 @@
 | `keyword-final-workbook-assembler` | `Amazon关键词词库｜最终工作簿装配｜main` | `amazon-keyword-final-workbook-assembly` | same | migrated draft |
 | `keyword-quality-reviewer` | `Amazon关键词词库｜独立质量验证｜main` | `amazon-keyword-quality-validation` | current checks were distributed across Skills | draft package; P0 passed |
 
-上述十个长期副任务已在本设备的独立 Codex 项目中创建、完成只读初始化并进入空闲等待，实际任务 ID、路径、授权和 Worktree 只保存在被忽略的本机映射。所有目标包仍是`draft/planned`而不是已验证能力；第一次正式只读验证才产生首轮真实 P1 候选证据。
+上述十个长期副任务已在本设备的独立 Codex 项目中创建、完成只读初始化并进入空闲等待，实际任务 ID、路径、授权和 Worktree 只保存在被忽略的本机映射。所有目标包仍是`draft/planned`而不是已验证能力；十二个Skill已分别建立三个证据登记槽位且当前均为`planned`，全新正常案例01才产生首轮真实 P1 候选证据。
 
 ## Ownership rule
 
@@ -36,8 +36,9 @@
 ## Shared status rules
 
 - 所有迁入或新建 Skills 均保持 `draft`，直到取得两个真实正常案例和一个真实边界/异常案例的完整 P1 证据。
+- `evidence/index.md`只登记槽位和状态；历史运行不得倒填，正式运行中不得更新。一个端到端Run只能为实际执行到的Skill分别产生独立模块候选。
 - 第一次正式验证必须在独立仓库固定基线上执行，且所有规则文件只读。
 - 词频不产生清洗、分类、竞争、趋势或广告结论。
 - 第三板块不读取 SKU 事实卡，不输出广告资格或投放动作。
-- 产品关系与通用词库资格只由第二板块依据分层锚点、SKU事实和完整词中心对象判定；分类只传递，词频、竞争、趋势和最终通用词库只消费资格为`纳入`的人口。
+- 多细分类目的目标细分简称/紧凑表达强等价闭环由主任务在清洗前锁定；清洗发现锚点与完整词组合证据冲突时停止回传，不自行改层级。产品关系与通用词库资格只由第二板块依据已闭合分层锚点、SKU事实和完整词中心对象判定；分类只传递，词频、竞争、趋势和最终通用词库只消费资格为`纳入`的人口。
 - 当前 gaming-chair 运行是迁移前问题发现证据，不是独立仓库的第一次正式只读验证。

@@ -103,6 +103,12 @@ EVIDENCE_REQUIRED_HEADINGS = {
     "## 结论",
 }
 
+EVIDENCE_INDEX_REQUIRED_HEADINGS = {
+    "## Case slots",
+    "## Evidence admission rules",
+    "## Current status",
+}
+
 EVIDENCE_FILENAMES = {
     "case-01-normal.md",
     "case-02-normal.md",
@@ -312,6 +318,54 @@ def validate_evidence(skill_dir: Path, errors: List[str]) -> None:
                 )
 
 
+def validate_evidence_index(
+    skill_dir: Path, expected_name: str, maturity: str, errors: List[str]
+) -> None:
+    path = skill_dir / "evidence" / "index.md"
+    if not path.is_file():
+        errors.append(
+            f"{skill_dir.relative_to(ROOT)}: missing evidence/index.md registry"
+        )
+        return
+
+    text = validate_required_headings(
+        path, EVIDENCE_INDEX_REQUIRED_HEADINGS, errors
+    )
+    relative = path.relative_to(ROOT)
+
+    if f"- Skill: `{expected_name}`" not in text:
+        errors.append(
+            f"{relative}: registry Skill name does not match {expected_name!r}"
+        )
+    if maturity and f"- Maturity: `{maturity}`" not in text:
+        errors.append(
+            f"{relative}: registry Maturity does not match capabilities.yaml"
+        )
+
+    for filename in sorted(EVIDENCE_FILENAMES):
+        matching_lines = [
+            line for line in text.splitlines() if f"`{filename}`" in line
+        ]
+        if len(matching_lines) != 1:
+            errors.append(
+                f"{relative}: registry must mention {filename!r} exactly once"
+            )
+            continue
+        row = matching_lines[0]
+        if not re.search(
+            r"\|\s*(planned|running|candidate|accepted|rejected)\s*\|", row
+        ):
+            errors.append(
+                f"{relative}: {filename!r} needs a valid registry status"
+            )
+        if maturity == "verified" and not re.search(
+            r"\|\s*accepted\s*\|.*\|\s*accepted\s*\|\s*$", row
+        ):
+            errors.append(
+                f"{relative}: verified skill needs accepted registry and acceptance for {filename!r}"
+            )
+
+
 def validate_skills(errors: List[str]) -> Tuple[int, int, int]:
     if not SKILLS_ROOT.is_dir():
         errors.append("missing .agents/skills directory")
@@ -385,6 +439,9 @@ def validate_skills(errors: List[str]) -> Tuple[int, int, int]:
 
             maturity, _, capabilities = parse_capabilities(
                 capabilities_file, name or skill_dir.name, errors
+            )
+            validate_evidence_index(
+                skill_dir, name or skill_dir.name, maturity, errors
             )
             if maturity == "draft":
                 draft_count += 1
