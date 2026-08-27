@@ -6,6 +6,7 @@
 
 - Goal:
 - Run ID and locked repository revision:
+- P1 case slot: case-01-normal | case-02-normal | case-03-edge-or-error | not-applicable
 - Logical side-task role:
 - Mode: read-only validation | approved iteration
 - Scope and excluded work:
@@ -32,12 +33,13 @@
 - Durable knowledge candidate: none | describe
 - Current-context update: none | describe
 - Recommended next action:
+- P1 evidence candidate: none | module case slot and acceptance summary
 
 ## Parallel dispatch rule
 
 主任务按以下三组并行依赖调度：
 
-1. 用户先确认目标Amazon类目及该类目是否存在多个稳定产品类型细分；用户不指定核心词。SIF副任务装配七列明细与不执行语义晋级的候选摘要后回传；主任务依据产品事实卡、直接竞品身份和SIF候选独立确认唯一一级品类核心大词，并仅在用户确认类目有多个稳定产品类型细分时确认可选唯一细分核心词，再锁定主执行锚点、强等价/宽泛流量词、Amazon联想锚点和卖家精灵种子集合。存在细分核心词时主执行锚点与Amazon联想锚点等于细分核心词，卖家精灵种子集合包含一级核心词与细分核心词；不存在时三者都只使用一级核心词。随后Amazon联想与卖家精灵扩词副任务并行。卖家精灵副任务逐种子保留原始官方导出，在模块内机械去重并完成一个四列合并表再回传；三来源机械合并等待两者和SIF全部正式回传，并只生成两Sheet第一板块业务工作簿。
+1. 用户先确认目标Amazon类目及该类目是否存在多个稳定产品类型细分；用户不指定核心词。SIF副任务装配七列明细与不执行语义晋级的候选摘要后回传；主任务依据产品事实卡、直接竞品身份和SIF候选独立确认唯一一级品类核心大词，并仅在用户确认类目有多个稳定产品类型细分时确认可选唯一细分核心词。存在细分核心词时，主任务必须先对省略一级品类/用途等上位限定词但保留决定性细分表达与完整商品头部的候选完成目标细分强等价闭环，再锁定主执行锚点、强等价/宽泛流量词、Amazon联想锚点和卖家精灵种子集合；同一机械键不得跨层级，缺少上位限定词不得作为宽泛依据，用户未逐项确认的层级不得写成用户确认。存在细分核心词时主执行锚点与Amazon联想锚点等于细分核心词，卖家精灵种子集合包含一级核心词与细分核心词；不存在时三者都只使用一级核心词。随后Amazon联想与卖家精灵扩词副任务并行。卖家精灵副任务逐种子保留原始官方导出，在模块内机械去重并完成一个四列合并表再回传；三来源机械合并等待两者和SIF全部正式回传，并只生成两Sheet第一板块业务工作簿。
 2. 清洗完成四Sheet工作簿、Sheet2/3/4唯一去向和Sheet2通用词库资格闭环后，资格纳入人口的词频统计与完整Sheet2/Sheet4关键词分类并行。词频不参与分类判断；最终工作簿装配等待词频分支和第三板块分支全部完成。
 3. 关键词分类完成后，通用词库资格为`纳入`的适用人口进入竞争性分析与趋势性分析并行；最终工作簿装配等待两者及分类派生表全部回传。
 
@@ -48,6 +50,8 @@
 ## Read-only validation rule
 
 第一次正式验证及后续获准的只读验证中，副任务只能读取锁定的 Skills、知识和流程。原始数据、过程表、工作簿、渲染、检查日志和候选问题只写入 `.local/runs/<Run_ID>/<logical-role>/`；不得修改跟踪文件、提交、推送、更新飞书或升级 Skill maturity。
+
+每个派发必须标明本Run对应的P1案例槽位。一个端到端Run只能为实际执行到的Skill各产生一个独立模块候选；副任务回传候选状态和自身质量门，不直接修改`evidence/index.md`。Run结束并经用户确认后，另行使用获准迭代/发布批次写入脱敏案例文件和更新登记。历史Run、未执行模块、`blocked/partial/not_executed`正常模块不得占用正常案例槽位。
 
 发现规则缺口时，回传真实证据、影响范围和建议方向。主任务向用户汇总并取得确认后，才另行下发 `approved iteration`。
 
