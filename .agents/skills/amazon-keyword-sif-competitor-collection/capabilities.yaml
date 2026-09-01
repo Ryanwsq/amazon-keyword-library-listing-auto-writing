@@ -3,14 +3,14 @@ skill:
   maturity: draft
   last_verified: null
 capabilities:
-  - id: keyword.source.competitor-traffic.query
-    type: mcp
-    purpose: 通过获准SIF适配器逐个反查直接竞品ASIN最近30天流量关键词
+  - id: keyword.source.competitor-traffic.web-query
+    type: manual
+    purpose: 通过长期副任务内置浏览器中的已登录SIF官网，首选执行直接竞品最近30天查询和完整官方导出
     status: planned
-    input: 站点、单个获准直接竞品ASIN、最近30天口径和300条接口上限请求
-    output: 单个竞品的完整原始响应、流量关键词、周期和查询状态；接口本身不支持字段选择
+    input: 站点、获准ASIN、最近30天口径、300条上限和浏览器证据目录
+    output: 查询条件、页面或导出原始证据、结果顺序、七列业务字段、数量闭环和入口状态
     permission: approved-read
-    risk: 不替换失败ASIN；不把接口上限称为Amazon全量；结构冲突时停止
+    risk: 查询前必须验证登录；未登录进入awaiting_login并暂停，不得直接切MCP；不得改变查询、字段或ASIN，无法证明入口间无遗漏重复时重新完整查询
   - id: keyword.source.sif.persist-and-verify
     type: manual
     purpose: 在解析前保存每次SIF完整响应，再装配七列关键词明细和核心词候选摘要
@@ -19,11 +19,11 @@ capabilities:
     output: 版本化原始响应、七列明细工作簿、不执行语义晋级的核心词候选摘要、来源清单、行数核对、哈希、异常和紧凑主任务回传
     permission: local-draft
     risk: 不覆盖旧响应；原始返回未落盘时不得继续汇总；主任务消息不得展开原始长响应
-  - id: keyword.source.competitor-traffic.web-query
-    type: manual
-    purpose: SIF MCP不可用时通过SIF网页浏览器执行相同直接竞品最近30天查询
+  - id: keyword.source.competitor-traffic.query
+    type: mcp
+    purpose: 仅在用户明确表示当前设备或会话无法完成SIF网页登录时，通过同提供商SIF适配器备用反查直接竞品ASIN最近30天流量关键词
     status: planned
-    input: 站点、获准ASIN、最近30天口径、300条上限和浏览器证据目录
-    output: 查询条件、页面或导出原始证据、结果顺序、七列业务字段、数量闭环和入口状态
+    input: 站点、单个获准直接竞品ASIN、最近30天口径和300条接口上限请求
+    output: 单个竞品的完整原始响应、流量关键词、周期和查询状态；接口本身不支持字段选择
     permission: approved-read
-    risk: 只允许同一SIF提供商；不得改变查询、字段或ASIN，无法证明入口间无遗漏重复时重新完整查询
+    risk: 未满足用户明确确认门不得执行；不替换失败ASIN；不把接口上限称为Amazon全量；结构冲突时停止
