@@ -74,8 +74,8 @@ async function assertAuditFailure(root, resultField) {
   assert.ok(report.results[resultField] > 0, `${resultField} should be positive`);
 }
 
-async function buildLifecycleDelivery(root, taskUuid, safeXlsx) {
-  const deliveryRoot = path.join(root, "delivery");
+async function buildLifecycleDelivery(root, taskUuid, safeXlsx, qaMode = "full-regression") {
+  const deliveryRoot = path.join(root, `delivery-${qaMode}`);
   const processRoot = path.join(deliveryRoot, PROCESS_DIRECTORY_NAME);
   for (const partition of PARTITIONS) await fs.mkdir(path.join(processRoot, partition), { recursive: true });
   await fs.copyFile(safeXlsx, path.join(deliveryRoot, "AKW-FIXTURE-最终关键词词库.xlsx"));
@@ -95,27 +95,58 @@ async function buildLifecycleDelivery(root, taskUuid, safeXlsx) {
   }
 
   const qualityRoot = path.join(processRoot, PARTITIONS[3]);
-  const qualityWorkbook = path.join(qualityRoot, "独立质量验证.xlsx");
-  await fs.copyFile(safeXlsx, qualityWorkbook);
-  const previewRoot = path.join(qualityRoot, "independent-qa-previews");
-  await fs.mkdir(previewRoot, { recursive: true });
-  const previews = [];
-  for (let index = 1; index <= 8; index += 1) {
-    const name = `sheet-${String(index).padStart(2, "0")}.png`;
-    const file = path.join(previewRoot, name);
-    const body = Buffer.from(`fixture-preview-${index}`, "utf8");
-    await fs.writeFile(file, body);
-    previews.push({ relative_path: `independent-qa-previews/${name}`, bytes: body.length, sha256: shaBuffer(body) });
+  if (qaMode === "compact-production") {
+    await writeJson(path.join(qualityRoot, "compact-qa-result.json"), {
+      schema: "amazon-keyword-compact-qa/v1",
+      qa_mode: qaMode,
+      run_id: "AKW-FIXTURE",
+      revision: "fixture-revision",
+      checker_version: "fixture-checker/v1",
+      locked_hashes: { final_workbook: "fixture-locked-before-seal" },
+      qa_conclusion: "pass",
+      delivery_status: "completed",
+      gates: Array.from({ length: 21 }, (_, index) => ({
+        Gate_ID: index + 1,
+        status: "pass",
+        method: "fixture mechanical full-population check",
+        population: "fixture locked population",
+        actual: "pass",
+        evidence: "fixture relative evidence",
+      })),
+      risk_population: {
+        sets: [{ id: "fixture-risk-population", count: 17 }],
+        union: 17,
+        non_risk: 83,
+        total: 100,
+        uncovered: 0,
+      },
+    });
+  } else {
+    const qualityWorkbook = path.join(qualityRoot, "独立质量验证.xlsx");
+    await fs.copyFile(safeXlsx, qualityWorkbook);
+    const previewRoot = path.join(qualityRoot, "independent-qa-previews");
+    await fs.mkdir(previewRoot, { recursive: true });
+    const previews = [];
+    for (let index = 1; index <= 8; index += 1) {
+      const name = `sheet-${String(index).padStart(2, "0")}.png`;
+      const file = path.join(previewRoot, name);
+      const body = Buffer.from(`fixture-preview-${index}`, "utf8");
+      await fs.writeFile(file, body);
+      previews.push({ relative_path: `independent-qa-previews/${name}`, bytes: body.length, sha256: shaBuffer(body) });
+    }
+    const issueReference = path.join(qualityRoot, "issue-reference.json");
+    await writeJson(issueReference, { issue_register: "canonical-run-issue-register", issue_count: 7 });
+    await writeJson(path.join(qualityRoot, "quality-manifest.json"), {
+      schema: "fixture-quality-manifest/v1",
+      qa_mode: qaMode,
+      qa_conclusion: "pass",
+      delivery_status: "completed",
+      quality_workbook: { relative_path: "独立质量验证.xlsx", sha256: await shaFile(qualityWorkbook) },
+      previews,
+      issue_reference: { relative_path: "issue-reference.json", sha256: await shaFile(issueReference) },
+      gates: { passed: 21, failed: 0, not_executed: 0, not_applicable: 0, total: 21 },
+    });
   }
-  const issueReference = path.join(qualityRoot, "issue-reference.json");
-  await writeJson(issueReference, { issue_register: "canonical-run-issue-register", issue_count: 7 });
-  await writeJson(path.join(qualityRoot, "quality-manifest.json"), {
-    schema: "fixture-quality-manifest/v1",
-    quality_workbook: { relative_path: "独立质量验证.xlsx", sha256: await shaFile(qualityWorkbook) },
-    previews,
-    issue_reference: { relative_path: "issue-reference.json", sha256: await shaFile(issueReference) },
-    gates: { passed: 21, total: 21 },
-  });
 
   for (const name of ["QA_INPUT.md", "assembly-manifest.json", "handoff.json", "verification.json", "independent-qa-status.json"]) {
     await fs.writeFile(path.join(qualityRoot, name), "fixture assembly placeholder\n", "utf8");
@@ -127,10 +158,11 @@ async function buildLifecycleDelivery(root, taskUuid, safeXlsx) {
 
   await writeJson(path.join(processRoot, "process-manifest.json"), {
     schema: "fixture-process-manifest/v1",
-    delivery_identity: { candidate_status: "incomplete", qa_status: "pending_independent_QA", p1: false },
+    qa_mode: qaMode,
+    delivery_identity: { candidate_status: "incomplete", qa_status: "pending_quality_validation", p1: false },
     gates: Array.from({ length: 21 }, (_, index) => ({
       id: index + 1,
-      status: index === 20 ? "pending_independent_QA" : "pass",
+      status: index === 20 ? "pending_quality_validation" : "pass",
     })),
     files: [],
   });
@@ -187,7 +219,7 @@ async function main() {
     await assertAuditFailure(structuralRoot, "ooxml_non_allowlisted_uuid_hits");
     tests.push("non-allowlisted OOXML UUID fails");
 
-    const deliveryRoot = await buildLifecycleDelivery(fixtureRoot, taskUuid, safeXlsx);
+    const deliveryRoot = await buildLifecycleDelivery(fixtureRoot, taskUuid, safeXlsx, "full-regression");
     const normalization = await normalizeModuleMetadata(deliveryRoot);
     assert.equal(normalization.partitions_scanned, 3);
     assert.equal(normalization.metadata_files_scanned, 3);
@@ -199,7 +231,7 @@ async function main() {
     tests.push("every module partition rebases unsafe metadata paths to stable local relative paths");
 
     const quarantineDir = path.join(fixtureRoot, "assembly-placeholder-quarantine");
-    const prepared = await preparePackage({ deliveryRoot, quarantineDir });
+    const prepared = await preparePackage({ deliveryRoot, quarantineDir, qaMode: "full-regression" });
     assert.equal(prepared.moved_assembly_owned_entries.length, 7);
     assert.deepEqual(prepared.quality_directory_whitelist, [
       "independent-qa-previews",
@@ -207,7 +239,7 @@ async function main() {
       "quality-manifest.json",
       "独立质量验证.xlsx",
     ]);
-    const preparedAgain = await preparePackage({ deliveryRoot, quarantineDir });
+    const preparedAgain = await preparePackage({ deliveryRoot, quarantineDir, qaMode: "full-regression" });
     assert.equal(preparedAgain.moved_assembly_owned_entries.length, 0);
     tests.push("post-QA prepare removes all assembly-owned QA placeholders into outside recovery quarantine");
 
@@ -215,10 +247,10 @@ async function main() {
     const audit = await writeAuditReport(deliveryRoot, privacyReport);
     assert.equal(audit.status, "pass");
     assert.equal(audit.results.forbidden_hit_count, 0);
-    const sealed = await sealPackage({ deliveryRoot, privacyReport });
+    const sealed = await sealPackage({ deliveryRoot, privacyReport, qaMode: "full-regression" });
     assert.equal(sealed.gate_21, "pending_post_packaging_QA");
     assert.equal(sealed.unlisted_files, 0);
-    const verified = await verifyFinalPackage({ deliveryRoot, privacyReport });
+    const verified = await verifyFinalPackage({ deliveryRoot, privacyReport, qaMode: "full-regression" });
     assert.equal(verified.verification_status, "pass_read_only");
     const processManifestPath = path.join(deliveryRoot, PROCESS_DIRECTORY_NAME, "process-manifest.json");
     const processManifest = JSON.parse(await fs.readFile(processManifestPath, "utf8"));
@@ -230,14 +262,59 @@ async function main() {
 
     const rogueFile = path.join(deliveryRoot, PROCESS_DIRECTORY_NAME, PARTITIONS[0], "unlisted.txt");
     await fs.writeFile(rogueFile, "rogue", "utf8");
-    await assert.rejects(() => verifyFinalPackage({ deliveryRoot, privacyReport }));
+    await assert.rejects(() => verifyFinalPackage({ deliveryRoot, privacyReport, qaMode: "full-regression" }));
     await fs.rm(rogueFile);
     const rogueDirectory = path.join(deliveryRoot, PROCESS_DIRECTORY_NAME, PARTITIONS[0], "unlisted-empty-directory");
     await fs.mkdir(rogueDirectory);
-    await assert.rejects(() => verifyFinalPackage({ deliveryRoot, privacyReport }));
+    await assert.rejects(() => verifyFinalPackage({ deliveryRoot, privacyReport, qaMode: "full-regression" }));
     await fs.rmdir(rogueDirectory);
-    await verifyFinalPackage({ deliveryRoot, privacyReport });
+    await verifyFinalPackage({ deliveryRoot, privacyReport, qaMode: "full-regression" });
     tests.push("unlisted final-package file is rejected with zero-tolerance");
+
+    const compactDeliveryRoot = await buildLifecycleDelivery(fixtureRoot, taskUuid, safeXlsx, "compact-production");
+    await normalizeModuleMetadata(compactDeliveryRoot);
+    const compactQuarantine = path.join(fixtureRoot, "compact-placeholder-quarantine");
+    const compactPrepared = await preparePackage({ deliveryRoot: compactDeliveryRoot, quarantineDir: compactQuarantine, qaMode: "compact-production" });
+    assert.deepEqual(compactPrepared.quality_directory_whitelist, ["compact-qa-result.json"]);
+    const compactPrivacyReport = path.join(fixtureRoot, "compact-privacy-report.json");
+    await writeAuditReport(compactDeliveryRoot, compactPrivacyReport);
+    await sealPackage({ deliveryRoot: compactDeliveryRoot, privacyReport: compactPrivacyReport, qaMode: "compact-production" });
+    const compactVerified = await verifyFinalPackage({ deliveryRoot: compactDeliveryRoot, privacyReport: compactPrivacyReport, qaMode: "compact-production" });
+    assert.equal(compactVerified.qa_mode, "compact-production");
+    tests.push("compact-production accepts only compact result and preserves the same sealed hash and privacy gates");
+
+    const compactMissingGateRoot = await buildLifecycleDelivery(path.join(fixtureRoot, "compact-missing-gate"), taskUuid, safeXlsx, "compact-production");
+    const compactMissingGateResult = path.join(compactMissingGateRoot, PROCESS_DIRECTORY_NAME, PARTITIONS[3], "compact-qa-result.json");
+    const missingGatePayload = JSON.parse(await fs.readFile(compactMissingGateResult, "utf8"));
+    missingGatePayload.gates.pop();
+    await writeJson(compactMissingGateResult, missingGatePayload);
+    await assert.rejects(() => preparePackage({
+      deliveryRoot: compactMissingGateRoot,
+      quarantineDir: path.join(fixtureRoot, "compact-missing-gate-quarantine"),
+      qaMode: "compact-production",
+    }));
+    tests.push("compact-production rejects a missing Gate ID instead of silently shrinking the 21-gate contract");
+
+    const compactRiskGapRoot = await buildLifecycleDelivery(path.join(fixtureRoot, "compact-risk-gap"), taskUuid, safeXlsx, "compact-production");
+    const compactRiskGapResult = path.join(compactRiskGapRoot, PROCESS_DIRECTORY_NAME, PARTITIONS[3], "compact-qa-result.json");
+    const riskGapPayload = JSON.parse(await fs.readFile(compactRiskGapResult, "utf8"));
+    riskGapPayload.risk_population.uncovered = 1;
+    await writeJson(compactRiskGapResult, riskGapPayload);
+    await assert.rejects(() => preparePackage({
+      deliveryRoot: compactRiskGapRoot,
+      quarantineDir: path.join(fixtureRoot, "compact-risk-gap-quarantine"),
+      qaMode: "compact-production",
+    }));
+    tests.push("compact-production rejects any uncovered semantic-risk population");
+
+    const compactDuplicateArtifactRoot = await buildLifecycleDelivery(path.join(fixtureRoot, "compact-duplicate-artifact"), taskUuid, safeXlsx, "compact-production");
+    await fs.copyFile(safeXlsx, path.join(compactDuplicateArtifactRoot, PROCESS_DIRECTORY_NAME, PARTITIONS[3], "独立质量验证.xlsx"));
+    await assert.rejects(() => preparePackage({
+      deliveryRoot: compactDuplicateArtifactRoot,
+      quarantineDir: path.join(fixtureRoot, "compact-duplicate-artifact-quarantine"),
+      qaMode: "compact-production",
+    }));
+    tests.push("compact-production rejects duplicate full-regression artifacts");
 
     console.log(JSON.stringify({ status: "pass", test_count: tests.length, tests }, null, 2));
   } finally {

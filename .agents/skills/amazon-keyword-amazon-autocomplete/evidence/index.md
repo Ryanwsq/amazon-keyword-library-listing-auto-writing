@@ -2,14 +2,14 @@
 
 - Skill: `amazon-keyword-amazon-autocomplete`
 - Maturity: `draft`
-- P1 status: `not_started`
+- P1 status: `in_progress`
 - Last reviewed: `2026-08-27`
 
 ## Case slots
 
 | Evidence file | Required case type | Registry status | Locked revision | Sanitized case reference | Acceptance |
 |---|---|---|---|---|---|
-| `case-01-normal.md` | normal | planned | pending | pending | pending |
+| `case-01-normal.md` | normal | accepted | `4a903057765e136c85c5dc4704178c076f3ce467` | `gaming-chair-autocomplete-normal-01` | user-confirmed 2026-08-27 |
 | `case-02-normal.md` | normal | planned | pending | pending | pending |
 | `case-03-edge-or-error.md` | edge-or-error | planned | pending | pending | pending |
 
@@ -25,4 +25,4 @@
 
 ## Current status
 
-暂无被接纳案例；三个槽位均为 `planned`。本文件不构成 P1 证据。
+已接纳一个正常案例；第二个正常案例和边界/异常案例仍为`planned`。Skill保持`draft`，P1未完成。

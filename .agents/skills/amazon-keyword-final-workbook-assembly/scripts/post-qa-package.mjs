@@ -23,8 +23,10 @@ const ASSEMBLY_OWNED_QUALITY_PLACEHOLDERS = [
   "checks",
   "previews",
 ];
-const REQUIRED_QUALITY_ENTRIES = ["独立质量验证.xlsx", "quality-manifest.json", "independent-qa-previews"];
+const FULL_REQUIRED_QUALITY_ENTRIES = ["独立质量验证.xlsx", "quality-manifest.json", "independent-qa-previews"];
+const COMPACT_REQUIRED_QUALITY_ENTRIES = ["compact-qa-result.json"];
 const ISSUE_ENTRY_ALTERNATIVES = ["issues.md", "issue-reference.json"];
+const QA_MODES = new Set(["compact-production", "full-regression"]);
 const TASK_THREAD_UUID_RE = /\b[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\b/gi;
 const MACHINE_PATH_RE = /(?:file:\/\/\/Users\/|\/Users\/|\/home\/|\/Volumes\/|\/private\/|\/var\/folders\/|\/tmp\/|[a-z]:\\(?:Users|Documents and Settings|Temp)\\)/gi;
 const TEXT_EXTENSIONS = new Set([".csv", ".json", ".jsonl", ".log", ".md", ".ndjson", ".txt", ".tsv", ".xml", ".yaml", ".yml"]);
@@ -75,12 +77,19 @@ function isInside(parent, child) {
   return relative === "" || (!relative.startsWith("..") && !path.isAbsolute(relative));
 }
 
-function expectedQualityWhitelist(actualEntries) {
+function normalizeQaMode(qaMode) {
+  if (!QA_MODES.has(qaMode)) throw new Error("QA mode must be compact-production or full-regression");
+  return qaMode;
+}
+
+function expectedQualityWhitelist(actualEntries, qaMode) {
+  normalizeQaMode(qaMode);
   const issueEntries = actualEntries.filter((entry) => ISSUE_ENTRY_ALTERNATIVES.includes(entry));
-  if (issueEntries.length !== 1) {
-    throw new Error("Quality directory must contain exactly one canonical issues document or one issue reference");
+  if (issueEntries.length > 1 || (qaMode === "full-regression" && issueEntries.length !== 1)) {
+    throw new Error("Quality directory issue artifact does not match the selected QA mode");
   }
-  return [...REQUIRED_QUALITY_ENTRIES, issueEntries[0]].sort();
+  const required = qaMode === "compact-production" ? COMPACT_REQUIRED_QUALITY_ENTRIES : FULL_REQUIRED_QUALITY_ENTRIES;
+  return [...required, ...issueEntries].sort();
 }
 
 async function validateDeliveryLayout(deliveryRoot) {
@@ -108,15 +117,104 @@ async function validateDeliveryLayout(deliveryRoot) {
   };
 }
 
-async function validateQualityDirectory(qualityRoot) {
+async function validateQualityDirectory(qualityRoot, qaMode) {
+  normalizeQaMode(qaMode);
   const actualEntries = (await fs.readdir(qualityRoot)).sort();
-  const whitelist = expectedQualityWhitelist(actualEntries);
+  const whitelist = expectedQualityWhitelist(actualEntries, qaMode);
   if (JSON.stringify(actualEntries) !== JSON.stringify(whitelist)) {
     throw new Error(`Quality directory whitelist failed; expected ${whitelist.join(", ")}`);
   }
 
+  if (qaMode === "compact-production") {
+    const resultPath = path.join(qualityRoot, "compact-qa-result.json");
+    const result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+    if (result.schema !== "amazon-keyword-compact-qa/v1") throw new Error("Compact QA result schema mismatch");
+    if (result.qa_mode !== qaMode) throw new Error("Compact QA result mode mismatch");
+    for (const field of ["run_id", "revision", "checker_version"]) {
+      if (typeof result[field] !== "string" || !result[field].trim()) throw new Error(`Compact QA result missing ${field}`);
+    }
+    if (!result.locked_hashes || typeof result.locked_hashes !== "object" || Array.isArray(result.locked_hashes)) {
+      throw new Error("Compact QA result must include locked_hashes");
+    }
+    const gates = result.gates ?? result.gate_results;
+    if (!Array.isArray(gates) || gates.length !== 21) throw new Error("Compact QA result must contain all 21 gates");
+    const gateIds = new Set(gates.map((gate) => Number(gate.Gate_ID ?? gate.gate_id ?? gate.id)));
+    if (gateIds.size !== 21 || Array.from({ length: 21 }, (_, index) => index + 1).some((id) => !gateIds.has(id))) {
+      throw new Error("Compact QA gate IDs must be unique and complete from 1 through 21");
+    }
+    const allowedGateStatuses = new Set(["pass", "fail", "not_executed", "not_applicable"]);
+    for (const gate of gates) {
+      if (!allowedGateStatuses.has(gate.status)) throw new Error("Compact QA gate status is invalid");
+      for (const field of ["method", "population", "actual", "evidence"]) {
+        if (!(field in gate)) throw new Error(`Compact QA gate missing ${field}`);
+      }
+      if (gate.status === "fail" && typeof (gate.Issue_ID ?? gate.issue_id) !== "string") {
+        throw new Error("Every failed compact QA gate must reference an Issue_ID");
+      }
+    }
+    if (!["pass", "blocked", "incomplete"].includes(result.qa_conclusion)) throw new Error("Compact QA conclusion is invalid");
+    if (!["completed", "completed_with_gaps", "incomplete", "blocked"].includes(result.delivery_status)) {
+      throw new Error("Compact QA delivery status is invalid");
+    }
+    const gateStatuses = gates.map((gate) => gate.status);
+    if (result.qa_conclusion === "pass" && gateStatuses.some((status) => status === "fail" || status === "not_executed")) {
+      throw new Error("Pass compact QA cannot contain failed or unexecuted gates");
+    }
+    if (result.qa_conclusion === "blocked" && !gateStatuses.includes("fail")) throw new Error("Blocked compact QA requires a failed gate");
+    if (result.qa_conclusion === "incomplete" && !gateStatuses.includes("not_executed")) {
+      throw new Error("Incomplete compact QA requires an unexecuted gate");
+    }
+    if (
+      (result.qa_conclusion === "pass" && !["completed", "completed_with_gaps"].includes(result.delivery_status)) ||
+      (result.qa_conclusion === "blocked" && result.delivery_status !== "blocked") ||
+      (result.qa_conclusion === "incomplete" && result.delivery_status !== "incomplete")
+    ) {
+      throw new Error("Compact QA conclusion and delivery status disagree");
+    }
+    const riskPopulation = result.risk_population;
+    if (
+      !riskPopulation ||
+      !Array.isArray(riskPopulation.sets) ||
+      riskPopulation.sets.some((set) => typeof set.id !== "string" || !Number.isInteger(set.count) || set.count < 0) ||
+      !Number.isInteger(riskPopulation.union) || riskPopulation.union < 0 ||
+      !Number.isInteger(riskPopulation.non_risk) || riskPopulation.non_risk < 0 ||
+      !Number.isInteger(riskPopulation.total) || riskPopulation.total < 0 ||
+      riskPopulation.union + riskPopulation.non_risk !== riskPopulation.total ||
+      !Number.isInteger(riskPopulation.uncovered) || riskPopulation.uncovered !== 0
+    ) {
+      throw new Error("Compact QA risk and non-risk populations must close to total with uncovered=0");
+    }
+    const issueEntry = whitelist.find((entry) => ISSUE_ENTRY_ALTERNATIVES.includes(entry));
+    if (result.qa_conclusion !== "pass" && !issueEntry) throw new Error("Non-pass compact QA requires one canonical issue artifact");
+    const locks = {
+      compact_qa_result: { relative_path: "compact-qa-result.json", sha256: await shaFile(resultPath) },
+    };
+    if (issueEntry) locks.issue_artifact = { relative_path: issueEntry, sha256: await shaFile(path.join(qualityRoot, issueEntry)) };
+    return { whitelist, qaMode, compactResult: result, locks };
+  }
+
   const qualityManifestPath = path.join(qualityRoot, "quality-manifest.json");
   const qualityManifest = JSON.parse(await fs.readFile(qualityManifestPath, "utf8"));
+  if (qualityManifest.qa_mode !== qaMode) throw new Error("Full QA manifest mode mismatch");
+  if (!["pass", "blocked", "incomplete"].includes(qualityManifest.qa_conclusion)) throw new Error("Full QA conclusion is invalid");
+  if (!["completed", "completed_with_gaps", "incomplete", "blocked"].includes(qualityManifest.delivery_status)) {
+    throw new Error("Full QA delivery status is invalid");
+  }
+  const gateCounts = qualityManifest.gates;
+  if (
+    !gateCounts || gateCounts.total !== 21 ||
+    !["passed", "failed", "not_executed", "not_applicable"].every((key) => Number.isInteger(gateCounts[key]) && gateCounts[key] >= 0) ||
+    gateCounts.passed + gateCounts.failed + gateCounts.not_executed + gateCounts.not_applicable !== 21
+  ) {
+    throw new Error("Full QA manifest must close all 21 gate counts");
+  }
+  if (
+    (qualityManifest.qa_conclusion === "pass" && (gateCounts.failed !== 0 || gateCounts.not_executed !== 0 || !["completed", "completed_with_gaps"].includes(qualityManifest.delivery_status))) ||
+    (qualityManifest.qa_conclusion === "blocked" && (gateCounts.failed === 0 || qualityManifest.delivery_status !== "blocked")) ||
+    (qualityManifest.qa_conclusion === "incomplete" && (gateCounts.not_executed === 0 || qualityManifest.delivery_status !== "incomplete"))
+  ) {
+    throw new Error("Full QA conclusion, delivery status, and gate counts disagree");
+  }
   const qualityWorkbook = qualityManifest.quality_workbook;
   if (!qualityWorkbook || qualityWorkbook.relative_path !== "独立质量验证.xlsx") {
     throw new Error("Quality manifest must lock the fixed quality workbook");
@@ -159,6 +257,7 @@ async function validateQualityDirectory(qualityRoot) {
 
   return {
     whitelist,
+    qaMode,
     qualityManifest,
     locks: {
       quality_workbook: { relative_path: qualityWorkbook.relative_path, sha256: qualityWorkbook.sha256 },
@@ -265,7 +364,7 @@ function validateGateSet(manifest, { final = false } = {}) {
   if (final && byId.get(21).status !== "pending_post_packaging_QA") {
     throw new Error("Gate 21 must remain pending until read-only final-package QA returns");
   }
-  if (!final && !["pending_independent_QA", "pending_post_packaging_QA"].includes(byId.get(21).status)) {
+  if (!final && !["pending_quality_validation", "pending_independent_QA", "pending_post_packaging_QA"].includes(byId.get(21).status)) {
     throw new Error("Candidate Gate 21 cannot be marked pass before final-package QA");
   }
 }
@@ -299,7 +398,8 @@ async function writeFinalManifestAtomic(file, value, deliveryRoot) {
   }
 }
 
-export async function preparePackage({ deliveryRoot, quarantineDir }) {
+export async function preparePackage({ deliveryRoot, quarantineDir, qaMode }) {
+  normalizeQaMode(qaMode);
   const layout = await validateDeliveryLayout(deliveryRoot);
   if (isInside(layout.root, quarantineDir)) throw new Error("Quarantine must remain outside delivery");
 
@@ -312,7 +412,7 @@ export async function preparePackage({ deliveryRoot, quarantineDir }) {
     await fs.mkdir(quarantineDir, { recursive: true });
     for (const entry of present) await fs.rename(path.join(layout.qualityRoot, entry), path.join(quarantineDir, entry));
   }
-  const quality = await validateQualityDirectory(layout.qualityRoot);
+  const quality = await validateQualityDirectory(layout.qualityRoot, qaMode);
   return {
     status: "prepared",
     moved_assembly_owned_entries: present,
@@ -322,11 +422,13 @@ export async function preparePackage({ deliveryRoot, quarantineDir }) {
   };
 }
 
-export async function sealPackage({ deliveryRoot, privacyReport }) {
+export async function sealPackage({ deliveryRoot, privacyReport, qaMode }) {
+  normalizeQaMode(qaMode);
   const layout = await validateDeliveryLayout(deliveryRoot);
-  const quality = await validateQualityDirectory(layout.qualityRoot);
+  const quality = await validateQualityDirectory(layout.qualityRoot, qaMode);
   const privacy = await validateIndependentPrivacyReport(layout.root, privacyReport);
   const manifest = JSON.parse(await fs.readFile(layout.processManifest, "utf8"));
+  if (manifest.qa_mode !== qaMode) throw new Error("Process manifest QA mode does not match the packaging command");
   validateGateSet(manifest);
   const finalWorkbookStat = await fs.stat(layout.finalWorkbook);
 
@@ -351,7 +453,8 @@ export async function sealPackage({ deliveryRoot, privacyReport }) {
   manifest.packaging_lifecycle = {
     schema: "amazon-keyword-final-package-lifecycle/v1",
     stage: "sealed_pending_post_packaging_QA",
-    candidate_assembly: "completed_before_independent_QA",
+    qa_mode: qaMode,
+    candidate_assembly: "completed_before_quality_validation",
     immutable_QA_artifacts: "locked_and_preserved",
     assembly_post_QA_packaging: "sealed",
     final_incremental_QA: "pending_read_only_verification",
@@ -359,6 +462,7 @@ export async function sealPackage({ deliveryRoot, privacyReport }) {
   };
   manifest.quality_directory = {
     relative_path: QUALITY_DIRECTORY_NAME,
+    qa_mode: qaMode,
     top_level_whitelist: quality.whitelist,
     unlisted_files: 0,
     locks: quality.locks,
@@ -390,15 +494,19 @@ export async function sealPackage({ deliveryRoot, privacyReport }) {
   manifest.self_inventory_note = "process-manifest.json is excluded from its own inventory; all other files are frozen before this single seal write";
   await writeFinalManifestAtomic(layout.processManifest, manifest, layout.root);
 
-  const verification = await verifyFinalPackage({ deliveryRoot, privacyReport });
+  const verification = await verifyFinalPackage({ deliveryRoot, privacyReport, qaMode });
   return { status: "sealed_pending_post_packaging_QA", ...verification };
 }
 
-export async function verifyFinalPackage({ deliveryRoot, privacyReport }) {
+export async function verifyFinalPackage({ deliveryRoot, privacyReport, qaMode }) {
+  normalizeQaMode(qaMode);
   const layout = await validateDeliveryLayout(deliveryRoot);
-  const quality = await validateQualityDirectory(layout.qualityRoot);
+  const quality = await validateQualityDirectory(layout.qualityRoot, qaMode);
   const privacy = await validateIndependentPrivacyReport(layout.root, privacyReport);
   const manifest = JSON.parse(await fs.readFile(layout.processManifest, "utf8"));
+  if (manifest.qa_mode !== qaMode || manifest.quality_directory?.qa_mode !== qaMode) {
+    throw new Error("Sealed process manifest QA mode mismatch");
+  }
   validateGateSet(manifest, { final: true });
   const files = (await walk(layout.processRoot)).filter((file) => file !== layout.processManifest).sort();
   const listed = new Map((manifest.files ?? []).map((item) => [item.relative_path, item]));
@@ -458,6 +566,7 @@ export async function verifyFinalPackage({ deliveryRoot, privacyReport }) {
     hash_mismatches: 0,
     stale_manifest_entries: 0,
     quality_directory_whitelist: quality.whitelist,
+    qa_mode: qaMode,
     privacy_status: "pass_cross_verified",
     content_fingerprint_excluding_process_manifest_sha256: privacy.fingerprint.sha256,
     packaged_directory_count: privacy.fingerprint.directory_count,
@@ -474,6 +583,7 @@ function parseArgs(argv) {
     if (value === "--delivery-root") output.deliveryRoot = argv[++index];
     else if (value === "--quarantine-dir") output.quarantineDir = argv[++index];
     else if (value === "--privacy-report") output.privacyReport = argv[++index];
+    else if (value === "--qa-mode") output.qaMode = argv[++index];
     else if (value === "--help") output.help = true;
     else throw new Error(`Unknown argument: ${value}`);
   }
@@ -483,9 +593,10 @@ function parseArgs(argv) {
 async function cli() {
   const args = parseArgs(process.argv.slice(2));
   if (args.help || !args.command || !args.deliveryRoot) {
-    console.log("Usage:\n  node post-qa-package.mjs prepare --delivery-root <path> --quarantine-dir <outside-path>\n  node post-qa-package.mjs seal --delivery-root <path> --privacy-report <outside-report.json>\n  node post-qa-package.mjs verify-final --delivery-root <path> --privacy-report <outside-report.json>");
+    console.log("Usage:\n  node post-qa-package.mjs prepare --delivery-root <path> --quarantine-dir <outside-path> --qa-mode <compact-production|full-regression>\n  node post-qa-package.mjs seal --delivery-root <path> --privacy-report <outside-report.json> --qa-mode <mode>\n  node post-qa-package.mjs verify-final --delivery-root <path> --privacy-report <outside-report.json> --qa-mode <mode>");
     return;
   }
+  normalizeQaMode(args.qaMode);
   let result;
   if (args.command === "prepare") {
     if (!args.quarantineDir) throw new Error("prepare requires --quarantine-dir");

@@ -11,7 +11,7 @@ description: "Assemble the Amazon keyword project's two-object delivery: a proce
 
 ## 输入
 
-第一板块两Sheet工作簿；第二板块四Sheet工作簿；分类两Sheet、否词库、词频、竞争和趋势过程工作簿；全部manifests/哈希/版本；稳定Keyword_ID；锁定SKU事实卡和输出目录。QA后封包还必须锁定独立QA工作簿、quality manifest、独立预览和唯一问题文档或引用。
+第一板块两Sheet工作簿；第二板块四Sheet工作簿；分类两Sheet、否词库、词频、竞争和趋势过程工作簿；全部manifests/哈希/版本；稳定Keyword_ID；锁定SKU事实卡、qa_mode和输出目录。compact封包锁定`compact-qa-result.json`及按需问题引用；full封包锁定独立QA工作簿、quality manifest、独立预览和问题文档或引用。
 
 ## 输出
 
@@ -28,9 +28,9 @@ description: "Assemble the Amazon keyword project's two-object delivery: a proce
 ## 脚本路由
 
 - 候选装配冻结前运行`node scripts/normalize-module-metadata.mjs --delivery-root <delivery>`：只改进入交付的结构化JSON副本，覆盖前三个过程分区内每个模块的manifest、handoff和verification，把含任务ID或机器绝对路径的文件引用重写为包内稳定相对路径；无法唯一映射时阻断。非JSON元数据由独立隐私审计零容忍兜底，不得带入不安全路径。不得修改上游原件。
-- QA后先运行`node scripts/post-qa-package.mjs prepare --delivery-root <delivery> --quarantine-dir <delivery外目录>`，把装配阶段遗留的QA占位和重复检查/预览移出两对象交付并保留可恢复副本。
+- QA后先运行`node scripts/post-qa-package.mjs prepare --delivery-root <delivery> --quarantine-dir <delivery外目录> --qa-mode <compact-production|full-regression>`，把装配阶段遗留的QA占位和重复检查/预览移出两对象交付并保留可恢复副本。
 - 再运行`node scripts/delivery-privacy-audit.mjs --delivery-root <delivery> --report <delivery外报告.json>`。该独立报告不得进入交付。
-- 隐私报告通过后运行`node scripts/post-qa-package.mjs seal --delivery-root <delivery> --privacy-report <delivery外报告.json>`；独立QA最后只读运行同脚本的`verify-final`，不得再写文件。
+- 隐私报告通过后运行`node scripts/post-qa-package.mjs seal --delivery-root <delivery> --privacy-report <delivery外报告.json> --qa-mode <mode>`；质量任务最后只读运行同脚本的`verify-final`，不得再写文件。脚本不支持锁定mode时不得绕过，必须阻断并修复检查器后再运行。
 - 变更本Skill时运行`node scripts/run-fixtures.mjs`；fixture只在系统临时目录生成并清理测试包。
 
 ## 执行步骤
@@ -43,11 +43,11 @@ description: "Assemble the Amazon keyword project's two-object delivery: a proce
 6. 从分类完成的`Sheet4_二类词`机械复制全人口生成最终`二类词`Sheet，固定保留上游十二列和分类四列共十六列；每个主键一行，零人口只保留表头。不得从总表或原始词池重筛、重判、增删或改值。
 7. 原样接入固定十二列竞争Sheet、单Sheet趋势、两表词频和五列否词库；只调整最终Sheet名称与视觉，不改变值。
 8. 最终工作簿只保留八个可见Sheet并按合同顺序排列；除面向使用的`二类词`机械视图外，其他过程表只在过程目录。
-9. 生成候选process manifest，记录相对文件清单、SHA-256、模块版本、人口、Sheet尺寸、公式/图表/渲染和21项门；完整传递分类manifest中`关键词ABA排名缺失、搜索量缺失、没有搜索量`的计数、主键和原始值。候选阶段Gate 21只能为`pending_independent_QA`。
-10. 执行21项装配门、公式扫描、外链/宏/主键/表名检查，并渲染八Sheet目视复核。
-11. 把锁定候选交给独立质量验证。独立QA只生成一次不可变最小集合：`独立质量验证.xlsx`、`quality-manifest.json`、`independent-qa-previews/`，以及`issues.md`或`issue-reference.json`二选一；不得生成装配manifest、handoff、verification、占位状态或重复预览。
-12. QA返回后由装配任务执行最终封包：清除自己的QA占位/重复检查与预览，核对固定质量目录白名单，执行文本、路径、XLSX业务字符串和OOXML结构隐私审计，重算最终工作簿锁与所有过程文件哈希。最终process manifest排除自身，其他文件全部冻结后只写一次；未列入文件必须为零。
-13. 最终封包状态保持`incomplete`、Gate 21保持`pending_post_packaging_QA`、P1为false。独立QA仅只读复核最终封包增量且不再写文件；其复核结论由主任务在包外接收，避免为记录结论而再次改变被验证对象。
+9. 生成候选process manifest，记录qa_mode、相对文件清单、SHA-256、模块版本、人口、Sheet尺寸、公式/图表/渲染和21项门；完整传递三种行级数据状态的计数、主键和原始值。候选阶段Gate 21为`pending_quality_validation`。
+10. 执行21项机械装配门、公式/外链/宏/主键/表名检查；只生成一套八Sheet渲染和`render-manifest.json`。同时机械生成compact风险人口并闭合到第一板块全人口；风险集合不得抽样或截断。
+11. 把锁定候选交给模式对应质量验证。compact只接收最小锁、21项机械结果、风险人口、八Sheet工作簿和render manifest，并只生成`compact-qa-result.json`及按需问题引用；full生成一次性完整质量工作簿、quality manifest和独立预览。两种模式都不得生成装配manifest、handoff、verification或重复上游工作簿。
+12. QA返回后执行最终封包：清理装配占位和重复检查，核对mode对应质量目录白名单，执行文本、路径、XLSX业务字符串和OOXML结构隐私审计，重算最终工作簿锁与所有过程文件哈希。最终process manifest排除自身，其他文件冻结后只写一次；未列入文件必须为零。
+13. 质量任务只读复核最终封包Gate 19–21且不再写文件。全部适用硬门通过时主任务在包外标记`completed`；只有准确记录的允许数据缺口时标记`completed_with_gaps`。本次规则同步本身仍不产生P1。
 
 ## 质量标准
 
@@ -57,12 +57,12 @@ description: "Assemble the Amazon keyword project's two-object delivery: a proce
 - 通用词库可由总表的品类相关且资格纳入行机械复算；竞争、趋势和词频只含资格纳入的适用人口，否词人口符合范围。
 - 通用词库五个流量块显示表头与合同一致；内部F1–F5编码、阈值和行人口未因表头改写。
 - 最终工作簿恰好八个可见Sheet且顺序固定，无隐藏过程Sheet。
-- QA后质量目录严格匹配固定白名单；装配占位、装配manifest/handoff/verification、装配checks/previews零残留。
+- 质量目录严格匹配qa_mode白名单；compact无质量工作簿和重复预览，full保留完整不可变质量产物；装配占位、装配manifest/handoff/verification及重复checks/previews零残留。
 - 真实Codex task/thread UUID和机器绝对路径在文件名、文本、XLSX业务字符串或非许可OOXML结构中零命中；普通64位SHA-256不因含`01a`被误报，Office内部GUID只按精确结构位置许可。
 - 最终process manifest列全所有过程文件且哈希闭合，只排除自身；最终工作簿另行锁哈希，未列入文件为零，不建立自哈希或循环写入。
-- process manifest和21项门完整，独立QA未只读复核最终封包增量前不完成。
+- process manifest和21项门完整，模式对应质量验证未只读复核最终封包增量前不完成。
 - Skill保持draft/planned，旧工作簿不冒充当前合同P1。
 
 ## 异常处理
 
-上游哈希/版本/人口/通用词库资格不闭合、动态列不一致、二类词Sheet与分类Sheet4不一致、最终Sheet或顶层对象不符、外链/宏/公式错误、过程文件缺失、QA失败、隐私扫描命中、模块路径不能唯一重写、质量白名单不符、process manifest漏列/错哈希或最终封包增量复核失败时阻断交付。`关键词ABA排名缺失、搜索量缺失、没有搜索量`本身不阻断候选工作簿装配，但必须带入最终QA用户确认清单；确认未闭合时不得标记完成。本Skill不重算上游业务结果，不补拉数据，不生成广告判断。
+上游哈希/版本/人口/通用词库资格不闭合、风险人口不完整、动态列不一致、二类词Sheet与分类Sheet4不一致、最终Sheet或顶层对象不符、外链/宏/公式错误、过程文件缺失、QA失败、隐私扫描命中、模块路径不能唯一重写、模式白名单不符、process manifest漏列/错哈希或最终封包增量复核失败时阻断交付。三种行级数据状态本身不阻断；准确传递时自动形成`completed_with_gaps`，不等待用户确认。本Skill不重算上游业务结果，不补拉数据，不生成广告判断。

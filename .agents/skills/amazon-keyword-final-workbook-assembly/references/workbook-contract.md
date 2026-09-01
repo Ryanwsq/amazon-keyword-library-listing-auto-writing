@@ -19,16 +19,18 @@
 
 前三个分区中每个模块的manifest、handoff和verification副本都必须递归检查。结构化JSON中的文件引用统一重写为相对其元数据文件、指向同一过程分区内真实封装对象的POSIX相对路径；不能只修某一个模块或某一种元数据。非JSON元数据也必须接受最终隐私审计，存在不安全路径时重建脱敏副本或阻断。重写只发生在交付副本，不改上游原件或业务值；process manifest同时锁定上游原件哈希和重写后副本哈希。含机器路径或任务ID但无法唯一映射到包内对象时阻断，不得删字段、截短或用伪路径掩盖。
 
-### Post-QA quality-directory whitelist
+### Mode-specific quality-directory whitelist
 
-最终`04_独立质量验证/`顶层只能包含以下四项：
+`compact-production`下最终`04_独立质量验证/`顶层只能包含：
 
-1. `独立质量验证.xlsx`；
-2. `quality-manifest.json`；
-3. `independent-qa-previews/`，其每个文件都必须由quality manifest逐一锁定，未列入文件为零；
-4. `issues.md`或`issue-reference.json`恰好一个，并由quality manifest锁哈希。
+1. `compact-qa-result.json`；
+2. 只有存在问题时才出现`issues.md`或`issue-reference.json`之一。
 
-`QA_INPUT.md、assembly-manifest.json、handoff.json、verification.json、independent-qa-status.json、checks/、previews/`均为装配阶段对象，QA后不得留在质量目录。独立QA产物一经返回即不可变；最终封包不得修改其工作簿、quality manifest、独立预览或问题业务结论。
+compact不得包含`独立质量验证.xlsx`、`quality-manifest.json`或独立预览目录。`full-regression`继续使用四项完整白名单：`独立质量验证.xlsx`、`quality-manifest.json`、`independent-qa-previews/`、`issues.md`或`issue-reference.json`之一。
+
+`QA_INPUT.md、assembly-manifest.json、handoff.json、verification.json、independent-qa-status.json、checks/、previews/`均为装配阶段对象，QA后不得留在质量目录。模式对应QA产物一经返回即不可变；最终封包不得修改compact result，或full的工作簿、quality manifest、独立预览及问题业务结论。
+
+兼容硬门表述：独立QA产物一经返回即不可变；“产物”按`qa_mode`分别指compact最小结果集合或full完整质量集合。
 
 ### Privacy and path audit
 
@@ -44,10 +46,10 @@
 
 ## Four-stage packaging lifecycle
 
-1. **候选装配**：生成八Sheet候选工作簿、四分区过程证据和候选process manifest；Gate 21=`pending_independent_QA`，状态不得为完成。
-2. **独立QA**：只生成一次上述固定最小QA集合并锁哈希；不得写装配占位、装配manifest/handoff/verification或重复渲染目录。
-3. **装配最终封包**：移出装配遗留QA占位并在交付外保留恢复副本，验证质量目录白名单，执行独立隐私审计，冻结所有业务与QA文件，重算最终工作簿和全部过程文件哈希，最后单次写入process manifest。此时状态=`incomplete`、Gate 21=`pending_post_packaging_QA`、P1=false。
-4. **最终封包增量QA**：独立QA只读核对顶层两对象、质量白名单、隐私结果、最终工作簿锁和process manifest闭环，不再写文件。结论由主任务在包外记录，避免核对后再次改变封包。
+1. **候选装配**：生成八Sheet候选、四分区过程证据、唯一八Sheet渲染、21项机械结果、风险人口和候选process manifest；Gate 21=`pending_quality_validation`。
+2. **模式化QA**：compact只生成一次`compact-qa-result.json`及按需问题引用；full生成一次完整质量集合。不得写装配占位、装配manifest/handoff/verification或重复渲染。
+3. **装配最终封包**：移出装配遗留占位并在交付外保留恢复副本，验证mode白名单，执行独立隐私审计，冻结业务与QA文件，重算最终工作簿和全部过程文件哈希，最后单次写入process manifest。
+4. **最终封包增量QA**：质量任务只读核对顶层两对象、mode白名单、隐私结果、最终工作簿锁和process manifest闭环，不再写文件。全部适用门通过后由主任务在包外记录`completed`或`completed_with_gaps`。
 
 process manifest不得列出或哈希自身；除自身外的过程文件必须全部列入且未列入、缺失、错哈希均为零。最终工作簿在交付身份区单独锁定相对路径、大小和SHA-256。禁止在QA产物与process manifest之间建立自哈希或互相回写循环。
 
@@ -113,7 +115,7 @@ process manifest不得列出或哈希自身；除自身外的过程文件必须�
 
 ## Process manifest
 
-唯一总manifest记录：交付身份和最终工作簿锁；各模块版本与上游/封装副本哈希；除自身外每个过程文件的相对路径、类型、大小、SHA-256和状态；第一板块三来源/机械词池闭环；第二板块三去向；分类/二类词/词频/竞争/趋势/否词人口；分类输出的`关键词ABA排名缺失、搜索量缺失、没有搜索量`各自计数、主键和原始值；最终八Sheet顺序/尺寸/图表/公式；唯一问题文档或引用；固定质量目录白名单与QA锁；隐私审计摘要；封包生命周期；21项门结果。不得写接口正文、凭据、任务ID、绝对路径或交付外报告路径。最终写入前其他文件必须冻结，manifest只写一次且排除自身。
+唯一总manifest记录：交付身份和最终工作簿锁；qa_mode与检查器版本；各模块版本与上游/封装副本哈希；除自身外每个过程文件的相对路径、类型、大小、SHA-256和状态；第一板块三来源/机械词池闭环；第二板块三去向；分类/二类词/词频/竞争/趋势/否词人口；风险集合及并集人口；三种行级数据状态各自计数、主键和原始值；最终八Sheet顺序/尺寸/图表/公式与render manifest；问题引用；模式对应质量目录白名单与QA锁；隐私审计摘要；封包生命周期；21项门结果。不得写接口正文、凭据、任务ID、绝对路径或交付外报告路径。最终写入前其他文件必须冻结，manifest只写一次且排除自身。
 
 ## 21 assembly gates
 
@@ -122,7 +124,7 @@ process manifest不得列出或哈希自身；除自身外的过程文件必须�
 3. 总表行数等于第一板块机械去重词数。
 4. 三去向合计等于总表行数。
 5. 每个Keyword_ID恰好一行且可回查。
-6. N个动态语义列与分类列名、顺序和值一致；最终`二类词`Sheet人口、固定十六列、主键和值与分类Sheet4机械一致，零行时只保留表头；三种行级数据状态的计数/主键/原始值与分类manifest一致并进入最终QA确认清单。
+6. N个动态语义列与分类列名、顺序和值一致；最终`二类词`Sheet人口、固定十六列、主键和值与分类Sheet4机械一致，零行时只保留表头；三种行级数据状态的计数/主键/原始值与分类manifest一致并自动进入允许缺口状态。
 7. 竞争强度只回写品类相关、资格为`纳入`的F1–F4，详细Top3/结构不进总表。
 8. 趋势摘要只回写品类相关、资格为`纳入`的F1–F3，24月矩阵只留趋势Sheet。
 9. 通用词库每块可由总表中品类相关且资格为`纳入`的行机械复算且块内无重复；`不纳入/待复核`零混入；五个流量块显示表头依次为`F1 核心大词、F2 二级词、F3 中流量词、F4 中长尾词、F5 长尾词`。
@@ -136,7 +138,7 @@ process manifest不得列出或哈希自身；除自身外的过程文件必须�
 17. 无外链、宏、重复表名、空主键或公式错误。
 18. 日期/百分比/数字/文本格式正确，八Sheet全部渲染目视复核。
 19. 最终过程文件必需项齐全、相对路径稳定且哈希一致；process manifest排除自身，其他过程文件未列入/缺失/错哈希均为零，最终工作簿另行锁定。
-20. QA后质量目录严格匹配固定白名单，唯一问题文档或引用与质量报告锁定；任务/thread UUID、机器绝对路径和非许可OOXML UUID零命中，SHA-256与精确Office结构GUID无误报。
-21. 独立QA只读复核最终封包增量前保持`pending_post_packaging_QA`且不得标记`completed/pass`；复核过程不得再写交付文件。
+20. 质量目录严格匹配qa_mode白名单，问题文档或引用与质量结果锁定；任务/thread UUID、机器绝对路径和非许可OOXML UUID零命中，SHA-256与精确Office结构GUID无误报。
+21. 模式对应质量验证完成最终封包只读差异复核；复核前不得标记`completed/pass`，复核过程不得再写交付文件。
 
-交付状态只用`completed、completed_with_gaps、incomplete、blocked`。存在已准确记录的三种行级数据状态时仍可装配候选工作簿；最终QA应在质检时由主任务向用户确认，确认闭合前交付不得标记完成。
+交付状态只用`completed、completed_with_gaps、incomplete、blocked`。已准确记录的三种行级数据状态自动对应允许缺口，可在模式对应QA通过后标记`completed_with_gaps`，不向用户发起运行中确认。
