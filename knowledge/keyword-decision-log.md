@@ -1,10 +1,10 @@
 # Amazon 关键词库版本决策记录
 
 - Status: verified
-- Last verified: 2026-08-27
+- Last verified: 2026-09-01
 - Sharing: sanitized
-- Provenance: 用户授权归档、用户确认记录、四轮历史案例脱敏结论、2026-08-11至2026-08-16增量决策、2026-08-20首轮真实正常案例问题台账、2026-08-21首轮运行后减配确认、2026-08-22词频介词白名单确认、2026-08-23核心层级与通用词库资格确认、2026-08-24二类词独立Sheet/输入核心门/网页导出优先/任务分离/联想边界/两级歧义/分类数据缺口与显示名确认、2026-08-25来源双种子/同类目二类词/配置假阴性/机械任务身份/审计与QA后封包确认、2026-08-26多细分类目目标细分简称强等价闭环确认，以及2026-08-27十二Skill证据治理与首批模块案例人工确认
-- Coverage: confirmed decisions through V2.1 plus V2.2 word frequency, 2026-08-21 output contracts, 2026-08-22 clarifications, 2026-08-23 core hierarchy/general-library eligibility correction, 2026-08-24 output and input gates, 2026-08-25 conditional dual-seed collection/same-category secondary terms/configuration-safe eligibility/task identity/trend audit/privacy and post-QA packaging, 2026-08-26 multi-subdivision target-subdivision alias closure, and 2026-08-27 evidence governance plus first modular case publication
+- Provenance: 用户授权归档、用户确认记录、四轮历史案例脱敏结论、2026-08-11至2026-08-16增量决策、2026-08-20首轮真实正常案例问题台账、2026-08-21首轮运行后减配确认、2026-08-22词频介词白名单确认、2026-08-23核心层级与通用词库资格确认、2026-08-24二类词独立Sheet/输入核心门/网页导出优先/任务分离/联想边界/两级歧义/分类数据缺口与显示名确认、2026-08-25来源双种子/同类目二类词/配置假阴性/机械任务身份/审计与QA后封包确认、2026-08-26多细分类目目标细分简称强等价闭环确认、2026-08-27十二Skill证据治理与首批模块案例人工确认、2026-08-31三项开头输入锁与质量双模式确认，以及2026-09-01 SIF网页优先与登录门确认
+- Coverage: confirmed decisions through V2.1 plus V2.2 word frequency, 2026-08-21 output contracts, 2026-08-22 clarifications, 2026-08-23 core hierarchy/general-library eligibility correction, 2026-08-24 output and input gates, 2026-08-25 conditional dual-seed collection/same-category secondary terms/configuration-safe eligibility/task identity/trend audit/privacy and post-QA packaging, 2026-08-26 multi-subdivision target-subdivision alias closure, 2026-08-27 evidence governance plus first modular case publication, 2026-08-31 three-input lock and compact/full QA lifecycle, and 2026-09-01 SIF website-first login gate
 
 ## 摘要
 
@@ -50,6 +50,18 @@
 | Post-V2.1 | 2026-08-27 | 十二个Skill建立三槽位证据登记，锁定真实案例接纳、禁止历史倒填和模块独立证据边界；业务流程不变 | confirmed governance increment; P1 pending |
 | Post-V2.1 | 2026-08-27 | 首个新锁定Run经用户人工确认后按模块真实状态发布脱敏证据；6个正常案例和5个边界案例接纳，publication候选待复核 | confirmed evidence publication; P1 pending |
 | Post-V2.1 | 2026-08-31 | 锁定三项开头输入、compact/full质量双模式和分类数据缺口自动允许缺口闭合；21项门及全部业务判断边界不变 | confirmed QA lifecycle increment; P1 pending |
+| Post-V2.1 | 2026-09-01 | SIF竞品反查改为已登录官网网页端首选；未登录等待用户登录，只有用户明确无法登录时同提供商MCP备用 | confirmed source-entry increment; P1 pending |
+
+## 2026-09-01：SIF网页优先与登录门
+
+用户确认SIF竞品反查的访问入口应优先复用拥有长期副任务中的已登录官网网页端。本决定只调整同一SIF提供商的入口顺序和登录停止门，不改变ASIN范围、站点、最近30天口径、每ASIN 300条上限、七列业务字段、完整原始证据、核心词候选边界或下游人口：
+
+1. 每个Run在第一次SIF查询前验证长期副任务内置浏览器中的SIF网页登录状态；已登录时使用官网网页端作为正式首选入口。
+2. 未登录时进入`awaiting_login`并提示用户登录；不得仅因会话当前未登录而直接切换MCP。
+3. 只有用户明确表示当前设备或会话无法完成SIF网页登录时，才允许使用同一SIF提供商MCP备用。该确认只作用于当前Run，不改成永久跳过网页的授权。
+4. 网页与MCP必须保持同一ASIN、站点、最近30天口径、300条上限、七列字段和完整性门。原始证据仍须先保存；入口身份、查询时间、顺序、数量和哈希继续可追溯。
+5. 旧入口顺序下形成的网页备用边界案例继续保留为历史证据，但不能验证当前“网页首选—登录等待—MCP条件备用”的新规则。新规则必须在新锁定revision上通过真实案例，全部Skill继续`draft/planned`。
+6. 本次属于Post-V2.1来源入口增量，不建立新清洗版本；由于修改了Skill与判断边界，受影响正式Run必须使用新revision从SIF阶段重新开始，并执行`full-regression`。
 
 ## 2026-08-31：三项开头输入锁与质量双模式
 
