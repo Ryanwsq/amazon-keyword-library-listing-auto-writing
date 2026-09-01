@@ -43,4 +43,4 @@ capabilities:
     input: 分类结果、否词结果、上游哈希和版本
     output: 工作簿、manifest、渲染和异常摘要
     permission: local-draft-and-verify
-    risk: 主键或人口不闭合时阻断；ABA/搜索量行级缺口不停止整批但必须进入最终QA确认清单
+    risk: 主键或人口不闭合时阻断；ABA/搜索量行级缺口不停止整批，准确传递后自动进入QA允许缺口清单且不等待用户

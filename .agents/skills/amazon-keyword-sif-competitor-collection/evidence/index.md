@@ -2,7 +2,7 @@
 
 - Skill: `amazon-keyword-sif-competitor-collection`
 - Maturity: `draft`
-- P1 status: `not_started`
+- P1 status: `in_progress`
 - Last reviewed: `2026-08-27`
 
 ## Case slots
@@ -11,7 +11,7 @@
 |---|---|---|---|---|---|
 | `case-01-normal.md` | normal | planned | pending | pending | pending |
 | `case-02-normal.md` | normal | planned | pending | pending | pending |
-| `case-03-edge-or-error.md` | edge-or-error | planned | pending | pending | pending |
+| `case-03-edge-or-error.md` | edge-or-error | accepted | `4a903057765e136c85c5dc4704178c076f3ce467` | `gaming-chair-sif-fallback-01` | user-confirmed 2026-08-27 |
 
 ## Evidence admission rules
 
@@ -25,4 +25,4 @@
 
 ## Current status
 
-暂无被接纳案例；三个槽位均为 `planned`。本文件不构成 P1 证据。
+已接纳一个MCP额度耗尽后同提供商官网完整导出的边界案例；两个正常案例仍为`planned`。Skill保持`draft`，P1未完成。

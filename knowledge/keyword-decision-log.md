@@ -3,8 +3,8 @@
 - Status: verified
 - Last verified: 2026-08-27
 - Sharing: sanitized
-- Provenance: 用户授权归档、用户确认记录、四轮历史案例脱敏结论、2026-08-11至2026-08-16增量决策、2026-08-20首轮真实正常案例问题台账、2026-08-21首轮运行后减配确认、2026-08-22词频介词白名单确认、2026-08-23核心层级与通用词库资格确认、2026-08-24二类词独立Sheet/输入核心门/网页导出优先/任务分离/联想边界/两级歧义/分类数据缺口与显示名确认、2026-08-25来源双种子/同类目二类词/配置假阴性/机械任务身份/审计与QA后封包确认、2026-08-26多细分类目目标细分简称强等价闭环确认，以及2026-08-27十二Skill证据登记治理确认
-- Coverage: confirmed decisions through V2.1 plus V2.2 word frequency, 2026-08-21 output contracts, 2026-08-22 clarifications, 2026-08-23 core hierarchy/general-library eligibility correction, 2026-08-24 output and input gates, 2026-08-25 conditional dual-seed collection/same-category secondary terms/configuration-safe eligibility/task identity/trend audit/privacy and post-QA packaging, 2026-08-26 multi-subdivision target-subdivision alias closure, and 2026-08-27 evidence-registry governance
+- Provenance: 用户授权归档、用户确认记录、四轮历史案例脱敏结论、2026-08-11至2026-08-16增量决策、2026-08-20首轮真实正常案例问题台账、2026-08-21首轮运行后减配确认、2026-08-22词频介词白名单确认、2026-08-23核心层级与通用词库资格确认、2026-08-24二类词独立Sheet/输入核心门/网页导出优先/任务分离/联想边界/两级歧义/分类数据缺口与显示名确认、2026-08-25来源双种子/同类目二类词/配置假阴性/机械任务身份/审计与QA后封包确认、2026-08-26多细分类目目标细分简称强等价闭环确认，以及2026-08-27十二Skill证据治理与首批模块案例人工确认
+- Coverage: confirmed decisions through V2.1 plus V2.2 word frequency, 2026-08-21 output contracts, 2026-08-22 clarifications, 2026-08-23 core hierarchy/general-library eligibility correction, 2026-08-24 output and input gates, 2026-08-25 conditional dual-seed collection/same-category secondary terms/configuration-safe eligibility/task identity/trend audit/privacy and post-QA packaging, 2026-08-26 multi-subdivision target-subdivision alias closure, and 2026-08-27 evidence governance plus first modular case publication
 
 ## 摘要
 
@@ -48,6 +48,19 @@
 | Post-V2.1 | 2026-08-25 | 修正来源锚点、同类目二类词与配置假阴性，增加任务身份门、趋势审计、隐私扫描和QA后封包闭环；本轮不重跑 | confirmed increment; P1 pending |
 | Post-V2.1 | 2026-08-26 | 多细分类目增加目标细分简称/紧凑表达的强等价闭环、层级来源和冲突停止门；当前受影响Run获准按新规则修复 | confirmed increment; P1 pending |
 | Post-V2.1 | 2026-08-27 | 十二个Skill建立三槽位证据登记，锁定真实案例接纳、禁止历史倒填和模块独立证据边界；业务流程不变 | confirmed governance increment; P1 pending |
+| Post-V2.1 | 2026-08-27 | 首个新锁定Run经用户人工确认后按模块真实状态发布脱敏证据；6个正常案例和5个边界案例接纳，publication候选待复核 | confirmed evidence publication; P1 pending |
+| Post-V2.1 | 2026-08-31 | 锁定三项开头输入、compact/full质量双模式和分类数据缺口自动允许缺口闭合；21项门及全部业务判断边界不变 | confirmed QA lifecycle increment; P1 pending |
+
+## 2026-08-31：三项开头输入锁与质量双模式
+
+本次只调整运行输入合同、质量执行模式和交付状态闭合，不改变V2.1清洗基线、V2.2词频组件、核心层级、强等价、三去向、二类词、通用词库资格、介词、Top3竞争或趋势口径。已确认：
+
+1. 用户开头固定提供`产品基础信息配置`、`产品配置卖点`和`竞品对标ASIN`三组输入。目标Amazon类目及“是否存在多个稳定产品类型细分”是产品基础信息必填字段；齐全后运行途中不重复询问，缺失则Run不启动。用户仍不指定一级核心词或细分核心词。
+2. 日常真实Run在规则、Schema和检查器均未变化时默认使用`compact-production`。compact保留原21个Gate身份并执行机械全量检查；语义部分对完整风险人口逐行复核，不抽样、不设上限、不用共享理由模板外推。它复用装配阶段唯一渲染，只生成`compact-qa-result.json`及按需唯一问题文档或引用。
+3. Skill、知识、判断边界、字段/Sheet/Schema、公式/图表、封包/检查器变化，两个正常加一个边界案例、P1/verified评估，或compact发现无法解释的异常时，必须使用`full-regression`。full保留完整不可变质量工作簿、quality manifest、必要独立预览和唯一问题文档或引用；不得为节省成本降级。
+4. `关键词ABA排名缺失、搜索量缺失、没有搜索量`继续是行级数据状态。计数、主键、原值和受影响派生字段准确传递且未伪造时，QA自动按允许缺口闭合，可输出`pass/completed_with_gaps`，不再在运行途中等待用户确认；状态错误或派生伪造仍是硬门失败。
+5. 两种模式都维持质量任务只读、候选装配—不可变QA产物—装配重哈希—QA只读差异核对四阶段。compact减少的是重复质量工作簿、重复预览和重复上下文，不是业务边界或检查人口。
+6. 本次修改了质量合同与封包检查器，因此下一次真实验证必须运行`full-regression`；完整回归锁定后，后续无规则/结构/检查器变化的日常Run才使用compact。本次规则与P0校验不产生P1证据，全部Skills继续`draft/planned`。
 
 ## V2.1 决策说明
 
@@ -344,6 +357,18 @@ Office Chair 历史案例暴露了类目锚点与 SKU 精准适配混淆，并�
 5. 一个端到端Run可以为实际执行到的每个Skill各贡献一个对应案例，但每个Skill必须形成独立、脱敏、引用自身capability ID且可审计的模块记录，不能用整轮结论替代模块证据。
 6. 正式只读运行期间不修改Skills、知识、流程或证据索引。Run结束并经用户确认后，才在获准迭代/发布批次写入脱敏案例文件并更新索引；三槽位全部`accepted`且被引用能力均有真实验证依据后，才可评估`maturity: verified`。
 7. 本次登记结构和P0验证不产生P1，不改变V2.1/V2.2或Post-V2.1业务规则。正常案例01必须使用包含本批结构与规则的全新锁定revision和全新输入。
+
+## 2026-08-27：首批模块案例发布与人工验收边界
+
+用户人工检查八Sheet业务工作簿后确认结果无问题，并授权把本轮实际完成情况写入案例证据。该确认按模块质量门发布，不把整轮评价外推到未执行步骤：
+
+1. Amazon联想、卖家精灵官网扩词、品类清洗、关键词分类、竞争分析和趋势分析各登记一个`case-01-normal accepted`。
+2. 总控因用户取消最终独立QA、SIF因MCP额度耗尽后切同提供商官网、词频因独立加号泄漏后最小修正、最终装配因未执行QA后seal、独立质量验证因用户要求停止且没有正式pass，各登记一个`case-03-edge-or-error accepted`。
+3. 知识发布Skill本批实际执行，但其跟踪变更尚待用户复核，因此`case-01-normal`只登记为`candidate`。
+4. 当前36个槽位为11个`accepted`、1个`candidate`、24个`planned`；全部Skills仍为`draft`，全部capabilities仍为`planned`，没有Skill满足两个正常加一个边界的P1条件。
+5. 独立QA、QA后封包和最终只读差异核对仍未完成；人工确认业务内容不等于21项门通过、正式封包完成或端到端P1。
+6. 本批只发布脱敏事实、能力ID、汇总人口和状态边界；原始工作簿、截图、导出、ASIN、品牌、账号会话、任务ID和本机路径继续仅作本地证据。
+7. 本批不改变V2.1/V2.2、来源优先级、语义边界、阈值、输出人口或八Sheet合同，只更新案例证据和项目状态。
 
 ## 决策边界
 
