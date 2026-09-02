@@ -147,3 +147,7 @@ process manifest不得列出或哈希自身；除自身外的过程文件必须�
 21. production固定`not_applicable`；test-validation要求模式对应质量验证完成最终封包只读差异复核，复核前不得标记`completed/pass`，复核过程不得再写交付文件。
 
 交付状态只用`completed、completed_with_gaps、incomplete、blocked`。已准确记录的三种行级数据状态自动对应允许缺口；production在Gate 1–20通过且Gate 21=`not_applicable`后可标记`completed_with_gaps`，test-validation在模式对应QA通过后可标记，不向用户发起运行中确认。
+
+## Runtime preflight
+
+业务工作簿作者写入前必须验证run contract及全部适用上游stage status：规则拥有文件哈希、stage key、执行器版本、输出/证据SHA-256、人口和完成状态均闭合。预检通过后只建立一个作者候选，再执行完整重载、公式、图表、八Sheet渲染、隐私、人口和21项Gate；“一次作者写入”不得减少任何检查。process manifest记录run contract SHA-256和各适用stage身份/哈希，真实本机合同不进入最终工作簿。预检或后验验证失败时新候选保持失败，不得就地改写为通过。

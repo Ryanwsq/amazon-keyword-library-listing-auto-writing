@@ -40,3 +40,11 @@ capabilities:
     permission: local-post-qa-package-and-verify
     denied: 不修改最终业务工作簿或QA拥有文件，不建立自哈希或循环回写，不容许未列入文件，不把Gate21或交付状态写成pass/completed，verify-final阶段不写任何文件，不调用外部服务
     risk: production不得调用；顶层结构、QA白名单、隐私指纹、21门、最终工作簿锁或过程文件人口与哈希任一不闭合即阻断
+  - id: keyword.workbook.runtime-preflight.verify
+    type: cli
+    purpose: 在业务工作簿作者写入前验证运行合同及全部适用上游stage key、输出/证据哈希、人口和完成状态
+    status: planned
+    input: run-contract、全部适用stage status、上游工作簿/manifest哈希和人口锁
+    output: 可装配或阻断结论、漂移阶段和缺失依赖清单
+    permission: local-read-and-verify
+    risk: 只负责写入前身份门；不得跳过上游模块、风险人口、八Sheet作者逻辑、渲染、隐私或21项Gate，不得把未完成状态提升为完成

@@ -144,3 +144,7 @@ Gate状态只用`pass/fail/not_executed/not_applicable`。QA结论只用`pass/bl
 ## Full-regression quality manifest
 
 完整回归的quality manifest只记录一次性生成标识、`generation_count=1`、不可变标记、`qa_mode=full-regression`、质量目录白名单、质量工作簿/问题文档或唯一引用/每个预览的相对路径、大小和SHA-256、通过/失败/未执行/不适用Gate数及总数21、阻断/非阻断问题数、QA结论和交付状态；四种Gate计数必须合计21且与结论/交付状态一致。compact-validation不生成quality manifest。最终封包后的只读差异核对不回写任何质量产物；回传必须引用质量结果哈希和最终process manifest哈希。
+
+## Runtime contract audit
+
+test-validation开始时独立验证run contract自身哈希、规则族人口、权威拥有文件哈希、阶段键、上游输出/证据哈希和人口锁。运行合同只证明版本身份，不能替代本合同的完整21项门、完整风险人口逐行语义复核或各Skill直接引用资料。任何Skill、知识、判断边界、Schema、公式、图表、封包、检查器或本运行性能层变化都必须以`full-regression`验证；P0/夹具不得冒充P1。

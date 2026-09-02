@@ -12,6 +12,7 @@
 - 2026-08-24又锁定输入核心门、卖家精灵网页完整导出优先和严格副任务执行边界；用户不指定核心词，主任务只在类目确有多个稳定产品类型细分时判断可选细分核心词。
 - 2026-08-26增加多细分类目的目标细分简称/紧凑表达强等价闭环：省略一级品类或用途等上位限定词不能成为机械摘除依据；锚点冲突必须停止，清洗与QA按行反查而不由共享理由模板外推整组。
 - 2026-08-31锁定三组开头输入；2026-09-02进一步锁定运行类型：产品基础信息必须已经包含目标类目和多稳定类型回答；未明确为测试时默认production且不调度独立质量验证，装配仍执行适用机械门与风险人口检查；只有test-validation使用compact-validation/full-regression，规则/结构/检查器变化和P1案例必须full-regression。分类三种数据缺口准确传递后自动按允许缺口闭合，不等待运行途中人工确认。
+- 2026-09-02新增无损运行性能层：以规则文件哈希和stage key支持精确断点续跑、并行登录预检、失败后代隔离和纯机械确定性计算；完整短语语义、强等价闭环、风险人口、八Sheet及21项Gate不削减。当前只通过P0/夹具，下一次test-validation必须full-regression后才能评价无损与实际提速。
 - 最近一次真实Run的八Sheet候选与冻结QA为`blocked/P1=false`。当前已获准在规则校验后从最早受影响的锚点交接生成新版本并重跑依赖输出；旧工作簿保持问题证据。下一次正常案例仍须在新固定revision上由各拥有副任务完整只读执行。
 - 下一次测试验证因本批质量合同和封包检查器发生变化，必须使用`run_type=test-validation + full-regression`；普通production不调用独立质量验证。仍需按各Skill剩余槽位补齐两个正常加一个边界案例，不能以人工确认或production运行倒填P1。
 
@@ -30,6 +31,8 @@
 - 任务架构：`docs/thread-architecture.md`
 - 任务角色：`docs/thread-roles.md`
 - 判定边界：`docs/keyword-judgment-boundaries.md`
+- 运行性能合同：`docs/runtime-optimization-contract.md`
+- 规则覆盖映射：`contracts/runtime-rule-map.json`
 - 知识索引：`knowledge/INDEX.md`
 - 项目Skills：`.agents/skills/`
 

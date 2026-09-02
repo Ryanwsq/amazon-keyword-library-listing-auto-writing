@@ -1,0 +1,115 @@
+{
+  "schema": "amazon-keyword-rule-map/v1",
+  "business_baseline": "V2.1+Post-V2.1",
+  "purpose": "运行时只引用权威规则的内容哈希和稳定规则族，不复制或缩写业务判断边界。",
+  "rules": [
+    {
+      "id": "INPUT-THREE-GROUPS",
+      "owner": "AGENTS.md",
+      "anchor": "用户开头输入固定为三组",
+      "stages": ["sif", "core-lock"]
+    },
+    {
+      "id": "ASIN-REPRESENTATIVE-SELECTION",
+      "owner": ".agents/skills/amazon-keyword-library-operations/SKILL.md",
+      "anchor": "原始直接竞品ASIN不超过5个时全部保留",
+      "stages": ["sif", "core-lock"]
+    },
+    {
+      "id": "SIF-WEBSITE-FIRST-LOGIN",
+      "owner": ".agents/skills/amazon-keyword-sif-competitor-collection/references/source-contract.md",
+      "anchor": "每个Run在第一次查询前验证登录状态",
+      "stages": ["sif"]
+    },
+    {
+      "id": "CORE-HIERARCHY",
+      "owner": ".agents/skills/amazon-keyword-library-operations/SKILL.md",
+      "anchor": "独立确认一个一级品类核心大词",
+      "stages": ["core-lock"]
+    },
+    {
+      "id": "STRONG-EQUIVALENCE-CLOSURE",
+      "owner": "docs/keyword-judgment-boundaries.md",
+      "anchor": "目标细分强等价闭环",
+      "stages": ["core-lock", "cleaning", "assembly", "quality-validation"]
+    },
+    {
+      "id": "AUTOCOMPLETE-VISIBLE-MATRIX",
+      "owner": ".agents/skills/amazon-keyword-amazon-autocomplete/references/source-contract.md",
+      "anchor": "底部商品卡、价格卡和商品轮播",
+      "stages": ["amazon-autocomplete"]
+    },
+    {
+      "id": "SELLERSPRITE-ONE-COMPLETE-EXPORT",
+      "owner": ".agents/skills/amazon-keyword-sellersprite-expansion/references/source-contract.md",
+      "anchor": "取得一个完整成功结果后停止",
+      "stages": ["sellersprite"]
+    },
+    {
+      "id": "SOURCE-MECHANICAL-MERGE",
+      "owner": ".agents/skills/amazon-keyword-library-operations/references/source-merge-contract.md",
+      "anchor": "机械键固定为NFKC、英文小写、去首尾空格和压缩连续空格",
+      "stages": ["first-board"]
+    },
+    {
+      "id": "CLEANING-FULL-PHRASE",
+      "owner": ".agents/skills/amazon-keyword-category-cleaning/SKILL.md",
+      "anchor": "非精确锚点表达必须读取完整短语",
+      "stages": ["cleaning"]
+    },
+    {
+      "id": "CLEANING-REVERSE-AUDIT",
+      "owner": ".agents/skills/amazon-keyword-category-cleaning/SKILL.md",
+      "anchor": "反向质检同时覆盖Sheet2误放",
+      "stages": ["cleaning", "assembly", "quality-validation"]
+    },
+    {
+      "id": "CLASSIFICATION-F1-F5",
+      "owner": ".agents/skills/amazon-keyword-classification/references/output-contract.md",
+      "anchor": "F1：ABA 1–10,000",
+      "stages": ["classification"]
+    },
+    {
+      "id": "ROW-LEVEL-DATA-GAPS",
+      "owner": ".agents/skills/amazon-keyword-classification/references/output-contract.md",
+      "anchor": "关键词ABA排名缺失、搜索量缺失、没有搜索量",
+      "stages": ["classification", "assembly", "quality-validation"]
+    },
+    {
+      "id": "WORD-FREQUENCY-PREPOSITION-BREAKS",
+      "owner": ".agents/skills/amazon-keyword-word-frequency/references/workbook-contract.md",
+      "anchor": "EN_PREP_CORE_V1",
+      "stages": ["word-frequency"]
+    },
+    {
+      "id": "COMPETITION-TOP3-ONLY",
+      "owner": ".agents/skills/amazon-keyword-competition-analysis/references/output-contract.md",
+      "anchor": "正式输入只含同周期完整词Top3两项",
+      "stages": ["competition"]
+    },
+    {
+      "id": "TREND-SINGLE-PROVIDER",
+      "owner": ".agents/skills/amazon-keyword-trend-analysis/references/output-contract.md",
+      "anchor": "全部关键词和月份只使用该提供商",
+      "stages": ["trend"]
+    },
+    {
+      "id": "FINAL-EIGHT-SHEETS",
+      "owner": ".agents/skills/amazon-keyword-final-workbook-assembly/references/workbook-contract.md",
+      "anchor": "恰好八个可见Sheet",
+      "stages": ["assembly", "quality-validation"]
+    },
+    {
+      "id": "QUALITY-RUN-TYPE-ROUTING",
+      "owner": ".agents/skills/amazon-keyword-quality-validation/references/quality-contract.md",
+      "anchor": "独立质量验证只适用于`run_type=test-validation`",
+      "stages": ["assembly", "quality-validation"]
+    },
+    {
+      "id": "P1-STATUS-INTEGRITY",
+      "owner": "AGENTS.md",
+      "anchor": "P1验收未完成时不得冒充已完成或已验证能力",
+      "stages": ["assembly", "quality-validation"]
+    }
+  ]
+}

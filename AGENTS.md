@@ -1,6 +1,6 @@
 # Amazon Keyword Library guidance
 
-先读 `PROJECT.md`、`docs/thread-architecture.md`、`docs/task-routing.md`、`docs/risk-gates.md`、`docs/end-to-end-workflow.md`、`knowledge/INDEX.md`、`knowledge/product-keyword-library.md`、`knowledge/keyword-decision-log.md` 和 `docs/keyword-judgment-boundaries.md`，再按逻辑角色完整读取对应项目 Skill 及其直接引用资料。
+先读 `PROJECT.md`、`docs/thread-architecture.md`、`docs/task-routing.md`、`docs/risk-gates.md`、`docs/end-to-end-workflow.md`、`docs/runtime-optimization-contract.md`、`knowledge/INDEX.md`、`knowledge/product-keyword-library.md`、`knowledge/keyword-decision-log.md` 和 `docs/keyword-judgment-boundaries.md`，再按逻辑角色完整读取对应项目 Skill 及其直接引用资料。
 
 ## Content ownership
 
@@ -29,6 +29,8 @@
 主任务负责输入锁定、运行版本、长期副任务调度、三来源机械合并、阶段完成门、跨模块冲突和最终验收。每个长期副任务独立负责一项执行任务，以及该模块对应的 Skill、直接引用合同和模块知识；副任务之间不直接交接正式结论，统一回传主任务。主任务不得因副任务不可用、未初始化、操作不便或已能看到证据而代跑；只有用户了解影响后明确批准的一次性Run例外才可接收已经产生的证据，且例外不得成为默认路由或P1证据。
 
 正式只读验证期间，所有 Skills、知识和流程文件保持只读；业务文件只写入 `.local/runs/<Run_ID>/`。发现的问题只进入候选问题台账，不得边跑边改规则。用户确认后，副任务才可进入获准迭代模式修改自己拥有的文件，主任务统一同步项目决策、知识索引和端到端流程。
+
+每Run必须在本机忽略目录建立内容寻址运行合同，锁定三项输入哈希、revision、权威规则拥有文件哈希、阶段依赖/执行器版本/stage key和人口；Rule ID与哈希不能替代完整读取拥有Skill及直接合同。SIF和卖家精灵可以并行预检登录，但首次业务动作前仍按各自Skill复核。阶段只在stage key、输出/证据哈希、人口和完成状态完全一致时复用；失败只阻断该阶段后代，不冻结无依赖关系分支，最终装配汇合门不变。确定性核心只处理机械并集/人口、三去向与风险覆盖验证、F1–F5/数据状态、词频、Top3矩阵和单源趋势计算，不得判断核心层级、强等价、完整词中心对象、语义去向/资格、动态标签、F5主标签或否词。任何性能层、Skill或检查器变化后的test-validation必须full-regression；不得以P0或夹具冒充P1。
 
 十二个 Skill 从`draft`阶段起都必须维护`evidence/index.md`，固定登记两个正常案例和一个边界/异常案例槽位。索引本身不是P1证据，历史运行不得追认；同一真实端到端Run只能为实际执行到的Skill各贡献一个独立模块案例。正式只读运行中不得更新证据索引，Run结束并经用户确认后，才在获准迭代/发布批次写入脱敏案例文件、更新登记状态并评估capability与maturity。
 

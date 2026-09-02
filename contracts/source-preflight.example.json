@@ -1,0 +1,13 @@
+{
+  "schema": "amazon-keyword-source-preflight/v1",
+  "providers": {
+    "sif": {
+      "status": "authenticated",
+      "checked_at": "YYYY-MM-DDThh:mm:ss+08:00"
+    },
+    "sellersprite": {
+      "status": "awaiting_login",
+      "checked_at": "YYYY-MM-DDThh:mm:ss+08:00"
+    }
+  }
+}

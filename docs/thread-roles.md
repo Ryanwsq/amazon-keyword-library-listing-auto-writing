@@ -6,7 +6,7 @@
 
 | Logical role | Task title | Supporting Skills | Responsibility |
 |---|---|---|---|
-| `keyword-main` | `Amazon关键词词库｜主任务｜main` | `amazon-keyword-library-operations`、`amazon-keyword-library-publication` | 输入与版本锁定、核心层级及多细分类目强等价简称闭环、长期副任务调度、三来源机械合并、完成门、跨模块裁决、总知识与端到端同步、最终验收和交付 |
+| `keyword-main` | `Amazon关键词词库｜主任务｜main` | `amazon-keyword-library-operations`、`amazon-keyword-library-publication` | 输入与内容寻址运行合同锁定、核心层级及多细分类目强等价简称闭环、长期副任务调度、失败后代隔离、三来源机械合并、完成门、跨模块裁决、总知识与端到端同步、最终验收和交付 |
 
 当前 Codex 任务已绑定 `keyword-main` 逻辑角色。主任务不替代副任务执行其模块，也不在只读验证中边运行边修改规则；副任务不可用、未初始化、操作不便或证据在主任务可见都不是代跑理由。每次派发前必须用本机忽略映射核对逻辑角色、固定标题、Task ID/host、执行cwd、Run、revision和输出目录，任一不符即停止，不创建临时替代任务。只有用户了解影响并明确批准的一次性Run例外才可接收已经产生的证据，且不得成为默认路由或P1证据。
 
@@ -31,7 +31,7 @@
 
 每个副任务长期拥有自己的 Skill 目录、直接引用合同和模块知识。只读验证时这些文件不可修改；用户确认问题后，副任务进入获准迭代模式，只修改自己的拥有文件并回传主任务。
 
-项目级 `PROJECT.md`、`knowledge/INDEX.md`、`knowledge/keyword-decision-log.md`、`docs/end-to-end-workflow.md`、`docs/thread-architecture.md` 和跨模块冲突由主任务拥有。副任务只能提出对这些文件的候选更新，不能并行直接修改。
+项目级 `PROJECT.md`、`knowledge/INDEX.md`、`knowledge/keyword-decision-log.md`、`docs/end-to-end-workflow.md`、`docs/runtime-optimization-contract.md`、`contracts/runtime-rule-map.json`、`docs/thread-architecture.md` 和跨模块冲突由主任务拥有。副任务只能提出对这些文件的候选更新，不能并行直接修改。
 
 ## Shared status rules
 
@@ -42,4 +42,5 @@
 - 第三板块不读取 SKU 事实卡，不输出广告资格或投放动作。
 - 多细分类目的目标细分简称/紧凑表达强等价闭环由主任务在清洗前锁定；清洗发现锚点与完整词组合证据冲突时停止回传，不自行改层级。产品关系与通用词库资格只由第二板块依据已闭合分层锚点、SKU事实和完整词中心对象判定；分类只传递，词频、竞争、趋势和最终通用词库只消费资格为`纳入`的人口。
 - 用户开头三组输入中的产品基础信息必须已包含目标类目与多稳定类型回答；齐全后不在运行途中重复询问。production不派发独立质量验证；test-validation的compact-validation与full-regression共享全部21项门和完整风险人口，compact不得作为P1三案例的替代。
+- 每Run的run contract、preflight和stage status只在本机忽略目录；Rule ID/哈希不替代完整Skill阅读。阶段仅在身份、输出/证据哈希、人口和完成状态完全一致时复用；失败只阻断后代，最终汇合门不变。确定性核心不拥有任何关键词语义判断。
 - 当前 gaming-chair 运行是迁移前问题发现证据，不是独立仓库的第一次正式只读验证。

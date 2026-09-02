@@ -24,7 +24,7 @@ description: Count and rank non-preposition single words and adjacent ordered tw
 ## 执行步骤
 
 1. 读取知识、判断边界和`references/workbook-contract.md`；锁定Sheet2总人口、`通用词库资格=纳入`人口、关键词列、哈希、规则版本、`EN_PREP_CORE_V1`的48个唯一token及内容哈希。版本、数量、内容或哈希任一不一致即停止。
-2. 只读取`通用词库资格=纳入`且英文关键词非空的Sheet2行。`不纳入`和`待复核`零混入。对统计副本执行NFKC和英文小写，以空白、标点和连字符分隔；不覆盖原词。
+2. 只读取`通用词库资格=纳入`且英文关键词非空的Sheet2行。`不纳入`和`待复核`零混入。把锁定主键、英文词和资格输入`scripts/keyword_deterministic_core.py word-frequency`；确定性核心对统计副本执行NFKC和英文小写，以空白、标点和连字符分隔，不覆盖原词。
 3. 只从单词序列删除`EN_PREP_CORE_V1`中的精确token；保留数字、冠词`a/an/the`、连词`and/or`、`up/down/off/out/as/like`、其他停用词和可识别非英语词面。不得做上下文词性重判或多词介词识别。
 4. 单词频次只累计非介词token。
 5. 将介词作为硬断点，在每个连续非介词词段内部生成相邻有序双词；不跨介词、不统计非相邻、不交换顺序。
@@ -37,6 +37,7 @@ description: Count and rank non-preposition single words and adjacent ordered tw
 - 输入只来自Sheet2中`通用词库资格=纳入`的英文关键词，源工作簿不变；其他资格零混入。
 - 单词表不含`EN_PREP_CORE_V1`中的token，双词不含这些token且不跨这些断点；保留词不得因停用词或语境被额外删除。
 - 计数、排序和唯一词面可机械复算，次数1保留。
+- 固定确定性核心版本、输入人口哈希、`EN_PREP_CORE_V1`内容哈希和结果计数写入manifest；版本或哈希漂移不得断点复用。
 - 输出不含ABA、搜索量、流量层、权重、竞争、趋势或广告结论。
 - Skill保持draft/planned，未完成真实三案例不称verified。
 

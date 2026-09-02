@@ -36,3 +36,11 @@ capabilities:
     output: 逐词逐月原始响应、可解析月份、搜索量、覆盖范围和缺失状态
     permission: external-read-authorized
     risk: 一旦选用即覆盖同一Run全部关键词；不得与卖家精灵混源，不使用搜索排名或建议竞价字段
+  - id: keyword.trend.matrix.calculate
+    type: cli
+    purpose: 对资格纳入F1至F3的单一提供商至少24完整月原值机械计算月季矩阵和实际搜索量图表数据
+    status: planned
+    input: Keyword_ID、资格、流量层、锁定提供商、最新完整月及逐词月份与搜索量原值
+    output: 36行月矩阵、12行季矩阵、月季实际搜索量序列、缺口人口和状态
+    permission: local-draft-and-verify
+    risk: 不调用来源、不混源、不补0、不插值；缺月和零分母留空，环同比不得进入图表序列

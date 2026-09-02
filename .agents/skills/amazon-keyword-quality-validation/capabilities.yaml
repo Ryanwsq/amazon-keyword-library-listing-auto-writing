@@ -12,3 +12,11 @@ capabilities:
     output: compact-validation的compact-qa-result与按需问题引用，或full-regression的一次性完整质量工作簿/manifest/预览；两种测试模式均输出21个Gate及封包后只读差异结论
     permission: local-read-and-verify
     risk: production不得调用或生成QA结论；不修复不重跑不外部补数；风险人口不得抽样；compact-validation不得替代应触发的full；允许数据缺口不等待用户，硬门失败不得pass
+  - id: keyword.quality.runtime-contract.verify
+    type: cli
+    purpose: 独立验证test-validation运行合同、权威规则文件哈希、阶段键、输入人口和full-regression触发状态
+    status: planned
+    input: run-contract、当前contracts/runtime-rule-map.json、权威规则文件和stage status
+    output: 合同有效性、规则漂移、阶段身份和模式路由结论
+    permission: local-read-and-verify
+    risk: production不得因此生成QA；运行合同不能替代完整Skill阅读、21门或完整风险人口逐行语义复核

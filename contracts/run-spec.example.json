@@ -1,0 +1,19 @@
+{
+  "run_id": "AKW-YYYYMMDD-SLUG-01",
+  "run_type": "production",
+  "revision": "0000000000000000000000000000000000000000",
+  "site": "Amazon-US",
+  "input_hashes": {
+    "product_basic_configuration": "0000000000000000000000000000000000000000000000000000000000000000",
+    "product_selling_points": "0000000000000000000000000000000000000000000000000000000000000000",
+    "competitor_asins": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "locks": {
+    "target_amazon_category": "sanitized category name",
+    "has_multiple_stable_product_types": false,
+    "original_asin_count": 3,
+    "selected_asin_count": 3,
+    "excluded_asin_count": 0
+  },
+  "change_flags": []
+}

@@ -205,7 +205,17 @@
 
 最终`二类词`Sheet只机械复制分类完成的`Sheet4_二类词`全人口，每个`Keyword_ID`恰好一行，允许零行时只保留表头。字段固定为第二板块十二列`Keyword_ID、英文关键词、中文翻译、ABA月排名、月搜索量、关键词来源、流量数据来源、数据状态、中心购买对象、二类商品类型、共同核心购买任务、直接替代理由`，再追加分类四列`流量层、长尾主分组标签、LT分组、分类状态`，共十六列。装配不得新增、删除、重判二类词或改变字段值；该Sheet不含Top3、动态语义列、竞争、趋势、通用词库资格、否词方式、广告资格或投放动作。
 
-## 9. 状态与质量边界
+## 9. 无损运行性能层
+
+运行性能优化是业务规则之外的执行层。每个Run以三项输入哈希、Git revision、权威规则拥有文件哈希、阶段依赖、执行器版本、人口和stage key建立本机run contract。Rule ID和文件哈希只证明版本一致，不能替代各Skill及其直接合同的完整规则，也不能承载另一个业务判断来源。
+
+允许内容寻址续跑的前提是stage key、输出/证据SHA-256、人口和`completed/completed_with_gaps`状态全部一致；失败、partial、not_executed、旧revision或规则漂移均不得复用。阶段失败只阻断自己的后代，不冻结无依赖关系的并行分支；最终装配仍等待全部适用分支闭合。
+
+确定性核心只处理机械可复算部分：来源并集/人口验证、清洗三去向与完整风险覆盖验证、F1–F5/数据状态、词频、Top3竞争矩阵、单一提供商趋势计算。一级品类、细分核心、强等价、完整词中心对象、三去向语义、通用词库资格、动态语义、F5主标签和否词仍由拥有Skill按完整人口判断。装配写入前预检和单次作者候选不减少公式、图表、渲染、隐私、人口或21项Gate。
+
+性能层、Skill或检查器变化必须由下一次`test-validation + full-regression`证明无损；相同输入下关键词人口、三去向、资格、所有业务列值、动态列、分析人口、八Sheet/schema、公式/图表和Gate必须完全一致。P0与本地夹具只证明结构/机械实现可运行，不构成P1或实测提速。
+
+## 10. 状态与质量边界
 
 模块和交付状态只使用合同定义值；未执行不等于零结果，范围外不等于缺失。趋势或准确传递的分类行级数据缺口可为`completed_with_gaps`，但零有效数据或基准整体不足为`incomplete`。独立QA只读，不补拉来源、不修改上游、不改规则。
 
@@ -213,6 +223,6 @@
 
 Run开头锁定`run_type=production|test-validation`；未明确为测试、回归、能力案例或P1评估时默认production。production不调度独立质量验证副任务，最终装配仍保留21个Gate ID、完成Gate 1–20的机械全量检查与完整风险人口逐行复核，并把独立QA专属Gate 21写为`not_applicable`；质量目录只保留装配生成的`independent-qa-not-applicable.json`，不得伪造QA pass，交付记录`p1=false`。test-validation才允许独立QA：普通测试用`compact-validation`，规则/Skill/判断边界、字段/Sheet/Schema、公式/图表、封包/检查器变化，两个正常加一个边界案例、P1/verified评估，或compact异常时必须用`full-regression`。test-validation两种模式都保留全部21项门、机械全量检查和完整风险人口逐行语义复核；compact-validation只复用装配渲染并输出结果JSON及按需唯一问题文档/引用，full保留完整质量工作簿、quality manifest、必要独立预览和唯一问题文档/引用。任何未列入最终manifest的文件均失败。隐私审计分别扫描文本、路径、XLSX单元格和OOXML结构：真实Codex任务ID及含任务ID的本机路径必须失败，普通SHA-256与Office内部GUID必须通过；test-validation由装配与QA交叉验证，production由装配检查闭合但不得冒充独立QA。
 
-## 10. 发布边界
+## 11. 发布边界
 
 Git和飞书只同步脱敏稳定规则、版本、状态和交接。真实产品输入、ASIN、原始响应、XLSX、截图、检查日志、账号、Token、任务ID、绝对路径和本机授权状态只保存在获准的本机忽略目录。

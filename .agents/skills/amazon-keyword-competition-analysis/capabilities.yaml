@@ -28,3 +28,11 @@ capabilities:
     output: 竞争工作簿、manifest、公式渲染和闭环结果
     permission: local-draft-and-verify
     risk: 不覆盖上游；主键人口或等级不可复算时阻断
+  - id: keyword.competition.matrix.calculate
+    type: cli
+    purpose: 只对资格纳入F1至F4人口以同周期完整词精确Top3两项计算阈值、差值、结构和固定4乘4综合等级
+    status: planned
+    input: Keyword_ID、资格、流量层、Top3点击/转化份额、明确单位、精确匹配和同周期状态
+    output: 单项集中等级、百分点差、结构、综合竞争等级、缺口状态和人口计数
+    permission: local-draft-and-verify
+    risk: 不查询外部来源、不决定人口、不使用近似词或其他竞争字段；任一完整性项不足时派生值留空

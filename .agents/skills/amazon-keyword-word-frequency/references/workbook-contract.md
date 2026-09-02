@@ -65,3 +65,7 @@ under, underneath, until, upon, via, with, within, without
 5. 输出行数等于唯一单词/双词数，排序稳定且保留次数1。
 6. `a/an/the`、`and/or`、`up/down/off/out/as/like`若在输入中出现，必须按普通token进入对应单词/双词候选，不得被白名单误删。
 7. 工作簿只有一张词频Sheet；公式扫描、渲染和目视复核通过。
+
+## Runtime calculation
+
+NFKC分词、`EN_PREP_CORE_V1`过滤/硬断点、单词/有序双词计数和稳定排序使用仓库级`word-frequency`确定性核心。manifest必须记录执行器版本、资格人口哈希、48-token内容哈希和结果哈希。确定性JSON只是工作簿输入和复算证据，不替代固定Sheet、公式扫描、渲染或目视复核。

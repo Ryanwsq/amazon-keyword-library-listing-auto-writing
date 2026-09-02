@@ -26,12 +26,13 @@ description: Classify locked Amazon Sheet2 and Sheet4 keywords by confirmed ABA 
 - `keyword.classification.sheet4.apply`
 - `keyword.classification.negative-library.build`
 - `keyword.classification.outputs.write-and-verify`
+- `keyword.classification.traffic.calculate`
 
 ## 执行步骤
 
 1. 读取知识、判断边界和`references/output-contract.md`，锁定第二板块版本、三去向人口、主键和分类版本；不读取SKU事实卡。
 2. 复制Sheet2和Sheet4为新过程工作簿，不覆盖第二板块原表，不改变行数、去向、原词、指标或理由。
-3. 按ABA应用互斥F1–F5：1–10k、10–20k、20–50k、50–100k、>100k。ABA排名未抓取到或不可用时，流量层、主分组和LT留空，分类状态写`关键词ABA排名缺失`；不根据搜索量反推ABA或流量层。
+3. 使用`scripts/keyword_deterministic_core.py classify-traffic`按ABA应用互斥F1–F5：1–10k、10–20k、20–50k、50–100k、>100k，并机械生成三种数据缺口状态。ABA排名未抓取到或不可用时，流量层、主分组和LT留空，分类状态写`关键词ABA排名缺失`；不根据搜索量反推ABA或流量层。该命令不生成动态语义列、F5主标签或否词语义。
 4. 为Sheet2完整保留原十四列及`通用词库资格`，再追加`流量层、长尾主分组标签、LT分组、分类状态`。
 5. 根据当前一级品类、完整Sheet2人口和关键词自身语义设计N个动态语义列。只保留至少一行有值的列；同一列多值用`｜`；不生成重复多标签汇总列。
 6. 只有F5填写主分组和LT。每词选择一个`列名:标签值`且只出现一次；组内ABA升序，每20词拆一个LT组。
@@ -46,6 +47,7 @@ description: Classify locked Amazon Sheet2 and Sheet4 keywords by confirmed ABA 
 - 动态列品类自适应、非空且仅由词面支持；无SKU匹配或广告字段。
 - F5每词一次、一个主分组、每LT最多20词。
 - 三种数据缺口使用精确状态`关键词ABA排名缺失、搜索量缺失、没有搜索量`；不填0、不反推、不伪造派生值。
+- F1–F5与三种数据状态由固定确定性核心复算；语义列、F5唯一主标签和否词仍按本Skill完整边界判断，不能由脚本猜测。
 - Sheet4仅追加四列且无竞争/趋势。
 - 否词库只有五列，无否定方式、生成短语或待复核词。
 - Skill保持draft/planned；未通过真实三案例不称verified。

@@ -44,3 +44,11 @@ capabilities:
     output: 工作簿、manifest、渲染和异常摘要
     permission: local-draft-and-verify
     risk: 主键或人口不闭合时阻断；ABA/搜索量行级缺口不停止整批，准确传递后自动进入QA允许缺口清单且不等待用户
+  - id: keyword.classification.traffic.calculate
+    type: cli
+    purpose: 按固定ABA阈值机械计算F1至F5并生成三种精确行级数据缺口状态
+    status: planned
+    input: 唯一Keyword_ID、ABA月排名和月搜索量原值
+    output: Keyword_ID、流量层、分类状态、人口及状态计数
+    permission: local-draft-and-verify
+    risk: 不用搜索量反推ABA；不生成动态语义列、F5主标签、LT、否词或SKU/广告判断；原值缺失不补0

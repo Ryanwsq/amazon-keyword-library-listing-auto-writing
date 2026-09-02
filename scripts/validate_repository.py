@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import re
+import json
 import sys
 from pathlib import Path
 from typing import Dict, List, Set, Tuple
@@ -27,10 +28,17 @@ REQUIRED_PATHS = {
     Path("docs/github-branching.md"),
     Path("docs/end-to-end-workflow.md"),
     Path("docs/keyword-judgment-boundaries.md"),
+    Path("docs/runtime-optimization-contract.md"),
+    Path("contracts/runtime-rule-map.json"),
+    Path("contracts/run-spec.example.json"),
+    Path("contracts/source-preflight.example.json"),
     Path("knowledge/INDEX.md"),
     Path("knowledge/product-keyword-library.md"),
     Path("knowledge/keyword-decision-log.md"),
     Path("knowledge/keyword-cleaning-case-evidence.md"),
+    Path("scripts/runtime_contract.py"),
+    Path("scripts/keyword_deterministic_core.py"),
+    Path("scripts/run_runtime_fixtures.py"),
 }
 
 TEXT_SUFFIXES = {
@@ -543,12 +551,14 @@ def validate_keyword_contract_sync(errors: List[str]) -> None:
             "卖家精灵长期副任务都必须在首次官网业务动作前验证登录",
             "同一成功种子不得为交叉验证重复导出",
             "最终交付固定为一个过程文件夹和一个八Sheet最终工作簿",
+            "每Run必须在本机忽略目录建立内容寻址运行合同",
         },
         Path(".agents/skills/amazon-keyword-library-operations/references/source-merge-contract.md"): {
             "可选细分核心词",
             "Amazon联想锚点",
             "卖家精灵种子集合",
             "有细分核心词时恰好包含一级核心词和细分核心词",
+            "validate-source-merge",
         },
         Path(".agents/skills/amazon-keyword-sellersprite-expansion/references/source-contract.md"): {
             "种子按`一级品类核心大词、产品细分核心词`锁定为两个",
@@ -563,22 +573,27 @@ def validate_keyword_contract_sync(errors: List[str]) -> None:
             "纳入+不纳入+待复核=Sheet2人口",
             "目标同对象的普通非变物扩展不以显式出现细分核心词/强等价表达或SKU配置一致为纳入硬门",
             "反向抽查同时覆盖Sheet2误放、通用词库资格误纳",
+            "validate-cleaning-ledger",
         },
         Path(".agents/skills/amazon-keyword-classification/references/output-contract.md"): {
             "完整保留第二板块十四列",
             "通用词库资格",
+            "classify-traffic",
         },
         Path(".agents/skills/amazon-keyword-word-frequency/references/workbook-contract.md"): {
             "通用词库资格=纳入",
+            "word-frequency",
         },
         Path(".agents/skills/amazon-keyword-competition-analysis/references/output-contract.md"): {
             "通用词库资格=纳入",
+            "确定性核心",
         },
         Path(".agents/skills/amazon-keyword-trend-analysis/references/output-contract.md"): {
             "通用词库资格=纳入",
             "workbook -> 全部worksheet -> 各自全部drawing -> 各自全部chart",
             "2=auditor_failure",
             "manifest/OOXML包声明存在图表或公式而审计得到零",
+            "确定性核心",
         },
         Path(".agents/skills/amazon-keyword-final-workbook-assembly/references/workbook-contract.md"): {
             "Fixed 51 fields plus N semantic columns",
@@ -591,6 +606,7 @@ def validate_keyword_contract_sync(errors: List[str]) -> None:
             "process manifest不得列出或哈希自身",
             "普通64位SHA-256必须单独分类并放行",
             "Office内部GUID只允许合同脚本中绑定到精确OOXML部件的已知固定值",
+            "Runtime preflight",
         },
         Path(".agents/skills/amazon-keyword-quality-validation/references/quality-contract.md"): {
             "14/13/12列",
@@ -600,6 +616,7 @@ def validate_keyword_contract_sync(errors: List[str]) -> None:
             "QA在最终封包前只生成一次最小白名单产物",
             "QA在装配最终封包后只读比较质量目录白名单",
             "Sheet2`通用词库资格=不纳入`、Sheet3和Sheet4反查假阴性",
+            "Runtime contract audit",
         },
         Path("docs/end-to-end-workflow.md"): {
             "一至两个卖家精灵种子",
@@ -609,6 +626,12 @@ def validate_keyword_contract_sync(errors: List[str]) -> None:
             "固定51列加N个动态语义列",
             "最终`二类词`Sheet机械复制",
             "恰好八个可见Sheet",
+            "内容寻址`run-contract.json`",
+        },
+        Path("docs/runtime-optimization-contract.md"): {
+            "三来源、固定来源人口、完整短语逐行语义判断",
+            "失败只阻断自己的后代",
+            "P0和夹具通过不等于P1或实测提速结论",
         },
     }
 
@@ -624,11 +647,98 @@ def validate_keyword_contract_sync(errors: List[str]) -> None:
                 )
 
 
+def validate_runtime_layer(errors: List[str]) -> None:
+    """Validate the tracked rule map and deterministic runtime entrypoints."""
+
+    path = ROOT / "contracts" / "runtime-rule-map.json"
+    if not path.is_file():
+        return
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        errors.append(f"contracts/runtime-rule-map.json: invalid JSON: {exc}")
+        return
+    if data.get("schema") != "amazon-keyword-rule-map/v1":
+        errors.append("contracts/runtime-rule-map.json: unsupported schema")
+    rules = data.get("rules")
+    if not isinstance(rules, list) or not rules:
+        errors.append("contracts/runtime-rule-map.json: rules must be a non-empty list")
+        return
+    seen: Set[str] = set()
+    valid_stages = {
+        "sif",
+        "core-lock",
+        "amazon-autocomplete",
+        "sellersprite",
+        "first-board",
+        "cleaning",
+        "word-frequency",
+        "classification",
+        "competition",
+        "trend",
+        "assembly",
+        "quality-validation",
+    }
+    for index, rule in enumerate(rules):
+        if not isinstance(rule, dict):
+            errors.append(f"contracts/runtime-rule-map.json: rule {index} is not an object")
+            continue
+        rule_id = rule.get("id")
+        owner = rule.get("owner")
+        anchor = rule.get("anchor")
+        stages = rule.get("stages")
+        if not isinstance(rule_id, str) or not rule_id:
+            errors.append(f"contracts/runtime-rule-map.json: rule {index} missing id")
+        elif rule_id in seen:
+            errors.append(f"contracts/runtime-rule-map.json: duplicate rule id {rule_id!r}")
+        else:
+            seen.add(rule_id)
+        if not isinstance(owner, str) or Path(owner).is_absolute() or ".." in Path(owner).parts:
+            errors.append(f"contracts/runtime-rule-map.json: {rule_id!r} has invalid owner")
+            continue
+        owner_path = ROOT / owner
+        if not owner_path.is_file():
+            errors.append(f"contracts/runtime-rule-map.json: {rule_id!r} owner is missing")
+            continue
+        if not isinstance(anchor, str) or anchor not in owner_path.read_text(encoding="utf-8"):
+            errors.append(f"contracts/runtime-rule-map.json: {rule_id!r} anchor is missing")
+        if not isinstance(stages, list) or not stages or set(stages) - valid_stages:
+            errors.append(f"contracts/runtime-rule-map.json: {rule_id!r} stages are invalid")
+
+    entrypoints = {
+        Path("scripts/runtime_contract.py"): {
+            "build",
+            "verify",
+            "ready",
+            "resume",
+            "impact",
+            "make-status",
+        },
+        Path("scripts/keyword_deterministic_core.py"): {
+            "validate-source-merge",
+            "validate-cleaning-ledger",
+            "classify-traffic",
+            "word-frequency",
+            "competition",
+            "trend",
+        },
+    }
+    for relative, commands in entrypoints.items():
+        script = ROOT / relative
+        if not script.is_file():
+            continue
+        text = script.read_text(encoding="utf-8")
+        for command in sorted(commands):
+            if command not in text:
+                errors.append(f"{relative}: missing runtime command {command!r}")
+
+
 def main() -> int:
     errors: List[str] = []
     validate_required_paths(errors)
     skill_count, draft_count, verified_count = validate_skills(errors)
     validate_keyword_contract_sync(errors)
+    validate_runtime_layer(errors)
     file_count = validate_repository_files(errors)
 
     if errors:

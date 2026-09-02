@@ -5,10 +5,10 @@ skill:
 
 capabilities:
   - id: keyword.library.word-frequency
-    type: manual
+    type: cli
     purpose: 只用Sheet2中通用词库资格为纳入的英文关键词统计去介词单词和以介词为断点的相邻有序双词
     status: planned
     input: 锁定第二板块工作簿、Sheet2资格纳入关键词人口、输入哈希、规则版本和介词表版本
-    output: 单词三列表、相邻双词三列表、manifest、数量闭环和渲染结果
+    output: 确定性JSON、单词三列表、相邻双词三列表、manifest、数量闭环和渲染结果
     permission: local-draft-and-verify
     risk: 不跨介词；不读取Sheet3或Sheet4；不使用流量权重；计数不闭合时阻断

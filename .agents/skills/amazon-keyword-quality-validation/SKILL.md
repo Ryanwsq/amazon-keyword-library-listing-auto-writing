@@ -29,10 +29,11 @@ description: Independently validate a locked Amazon keyword-library test-validat
 ## 可调用能力
 
 - `keyword.quality.validate`
+- `keyword.quality.runtime-contract.verify`
 
 ## 执行步骤
 
-1. 读取知识、判断边界和`references/quality-contract.md`；先锁定`run_type=test-validation`，再锁定模式、Run/revision、输入/规则/检查器版本、哈希、用户开头提供的类目与多稳定类型字段、目标细分强等价闭环和产物清单。production Run立即回传`not_applicable`且不生成QA产物；测试模式触发条件无法证明时使用`full-regression`，不是在运行途中要求用户判断。
+1. 读取知识、判断边界和`references/quality-contract.md`；先使用仓库级`scripts/runtime_contract.py verify`独立核对运行合同自身哈希、权威规则族人口/拥有文件哈希、阶段键和run_type路由，再锁定`run_type=test-validation`、模式、Run/revision、输入/规则/检查器版本、哈希、用户开头提供的类目与多稳定类型字段、目标细分强等价闭环和产物清单。production Run立即回传`not_applicable`且不生成QA产物；测试模式触发条件无法证明时使用`full-regression`，不是在运行途中要求用户判断。
 2. 只读验证三来源状态、获准入口类型与回退证据、原始/入选/排除ASIN人口、第一板块两Sheet、机械词池和损失风险。原始ASIN超过5个时，每个稳定竞品产品类型只保留输入顺序中的第一个有效ASIN。有细分核心词时，Amazon联想必须以细分核心词为锚点，卖家精灵必须分别以一级品类核心大词和细分核心词执行两个种子，每个种子恰有一个官网完整官方导出优先的成功结果，并在卖家精灵模块内按机械键去重且保留双seed来源；无细分核心词时，Amazon联想和卖家精灵都只使用一级品类核心大词。同种子重复导出不得作为交叉验证或人口补充。
 3. 验证第二板块四Sheet、三去向、主键、理由和人口闭环；核对一级品类核心大词、可选细分核心词、主执行锚点、强等价表达和宽泛/相邻流量词没有混层。多细分类目必须验证目标细分强等价闭环：省略一级品类词、用途限定词或其他上位限定词但仍保留决定性细分表达与完整商品头部的候选已按产品事实、直接竞品同对象身份和SIF证据逐项判定，同一机械键零层级冲突。语义反向检查必须覆盖完整风险人口，不能只找误纳：至少包含所有锚点/层级候选、Sheet2`不纳入/待复核`、Sheet3、Sheet4、决定性商品头部/稳定类型候选、配置假阴性候选、F1/F2高流量纳入词、特殊语言/连接结构和三种行级数据缺口。不得抽样、截断或用共享理由模板代表逐行结论。
 4. 验证分类两Sheet、N动态列、F1–F5、F5主分组/LT和五列否词库；核对`关键词ABA排名缺失、搜索量缺失、没有搜索量`的状态、原始值和派生留空是否符合合同。
@@ -47,6 +48,7 @@ description: Independently validate a locked Amazon keyword-library test-validat
 
 - 对上游和最终封包全程只读，不调用业务外部系统、不重跑、不修改上游、不改规则；只允许在首次生成阶段写入合同白名单内的QA产物。
 - Gate状态只用`pass/fail/not_executed/not_applicable`，21个Gate不得改号、合并或省略。
+- 运行合同只作为版本与人口身份证据；QA仍完整读取适用Skill/合同并执行全部机械门与完整风险人口逐行语义复核，不接受规则摘要代替。
 - 来源锚点审计以用户类目多稳定类型输入门为前提：有细分时联想使用细分核心词、卖家精灵保留一级核心词与细分核心词两个种子各自唯一成功官方导出血缘；无细分时两者使用一级核心词。
 - 锚点与清洗语义审计覆盖全部一级品类核心大词、细分核心词、强等价表达、当前输入门要求的一个或两个卖家精灵种子、SIF候选摘要全部词及最终通用词库全部F1/F2词；多细分类目追加目标细分简称/紧凑表达及其全部上位限定词省略族，同时逐行覆盖Sheet2不纳入/待复核、Sheet3和Sheet4以反查假阴性。流量、竞品排名、缺少细分核心词字面、缺少一级品类/用途token、营销用途或目标SKU配置均不能单独通过或否决核心层级、品类去向或通用词库资格。QA按行报告，不抽样、不设上限、不用共享理由模板推断整组结论。
 - 合同允许缺口可为QA pass且交付completed_with_gaps；硬门失败只能blocked/incomplete。

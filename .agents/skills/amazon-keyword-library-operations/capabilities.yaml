@@ -20,3 +20,19 @@ capabilities:
     output: Sheet1关键词池、Sheet2任务信息与类目锚点、合并manifest和完成状态
     permission: local-draft-and-verify
     risk: 无拥有副任务正式回传或用户明确的一次性Run例外时不合并；不语义删词；不把缺值填0；Amazon联想未执行时第一板块不得完成
+  - id: keyword.runtime.contract.manage
+    type: cli
+    purpose: 从三项输入哈希、revision、规则拥有文件和阶段依赖生成并验证内容寻址运行合同与阶段状态
+    status: planned
+    input: 本机Run规格、contracts/runtime-rule-map.json、权威规则文件、阶段输出/证据SHA-256和人口锁
+    output: run-contract.json、stage_key、可复用结论和规则漂移失败状态
+    permission: local-draft-and-verify
+    risk: 运行合同只在本机忽略目录；不得包含凭据、会话、任务UUID或绝对路径；不得用规则摘要替代完整Skill/合同阅读；哈希或人口漂移不得续跑
+  - id: keyword.runtime.failure-isolation.verify
+    type: cli
+    purpose: 按固定阶段图计算依赖就绪和失败影响范围，使无关分支继续执行而不绕过最终汇合门
+    status: planned
+    input: run-contract、stage status目录、来源preflight和目标阶段
+    output: ready/resume判定、阻断依赖和仅下游影响清单
+    permission: local-verify
+    risk: 只能缩小技术阻断传播，不能把未完成阶段视为完成；assembly仍必须等待全部适用分支，production/test-validation质量路由不得改变
