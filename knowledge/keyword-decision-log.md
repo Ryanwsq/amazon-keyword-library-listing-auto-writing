@@ -1,10 +1,10 @@
 # Amazon 关键词库版本决策记录
 
 - Status: verified
-- Last verified: 2026-09-01
+- Last verified: 2026-09-02
 - Sharing: sanitized
-- Provenance: 用户授权归档、用户确认记录、四轮历史案例脱敏结论、2026-08-11至2026-08-16增量决策、2026-08-20首轮真实正常案例问题台账、2026-08-21首轮运行后减配确认、2026-08-22词频介词白名单确认、2026-08-23核心层级与通用词库资格确认、2026-08-24二类词独立Sheet/输入核心门/网页导出优先/任务分离/联想边界/两级歧义/分类数据缺口与显示名确认、2026-08-25来源双种子/同类目二类词/配置假阴性/机械任务身份/审计与QA后封包确认、2026-08-26多细分类目目标细分简称强等价闭环确认、2026-08-27十二Skill证据治理与首批模块案例人工确认、2026-08-31三项开头输入锁与质量双模式确认，以及2026-09-01 SIF网页优先与登录门确认
-- Coverage: confirmed decisions through V2.1 plus V2.2 word frequency, 2026-08-21 output contracts, 2026-08-22 clarifications, 2026-08-23 core hierarchy/general-library eligibility correction, 2026-08-24 output and input gates, 2026-08-25 conditional dual-seed collection/same-category secondary terms/configuration-safe eligibility/task identity/trend audit/privacy and post-QA packaging, 2026-08-26 multi-subdivision target-subdivision alias closure, 2026-08-27 evidence governance plus first modular case publication, 2026-08-31 three-input lock and compact/full QA lifecycle, and 2026-09-01 SIF website-first login gate
+- Provenance: 用户授权归档、用户确认记录、四轮历史案例脱敏结论、2026-08-11至2026-08-16增量决策、2026-08-20首轮真实正常案例问题台账、2026-08-21首轮运行后减配确认、2026-08-22词频介词白名单确认、2026-08-23核心层级与通用词库资格确认、2026-08-24二类词独立Sheet/输入核心门/网页导出优先/任务分离/联想边界/两级歧义/分类数据缺口与显示名确认、2026-08-25来源双种子/同类目二类词/配置假阴性/机械任务身份/审计与QA后封包确认、2026-08-26多细分类目目标细分简称强等价闭环确认、2026-08-27十二Skill证据治理与首批模块案例人工确认、2026-08-31三项开头输入锁与质量双模式确认、2026-09-01 SIF网页优先与登录门确认，以及2026-09-02单次导出/登录回传/ASIN代表选择/测试专用独立QA确认
+- Coverage: confirmed decisions through V2.1 plus V2.2 word frequency, 2026-08-21 output contracts, 2026-08-22 clarifications, 2026-08-23 core hierarchy/general-library eligibility correction, 2026-08-24 output and input gates, 2026-08-25 conditional dual-seed collection/same-category secondary terms/configuration-safe eligibility/task identity/trend audit/privacy and post-QA packaging, 2026-08-26 multi-subdivision target-subdivision alias closure, 2026-08-27 evidence governance plus first modular case publication, 2026-08-31 three-input lock and compact/full QA lifecycle, 2026-09-01 SIF website-first login gate, and 2026-09-02 single export/login escalation/ASIN representatives/test-only independent QA
 
 ## 摘要
 
@@ -51,6 +51,19 @@
 | Post-V2.1 | 2026-08-27 | 首个新锁定Run经用户人工确认后按模块真实状态发布脱敏证据；6个正常案例和5个边界案例接纳，publication候选待复核 | confirmed evidence publication; P1 pending |
 | Post-V2.1 | 2026-08-31 | 锁定三项开头输入、compact/full质量双模式和分类数据缺口自动允许缺口闭合；21项门及全部业务判断边界不变 | confirmed QA lifecycle increment; P1 pending |
 | Post-V2.1 | 2026-09-01 | SIF竞品反查改为已登录官网网页端首选；未登录等待用户登录，只有用户明确无法登录时同提供商MCP备用 | confirmed source-entry increment; P1 pending |
+| Post-V2.1 | 2026-09-02 | 卖家精灵每种子单次成功导出；SIF/卖家精灵未登录只回传主任务；>5竞品按产品类型取代表；独立QA仅用于test-validation | confirmed operations and QA-routing increment; P1 pending |
+
+## 2026-09-02：单次导出、登录回传、竞品代表与测试专用独立QA
+
+本决定替代此前“同一卖家精灵种子至少两个Pass交叉验证”和“日常production默认compact独立QA”的执行口径；不改变一至两个种子集合、来源字段、核心层级、三去向、分析人口、八Sheet或21个Gate ID：
+
+1. 卖家精灵每个锁定种子只取得一个成功完整结果。官网路径只导出一份完整官方XLSX；成功后不得为交叉验证重复导出同一关键词种子。成功前的触发失败、任务失败或无效下载可以有界恢复，但只作诊断，不形成第二个业务导出版本或合并人口。
+2. SIF与卖家精灵长期副任务都在首次官网业务动作前检查登录。未登录时副任务只向主任务回传`awaiting_login`并冻结，由主任务提示用户登录；未登录本身不得触发MCP。SIF仍只有在用户明确无法登录时才用同提供商MCP；卖家精灵只有已登录但完整官方导出链路仍不可用时才用同提供商MCP。
+3. 原始直接竞品ASIN不超过5个时全部保留；超过5个时由主任务按稳定竞品产品类型分组，每类机械保留输入顺序中的第一个有效ASIN，并记录原始、入选、排除人口与理由。类型无法可靠确认，或每类取一后仍超过5个时，在SIF外部查询前停止，不得静默丢弃某一类型；每类取一后少于3个时不得为凑数加入同类型第二个ASIN。
+4. Run新增`run_type=production|test-validation`。未明确为测试、回归、能力案例或P1评估时默认production。production不调度独立质量验证副任务；装配任务仍执行Gate 1–20的机械全量检查与完整风险人口逐行语义复核，Gate 21记`not_applicable`，不得伪造QA pass或P1。
+5. 只有test-validation才调度独立质量验证。普通测试使用`compact-validation`；规则/Skill/判断边界、Schema、公式、图表、封包或检查器变化、两个正常加一个边界案例和P1评估必须使用`full-regression`。历史`compact-production`只作为冻结旧Run标识保留。
+6. production保持两对象、四过程分区和八Sheet结构；`04_独立质量验证/`只允许装配任务生成`independent-qa-not-applicable.json`。test-validation继续使用不可变QA产物和封包后只读差异核对。两条路径都保留隐私、哈希、人口、公式、图表和未列文件零容忍边界。
+7. 本决定为Post-V2.1增量，不建立新清洗版本，不修改历史证据，不产生P1；受影响Skill在当前revision仍需新案例验证。
 
 ## 2026-09-01：SIF网页优先与登录门
 
@@ -387,12 +400,12 @@ Office Chair 历史案例暴露了类目锚点与 SKU 精准适配混淆，并�
 - V0.1–V2.0 只用于追溯规则形成、修订和案例校准，不作为当前执行基线；各行状态说明其被哪个后续版本替代或吸收。
 - V2.0 已被 V2.1 替代，不与 V2.1 并列作为当前基线。
 - 当前唯一项目清洗基线是 V2.1，但“当前版本”不代表第三板块或整个知识库已经完成；V2.2 是词频组件业务基线，不与 V2.1 竞争清洗规则归属。
-- 2026-08-11至2026-08-24的第三板块、竞争、趋势、核心词和最终装配决策只在未被后续决定替代的范围内继续有效。2026-08-23的单一种子与2026-08-24的一级核心词联想规则已由2026-08-25条件式双种子/细分联想锚点替代；同日修正同类目二类词、配置假阴性、任务身份、趋势审计、隐私和QA后封包。2026-08-26进一步补充多细分类目的目标细分简称强等价闭环、层级来源和冲突停止门。当前权威结构是唯一一级核心、可选唯一细分核心、条件式强等价闭环、条件式联想锚点和一至两个卖家精灵种子、两对象交付、两Sheet第一板块、四Sheet第二板块、三去向51+N总表、分类Sheet4机械复制的最终二类词Sheet、八Sheet最终工作簿、资格纳入人口的词频/Top3-only竞争/24月趋势，以及固定48-token介词过滤。以上均不改变V2.1清洗基线，也不代表能力已通过P1。
+- 2026-08-11至2026-09-01的决策只在未被后续决定替代的范围内继续有效。2026-09-02以“每个卖家精灵种子一个成功完整结果”替代同种子多Pass交叉验证，以“production不派发独立QA、test-validation才派发”替代日常production默认compact QA；条件式双种子、字段、完整性、21个Gate ID及其他业务边界继续有效。当前权威结构是唯一一级核心、可选唯一细分核心、条件式强等价闭环、条件式联想锚点和一至两个卖家精灵种子、>5竞品按稳定产品类型取输入顺序首个有效代表、来源未登录只回传主任务、两对象交付、两Sheet第一板块、四Sheet第二板块、三去向51+N总表、分类Sheet4机械复制的最终二类词Sheet、八Sheet最终工作簿、资格纳入人口的词频/Top3-only竞争/24月趋势，以及固定48-token介词过滤。以上均不改变V2.1清洗基线，也不代表能力已通过P1。
 - 后续业务规则变更必须记录来源、适用范围、复核日期和替代关系；结构整理本身不产生新业务版本。
 
 ## 开放问题
 
-来源字段与入口优先级、条件式Amazon联想锚点与底部商品/价格卡及商品轮播排除、用户类目细分输入门、主任务核心判断、多细分类目的目标细分简称强等价闭环、机械固定任务身份、分层核心、卖家精灵条件式双种子和官网完整导出优先、第二板块14列/同类目二类词/配置安全资格、分类传递、资格纳入人口的`EN_PREP_CORE_V1`介词过滤词频/Top3竞争/单Run单源24月趋势、实际搜索量折线图与包级审计、否词库、三去向51+N总表、通用词库、分类Sheet4机械复制的最终二类词Sheet、八Sheet两对象交付、隐私扫描和QA后封包均已确认为当前合同。当前开放项是F5唯一主标签跨Run优先级、广告否定方式、广告资格和投放动作，以及按当前固定合同完成新的正常案例P1；所有Skills仍需真实P1证据才能标为`verified`。
+来源字段与入口优先级、条件式Amazon联想锚点与底部商品/价格卡及商品轮播排除、用户类目细分输入门、主任务核心判断、多细分类目的目标细分简称强等价闭环、机械固定任务身份、分层核心、>5竞品ASIN的每类型代表选择、SIF/卖家精灵登录回传、卖家精灵条件式双种子和每种子单次完整导出、第二板块14列/同类目二类词/配置安全资格、分类传递、资格纳入人口的`EN_PREP_CORE_V1`介词过滤词频/Top3竞争/单Run单源24月趋势、实际搜索量折线图与包级审计、否词库、三去向51+N总表、通用词库、分类Sheet4机械复制的最终二类词Sheet、八Sheet两对象交付、隐私扫描、production直接封包和test-validation独立QA均已确认为当前合同。当前开放项是F5唯一主标签跨Run优先级、广告否定方式、广告资格和投放动作，以及按当前固定合同完成新的正常案例P1；所有Skills仍需真实P1证据才能标为`verified`。
 
 ## 相关资料
 

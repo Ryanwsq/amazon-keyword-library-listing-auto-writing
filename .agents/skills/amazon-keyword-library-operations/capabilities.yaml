@@ -6,17 +6,17 @@ skill:
 capabilities:
   - id: keyword.library.version.manage
     type: manual
-    purpose: 锁定一次三项用户输入和运行版本并协调长期副任务、汇合门、最终交付及默认compact验收
+    purpose: 锁定一次三项用户输入、run_type和运行版本，协调ASIN代表选择、长期副任务、登录升级、汇合门、最终交付及测试专用独立验收
     status: planned
-    input: 产品基础信息配置（含目标Amazon类目和多稳定类型回答）、产品配置卖点、竞品对标ASIN、Run_ID、revision、站点、规则版本和授权范围
-    output: 三项输入锁、分层锚点、Amazon联想锚点、一至两个卖家精灵种子、机械任务身份门、阶段状态、冲突清单和模式化QA结论
+    input: 产品基础信息配置（含目标Amazon类目和多稳定类型回答）、产品配置卖点、竞品对标ASIN、run_type、Run_ID、revision、站点、规则版本和授权范围
+    output: 三项输入锁、原始/入选/排除ASIN、分层锚点、Amazon联想锚点、一至两个卖家精灵种子、登录升级、机械任务身份门、阶段状态、冲突清单及适用质量状态
     permission: local-draft
-    risk: 不代跑专责执行模块；正式只读运行中不修改规则；运行中不请求业务确认；仅网页登录需要新登录时awaiting_login；QA未通过不标记完成
+    risk: 不代跑专责执行模块；正式只读运行中不修改规则；运行中不请求业务确认；网页登录需要新登录时仅主任务提示用户；production不派发独立QA且不伪造QA/P1
   - id: keyword.source.merge-and-assemble
     type: manual
     purpose: 机械合并SIF、Amazon联想和卖家精灵锁定回传并装配第一板块两Sheet工作簿
     status: planned
-    input: 三来源拥有副任务正式回传的最小工作簿、manifests、哈希、状态、用户类目细分回答、分层类目锚点、联想锚点、一至两个卖家精灵种子和SKU事实
+    input: 三来源拥有副任务正式回传的最小工作簿、manifests、哈希、状态、原始/入选/排除ASIN、用户类目细分回答、分层类目锚点、联想锚点、一至两个卖家精灵种子及唯一成功导出和SKU事实
     output: Sheet1关键词池、Sheet2任务信息与类目锚点、合并manifest和完成状态
     permission: local-draft-and-verify
     risk: 无拥有副任务正式回传或用户明确的一次性Run例外时不合并；不语义删词；不把缺值填0；Amazon联想未执行时第一板块不得完成

@@ -540,7 +540,8 @@ def validate_keyword_contract_sync(errors: List[str]) -> None:
 
     required_phrases = {
         Path("AGENTS.md"): {
-            "卖家精灵关键词挖掘首选其长期副任务内置浏览器中的已登录官网和完整官方导出",
+            "卖家精灵长期副任务都必须在首次官网业务动作前验证登录",
+            "同一成功种子不得为交叉验证重复导出",
             "最终交付固定为一个过程文件夹和一个八Sheet最终工作簿",
         },
         Path(".agents/skills/amazon-keyword-library-operations/references/source-merge-contract.md"): {
@@ -552,7 +553,8 @@ def validate_keyword_contract_sync(errors: List[str]) -> None:
         Path(".agents/skills/amazon-keyword-sellersprite-expansion/references/source-contract.md"): {
             "种子按`一级品类核心大词、产品细分核心词`锁定为两个",
             "首选本长期副任务内置浏览器中的已登录卖家精灵官网及其完整官方导出",
-            "同一机械键跨种子/Pass只保留一个业务行",
+            "同一机械键跨不同种子只保留一个业务行",
+            "未登录时副任务只向主任务回传`awaiting_login`",
         },
         Path(".agents/skills/amazon-keyword-category-cleaning/references/workbook-contract.md"): {
             "固定十四列",
@@ -593,7 +595,7 @@ def validate_keyword_contract_sync(errors: List[str]) -> None:
         Path(".agents/skills/amazon-keyword-quality-validation/references/quality-contract.md"): {
             "14/13/12列",
             "固定51列+N动态列",
-            "Gate 2必须验证锚点/种子层级与资格人口",
+            "Gate 2必须验证ASIN代表人口、锚点/种子层级、单次导出与资格人口",
             "Gate 6必须验证二类词Sheet",
             "QA在最终封包前只生成一次最小白名单产物",
             "QA在装配最终封包后只读比较质量目录白名单",
@@ -601,7 +603,8 @@ def validate_keyword_contract_sync(errors: List[str]) -> None:
         },
         Path("docs/end-to-end-workflow.md"): {
             "一至两个卖家精灵种子",
-            "官网完整导出优先",
+            "每个种子只取得一个成功完整官方导出",
+            "未登录时副任务只回传主任务`awaiting_login`",
             "通用词库资格",
             "固定51列加N个动态语义列",
             "最终`二类词`Sheet机械复制",

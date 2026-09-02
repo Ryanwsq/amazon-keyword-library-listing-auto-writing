@@ -2,19 +2,19 @@
 
 ## Mode router
 
-`compact-production`是日常真实Run默认模式；只有用户三项输入及产品基础信息中的目标类目/多稳定类型字段、规则/Schema/检查器版本、全部上游manifest/哈希、21项机械结果和风险人口均已锁定时可用。`full-regression`用于Skill/知识/判断边界、字段、Sheet、公式、图表、封包或检查器变化，两个正常加一个边界案例、P1/verified评估，或compact发现无法解释的异常。模式证据不完整时不得为节省成本使用compact。
+独立质量验证只适用于`run_type=test-validation`。`compact-validation`只用于规则/Schema/检查器均未变化的普通测试或冒烟验证；`full-regression`用于Skill/知识/判断边界、字段、Sheet、公式、图表、封包或检查器变化，两个正常加一个边界案例、P1/verified评估，或compact发现无法解释的异常。`run_type=production`不得调度本任务、不得生成QA pass，独立QA专属Gate由装配合同记为`not_applicable`。历史冻结产物里的`compact-production`只作为旧标识保留。
 
-compact保留21个Gate原ID和全量机械人口，只压缩模型输入、重复渲染与质量产物；full保留原全面独立重审。
+compact-validation保留21个Gate原ID和全量机械人口，只压缩模型输入、重复渲染与质量产物；full保留原全面独立重审。
 
 QA在最终封包前只生成一次最小白名单产物；“最小白名单”按`qa_mode`解释为compact结果集合或full完整回归集合，不允许跨模式增添重复文件。
 
 ## Run lock
 
-必须记录Run_ID、revision、站点、qa_mode、验证时间、三项用户输入摘要哈希、用户在产品基础信息中提供的目标Amazon类目与是否存在多个稳定产品类型、一级/细分核心词、Amazon联想锚点、卖家精灵种子及Pass血缘、来源/清洗/分类/词频/竞争/趋势/装配/检查器版本、风险人口、过程文件夹、八Sheet最终工作簿、渲染清单、process manifest和唯一问题文档或引用。无法锁定revision、哈希、模式、开头类目输入门或阶段清单时结论`incomplete`。
+必须记录`run_type=test-validation`、Run_ID、revision、站点、qa_mode、验证时间、三项用户输入摘要哈希、用户在产品基础信息中提供的目标Amazon类目与是否存在多个稳定产品类型、原始/入选/排除竞品ASIN、一级/细分核心词、Amazon联想锚点、卖家精灵种子及各自唯一成功导出血缘、来源/清洗/分类/词频/竞争/趋势/装配/检查器版本、风险人口、过程文件夹、八Sheet最终工作簿、渲染清单、process manifest和唯一问题文档或引用。无法锁定run_type、revision、哈希、模式、开头类目输入门或阶段清单时结论`incomplete`。
 
-## Compact-production output
+## Compact-validation output
 
-`04_独立质量验证/`在compact模式下只允许：
+`04_独立质量验证/`在compact-validation模式下只允许：
 
 - `compact-qa-result.json`；
 - 有问题时`issues.md`或`issue-reference.json`恰好一个；无问题时二者均不存在。
@@ -72,7 +72,8 @@ Gate状态只用`pass/fail/not_executed/not_applicable`。QA结论只用`pass/bl
 
 - 三来源各有状态、版本、哈希、入口类型、原始证据相对指针和数量闭环。SIF已登录官网网页首选与用户明确无法登录后的MCP备用必须属于同一提供商并保持相同查询/字段；卖家精灵网页首选与MCP备用也必须属于同一提供商；Amazon联想普通Chrome备用必须保持固定Amazon环境和同级可见证据。
 - Amazon联想必选；not_executed阻断正常案例第一板块完成。
-- 用户开头确认存在多个稳定产品类型细分且已锁定细分核心词时，Amazon联想锚点必须等于细分核心词；卖家精灵必须分别使用一级品类核心大词和细分核心词两个种子，每个种子都有官网完整官方导出优先的版本化Pass证据，模块内按机械键去重时仍保留双种子来源血缘。用户开头确认不存在多个稳定产品类型细分时，不得创建细分核心词，Amazon联想和卖家精灵都使用一级品类核心大词。
+- 原始直接竞品ASIN超过5个时，主任务按稳定竞品产品类型每类保留输入顺序中的第一个有效ASIN；原始/入选/排除人口和理由闭合，类型不明或每类取一后仍超过5个时没有启动SIF查询。
+- 用户开头确认存在多个稳定产品类型细分且已锁定细分核心词时，Amazon联想锚点必须等于细分核心词；卖家精灵必须分别使用一级品类核心大词和细分核心词两个种子，每个种子恰有一个官网完整官方导出优先的成功结果，模块内按机械键去重时仍保留双seed来源血缘。用户开头确认不存在多个稳定产品类型细分时，不得创建细分核心词，Amazon联想和卖家精灵都使用一级品类核心大词。同种子重复导出不能作为交叉验证或业务人口补充。
 - SIF七列、卖家精灵四列和联想证据符合最小合同。
 - 第一板块恰好两Sheet；所有已取得词进入机械词池，规范流量/Top3/回退可追溯，缺值不填0。
 - 一级品类核心大词唯一；产品细分核心词最多一个；存在细分核心词时主执行锚点等于该词，且来源锚点/双种子符合上一条；否则主执行锚点、联想锚点和卖家精灵种子都等于一级品类核心大词。多细分类目的目标细分强等价闭环已完成：省略上位限定词但保留决定性细分表达与完整商品头部的候选具有逐项组合证据，强等价与宽泛/相邻机械键零交叉，层级来源未伪标为用户确认。宽泛/相邻流量词没有因覆盖、返回序号、ABA或搜索量被提升，强等价简称也没有因缺少一级品类/用途token被机械降级。
@@ -119,14 +120,14 @@ Gate状态只用`pass/fail/not_executed/not_applicable`。QA结论只用`pass/bl
 
 ### Quality result and final-package reconciliation
 
-- compact在最终封包前只生成一次`compact-qa-result.json`；full只生成一次完整白名单产物。两种模式的质量结果均不可就地修订、补写或重哈希。
+- compact-validation在最终封包前只生成一次`compact-qa-result.json`；full只生成一次完整白名单产物。两种模式的质量结果均不可就地修订、补写或重哈希。
 - 最终装配将模式对应的不可变QA产物纳入过程目录并生成唯一`process-manifest.json`。该manifest不列自身，但必须恰好列出过程目录中除此文件外的全部最终文件；不得存在未列入、缺失、重复、陈旧、大小或哈希不符。
 - QA在装配最终封包后只读比较质量目录白名单、实际文件系统和唯一process manifest，并独立交叉检查装配隐私扫描与QA扫描结果；不能把装配自检结论本身当作唯一证据。
 - 封包后只读核对只回传Gate 19–21、最终QA状态、process manifest哈希和差异摘要，不写入质量目录或上游。缺少最终manifest、白名单或交叉扫描为`incomplete`；已确认目录、清单、哈希、隐私或Gate 19–21失败为`blocked`。
 
 ## 21 gates
 
-逐项采用最终装配合同的21个Gate，不得改号、合并或省略。compact机械全量验证每个Gate并对风险人口逐行语义复核；full全面重审。Gate 2必须验证锚点/种子层级与资格人口，Gate 6必须验证二类词Sheet与分类Sheet4的人口/十六列/主键/值及三种行级数据状态，Gate 9必须验证资格筛选和五个流量块表头，Gate 10必须验证产品事实与用户开头类目输入/锚点关系；每个失败Gate必须引用同一问题文档的Issue_ID，相同根因只记录一次。
+逐项采用最终装配合同的21个Gate，不得改号、合并或省略。compact-validation机械全量验证每个Gate并对风险人口逐行语义复核；full全面重审。Gate 2必须验证ASIN代表人口、锚点/种子层级、单次导出与资格人口，Gate 6必须验证二类词Sheet与分类Sheet4的人口/十六列/主键/值及三种行级数据状态，Gate 9必须验证资格筛选和五个流量块表头，Gate 10必须验证产品事实与用户开头类目输入/锚点关系；每个失败Gate必须引用同一问题文档的Issue_ID，相同根因只记录一次。
 
 锚点语义审计至少覆盖全部一级品类核心大词、细分核心词、强等价表达、当前合同要求的卖家精灵种子、SIF候选摘要全部词及最终通用词库全部F1/F2词。多细分类目还必须覆盖目标细分简称/紧凑表达的全部上位限定词省略族，并核对目标细分强等价闭环。清洗语义审计还必须逐行覆盖Sheet2不纳入/待复核、Sheet3和Sheet4以反查假阴性。竞品覆盖、返回序号、ABA、搜索量、营销用途、推荐场景、缺少细分核心词字面、缺少一级品类/用途token或目标SKU配置均不能单独证明或否决细分核心层级、品类去向、二类词或通用词库资格；每个确认错误必须有行级证据，不得抽样、设上限或由共享理由模板外推整组。
 
@@ -142,4 +143,4 @@ Gate状态只用`pass/fail/not_executed/not_applicable`。QA结论只用`pass/bl
 
 ## Full-regression quality manifest
 
-完整回归的quality manifest只记录一次性生成标识、`generation_count=1`、不可变标记、`qa_mode=full-regression`、质量目录白名单、质量工作簿/问题文档或唯一引用/每个预览的相对路径、大小和SHA-256、通过/失败/未执行/不适用Gate数及总数21、阻断/非阻断问题数、QA结论和交付状态；四种Gate计数必须合计21且与结论/交付状态一致。compact不生成quality manifest。最终封包后的只读差异核对不回写任何质量产物；回传必须引用质量结果哈希和最终process manifest哈希。
+完整回归的quality manifest只记录一次性生成标识、`generation_count=1`、不可变标记、`qa_mode=full-regression`、质量目录白名单、质量工作簿/问题文档或唯一引用/每个预览的相对路径、大小和SHA-256、通过/失败/未执行/不适用Gate数及总数21、阻断/非阻断问题数、QA结论和交付状态；四种Gate计数必须合计21且与结论/交付状态一致。compact-validation不生成quality manifest。最终封包后的只读差异核对不回写任何质量产物；回传必须引用质量结果哈希和最终process manifest哈希。

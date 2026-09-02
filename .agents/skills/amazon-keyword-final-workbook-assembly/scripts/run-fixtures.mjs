@@ -95,7 +95,7 @@ async function buildLifecycleDelivery(root, taskUuid, safeXlsx, qaMode = "full-r
   }
 
   const qualityRoot = path.join(processRoot, PARTITIONS[3]);
-  if (qaMode === "compact-production") {
+  if (qaMode === "compact-validation") {
     await writeJson(path.join(qualityRoot, "compact-qa-result.json"), {
       schema: "amazon-keyword-compact-qa/v1",
       qa_mode: qaMode,
@@ -271,19 +271,19 @@ async function main() {
     await verifyFinalPackage({ deliveryRoot, privacyReport, qaMode: "full-regression" });
     tests.push("unlisted final-package file is rejected with zero-tolerance");
 
-    const compactDeliveryRoot = await buildLifecycleDelivery(fixtureRoot, taskUuid, safeXlsx, "compact-production");
+    const compactDeliveryRoot = await buildLifecycleDelivery(fixtureRoot, taskUuid, safeXlsx, "compact-validation");
     await normalizeModuleMetadata(compactDeliveryRoot);
     const compactQuarantine = path.join(fixtureRoot, "compact-placeholder-quarantine");
-    const compactPrepared = await preparePackage({ deliveryRoot: compactDeliveryRoot, quarantineDir: compactQuarantine, qaMode: "compact-production" });
+    const compactPrepared = await preparePackage({ deliveryRoot: compactDeliveryRoot, quarantineDir: compactQuarantine, qaMode: "compact-validation" });
     assert.deepEqual(compactPrepared.quality_directory_whitelist, ["compact-qa-result.json"]);
     const compactPrivacyReport = path.join(fixtureRoot, "compact-privacy-report.json");
     await writeAuditReport(compactDeliveryRoot, compactPrivacyReport);
-    await sealPackage({ deliveryRoot: compactDeliveryRoot, privacyReport: compactPrivacyReport, qaMode: "compact-production" });
-    const compactVerified = await verifyFinalPackage({ deliveryRoot: compactDeliveryRoot, privacyReport: compactPrivacyReport, qaMode: "compact-production" });
-    assert.equal(compactVerified.qa_mode, "compact-production");
-    tests.push("compact-production accepts only compact result and preserves the same sealed hash and privacy gates");
+    await sealPackage({ deliveryRoot: compactDeliveryRoot, privacyReport: compactPrivacyReport, qaMode: "compact-validation" });
+    const compactVerified = await verifyFinalPackage({ deliveryRoot: compactDeliveryRoot, privacyReport: compactPrivacyReport, qaMode: "compact-validation" });
+    assert.equal(compactVerified.qa_mode, "compact-validation");
+    tests.push("compact-validation accepts only compact result and preserves the same sealed hash and privacy gates");
 
-    const compactMissingGateRoot = await buildLifecycleDelivery(path.join(fixtureRoot, "compact-missing-gate"), taskUuid, safeXlsx, "compact-production");
+    const compactMissingGateRoot = await buildLifecycleDelivery(path.join(fixtureRoot, "compact-missing-gate"), taskUuid, safeXlsx, "compact-validation");
     const compactMissingGateResult = path.join(compactMissingGateRoot, PROCESS_DIRECTORY_NAME, PARTITIONS[3], "compact-qa-result.json");
     const missingGatePayload = JSON.parse(await fs.readFile(compactMissingGateResult, "utf8"));
     missingGatePayload.gates.pop();
@@ -291,11 +291,11 @@ async function main() {
     await assert.rejects(() => preparePackage({
       deliveryRoot: compactMissingGateRoot,
       quarantineDir: path.join(fixtureRoot, "compact-missing-gate-quarantine"),
-      qaMode: "compact-production",
+      qaMode: "compact-validation",
     }));
-    tests.push("compact-production rejects a missing Gate ID instead of silently shrinking the 21-gate contract");
+    tests.push("compact-validation rejects a missing Gate ID instead of silently shrinking the 21-gate contract");
 
-    const compactRiskGapRoot = await buildLifecycleDelivery(path.join(fixtureRoot, "compact-risk-gap"), taskUuid, safeXlsx, "compact-production");
+    const compactRiskGapRoot = await buildLifecycleDelivery(path.join(fixtureRoot, "compact-risk-gap"), taskUuid, safeXlsx, "compact-validation");
     const compactRiskGapResult = path.join(compactRiskGapRoot, PROCESS_DIRECTORY_NAME, PARTITIONS[3], "compact-qa-result.json");
     const riskGapPayload = JSON.parse(await fs.readFile(compactRiskGapResult, "utf8"));
     riskGapPayload.risk_population.uncovered = 1;
@@ -303,18 +303,18 @@ async function main() {
     await assert.rejects(() => preparePackage({
       deliveryRoot: compactRiskGapRoot,
       quarantineDir: path.join(fixtureRoot, "compact-risk-gap-quarantine"),
-      qaMode: "compact-production",
+      qaMode: "compact-validation",
     }));
-    tests.push("compact-production rejects any uncovered semantic-risk population");
+    tests.push("compact-validation rejects any uncovered semantic-risk population");
 
-    const compactDuplicateArtifactRoot = await buildLifecycleDelivery(path.join(fixtureRoot, "compact-duplicate-artifact"), taskUuid, safeXlsx, "compact-production");
+    const compactDuplicateArtifactRoot = await buildLifecycleDelivery(path.join(fixtureRoot, "compact-duplicate-artifact"), taskUuid, safeXlsx, "compact-validation");
     await fs.copyFile(safeXlsx, path.join(compactDuplicateArtifactRoot, PROCESS_DIRECTORY_NAME, PARTITIONS[3], "独立质量验证.xlsx"));
     await assert.rejects(() => preparePackage({
       deliveryRoot: compactDuplicateArtifactRoot,
       quarantineDir: path.join(fixtureRoot, "compact-duplicate-artifact-quarantine"),
-      qaMode: "compact-production",
+      qaMode: "compact-validation",
     }));
-    tests.push("compact-production rejects duplicate full-regression artifacts");
+    tests.push("compact-validation rejects duplicate full-regression artifacts");
 
     console.log(JSON.stringify({ status: "pass", test_count: tests.length, tests }, null, 2));
   } finally {

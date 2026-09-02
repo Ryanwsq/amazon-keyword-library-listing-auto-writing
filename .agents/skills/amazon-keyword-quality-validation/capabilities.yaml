@@ -6,9 +6,9 @@ skill:
 capabilities:
   - id: keyword.quality.validate
     type: manual
-    purpose: 以默认compact-production或触发式full-regression独立只读验证全链路、风险语义人口、八Sheet和21项装配门
+    purpose: 仅对test-validation Run以compact-validation或full-regression独立只读验证全链路、风险语义人口、八Sheet和21项装配门
     status: planned
-    input: 锁定Run、revision、三项用户输入摘要及其中的目标类目/多稳定类型字段、分层锚点、来源血缘、模块版本、全部manifests/哈希、21项机械检查、风险人口、两个交付对象和问题引用
-    output: compact模式的compact-qa-result与按需问题引用，或full模式的一次性完整质量工作簿/manifest/预览；两种模式均输出21个Gate及封包后只读差异结论
+    input: run_type=test-validation、锁定Run、revision、三项用户输入摘要及其中的目标类目/多稳定类型字段、原始/入选/排除ASIN、分层锚点、单次导出来源血缘、模块版本、全部manifests/哈希、21项机械检查、风险人口、两个交付对象和问题引用
+    output: compact-validation的compact-qa-result与按需问题引用，或full-regression的一次性完整质量工作簿/manifest/预览；两种测试模式均输出21个Gate及封包后只读差异结论
     permission: local-read-and-verify
-    risk: 不修复不重跑不外部补数；风险人口不得抽样；compact不得替代应触发的full；允许数据缺口不等待用户，硬门失败不得pass
+    risk: production不得调用或生成QA结论；不修复不重跑不外部补数；风险人口不得抽样；compact-validation不得替代应触发的full；允许数据缺口不等待用户，硬门失败不得pass

@@ -26,7 +26,7 @@ const ASSEMBLY_OWNED_QUALITY_PLACEHOLDERS = [
 const FULL_REQUIRED_QUALITY_ENTRIES = ["独立质量验证.xlsx", "quality-manifest.json", "independent-qa-previews"];
 const COMPACT_REQUIRED_QUALITY_ENTRIES = ["compact-qa-result.json"];
 const ISSUE_ENTRY_ALTERNATIVES = ["issues.md", "issue-reference.json"];
-const QA_MODES = new Set(["compact-production", "full-regression"]);
+const QA_MODES = new Set(["compact-validation", "full-regression"]);
 const TASK_THREAD_UUID_RE = /\b[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\b/gi;
 const MACHINE_PATH_RE = /(?:file:\/\/\/Users\/|\/Users\/|\/home\/|\/Volumes\/|\/private\/|\/var\/folders\/|\/tmp\/|[a-z]:\\(?:Users|Documents and Settings|Temp)\\)/gi;
 const TEXT_EXTENSIONS = new Set([".csv", ".json", ".jsonl", ".log", ".md", ".ndjson", ".txt", ".tsv", ".xml", ".yaml", ".yml"]);
@@ -78,7 +78,7 @@ function isInside(parent, child) {
 }
 
 function normalizeQaMode(qaMode) {
-  if (!QA_MODES.has(qaMode)) throw new Error("QA mode must be compact-production or full-regression");
+  if (!QA_MODES.has(qaMode)) throw new Error("QA mode must be compact-validation or full-regression");
   return qaMode;
 }
 
@@ -88,7 +88,7 @@ function expectedQualityWhitelist(actualEntries, qaMode) {
   if (issueEntries.length > 1 || (qaMode === "full-regression" && issueEntries.length !== 1)) {
     throw new Error("Quality directory issue artifact does not match the selected QA mode");
   }
-  const required = qaMode === "compact-production" ? COMPACT_REQUIRED_QUALITY_ENTRIES : FULL_REQUIRED_QUALITY_ENTRIES;
+  const required = qaMode === "compact-validation" ? COMPACT_REQUIRED_QUALITY_ENTRIES : FULL_REQUIRED_QUALITY_ENTRIES;
   return [...required, ...issueEntries].sort();
 }
 
@@ -125,7 +125,7 @@ async function validateQualityDirectory(qualityRoot, qaMode) {
     throw new Error(`Quality directory whitelist failed; expected ${whitelist.join(", ")}`);
   }
 
-  if (qaMode === "compact-production") {
+  if (qaMode === "compact-validation") {
     const resultPath = path.join(qualityRoot, "compact-qa-result.json");
     const result = JSON.parse(await fs.readFile(resultPath, "utf8"));
     if (result.schema !== "amazon-keyword-compact-qa/v1") throw new Error("Compact QA result schema mismatch");
@@ -593,7 +593,7 @@ function parseArgs(argv) {
 async function cli() {
   const args = parseArgs(process.argv.slice(2));
   if (args.help || !args.command || !args.deliveryRoot) {
-    console.log("Usage:\n  node post-qa-package.mjs prepare --delivery-root <path> --quarantine-dir <outside-path> --qa-mode <compact-production|full-regression>\n  node post-qa-package.mjs seal --delivery-root <path> --privacy-report <outside-report.json> --qa-mode <mode>\n  node post-qa-package.mjs verify-final --delivery-root <path> --privacy-report <outside-report.json> --qa-mode <mode>");
+    console.log("Usage:\n  node post-qa-package.mjs prepare --delivery-root <path> --quarantine-dir <outside-path> --qa-mode <compact-validation|full-regression>\n  node post-qa-package.mjs seal --delivery-root <path> --privacy-report <outside-report.json> --qa-mode <mode>\n  node post-qa-package.mjs verify-final --delivery-root <path> --privacy-report <outside-report.json> --qa-mode <mode>");
     return;
   }
   normalizeQaMode(args.qaMode);
