@@ -7,5 +7,6 @@
 | `keyword-quality-baseline` | `../../../../knowledge/product-keyword-library.md` | 用户确认稳定知识 | production/test-validation路由、ASIN代表选择、单次导出、强等价简称、资格人口、八Sheet和模式化封包关系 | 2026-09-02 | 核对人口与血缘 |
 | `keyword-quality-state` | `../../../../PROJECT.md` | 项目主任务维护 | 当前成熟度、来源入口规则、测试专用质量模式和案例状态 | 2026-09-02 | 防止把production或planned能力冒充QA/P1 |
 | `keyword-quality-roles` | `../../../../docs/thread-roles.md` | 项目任务架构 | 副任务所有权、独立质量仅test-validation和P1必须full的边界 | 2026-09-02 | 核对回传与职责分离 |
+| `keyword-quality-recent-reuse` | `../../amazon-keyword-library-operations/references/recent-library-reuse-contract.md` | 主任务拥有的近期词库复用合同 | 同站点/类目及条件式稳定细分、原始输出30天、跨Run血缘、新事实隔离与七Sheet等值 | 2026-09-03 | 仅recent-library-reuse时完整读取，核验复用资格而非伪造当前上游完成 |
 
 资料无法确认时，输出“不确定”并交人工确认。

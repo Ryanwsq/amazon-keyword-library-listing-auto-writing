@@ -4,8 +4,11 @@
 
 ## Main task dispatch
 
+新阶段必须先按`dispatch-control-contract.md`执行build/reserve，并携带`dispatch_id`和当前Run的envelope指针。拥有任务accept成功后才能开始业务；紧凑回传经observe核验后再执行原验收。下面的授权、范围和必读合同仍须明确，不以短消息省略边界。固定ledger跨Run保留，不确定送达不盲重发。
+
 - Goal:
 - Run ID and locked repository revision:
+- Execution mode: fresh-collection | recent-library-reuse
 - P1 case slot: case-01-normal | case-02-normal | case-03-edge-or-error | not-applicable
 - Logical side-task role:
 - Mode: read-only validation | approved iteration
@@ -24,6 +27,8 @@
 
 ## Side-task return
 
+传输层优先发送固定身份、单调seq、状态、人口/缺口以及当前Run文件指针/哈希。完整Sources、Verification与下面各项保存在manifest或唯一问题文件中，主任务按验收需要读取；不能因紧凑传输删去检查内容或必读资料。重复/迟到消息不重新派发，身份冲突不得静默去重。
+
 - Status: complete | blocked | needs main-task decision | needs user approval
 - Run ID and input revision:
 - Mode actually executed:
@@ -38,6 +43,8 @@
 - P1 evidence candidate: none | module case slot and acceptance summary
 
 ## Parallel dispatch rule
+
+先按operations复用合同检查近期最终词库。满足同已判定类目、条件式同细分及原始最终输出30天期限时，锁定`execution_mode=recent-library-reuse`、当前新事实哈希和历史source血缘，直接派发既有装配副任务；不调度来源/清洗/分析，不预检登录，也不伪造本Run上游stage状态。该常规入口不需一次性用户例外。以下三组并行依赖和runtime stage key只用于未满足复用条件的`fresh-collection`；装配/测试QA读取独立复用合同，不调用全流程ready强求通过。
 
 主任务按以下三组并行依赖调度：
 

@@ -2,6 +2,8 @@
 
 本文件只拥有执行性能、阶段身份、断点续跑和失败隔离合同；不拥有任何关键词业务判断。业务语义仍以`knowledge/`、`docs/keyword-judgment-boundaries.md`和各单一职责Skill合同为准。发生冲突时，本性能层必须停止，不能以“更快”为理由覆盖业务规则。
 
+本文件的stage graph和`scripts/runtime_contract.py`适用于`execution_mode=fresh-collection`及该流程的同Run续跑。2026-09-03用户确认的跨产品`recent-library-reuse`不是性能层跳过业务门，而是独立业务入口；按operations的`references/recent-library-reuse-contract.md`冻结当前三项输入/新事实/规则与历史来源/原始最终输出时间/人口/哈希，逐项预检后直接到装配。复用分支不调用本脚本制造全量上游ready，也不将历史stage改成本Runcompleted；本文件原精确续跑规则和确定性算法保持不变。
+
 ## 不可削减边界
 
 - 三来源、固定来源人口、完整短语逐行语义判断、目标细分强等价闭环、上位限定词省略族反查、Sheet2不纳入/待复核与Sheet3/Sheet4反向审计均保持全量。
@@ -10,6 +12,8 @@
 - 任何人口、字段、原值、资格、哈希、规则族、风险审计或Gate差异都使优化结果失败；不得退回抽样、摘要判断、共享模板外推或静默容错。
 
 ## 运行合同
+
+2026-09-03调度控制由`dispatch-control-contract.md`拥有，入口为`scripts/dispatch_guard.py`。它在原ready/哈希门外增加事务派发去重、拥有任务首次业务动作前双向身份校验、最小事件与不确定送达恢复；不更改下方阶段图或计算核心。控制层元数据不属于业务stage status，不能由发送/接收回执制造completed。
 
 每个Run在本机忽略目录建立`run-contract.json`，由`scripts/runtime_contract.py`根据本机输入规格和`contracts/runtime-rule-map.json`生成。运行合同至少锁定：
 

@@ -16,6 +16,7 @@
 
 - `keyword.library.version.manage`
 - `keyword.source.merge-and-assemble`
+- `keyword.runtime.dispatch.guard`
 
 ## 禁止事项与人工升级条件
 

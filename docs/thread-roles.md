@@ -8,7 +8,7 @@
 |---|---|---|---|
 | `keyword-main` | `Amazon关键词词库｜主任务｜main` | `amazon-keyword-library-operations`、`amazon-keyword-library-publication` | 输入与内容寻址运行合同锁定、核心层级及多细分类目强等价简称闭环、长期副任务调度、失败后代隔离、三来源机械合并、完成门、跨模块裁决、总知识与端到端同步、最终验收和交付 |
 
-当前 Codex 任务已绑定 `keyword-main` 逻辑角色。主任务不替代副任务执行其模块，也不在只读验证中边运行边修改规则；副任务不可用、未初始化、操作不便或证据在主任务可见都不是代跑理由。每次派发前必须用本机忽略映射核对逻辑角色、固定标题、Task ID/host、执行cwd、Run、revision和输出目录，任一不符即停止，不创建临时替代任务。只有用户了解影响并明确批准的一次性Run例外才可接收已经产生的证据，且不得成为默认路由或P1证据。
+当前 Codex 任务已绑定 `keyword-main` 逻辑角色。主任务不替代副任务执行其模块，也不在只读验证中边运行边修改规则；副任务不可用、未初始化、操作不便或证据在主任务可见都不是代跑理由。每次派发前必须用本机忽略映射核对逻辑角色、固定标题、Task ID/host、执行cwd、Run、revision和输出目录，任一不符即停止，不创建临时替代任务。除近30天最终词库常规复用外，只有用户了解影响并明确批准的一次性Run例外才可接收已经产生的证据，且不得成为默认路由或P1证据。
 
 ## Persistent side tasks
 
@@ -34,6 +34,8 @@
 项目级 `PROJECT.md`、`knowledge/INDEX.md`、`knowledge/keyword-decision-log.md`、`docs/end-to-end-workflow.md`、`docs/runtime-optimization-contract.md`、`contracts/runtime-rule-map.json`、`docs/thread-architecture.md` 和跨模块冲突由主任务拥有。副任务只能提出对这些文件的候选更新，不能并行直接修改。
 
 ## Shared status rules
+
+- 近30天同类目/条件式同细分最终词库复用由主任务核定、既有装配副任务换新事实卡；历史source与当前Run分别锁定，未执行模块不产生新案例/P1。这是已授权常规入口，不是代跑例外；完整流程与同Run精确续跑规则仍适用于fresh-collection。
 
 - 所有迁入或新建 Skills 均保持 `draft`，直到取得两个真实正常案例和一个真实边界/异常案例的完整 P1 证据。
 - `evidence/index.md`只登记槽位和状态；历史运行不得倒填，正式运行中不得更新。一个端到端Run只能为实际执行到的Skill分别产生独立模块候选。

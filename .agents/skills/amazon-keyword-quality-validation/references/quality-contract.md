@@ -10,7 +10,31 @@ QA在最终封包前只生成一次最小白名单产物；“最小白名单”
 
 ## Run lock
 
-必须记录`run_type=test-validation`、Run_ID、revision、站点、qa_mode、验证时间、三项用户输入摘要哈希、用户在产品基础信息中提供的目标Amazon类目与是否存在多个稳定产品类型、原始/入选/排除竞品ASIN、一级/细分核心词、Amazon联想锚点、卖家精灵种子及各自唯一成功导出血缘、来源/清洗/分类/词频/竞争/趋势/装配/检查器版本、风险人口、过程文件夹、八Sheet最终工作簿、渲染清单、process manifest和唯一问题文档或引用。无法锁定run_type、revision、哈希、模式、开头类目输入门或阶段清单时结论`incomplete`。
+必须记录`run_type=test-validation`、Run_ID、execution_mode、当前revision、站点、qa_mode、验证时间、三项用户输入摘要哈希、用户在产品基础信息中提供的目标Amazon类目与是否存在多个稳定产品类型、原始/入选/排除竞品ASIN、一级/细分核心词、Amazon联想锚点、卖家精灵种子及各自唯一成功导出血缘、来源/清洗/分类/词频/竞争/趋势/装配/检查器版本、风险人口、过程文件夹、八Sheet最终工作簿、渲染清单、process manifest和唯一问题文档或引用。`fresh-collection`及同Run精确续跑锁定当前阶段清单；`recent-library-reuse`按下节锁定历史阶段引用，不要求伪造当前上游stage状态。无法锁定run_type、execution_mode、revision、哈希、模式、开头类目输入门或适用证据清单时结论`incomplete`。
+
+## Recent-library-reuse validation
+
+复用资格与跨Run血缘由主任务的[近期词库复用合同](../../amazon-keyword-library-operations/references/recent-library-reuse-contract.md)拥有，执行本分支前必须完整读取；本节只定义QA适配。`execution_mode=recent-library-reuse`与`fresh-collection`、同Run stage key精确续跑分开，且不改变`run_type/qa_mode`路由、Gate 1–21编号、完整风险人口或full-regression触发条件。
+
+### 复用锁与资格
+
+- 按拥有合同规定的JSON规范化方式独立核对主任务内容寻址复用合同的外置SHA-256、当前三项输入/新事实卡哈希、当前revision与权威拥有文件哈希；同时验证历史source Run/revision、原始最终工作簿输出时间（带时区）、源工作簿SHA-256、来源数据周期、核心锚点及强等价证据、各表人口、历史QA实际状态/哈希和已披露缺口。历史未执行QA必须如实记录，不要求补造历史pass。
+- 主任务先核定新旧同站点、同Amazon类目；仅在存在稳定细分时比较细分类型，并须有同类型的输入与产品证据，双方均无细分时不制造细分门。普通材质、结构或功能配置差异不能自行变成细分差异；类目/稳定类型身份无法确认时不放行。
+- 以带时区的原始最终工作簿输出时间与本次记录的检查时间计算，间隔须在0至30天内（含30天）。主任务初检后，装配封口前必须再次核对；QA在最终Gate 19–21只读差异核对中验证该封口前最终检查时间及age，不以初检时间替代，也不回写冻结QA产物。复制、换卡、重新封包或再次复用均不重置时限；连续复用追溯最初源Run/revision/输出时间及源SHA，另锁定直接复用副本SHA与血缘链，不用文件mtime或下载时间替代。时间、源身份或链条无法核实时`incomplete`；已确认超期或不满足同类目/同稳定细分条件时`blocked`并回主任务，QA不得自行切换fresh-collection。
+
+### 只读等值与事实隔离
+
+- 新候选保持固定八Sheet；除`SKU事实卡`外的七Sheet，与锁定历史源的Schema、列序、逐行业务值（含空值）、Keyword_ID、行序/人口、去向/资格、来源与历史时期、公式及图表数量/序列/引用范围/显示定义等值。仅允许主任务复用合同明确白名单中的当前交付身份/装配版本/血缘说明变化，逐字段记录位置、前值与后值；未列入白名单的差异不得放行。源采集批次、源规则版本、数据周期及历史source Run/revision/状态不可刷新为当前值，不得刷新“最近完整月”，或因换品牌/配置而重分词、重算业务结果。比较工作簿业务内容而非要求新旧XLSX整包SHA相同；源文件在检查前后SHA必须不变且不得覆盖。
+- 新`SKU事实卡`仅从当前三项输入与锁定新事实卡取值，逐字段核对；历史事实只作血缘证据，不合并、回填或冒充新SKU事实。品牌名称不同本身不自动失败，但新自有品牌/授权若影响原品牌/IP、资格、去向或否词裁决，必须回主任务，不能在保持旧裁决不变的同时放行，也不得由QA修复。
+- 上游不重跑。完整风险并集仍从历史全人口及锁定证据构建并逐行复核，不抽样、不截断、不由共享理由外推；历史QA摘要不能替代此次复核。历史来源、周期、规则与状态按其源身份核验，当前复用资格/新事实与历史判断存在硬冲突时仍须报告，不能以七Sheet相同掩盖错误。
+
+### Gate与结果归属
+
+保留每个Gate原ID及检查范围：Gate 2验证当前复用锁、资格和历史上游/锚点血缘；Gate 3–9及11–15验证继承人口、业务内容和历史阶段证据，并覆盖原风险人口；Gate 10验证当前新事实卡及其与类目/稳定细分/锚点关系；Gate 1、16–21继续验证两对象、八Sheet、公式图表、渲染、隐私、manifest、一次性QA产物和封包差异。每项实际结果/证据必须区分“当前复用核验”与“历史阶段执行”；Gate pass只表示此次适用核验通过，不能把当前未执行的采集/清洗/分类等写为`completed`、通过或P1。
+
+已声明且哈希闭合的source Run/revision与当前Run/revision不同，不是跨Run污染；未声明来源、身份/哈希不符、血缘断裂或旧事实混入新事实仍按硬门/材料缺失处理。历史QA和历史允许缺口原样保留，不升级为当前QA；当前QA结论只基于此次实际检查，允许缺口沿既有规则对应`completed_with_gaps`，不因复用而消失，也不把未执行上游变成当前P1证据。
+
+两种qa_mode的既有产物/白名单不增加Sheet或重复报告。结果中记录execution_mode、复用合同SHA、当前/历史身份、原始输出时间与复用核验时间、历史QA/缺口引用、七Sheet等值和新事实检查摘要；full工作簿使用既有结论说明和Gate证据列承载，不新增列。主任务拥有合同未提供或哈希无法闭合时只回传`incomplete`，不在质量目录另建一份复用规则。
 
 ## Compact-validation output
 
@@ -66,12 +90,14 @@ Gate状态只用`pass/fail/not_executed/not_applicable`。QA结论只用`pass/bl
 
 ## Shared validation scope
 
-下列业务边界适用于compact和full。compact通过全量机械检查加完整风险人口复核覆盖；full全面重审。
+下列业务边界适用于compact和full。compact通过全量机械检查加完整风险人口复核覆盖；full全面重审。fresh-collection及同Run精确续跑核验当前阶段；recent-library-reuse按上节核验历史阶段血缘与当前复用适配，不要求执行新的来源动作或生成当前上游stage状态。
+
+复用时按主任务拥有合同的兼容性边界核验历史访问入口、导出次数和执行顺序，以其源版本为准，不追溯套用当前新采集SOP强制重采；来源身份、指标含义、中心对象/语义判断及当前输出硬门仍须无冲突，已知硬错误不得放行。
 
 ### Sources and first board
 
 - 三来源各有状态、版本、哈希、入口类型、原始证据相对指针和数量闭环。SIF已登录官网网页首选与用户明确无法登录后的MCP备用必须属于同一提供商并保持相同查询/字段；卖家精灵网页首选与MCP备用也必须属于同一提供商；Amazon联想普通Chrome备用必须保持固定Amazon环境和同级可见证据。
-- Amazon联想必选；not_executed阻断正常案例第一板块完成。
+- fresh-collection的Amazon联想必选；not_executed阻断正常案例第一板块完成。近期复用保留历史联想实际状态与证据，不把当前未采集误报为丢失，也不把历史未执行改成通过。
 - 原始直接竞品ASIN超过5个时，主任务按稳定竞品产品类型每类保留输入顺序中的第一个有效ASIN；原始/入选/排除人口和理由闭合，类型不明或每类取一后仍超过5个时没有启动SIF查询。
 - 用户开头确认存在多个稳定产品类型细分且已锁定细分核心词时，Amazon联想锚点必须等于细分核心词；卖家精灵必须分别使用一级品类核心大词和细分核心词两个种子，每个种子恰有一个官网完整官方导出优先的成功结果，模块内按机械键去重时仍保留双seed来源血缘。用户开头确认不存在多个稳定产品类型细分时，不得创建细分核心词，Amazon联想和卖家精灵都使用一级品类核心大词。同种子重复导出不能作为交叉验证或业务人口补充。
 - SIF七列、卖家精灵四列和联想证据符合最小合同。
@@ -145,6 +171,8 @@ Gate状态只用`pass/fail/not_executed/not_applicable`。QA结论只用`pass/bl
 
 完整回归的quality manifest只记录一次性生成标识、`generation_count=1`、不可变标记、`qa_mode=full-regression`、质量目录白名单、质量工作簿/问题文档或唯一引用/每个预览的相对路径、大小和SHA-256、通过/失败/未执行/不适用Gate数及总数21、阻断/非阻断问题数、QA结论和交付状态；四种Gate计数必须合计21且与结论/交付状态一致。compact-validation不生成quality manifest。最终封包后的只读差异核对不回写任何质量产物；回传必须引用质量结果哈希和最终process manifest哈希。
 
+recent-library-reuse的quality manifest另保留本合同要求的复用身份、合同SHA、时限、历史QA/缺口血缘和等值/事实检查摘要；不增加白名单文件或复制历史业务整表。
+
 ## Runtime contract audit
 
-test-validation开始时独立验证run contract自身哈希、规则族人口、权威拥有文件哈希、阶段键、上游输出/证据哈希和人口锁。运行合同只证明版本身份，不能替代本合同的完整21项门、完整风险人口逐行语义复核或各Skill直接引用资料。任何Skill、知识、判断边界、Schema、公式、图表、封包、检查器或本运行性能层变化都必须以`full-regression`验证；P0/夹具不得冒充P1。
+test-validation开始时先按execution_mode选合同：fresh-collection及同Run精确续跑独立验证run contract自身哈希、规则族人口、权威拥有文件哈希、阶段键、上游输出/证据哈希和人口锁；recent-library-reuse只读验证主任务内容寻址复用合同及本节锁定项。既有`scripts/runtime_contract.py`只支持fresh-collection，复用分支不得运行旧verify/ready/resume来制造当前上游stage或求通过。运行合同只证明版本身份，不能替代本合同的完整21项门、完整风险人口逐行语义复核或各Skill直接引用资料。任何Skill、知识、判断边界、Schema、公式、图表、封包、检查器或本运行性能层变化都必须以`full-regression`验证；P0/夹具不得冒充P1。

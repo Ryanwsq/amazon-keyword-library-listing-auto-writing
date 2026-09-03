@@ -1,7 +1,7 @@
 # Amazon 关键词库版本决策记录
 
 - Status: verified
-- Last verified: 2026-09-02
+- Last verified: 2026-09-03
 - Sharing: sanitized
 - Provenance: 用户授权归档、用户确认记录、四轮历史案例脱敏结论、2026-08-11至2026-08-16增量决策、2026-08-20首轮真实正常案例问题台账、2026-08-21首轮运行后减配确认、2026-08-22词频介词白名单确认、2026-08-23核心层级与通用词库资格确认、2026-08-24二类词独立Sheet/输入核心门/网页导出优先/任务分离/联想边界/两级歧义/分类数据缺口与显示名确认、2026-08-25来源双种子/同类目二类词/配置假阴性/机械任务身份/审计与QA后封包确认、2026-08-26多细分类目目标细分简称强等价闭环确认、2026-08-27十二Skill证据治理与首批模块案例人工确认、2026-08-31三项开头输入锁与质量双模式确认、2026-09-01 SIF网页优先与登录门确认，以及2026-09-02单次导出/登录回传/ASIN代表选择/测试专用独立QA确认
 - Coverage: confirmed decisions through V2.1 plus V2.2 word frequency, 2026-08-21 output contracts, 2026-08-22 clarifications, 2026-08-23 core hierarchy/general-library eligibility correction, 2026-08-24 output and input gates, 2026-08-25 conditional dual-seed collection/same-category secondary terms/configuration-safe eligibility/task identity/trend audit/privacy and post-QA packaging, 2026-08-26 multi-subdivision target-subdivision alias closure, 2026-08-27 evidence governance plus first modular case publication, 2026-08-31 three-input lock and compact/full QA lifecycle, 2026-09-01 SIF website-first login gate, and 2026-09-02 single export/login escalation/ASIN representatives/test-only independent QA
@@ -9,6 +9,19 @@
 ## 摘要
 
 本文件只记录已确认版本决策、替代关系和理由。稳定领域定义由 `product-keyword-library.md` 拥有，当前进度和下一步由 `../PROJECT.md` 拥有，判定门槛和执行流程不在本文件重复维护。
+
+2026-09-03新增来源：用户明确要求同类目、条件式同细分、历史最终工作簿输出在30天内时，替换新产品事实卡后直接复用，并修改对应Skill与知识库。
+
+## 2026-09-03：近30天最终词库常规复用
+
+本决定将此前逐Run授权的近期词库复用提升为条件明确的常规入口；不替代原完整采集流程，不改变清洗V2.1、词频V2.2、完整词语义、资格、流量/竞争/趋势或质量路由：
+
+1. 同已判定Amazon类目，且同稳定细分品类（仅有细分时判断），历史最终工作簿在30天内输出，可换新事实卡后直接复用；无细分留空。新产品与历史锚点的身份由主任务判断，不让用户指定核心词。
+2. 使用可追溯原始最终输出时间，含第30天，不使用文件mtime/下载日期，也不把再次换卡的输出时间当作期限重置。
+3. 新Run保留历史关键词、主键、人口、业务结论和数据周期，不再重复采集、清洗和分析；只由既有装配副任务换当前事实卡、更新交付血缘并完成装配检查。旧事实不能补齐或覆盖新事实，源文件不能覆盖。
+4. 不同/未知/过期则回原流程；源文件错误、业务规则不兼容或旧SKU专属裁决冲突不能静默通过。无须要求新旧revision完全相同，也不能把普通配置差异当作不同细分。
+5. 跨产品复用采用独立内容寻址复用合同，与原同Run精确stage-key续跑分开；上游历史身份和质量状态不得改成本Run新执行或P1。production/test-validation、八Sheet、两对象和21个Gate身份保持不变。
+6. 本次只修改稳定规则，不改历史运行、不登记新案例、不提升任何Skill成熟度；新规则真实测试仍须按既有触发条件使用full-regression。
 
 ## 版本记录
 
@@ -52,6 +65,7 @@
 | Post-V2.1 | 2026-08-31 | 锁定三项开头输入、compact/full质量双模式和分类数据缺口自动允许缺口闭合；21项门及全部业务判断边界不变 | confirmed QA lifecycle increment; P1 pending |
 | Post-V2.1 | 2026-09-01 | SIF竞品反查改为已登录官网网页端首选；未登录等待用户登录，只有用户明确无法登录时同提供商MCP备用 | confirmed source-entry increment; P1 pending |
 | Post-V2.1 | 2026-09-02 | 卖家精灵每种子单次成功导出；SIF/卖家精灵未登录只回传主任务；>5竞品按产品类型取代表；独立QA仅用于test-validation | confirmed operations and QA-routing increment; P1 pending |
+| Post-V2.1 | 2026-09-03 | 同类目、条件式同细分、原始最终工作簿输出30天内的常规复用；新事实卡替换、历史来源与当前Run隔离 | confirmed reuse-entry increment; P1 pending |
 
 ## 2026-09-02：单次导出、登录回传、竞品代表与测试专用独立QA
 
@@ -409,6 +423,12 @@ Office Chair 历史案例暴露了类目锚点与 SKU 精准适配混淆，并�
 8. 本性能层、相关Skill和检查器均发生变化，下一次test-validation必须`full-regression`。只有相同输入下关键词人口、三去向、资格、全部业务列值、动态列、分析人口、八Sheet/schema、公式/图表和21项Gate完全一致，才可接纳为无损优化。当前P0与本地夹具不构成P1，也不宣称已实测提速。
 
 ## 决策边界
+
+### 2026-09-03：减少非必要调度并防重复派发/错误Run
+
+用户确认只优化调度层，尤其避免重复派发及错误Run。主任务从锁定合同机械生成派发身份、事务占位后才发送；拥有副任务在首次业务动作前校验自身身份、当前Run、输入/规则哈希与输出目录。固定本机ledger保留跨Run占用与去重；消息仅传身份、状态、缺口、人口及证据指针，重复/迟到事件不触发重跑，网络送达不确定先查精确回执而不盲重发。步骤和状态机由`../docs/dispatch-control-contract.md`唯一拥有。
+
+本决定不改变阶段依赖、固定长期副任务分工、十二Skill业务职责、三来源、语义判断/强等价闭环、风险人口、字段/阈值、八Sheet或质量路由；不以摘要或哈希替代完整Skill/直接合同阅读。已有近30天复用入口与fresh-collection分别校验，复用不伪造上游stage。合成控制层测试不生成案例/P1，不证明真实节省比例；下一新锁定test-validation继续full-regression并验证业务结果和检查覆盖等价。
 
 - V0.1–V2.0 只用于追溯规则形成、修订和案例校准，不作为当前执行基线；各行状态说明其被哪个后续版本替代或吸收。
 - V2.0 已被 V2.1 替代，不与 V2.1 并列作为当前基线。

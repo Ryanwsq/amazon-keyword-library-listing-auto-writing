@@ -1,6 +1,6 @@
 ---
 name: amazon-keyword-library-operations
-description: Coordinate the Amazon keyword-library baseline, side-task handoffs and acceptance, including the main task's deterministic merge of three completed source handoffs. Use for项目主任务编排、三来源机械合并、版本目标、跨阶段状态或验收；do not use it to perform source extraction or business judgments owned by focused Skills.
+description: Coordinate the Amazon keyword-library baseline, recent same-category library reuse, side-task handoffs and acceptance, including deterministic three-source merge. Use for项目主任务编排、近30天词库复用、三来源机械合并、版本目标、跨阶段状态或验收；do not use it to perform source extraction or business judgments owned by focused Skills.
 ---
 
 # Amazon Keyword Library Operations
@@ -16,6 +16,7 @@ description: Coordinate the Amazon keyword-library baseline, side-task handoffs 
 ## 输出
 
 - 运行输入锁、并行任务路由、阶段状态和冲突清单。
+- 适用时输出近30天同类目/条件式同细分的复用合同、新事实卡锁与历史来源血缘；执行此入口完整读取`references/recent-library-reuse-contract.md`。
 - 第一板块两Sheet业务工作簿及本地manifest。
 - 最终两个顶层交付对象的汇合状态。
 - production Run的装配自检/交付状态，或test-validation Run的compact/full独立QA结论和可回滚版本说明。
@@ -26,8 +27,13 @@ description: Coordinate the Amazon keyword-library baseline, side-task handoffs 
 - `keyword.source.merge-and-assemble`
 - `keyword.runtime.contract.manage`
 - `keyword.runtime.failure-isolation.verify`
+- `keyword.runtime.dispatch.guard`
 
 ## 执行步骤
+
+调度任一新阶段前完整读取`../../../docs/dispatch-control-contract.md`并使用共享`dispatch_guard.py`：build从输入锁生成spec，reserve仅首次允许发送，拥有副任务accept后才开始业务；错误Run/任务/输入/目录或不确定送达不得绕过。各自固定本机ledger持久去重，紧凑事件经observe核验后才进入原有业务验收。该控制器不代替完整Skill阅读、核心层级判断、人口/风险检查或完成门。
+
+先锁定三组开头输入，再选择`execution_mode=fresh-collection|recent-library-reuse`。按稳定知识“近30天最终词库复用”及直接复用合同，主任务检查同站点、同已判定类目、条件式同稳定细分及历史原始最终输出≤30天。成立时冻结新输入/事实与历史来源分离的内容寻址`reuse-contract.json`，直接派发拥有装配副任务换卡与等值检查，再执行步骤9–12适用交付；不派发上游采集/清洗/分析，也不为此检查登录。原始输出时间不因连续换卡而刷新。条件不成立则按下述完整流程执行，不新增逐Run复用人工确认门。`runtime_contract.py`只用于fresh-collection/同Run续跑；复用合同另行逐项预检，不制造当前上游completed或假stage key。
 
 1. 读取项目知识索引、端到端流程、判断边界、本任务直接合同和运行优化合同，锁定run_type、Run、revision、站点、周期、全部规则版本及用户三项输入。目标Amazon类目和“是否存在多个稳定产品类型细分”必须包含在开头的产品基础信息中；若已提供不得再次询问，缺失时Run不得启动。用户不负责指定任何核心词。未明确为测试/回归/P1案例时run_type默认`production`。使用`scripts/runtime_contract.py`在本机Run目录生成并验证内容寻址运行合同；合同只锁定输入、规则拥有文件哈希、阶段键和执行器版本，不用规则摘要替代各Skill完整阅读。
 2. 在调度SIF前闭合竞品人口。原始直接竞品ASIN不超过5个时全部保留；超过5个时按输入中可验证的稳定竞品产品类型分组，每类机械保留输入顺序中的第一个有效ASIN，记录其余排除项及`同类型代表已保留`理由。类型无法可靠确认，或每类取一后仍超过5个时，在任何SIF查询前停止并向用户升级，不能静默丢掉某一类型。筛选后的1–5个ASIN才是SIF获准清单；因每类只留一个而少于3个不构成额外补选理由。
@@ -39,10 +45,14 @@ description: Coordinate the Amazon keyword-library baseline, side-task handoffs 
 8. 路由第二板块清洗；清洗闭合后并行调度词频与分类；分类完成后并行调度竞争与趋势。每个模块必须由对应长期副任务执行并返回当前Run相对路径、哈希、人口、状态、缺口和验证。每个完成阶段写入匹配运行合同的stage status；只有stage key、输出/证据哈希、人口和状态全部闭合才可断点复用。阶段失败只阻断该阶段后代：词频失败不得暂停分类、竞争或趋势，分类失败不得推翻已完成词频；最终装配仍等待全部适用分支。词频、竞争和趋势只使用清洗已判定`通用词库资格=纳入`的适用人口；趋势调度固定`SellerSprite -> Sorftime`优先级，并要求同一Run全部趋势人口只使用一个锁定提供商。
 9. 等待所有适用分支并锁定哈希，路由最终装配生成`过程性文件/`和八Sheet最终工作簿；最终`二类词`Sheet必须机械复制分类完成的Sheet4全人口与固定十六列。production Run由装配任务执行全部机械、人口、公式、图表、渲染、隐私和哈希检查后直接交付，不调度独立质量验证副任务；21个Gate ID保留，独立QA专属Gate写`not_applicable`，不得伪写QA pass或P1。
 10. 只有`run_type=test-validation`时才路由独立质量验证副任务。普通测试可使用compact验证档；规则/Skill/Schema/公式/图表/封包/检查器变化、两个正常加一个边界案例或P1评估必须使用`full-regression`。测试Run中QA未通过不得把该测试交付标记完成。历史`compact-production`仅作为冻结旧Run标识，不再用于production路由。
-11. 正式只读Run中不修改知识或Skills；所有问题写同一个问题文档。整轮结束并经用户确认后，才进入获准迭代。只有用户在了解影响后明确授权的一次性Run例外，主任务才可接收已经产生但未由拥有副任务正式回传的证据；例外必须留痕，不得成为默认路由或P1证据。
+11. 正式只读Run中不修改知识或Skills；所有问题写同一个问题文档。整轮结束并经用户确认后，才进入获准迭代。除本Skill规定的近30天最终词库复用入口外，只有用户在了解影响后明确授权的一次性Run例外，主任务才可接收已经产生但未由拥有副任务正式回传的证据；例外必须留痕，不得成为默认路由或P1证据。常规复用也只承接历史来源，不许可主任务代跑装配或其他模块。
 12. 修改知识或Skill时同批同步端到端流程；发布前执行脱敏、结构、状态和Git检查。
 
 ## 质量标准
+
+- 同一Run/role/stage key只派发一次；同一目标存在未解决派发时不插入另一Run。网络不确定先查精确回执，不盲重发；受控续跑继续原dispatch和未完成部分，不把重复消息当新采集。拥有任务首次业务动作前有accept回执，输出只在锁定当前Run目录；无变化事件不反复读取长报告，登录/异常/依赖变化不漏报。控制器通过不等于业务完成或P1。
+
+- recent-library-reuse有同类目/条件式同细分与原始最终输出30天证据，新事实独立锁定；未知/过期/不兼容时回正常流程。七个非事实Sheet业务等值，源文件不覆盖，源周期不改成本次采集；历史质量和未执行模块状态不升级。新品牌授权或旧SKU专属理由冲突按既有边界处理，不全表替换品牌。
 
 - 并行依赖和汇合门正确，任一分支未完成不会被默认完成。
 - 运行合同可从当前权威文件复算，未变化阶段只在stage key、输出/证据哈希及人口完全一致时复用；规则或输入漂移只重跑受影响阶段及后代，不冻结无关分支。

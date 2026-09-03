@@ -16,9 +16,11 @@ description: Independently validate a locked Amazon keyword-library test-validat
 
 模式由主任务锁定；不得为节省成本把应运行的`full-regression`降级。历史冻结产物里的`compact-production`只作为旧模式标识读取，不能据此把production Run路由到本Skill。
 
+`qa_mode`与`execution_mode`分开锁定：`fresh-collection`及其同Run精确续跑验证当前上游阶段；`recent-library-reuse`验证主任务批准的近期历史词库复用，不是精确续跑，也不重跑上游。复用分支先完整读取主任务拥有的[近期词库复用合同](../amazon-keyword-library-operations/references/recent-library-reuse-contract.md)，再按质量合同的复用章节验收；production禁用及full触发条件不变。
+
 ## 输入
 
-`run_type=test-validation`、Run_ID、revision、站点、模式、用户三项原始输入摘要、用户在产品基础信息中提供的目标Amazon类目与是否存在多个稳定产品类型、原始/入选/排除竞品ASIN、一级/可选细分核心词、来源锚点与种子、卖家精灵各种子唯一成功导出、目标细分强等价闭环、全部模块版本/哈希/manifest、装配21项机械检查结果、风险人口清单、过程文件夹、八Sheet最终工作簿、渲染清单、process manifest和唯一问题文档或引用。
+`run_type=test-validation`、Run_ID、execution_mode、当前revision、站点、qa_mode、用户三项原始输入摘要及哈希、用户在产品基础信息中提供的目标Amazon类目与是否存在多个稳定产品类型、原始/入选/排除竞品ASIN、一级/可选细分核心词、来源锚点与种子、卖家精灵各种子唯一成功导出、目标细分强等价闭环、全部模块版本/哈希/manifest、装配21项机械检查结果、风险人口清单、过程文件夹、八Sheet最终工作簿、渲染清单、process manifest和唯一问题文档或引用。近期复用另锁定主任务内容寻址复用合同、新事实卡哈希、历史源Run/revision、原始最终工作簿输出时间（带时区）/源SHA、来源周期、锚点证据、人口、历史QA和缺口；上游材料以历史血缘提供，不制造当前上游stage状态。
 
 ## 输出
 
@@ -33,7 +35,7 @@ description: Independently validate a locked Amazon keyword-library test-validat
 
 ## 执行步骤
 
-1. 读取知识、判断边界和`references/quality-contract.md`；先使用仓库级`scripts/runtime_contract.py verify`独立核对运行合同自身哈希、权威规则族人口/拥有文件哈希、阶段键和run_type路由，再锁定`run_type=test-validation`、模式、Run/revision、输入/规则/检查器版本、哈希、用户开头提供的类目与多稳定类型字段、目标细分强等价闭环和产物清单。production Run立即回传`not_applicable`且不生成QA产物；测试模式触发条件无法证明时使用`full-regression`，不是在运行途中要求用户判断。
+1. 读取知识、判断边界和`references/quality-contract.md`，先核对run_type、execution_mode和qa_mode。production Run立即回传`not_applicable`且不生成QA产物。`fresh-collection`及同Run精确续跑使用仓库级`scripts/runtime_contract.py verify`核对运行合同自身哈希、权威规则族人口/拥有文件哈希和阶段键；`recent-library-reuse`只读验证主任务内容寻址复用合同及其当前输入/新事实卡/规则哈希和历史血缘，不运行仅支持fresh-collection的旧运行器或ready脚本求通过。锁定Run、当前与历史revision各自角色、版本、哈希、类目/细分依据和产物清单；测试模式触发条件无法证明时使用`full-regression`，不是在运行途中要求用户判断。
 2. 只读验证三来源状态、获准入口类型与回退证据、原始/入选/排除ASIN人口、第一板块两Sheet、机械词池和损失风险。原始ASIN超过5个时，每个稳定竞品产品类型只保留输入顺序中的第一个有效ASIN。有细分核心词时，Amazon联想必须以细分核心词为锚点，卖家精灵必须分别以一级品类核心大词和细分核心词执行两个种子，每个种子恰有一个官网完整官方导出优先的成功结果，并在卖家精灵模块内按机械键去重且保留双seed来源；无细分核心词时，Amazon联想和卖家精灵都只使用一级品类核心大词。同种子重复导出不得作为交叉验证或人口补充。
 3. 验证第二板块四Sheet、三去向、主键、理由和人口闭环；核对一级品类核心大词、可选细分核心词、主执行锚点、强等价表达和宽泛/相邻流量词没有混层。多细分类目必须验证目标细分强等价闭环：省略一级品类词、用途限定词或其他上位限定词但仍保留决定性细分表达与完整商品头部的候选已按产品事实、直接竞品同对象身份和SIF证据逐项判定，同一机械键零层级冲突。语义反向检查必须覆盖完整风险人口，不能只找误纳：至少包含所有锚点/层级候选、Sheet2`不纳入/待复核`、Sheet3、Sheet4、决定性商品头部/稳定类型候选、配置假阴性候选、F1/F2高流量纳入词、特殊语言/连接结构和三种行级数据缺口。不得抽样、截断或用共享理由模板代表逐行结论。
 4. 验证分类两Sheet、N动态列、F1–F5、F5主分组/LT和五列否词库；核对`关键词ABA排名缺失、搜索量缺失、没有搜索量`的状态、原始值和派生留空是否符合合同。
@@ -43,6 +45,8 @@ description: Independently validate a locked Amazon keyword-library test-validat
 8. compact-validation复用装配阶段唯一一套八Sheet渲染和`render-manifest.json`，只读取异常页及最终总表、通用词库、二类词和趋势图的必要风险预览；full可以生成独立预览。
 9. compact-validation一次性写`compact-qa-result.json`，三种行级数据状态自动对应允许缺口并可`pass/completed_with_gaps`，不等待用户确认。full按合同写一次性不可变完整质量产物。
 10. 装配纳入质量结果并写最终process manifest后，只执行Gate 19–21只读差异核对；该步骤只回传状态，不再写交付文件。硬门失败不得输出pass。
+
+步骤2–6在近期复用分支只读核验锁定历史阶段证据与新候选，完整风险人口仍逐行审计；七个非事实Sheet按合同排除明确的当前交付身份/装配版本/血缘说明白名单后业务等值，白名单变更逐字段记录前后值，源采集批次/源规则版本/数据周期不得刷新；`SKU事实卡`只对应当前锁定新事实。历史QA不代替此次独立检查，源Run/revision与当前不同本身不算污染；30天在装配封口前再核对，QA核对该最终时间，具体Gate证据归属与停止门见质量合同。
 
 ## 质量标准
 

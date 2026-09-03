@@ -29,6 +29,7 @@ REQUIRED_PATHS = {
     Path("docs/end-to-end-workflow.md"),
     Path("docs/keyword-judgment-boundaries.md"),
     Path("docs/runtime-optimization-contract.md"),
+    Path("docs/dispatch-control-contract.md"),
     Path("contracts/runtime-rule-map.json"),
     Path("contracts/run-spec.example.json"),
     Path("contracts/source-preflight.example.json"),
@@ -39,6 +40,8 @@ REQUIRED_PATHS = {
     Path("scripts/runtime_contract.py"),
     Path("scripts/keyword_deterministic_core.py"),
     Path("scripts/run_runtime_fixtures.py"),
+    Path("scripts/dispatch_guard.py"),
+    Path("scripts/test_dispatch_guard.py"),
 }
 
 TEXT_SUFFIXES = {
@@ -706,6 +709,7 @@ def validate_runtime_layer(errors: List[str]) -> None:
             errors.append(f"contracts/runtime-rule-map.json: {rule_id!r} stages are invalid")
 
     entrypoints = {
+        Path("scripts/dispatch_guard.py"): {"build", "reserve", "sent", "accept", "observe", "reconcile"},
         Path("scripts/runtime_contract.py"): {
             "build",
             "verify",
