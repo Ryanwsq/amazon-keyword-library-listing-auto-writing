@@ -22,3 +22,7 @@
 原工作区不就地转换；失败时保留候选和报告用于诊断，不覆盖原文件。关键词原接口修订为独立本地提交，整合变更在短期分支；只有审核范围、候选清单、测试及共享权限闭合后才推送PR，并以远端main回读为完成依据。不强推、不重写已有共享历史、不将尚未加载的旧任务当作新版本就绪。
 
 本仓库继续使用既有GitHub目标；不新建远端仓库。公开署名使用用户确认的身份，不把自动生成的设备邮箱误带入新公开提交。
+
+## Cross-device deployment maintenance
+
+2026-09-03根级部署增量：README及`cross-device-setup.md`登记运行时、网站账号、MCP配置和本机任务绑定要求；`.gitattributes`保留冻结文件原始字节，不因Windows换行设置变更哈希。`scripts/check_environment.py`只做本机合成预检，不新增业务规则或替代原校验。该批次所有`projects/`文件必须与合仓基线逐字节相同，发布清单只更新明确审查的根级文件；复核见`migration/cross-device-review.json`。配置就绪、结构通过、Windows换行模拟和真实Windows业务验证分别报告，不混称。

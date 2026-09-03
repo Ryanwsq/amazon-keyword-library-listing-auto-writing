@@ -9,7 +9,16 @@ from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parents[1]
 INVENTORY = 'migration/release-files.json'
-SKIP = {'.git', '.local', '__pycache__', '.pytest_cache', 'node_modules'}
+SKIP = {'.git', '.local', '.codex', '.codex-tmp', '__pycache__', '.pytest_cache', 'node_modules'}
+LOCAL_NAMES = {'.DS_Store', 'Thumbs.db', 'thread-map.local.md', 'thread-map.yaml'}
+
+
+def private_local_path(relative):
+    """Only declared local metadata; never ignore arbitrary unreviewed business files."""
+    parts = PurePosixPath(relative).parts
+    return any(part in SKIP for part in parts) or any(
+        part in LOCAL_NAMES or part == '.env' or part.startswith('.env.') or part.endswith('bindings.local.json')
+        for part in parts)
 
 
 def unique(pairs):
@@ -43,7 +52,7 @@ def collect_files(root):
     found = {}
     for path in root.rglob('*'):
         rel = path.relative_to(root)
-        if any(part in SKIP for part in rel.parts):
+        if private_local_path(rel.as_posix()):
             continue
         if path.is_symlink():
             raise ValueError('Unexpected symlink: ' + rel.as_posix())
@@ -61,6 +70,8 @@ def validate_inventory(root):
         raise ValueError('Empty release inventory')
     for rel, digest in expected.items():
         owned_path(root, rel)
+        if private_local_path(rel):
+            raise ValueError('Private local metadata cannot enter release inventory: ' + rel)
         if not isinstance(digest, str) or not re.fullmatch('[0-9a-f]{64}', digest):
             raise ValueError('Invalid file hash: ' + rel)
     actual = collect_files(root)

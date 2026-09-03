@@ -44,6 +44,26 @@ class ReleaseInventoryTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate_inventory(self.root)
 
+    def test_declared_private_metadata_is_not_a_release_input(self):
+        for relative in ('.DS_Store', 'docs/.DS_Store', 'thread-map.local.md', '.codex/config.toml', '.env.local'):
+            path = self.root / relative
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text('synthetic local state only')
+        self.assertEqual(validate_inventory(self.root), 1)
+
+    def test_private_metadata_cannot_be_added_to_manifest(self):
+        (self.root / '.env').write_text('synthetic local state only')
+        manifest = json.loads((self.root / INVENTORY).read_text())
+        manifest['files']['.env'] = hashlib.sha256((self.root / '.env').read_bytes()).hexdigest()
+        (self.root / INVENTORY).write_text(json.dumps(manifest))
+        with self.assertRaises(ValueError):
+            validate_inventory(self.root)
+
+    def test_unreviewed_workbook_is_still_blocked(self):
+        (self.root / 'unreviewed.xlsx').write_bytes(b'synthetic unreviewed artifact')
+        with self.assertRaises(ValueError):
+            validate_inventory(self.root)
+
     def test_traversal_and_absolute_paths_are_blocked(self):
         for relative in ('../x', '/x', 'a/../../x', 'C:\\x', ''):
             with self.subTest(relative=relative), self.assertRaises(ValueError):
