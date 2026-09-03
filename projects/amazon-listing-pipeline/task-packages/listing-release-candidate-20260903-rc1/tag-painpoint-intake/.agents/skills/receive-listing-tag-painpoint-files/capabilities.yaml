@@ -1,0 +1,20 @@
+{
+  "capabilities": [
+    {
+      "id": "listing.tag-painpoint-intake.execute",
+      "input": "锁定的标签优先级和劣势/痛点补充文件",
+      "output": "只读接收回执、原排序、证据与样本限制",
+      "permission": "只读接收；业务执行和输出须当次明确授权，原SOP边界保持",
+      "purpose": "保留标签与QA文件接收入口，默认不重排、不生成QA/评论",
+      "risk": "外部工具与登录未验证；不得替代来源、扩大职责或绕过人工确认",
+      "status": "planned",
+      "type": "manual"
+    }
+  ],
+  "skill": {
+    "last_verified": null,
+    "maturity": "draft",
+    "name": "receive-listing-tag-painpoint-files",
+    "scope": "new_structure_revision_only; historical_acceptance_not_reassessed"
+  }
+}

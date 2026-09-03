@@ -1,0 +1,6 @@
+interface:
+  display_name: "Amazon 标签优先级决策"
+  short_description: "将两份输入表生成固定五表标签优先级决策工作簿"
+  default_prompt: "Use $prioritize-amazon-insight-tags to turn the product-information workbook and competitor-insight workbook into the fixed five-sheet tag-priority workbook."
+policy:
+  allow_implicit_invocation: true

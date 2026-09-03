@@ -1,0 +1,187 @@
+{
+  "authorized_maintenance": {
+    "P1": "not_executed",
+    "affected_roles": [],
+    "business_run": "not_executed",
+    "id": "AKW-LISTING-MERGE-PREP-20260903-01",
+    "protocol_id": "AKW-LISTING-INTERFACE-v1",
+    "scope": "候选路径、发布元数据、匿名规则沿革及经单独授权的模板脱敏；业务规则保持v3"
+  },
+  "business_rules_changed": false,
+  "files": [
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/sku-usable-keyword-library/Agent.md",
+      "sha256": "472267f0734d00de72c5cdd5f66f2db8949a627e7efa6f1a502b27449227c6d6",
+      "source": ".agents/skills/sku-usable-keyword-library/Agent.md",
+      "source_sha256": "472267f0734d00de72c5cdd5f66f2db8949a627e7efa6f1a502b27449227c6d6"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/sku-usable-keyword-library/SKILL.md",
+      "sha256": "31ba1d505a99562af051b08da6402e6aa73355de786753f977dcaef869159a66",
+      "source": ".agents/skills/sku-usable-keyword-library/SKILL.md",
+      "source_sha256": "31ba1d505a99562af051b08da6402e6aa73355de786753f977dcaef869159a66"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/sku-usable-keyword-library/capabilities.yaml",
+      "sha256": "98a70122b9999fa4f6510937315e671056bbda6d9549b440a26889957ef7dca1",
+      "source": ".agents/skills/sku-usable-keyword-library/capabilities.yaml",
+      "source_sha256": "98a70122b9999fa4f6510937315e671056bbda6d9549b440a26889957ef7dca1"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/sku-usable-keyword-library/evidence/cases.json",
+      "sha256": "8e02c62b042ccd21b93d9e8cba70379eedee006cd2651637dd13284d496a5ce5",
+      "source": ".agents/skills/sku-usable-keyword-library/evidence/cases.json",
+      "source_sha256": "8e02c62b042ccd21b93d9e8cba70379eedee006cd2651637dd13284d496a5ce5"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/sku-usable-keyword-library/evidence/index.md",
+      "sha256": "61c947d3ca9745b00c6dd76799cb2a40fbc6c85f6ecd98f2401f178701e72e7f",
+      "source": ".agents/skills/sku-usable-keyword-library/evidence/index.md",
+      "source_sha256": "61c947d3ca9745b00c6dd76799cb2a40fbc6c85f6ecd98f2401f178701e72e7f"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/sku-usable-keyword-library/knowledge/catalog.json",
+      "sha256": "92c8d54ea7d60426a9229cd0af17b0a5974b89a11389931138687936bb0ec203",
+      "source": ".agents/skills/sku-usable-keyword-library/knowledge/catalog.json",
+      "source_sha256": "92c8d54ea7d60426a9229cd0af17b0a5974b89a11389931138687936bb0ec203"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/sku-usable-keyword-library/knowledge/index.md",
+      "sha256": "21aec31759504bbac66a9abc5d77c6f9cac168e32adbea4a6f0ea28a08875457",
+      "source": ".agents/skills/sku-usable-keyword-library/knowledge/index.md",
+      "source_sha256": "21aec31759504bbac66a9abc5d77c6f9cac168e32adbea4a6f0ea28a08875457"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md",
+      "sha256": "92fce8debf786c3874f4876ed11c7b4827034efe24dbcdbaff2203b0a3328bf0",
+      "source": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md",
+      "source_sha256": "92fce8debf786c3874f4876ed11c7b4827034efe24dbcdbaff2203b0a3328bf0"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/sku-usable-keyword-library/references/reference-provenance.md",
+      "sha256": "6c6fa7ac10e35c1f73552c74c5e4a5e56e2e08147f0461de9a75c8449531f8be",
+      "source": ".agents/skills/sku-usable-keyword-library/references/reference-provenance.md",
+      "source_sha256": "6c6fa7ac10e35c1f73552c74c5e4a5e56e2e08147f0461de9a75c8449531f8be"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md",
+      "sha256": "baba69c2e1a1fcdf778ed9ea22664c3db41f467c930fb792c9b4ee87ff74908e",
+      "source": ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md",
+      "source_sha256": "baba69c2e1a1fcdf778ed9ea22664c3db41f467c930fb792c9b4ee87ff74908e"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/sku-usable-keyword-library/scripts/classification_compat.py",
+      "sha256": "37148719bd64ed513084a25bcb1554131dfdc6bfaf1936828ab2adacc9c1c8f3",
+      "source": ".agents/skills/sku-usable-keyword-library/scripts/classification_compat.py",
+      "source_sha256": "37148719bd64ed513084a25bcb1554131dfdc6bfaf1936828ab2adacc9c1c8f3"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/sku-usable-keyword-library/scripts/test_classification_compat.py",
+      "sha256": "760eaa74efa78ec3902e898e49bfa57deca3f43f0cdd7a6e4ab4733789dbaa9b",
+      "source": ".agents/skills/sku-usable-keyword-library/scripts/test_classification_compat.py",
+      "source_sha256": "760eaa74efa78ec3902e898e49bfa57deca3f43f0cdd7a6e4ab4733789dbaa9b"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "AGENTS.md",
+      "sha256": "853d410d51f911dab629b524fbb6ef5790eb990f5b0a9db300c973f03e9a7e7c"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "Agent.md",
+      "sha256": "2289b7eda5b81deb2023eb80e3a48328046cbb93f24eb91bd6dd32a1ebfd05af"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "LOAD_ORDER.md",
+      "sha256": "be70432f89b6cb2475217599eba281453df35d3e4ffdb3d4cfc32e4dbf6ed6f7"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "PUBLICATION.md",
+      "sha256": "85467e59876faa90f3d2e89c583a30c19df72cee99fae55c22602011535fce65"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "contracts/dispatch-and-loading.md",
+      "sha256": "735148be6801e7741d179f3414684a3c984c85e96e8a3318ba71478374fdbee8"
+    },
+    {
+      "operation": "generated_dependency_contract",
+      "path": "contracts/skill-dependencies.json",
+      "sha256": "33bc255b2cce1cc024f1f4b95c367acebe61622f5aedce7097a562f414219593"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "docs/skill-package-standard.md",
+      "sha256": "b8eda6f3bdb54968578d822f048dedd48c860a160ee89f4a1ba5af1983c4ce1b",
+      "source": "docs/skill-package-standard.md",
+      "source_sha256": "b8eda6f3bdb54968578d822f048dedd48c860a160ee89f4a1ba5af1983c4ce1b"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "evidence/index.md",
+      "sha256": "5789e016ffe478b6c37d40bf7cffe3a9003aca0ddf91460c1d059e06d2df7437"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "knowledge-base/index.md",
+      "sha256": "939f128ea8816077d72176bf1d363baa1b1b7727e7545715194226a9589d5725"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "rules/index.md",
+      "sha256": "a084897ec57d25bb6d6607e4f2b2298fa80bd49ffa6db49769c603f26bbd7d8b"
+    },
+    {
+      "operation": "generated_complete_section_map",
+      "path": "rules/rule-map.json",
+      "sha256": "3466f077916febc12abd96275453a60070df6e74af969d07be7274504cdbe28b"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "scripts/validate_skill_packages.py",
+      "sha256": "4969534ba03d59094247575c43772ff27b93e25c66957eaa565b48874b27618c",
+      "source": "scripts/validate_skill_packages.py",
+      "source_sha256": "4969534ba03d59094247575c43772ff27b93e25c66957eaa565b48874b27618c"
+    }
+  ],
+  "kind": "specialist",
+  "new_business_run": false,
+  "original_business_skill_count": 8,
+  "owned_skills": [
+    "sku-usable-keyword-library"
+  ],
+  "publication_status": "SANITIZED_CANDIDATE_NOT_PUBLISHED",
+  "reference_skills": [],
+  "role": "sku-keywords",
+  "schema_version": 1,
+  "title": "副线程｜SKU可用关键词库",
+  "version": "listing-release-candidate-20260903-rc1"
+}

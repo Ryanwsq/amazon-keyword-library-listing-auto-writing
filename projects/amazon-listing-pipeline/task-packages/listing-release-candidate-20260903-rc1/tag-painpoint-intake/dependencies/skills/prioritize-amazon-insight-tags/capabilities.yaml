@@ -1,0 +1,20 @@
+{
+  "capabilities": [
+    {
+      "id": "listing.tag-priority.execute",
+      "input": "本品三表和竞品五维洞察并集两个工作簿",
+      "output": "05固定五Sheet标签、Coverage、Expression和参数优先级",
+      "permission": "只读接收；业务执行和输出须当次明确授权，原SOP边界保持",
+      "purpose": "05接收；获明确处理授权后按固定五Sheet合同处理标签",
+      "risk": "外部工具与登录未验证；不得替代来源、扩大职责或绕过人工确认",
+      "status": "planned",
+      "type": "manual"
+    }
+  ],
+  "skill": {
+    "last_verified": null,
+    "maturity": "draft",
+    "name": "prioritize-amazon-insight-tags",
+    "scope": "new_structure_revision_only; historical_acceptance_not_reassessed"
+  }
+}

@@ -1,0 +1,164 @@
+[
+  {
+    "content": "Amazon Listing 硬性规则",
+    "id": "KB-b96a0d06f3ec",
+    "scope": "按两道确认门执行正文草案、ST、14Sheet装配及规则检查",
+    "source": ".agents/skills/apply-amazon-listing-hard-rules/SKILL.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "Amazon Premium A+ 内容硬性规则",
+    "id": "KB-b20bce09141b",
+    "scope": "按两道确认门执行正文草案、ST、14Sheet装配及规则检查",
+    "source": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊A+硬性规则.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "Amazon 后台 Search Terms 硬性规则",
+    "id": "KB-538c911cbf64",
+    "scope": "按两道确认门执行正文草案、ST、14Sheet装配及规则检查",
+    "source": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊ST硬性规则.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "Amazon Bullet Points（五点描述）硬性规则",
+    "id": "KB-2bc86e7c6ad5",
+    "scope": "按两道确认门执行正文草案、ST、14Sheet装配及规则检查",
+    "source": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊五点描述硬性规则.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "Amazon Listing 图片硬性规则",
+    "id": "KB-4f2784e6c2fb",
+    "scope": "按两道确认门执行正文草案、ST、14Sheet装配及规则检查",
+    "source": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊图片硬性规则.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "Amazon 标题与 Item Highlights 硬性规则",
+    "id": "KB-14d1af8fbb52",
+    "scope": "按两道确认门执行正文草案、ST、14Sheet装配及规则检查",
+    "source": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊标题硬性规则.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "最终交付工作簿展示合同 v2",
+    "id": "KB-a95d0b03021f",
+    "scope": "按两道确认门执行正文草案、ST、14Sheet装配及规则检查",
+    "source": "knowledge-base/final-workbook-presentation.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "Listing 最终装配填充规则",
+    "id": "KB-786dfc35c221",
+    "scope": "按两道确认门执行正文草案、ST、14Sheet装配及规则检查",
+    "source": "knowledge-base/listing-final-assembly-rules.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "Amazon Listing 硬性规则知识库",
+    "id": "KB-d076e0410395",
+    "scope": "按两道确认门执行正文草案、ST、14Sheet装配及规则检查",
+    "source": "knowledge-base/listing-hard-rules/README.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "Amazon Premium A+ 内容硬性规则",
+    "id": "KB-03eabd4c2768",
+    "scope": "按两道确认门执行正文草案、ST、14Sheet装配及规则检查",
+    "source": "knowledge-base/listing-hard-rules/亚马逊A+硬性规则.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "Amazon 后台 Search Terms 硬性规则",
+    "id": "KB-8b208dc3052b",
+    "scope": "按两道确认门执行正文草案、ST、14Sheet装配及规则检查",
+    "source": "knowledge-base/listing-hard-rules/亚马逊ST硬性规则.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "Amazon Bullet Points（五点描述）硬性规则",
+    "id": "KB-0fe3eec4e5b7",
+    "scope": "按两道确认门执行正文草案、ST、14Sheet装配及规则检查",
+    "source": "knowledge-base/listing-hard-rules/亚马逊五点描述硬性规则.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "Amazon Listing 图片硬性规则",
+    "id": "KB-e09897061e3e",
+    "scope": "按两道确认门执行正文草案、ST、14Sheet装配及规则检查",
+    "source": "knowledge-base/listing-hard-rules/亚马逊图片硬性规则.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "Amazon 标题与 Item Highlights 硬性规则",
+    "id": "KB-068db09a2731",
+    "scope": "按两道确认门执行正文草案、ST、14Sheet装配及规则检查",
+    "source": "knowledge-base/listing-hard-rules/亚马逊标题硬性规则.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "Amazon Listing 软性写作规则",
+    "id": "KB-6ad3f3e7a0e8",
+    "scope": "按两道确认门执行正文草案、ST、14Sheet装配及规则检查",
+    "source": "knowledge-base/listing-soft-writing-rules.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "Title 与 Item Highlights 写作知识库",
+    "id": "KB-56dd49f6fde7",
+    "scope": "按两道确认门执行正文草案、ST、14Sheet装配及规则检查",
+    "source": "knowledge-base/listing-title-highlight-writing-rules.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "多案例驱动的核心写法迭代",
+    "id": "KB-73aadbf0624a",
+    "scope": "按两道确认门执行正文草案、ST、14Sheet装配及规则检查",
+    "source": "knowledge-base/listing-writing-case-learning.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "Listing 写法讨论与迭代记录",
+    "id": "KB-c205f13ff61d",
+    "scope": "按两道确认门执行正文草案、ST、14Sheet装配及规则检查",
+    "source": "project-control/listing-writing-iteration-log.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  }
+]

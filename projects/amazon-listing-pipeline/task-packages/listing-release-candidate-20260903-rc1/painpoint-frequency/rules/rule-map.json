@@ -1,0 +1,275 @@
+[
+  {
+    "end_line": 2,
+    "sha256": "3a3266809059f767bdaa339cd2e99f338dfba53c20407331c025334997551de8",
+    "source": ".agents/skills/alexa-painpoint-frequency/Agent.md",
+    "start_line": 1,
+    "target": ".agents/skills/alexa-painpoint-frequency/Agent.md"
+  },
+  {
+    "end_line": 6,
+    "sha256": "ca2edba79aa30736f316b6c137b74cec41f2ea9af8f8ee14f52e20bb8c827e64",
+    "source": ".agents/skills/alexa-painpoint-frequency/Agent.md",
+    "start_line": 3,
+    "target": ".agents/skills/alexa-painpoint-frequency/Agent.md"
+  },
+  {
+    "end_line": 10,
+    "sha256": "bb7b194f270bb7f84c9530e245d03e493f01e9b0a9ad0062ee6353355b3b0840",
+    "source": ".agents/skills/alexa-painpoint-frequency/Agent.md",
+    "start_line": 7,
+    "target": ".agents/skills/alexa-painpoint-frequency/Agent.md"
+  },
+  {
+    "end_line": 14,
+    "sha256": "8be953bc50329efe7615ecf089338196fca48f4346dc3a568ad7bb4628ca8fee",
+    "source": ".agents/skills/alexa-painpoint-frequency/Agent.md",
+    "start_line": 11,
+    "target": ".agents/skills/alexa-painpoint-frequency/Agent.md"
+  },
+  {
+    "end_line": 18,
+    "sha256": "0e927c4457e37bb4f80055622911f816671f64e2e53a1179e62fea594dbc0269",
+    "source": ".agents/skills/alexa-painpoint-frequency/Agent.md",
+    "start_line": 15,
+    "target": ".agents/skills/alexa-painpoint-frequency/Agent.md"
+  },
+  {
+    "end_line": 23,
+    "sha256": "80bba0a2533469366598be4c8cfcbf6a5049ad6787ff05d1dd647f8b1e216cd2",
+    "source": ".agents/skills/alexa-painpoint-frequency/Agent.md",
+    "start_line": 19,
+    "target": ".agents/skills/alexa-painpoint-frequency/Agent.md"
+  },
+  {
+    "end_line": 5,
+    "sha256": "92402086d7bb13f74e2d95c76e7052e4620b5256ac6151bb2cf8fce630f8d4bd",
+    "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+    "start_line": 1,
+    "target": ".agents/skills/alexa-painpoint-frequency/SKILL.md"
+  },
+  {
+    "end_line": 7,
+    "sha256": "5b9b41598d49fb5d03bfc4a75a66e63d11a4bc8739e09c74c0cb7d7ce8cd7445",
+    "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+    "start_line": 6,
+    "target": ".agents/skills/alexa-painpoint-frequency/SKILL.md"
+  },
+  {
+    "end_line": 16,
+    "sha256": "9022a4279eb80acdb4b5dbefa13fa4bfb9e66c5ea37b67076c60d69dffdb50c2",
+    "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+    "start_line": 8,
+    "target": ".agents/skills/alexa-painpoint-frequency/SKILL.md"
+  },
+  {
+    "end_line": 26,
+    "sha256": "3643caad949c7bb33575aadb3ba2a58538a9966ca575425ee14e7f7e84bc81aa",
+    "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+    "start_line": 17,
+    "target": ".agents/skills/alexa-painpoint-frequency/SKILL.md"
+  },
+  {
+    "end_line": 38,
+    "sha256": "663581b943e64ff91dd895f285f90c092dfe78376e2085714a765ed01612a2b4",
+    "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+    "start_line": 27,
+    "target": ".agents/skills/alexa-painpoint-frequency/SKILL.md"
+  },
+  {
+    "end_line": 48,
+    "sha256": "0de964948a67c74e5c903678a2b741a6854d042e26e4c8fb6dcd472eded60771",
+    "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+    "start_line": 39,
+    "target": ".agents/skills/alexa-painpoint-frequency/SKILL.md"
+  },
+  {
+    "end_line": 52,
+    "sha256": "c13f6c9d8baad126437d064e619fafe7290d956da497569c983b30e2bada737c",
+    "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+    "start_line": 49,
+    "target": ".agents/skills/alexa-painpoint-frequency/SKILL.md"
+  },
+  {
+    "end_line": 56,
+    "sha256": "e6c850bcc2427f19369881dda8c1754ed9607756427f9f5baedb253fdbed7daf",
+    "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+    "start_line": 53,
+    "target": ".agents/skills/alexa-painpoint-frequency/SKILL.md"
+  },
+  {
+    "end_line": 60,
+    "sha256": "862a1cfd07dc7f20c9b9501d0b71fa19b07067909fa78b0da7e0b1916a0d7bdd",
+    "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+    "start_line": 57,
+    "target": ".agents/skills/alexa-painpoint-frequency/SKILL.md"
+  },
+  {
+    "end_line": 64,
+    "sha256": "d4bc83a19979bc6b9968dfc476845b790c6780d43a3a5dc63761cf9b4b1e1133",
+    "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+    "start_line": 61,
+    "target": ".agents/skills/alexa-painpoint-frequency/SKILL.md"
+  },
+  {
+    "end_line": 68,
+    "sha256": "fa9fe9049918af5f6003c1d24796743c54ad8b4b6c838e44831aab5b2b346089",
+    "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+    "start_line": 65,
+    "target": ".agents/skills/alexa-painpoint-frequency/SKILL.md"
+  },
+  {
+    "end_line": 72,
+    "sha256": "8b3b8ac12dd39a19c2770e46748d87d2096c2a513f2f68e9b45257e772ef3d13",
+    "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+    "start_line": 69,
+    "target": ".agents/skills/alexa-painpoint-frequency/SKILL.md"
+  },
+  {
+    "end_line": 78,
+    "sha256": "c9eb001f5ecd1acd4e2dba65408e6cd3a8bc442af416d7265f9584f7cfc7835f",
+    "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+    "start_line": 73,
+    "target": ".agents/skills/alexa-painpoint-frequency/SKILL.md"
+  },
+  {
+    "end_line": 90,
+    "sha256": "fd8ce8202dcfe9f93a3177f5be74369051bcc323202acf536c9c4c0273fc3184",
+    "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+    "start_line": 79,
+    "target": ".agents/skills/alexa-painpoint-frequency/SKILL.md"
+  },
+  {
+    "end_line": 100,
+    "sha256": "03e5c595dd0f78655792c85483830c0f17a15de445ec359de5a8fee3c0e12c53",
+    "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+    "start_line": 91,
+    "target": ".agents/skills/alexa-painpoint-frequency/SKILL.md"
+  },
+  {
+    "end_line": 102,
+    "sha256": "5e2f7f2fb518fb760d8ca36e1c79afa6343a3b895d45ac61f989f54d4940da81",
+    "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+    "start_line": 101,
+    "target": ".agents/skills/alexa-painpoint-frequency/SKILL.md"
+  },
+  {
+    "end_line": 120,
+    "sha256": "b54bc53ea6ca13adb66f7a9147876decd9c6be04678e9160307511cade00e1d6",
+    "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+    "start_line": 103,
+    "target": ".agents/skills/alexa-painpoint-frequency/SKILL.md"
+  },
+  {
+    "end_line": 141,
+    "sha256": "fbb18ea4acdf6a30e0e11158583b689424eccf2276cdbaa21b8f09989a7e877d",
+    "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+    "start_line": 121,
+    "target": ".agents/skills/alexa-painpoint-frequency/SKILL.md"
+  },
+  {
+    "end_line": 158,
+    "sha256": "84f50dfbf10868624da680aa2fe40d3efe3283b0b8e5aef50654fa8ed8e91ef4",
+    "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+    "start_line": 142,
+    "target": ".agents/skills/alexa-painpoint-frequency/SKILL.md"
+  },
+  {
+    "end_line": 162,
+    "sha256": "abf8e0cd67fce4f6ddb83c8174411d7c1610e5428d3ba4f78f9b9bf0adc84506",
+    "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+    "start_line": 159,
+    "target": ".agents/skills/alexa-painpoint-frequency/SKILL.md"
+  },
+  {
+    "end_line": 166,
+    "sha256": "b2acab5732fa61a0a98723e977ac1103f3d66ea6061feec72ad476b3802ad116",
+    "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+    "start_line": 163,
+    "target": ".agents/skills/alexa-painpoint-frequency/SKILL.md"
+  },
+  {
+    "end_line": 170,
+    "sha256": "71c9558c04d56c5d047c5b12bd98f2aceceb643dc295b0a481396dc4f93b98f9",
+    "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+    "start_line": 167,
+    "target": ".agents/skills/alexa-painpoint-frequency/SKILL.md"
+  },
+  {
+    "end_line": 174,
+    "sha256": "bd7b416185a14a9ea44dfbea0333a8b02daf59ca9ec028ec5e15eef2f92159ce",
+    "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+    "start_line": 171,
+    "target": ".agents/skills/alexa-painpoint-frequency/SKILL.md"
+  },
+  {
+    "end_line": 178,
+    "sha256": "befdc04b15a1bb8cb7b0be1b7153f65f01fb34de976c8a4448c4d0903855f44e",
+    "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+    "start_line": 175,
+    "target": ".agents/skills/alexa-painpoint-frequency/SKILL.md"
+  },
+  {
+    "end_line": 182,
+    "sha256": "d5c86a071f6481fddb6d010ec47166874243a22ec16c938c037a1321357dab12",
+    "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+    "start_line": 179,
+    "target": ".agents/skills/alexa-painpoint-frequency/SKILL.md"
+  },
+  {
+    "end_line": 187,
+    "sha256": "67097d0388e99ccb28db6274ccb71d137f1d37498cb06dea4193bb79ae6cfe8c",
+    "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+    "start_line": 183,
+    "target": ".agents/skills/alexa-painpoint-frequency/SKILL.md"
+  },
+  {
+    "end_line": 11,
+    "sha256": "7c532400bcd085137daaf917e1f0b1c448a9aeb2d25ff5cff5969f21529ac6d7",
+    "source": ".agents/skills/alexa-painpoint-frequency/evidence/index.md",
+    "start_line": 1,
+    "target": ".agents/skills/alexa-painpoint-frequency/evidence/index.md"
+  },
+  {
+    "end_line": 9,
+    "sha256": "8cb76b7d8a0707fa98bd5ede3e1a4490193edeaebc4c0df792701544ddbcf8cd",
+    "source": ".agents/skills/alexa-painpoint-frequency/knowledge/index.md",
+    "start_line": 1,
+    "target": ".agents/skills/alexa-painpoint-frequency/knowledge/index.md"
+  },
+  {
+    "end_line": 6,
+    "sha256": "6e05d58e3334d1679c9ddcbe7489ef2af7f6ceabc545e26b17c930d5cb1339c2",
+    "source": "docs/skill-package-standard.md",
+    "start_line": 1,
+    "target": "docs/skill-package-standard.md"
+  },
+  {
+    "end_line": 12,
+    "sha256": "b52f5642630723c186bbe44ff84f116d082dff71c9eb2366ede27bd45efb4462",
+    "source": "docs/skill-package-standard.md",
+    "start_line": 7,
+    "target": "docs/skill-package-standard.md"
+  },
+  {
+    "end_line": 20,
+    "sha256": "8813a1fdf0340227188748802487045261be96848bfddbbb275e928f57cae5bf",
+    "source": "docs/skill-package-standard.md",
+    "start_line": 13,
+    "target": "docs/skill-package-standard.md"
+  },
+  {
+    "end_line": 30,
+    "sha256": "85ef95df97f1d573f02b54678e035c6532b1292e7ace334c2563d58c48cba13a",
+    "source": "docs/skill-package-standard.md",
+    "start_line": 21,
+    "target": "docs/skill-package-standard.md"
+  },
+  {
+    "end_line": 35,
+    "sha256": "0f2926350ae575ba16c928d1e1761175e251ba9e7d3d634b818ef5d0dfb66ef5",
+    "source": "docs/skill-package-standard.md",
+    "start_line": 31,
+    "target": "docs/skill-package-standard.md"
+  }
+]

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Alexa 痛点口语表达"
+  short_description: "读取痛点统计文件，让 Alexa 生成对应的自然描述和购买前问法"
+  default_prompt: "使用 $alexa-painpoint-phrasing 读取这份痛点统计文件，输出对应的口语化描述和问法。"

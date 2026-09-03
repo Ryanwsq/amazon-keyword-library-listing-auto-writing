@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon Listing Hard Rules"
+  short_description: "Write or audit Listings with hard and soft rules"
+  default_prompt: "Use $apply-amazon-listing-hard-rules to write or audit these Amazon Listing fields, applying fixed hard boundaries and the project soft-writing knowledge base where relevant."

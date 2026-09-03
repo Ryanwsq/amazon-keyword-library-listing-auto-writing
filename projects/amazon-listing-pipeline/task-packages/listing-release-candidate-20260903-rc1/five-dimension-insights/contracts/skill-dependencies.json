@@ -1,0 +1,117 @@
+{
+  "P1": "not_executed",
+  "business_rule_owner": "original_skill_and_references",
+  "discovery_roots": [
+    ".agents/skills"
+  ],
+  "external_runtime": {
+    "Alexa_authentication": "not_checked",
+    "Amazon_keyword_main": "external_independent_task",
+    "spreadsheets": "not_checked"
+  },
+  "files": [
+    {
+      "path": ".agents/skills/extract-amazon-product-insights/Agent.md",
+      "sha256": "f5e65329bcfeb27aed151ac1da91ff955f40651951dd1171f94d600b5cde132b"
+    },
+    {
+      "path": ".agents/skills/extract-amazon-product-insights/SKILL.md",
+      "sha256": "4d00e4a610fcab26f64241c2599f5130cc1435fe4d6d610d1d1703f621c18c15"
+    },
+    {
+      "path": ".agents/skills/extract-amazon-product-insights/agents/openai.yaml",
+      "sha256": "f4e828e7d576204cc6fbeaf4ac6e7ef70b331f67df2a263142a278e1c9267062"
+    },
+    {
+      "path": ".agents/skills/extract-amazon-product-insights/capabilities.yaml",
+      "sha256": "39cd48b290632f08fbb331c2bb2efe9db83676cc5a8527192e6845a7925b70fa"
+    },
+    {
+      "path": ".agents/skills/extract-amazon-product-insights/evidence/cases.json",
+      "sha256": "42e2c91d264ed63b974db9a3111ea0b0920a72c42d746fb7050aadc3b0fa7097"
+    },
+    {
+      "path": ".agents/skills/extract-amazon-product-insights/evidence/index.md",
+      "sha256": "b26bee57abedabe7c4205e0279f846c8721497e2516e28f769b0e6818faad93d"
+    },
+    {
+      "path": ".agents/skills/extract-amazon-product-insights/knowledge/catalog.json",
+      "sha256": "e52e354f9c39a8398226e3c0e0d43a88c85f64dbf151cfc689dfc4aac74e3019"
+    },
+    {
+      "path": ".agents/skills/extract-amazon-product-insights/knowledge/index.md",
+      "sha256": "c51b1afbe992c1f1b389e718dfa89575c7c9f4da375cbcf5621793e6bc7a7faf"
+    },
+    {
+      "path": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+      "sha256": "fb3826515ee9e7bf86d895ca2632c2d62a548b13b8dfbde790ade365f52ca2ad"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "859e8d6996efaa9d1dff855312a2f53a6b8178ed48f41dd605d4c2c28bcf840b"
+    },
+    {
+      "path": "Agent.md",
+      "sha256": "0dc814ae12729e2facad585209f95596cd14dcf4f19ae68f210186e5ef0fa022"
+    },
+    {
+      "path": "LOAD_ORDER.md",
+      "sha256": "b4867d5d336c89373874d59d92e14085d47ebc6ab6786d73ad834242ee5b73f1"
+    },
+    {
+      "path": "PUBLICATION.md",
+      "sha256": "85467e59876faa90f3d2e89c583a30c19df72cee99fae55c22602011535fce65"
+    },
+    {
+      "path": "contracts/dispatch-and-loading.md",
+      "sha256": "735148be6801e7741d179f3414684a3c984c85e96e8a3318ba71478374fdbee8"
+    },
+    {
+      "path": "docs/skill-package-standard.md",
+      "sha256": "b8eda6f3bdb54968578d822f048dedd48c860a160ee89f4a1ba5af1983c4ce1b"
+    },
+    {
+      "path": "evidence/index.md",
+      "sha256": "5789e016ffe478b6c37d40bf7cffe3a9003aca0ddf91460c1d059e06d2df7437"
+    },
+    {
+      "path": "knowledge-base/index.md",
+      "sha256": "f6ce87b656c73a01dcaad787a7a48ce49444916c0cc9a5fe8d936a856c11975d"
+    },
+    {
+      "path": "rules/index.md",
+      "sha256": "a084897ec57d25bb6d6607e4f2b2298fa80bd49ffa6db49769c603f26bbd7d8b"
+    },
+    {
+      "path": "rules/rule-map.json",
+      "sha256": "0db4c22afbfd7f329b6d7f9e3692a5917b876c18b9d2169953f17c1db230fd99"
+    },
+    {
+      "path": "scripts/validate_skill_packages.py",
+      "sha256": "4969534ba03d59094247575c43772ff27b93e25c66957eaa565b48874b27618c"
+    }
+  ],
+  "schema_version": 2,
+  "scope": "local_structure_and_file_dependencies",
+  "skills": [
+    {
+      "mode": "executable",
+      "name": "extract-amazon-product-insights",
+      "path": ".agents/skills/extract-amazon-product-insights",
+      "required_files": [
+        ".agents/skills/extract-amazon-product-insights/Agent.md",
+        ".agents/skills/extract-amazon-product-insights/SKILL.md",
+        ".agents/skills/extract-amazon-product-insights/agents/openai.yaml",
+        ".agents/skills/extract-amazon-product-insights/capabilities.yaml",
+        ".agents/skills/extract-amazon-product-insights/evidence/cases.json",
+        ".agents/skills/extract-amazon-product-insights/evidence/index.md",
+        ".agents/skills/extract-amazon-product-insights/knowledge/catalog.json",
+        ".agents/skills/extract-amazon-product-insights/knowledge/index.md",
+        ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+      ],
+      "role": "five-dimension-insights"
+    }
+  ],
+  "static_dependencies": [],
+  "version": "listing-release-candidate-20260903-rc1"
+}

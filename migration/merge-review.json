@@ -1,0 +1,61 @@
+{
+  "schema": "amazon-workflow-merge-review/v1",
+  "reviewed_on": "2026-09-03",
+  "maintenance_id": "AKW-LISTING-MERGE-PREP-20260903-01",
+  "scope": "Source preservation, reviewed candidate adapters, role ownership, publication scope and mechanical integration; not a business Run.",
+  "keyword": {
+    "source_revision": "9d18a4dc9d32d820bcba27dbe31c8f50b363351f",
+    "source_files": 136,
+    "byte_identical_files": 132,
+    "additive_navigation_adapters": 4,
+    "authoritative_skills": 12,
+    "business_rule_changes": false
+  },
+  "listing": {
+    "source_version": "listing-task-packages-20260903-v3",
+    "candidate_version": "listing-release-candidate-20260903-rc1",
+    "accepted_manifest": "projects/amazon-listing-pipeline/release/candidate-manifest.json",
+    "accepted_manifest_sha256": "2e5aafc2db99254227efa427ab77115a6077dd94b65f341c1720758a5240c1d5",
+    "owner_validation_summary_sha256": "01ed798a402765d225255457a882bd355917431c09a18da52f58eee39ffb91e1",
+    "imported_files_including_manifest": 575,
+    "imported_byte_identical_to_accepted_candidate": true,
+    "authoritative_skills": 10,
+    "role_package_members": 414,
+    "canonical_rule_and_dependency_sources": 131,
+    "business_rule_changes": false,
+    "adapters_reviewed": [
+      "Remove machine-specific provenance paths; retain source names and hashes.",
+      "Anonymize one example identity and one historical Run label; retain the full surrounding judgment.",
+      "Replace private dialogue with navigational rule lineage pointing to complete current governing documents.",
+      "Use relative source_root and avoid reading local bindings while freezing candidate packages.",
+      "Declare candidate version and publication metadata without changing ten role ownership records."
+    ],
+    "interface_files_byte_identical_to_v3": true,
+    "known_input_template_notes": "Two legacy explanatory notes remain in the unchanged input template; PUBLICATION.md explicitly defers to current routing and dual-confirmation contracts. No new business rule is inferred from the template."
+  },
+  "publication_review": {
+    "real_task_bindings_credentials_raw_chat_and_unapproved_run_data": "excluded",
+    "golden_template": {
+      "authorization": "specific-user-approved-public-example",
+      "sha256": "7ee355536f9ca806b82b1d91d08d8bec0f56f9ba90df99068a05707d8a28cb9c",
+      "copies": 4,
+      "preservation": "Original sample data, five Sheets, 1452 formulas, caches and formatting retained byte-identically."
+    },
+    "blank_input_template": {
+      "sha256": "0e12595f07375c3fb601cd5c5c9c760579ebfa5ff3643842107946eefb60ed1b",
+      "copies": 3
+    },
+    "text_scan_review": "Only three UUID-shaped constants in the original delivery privacy audit script were found; these are its narrowly scoped OOXML format allowlist, not task identities.",
+    "xlsx_review": "Owner scanned internal XML; all seven imported binary files match the two reviewed hashes exactly."
+  },
+  "verification_boundary": {
+    "root_mechanical_fixture_tests": 15,
+    "listing_portable_freeze_fixture_checks": 4,
+    "unchanged_prior_listing_tests": "102 previously passed; not represented as newly rerun",
+    "post_import_command": "python3 -B scripts/validate_projects.py",
+    "publication_evidence": "Git remote branch, PR, merge and tree readback receipts are recorded separately; frozen source candidate metadata remains a historical pre-publication snapshot.",
+    "business_run": "not_executed",
+    "P1": "not_executed",
+    "live_task_rebinding": "not_executed"
+  }
+}

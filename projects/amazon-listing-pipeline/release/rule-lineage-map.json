@@ -1,0 +1,113 @@
+{
+  "rules": [
+    {
+      "full_governing_documents": [
+        {
+          "path": "knowledge-base/listing-soft-writing-rules.md",
+          "sha256": "6f8d60ceaec1b081cf6e0e863e2f8f0d1bf91d59dd1e7986495882d6042b4832"
+        }
+      ],
+      "rule_id": "BULLET-COVERAGE-COUNT-01"
+    },
+    {
+      "full_governing_documents": [
+        {
+          "path": "knowledge-base/listing-final-assembly-rules.md",
+          "sha256": "b19ce1d3243ef129f5af8ee60e30bd72ccb415b2b4ce9a0ea14f5a337f21a170"
+        },
+        {
+          "path": "knowledge-base/listing-soft-writing-rules.md",
+          "sha256": "6f8d60ceaec1b081cf6e0e863e2f8f0d1bf91d59dd1e7986495882d6042b4832"
+        }
+      ],
+      "rule_id": "CATEGORY-CONTENT-ROLE-01"
+    },
+    {
+      "full_governing_documents": [
+        {
+          "path": "knowledge-base/listing-final-assembly-rules.md",
+          "sha256": "b19ce1d3243ef129f5af8ee60e30bd72ccb415b2b4ce9a0ea14f5a337f21a170"
+        },
+        {
+          "path": "knowledge-base/listing-soft-writing-rules.md",
+          "sha256": "6f8d60ceaec1b081cf6e0e863e2f8f0d1bf91d59dd1e7986495882d6042b4832"
+        },
+        {
+          "path": "knowledge-base/listing-title-highlight-writing-rules.md",
+          "sha256": "89e1a3e5e9bfd283e63278b99e1c6cd938870cee8fe13517cbd3a103a9820685"
+        }
+      ],
+      "rule_id": "FRONT-COPY-DIMENSION-EXPRESSION-01"
+    },
+    {
+      "full_governing_documents": [
+        {
+          "path": "knowledge-base/listing-final-assembly-rules.md",
+          "sha256": "b19ce1d3243ef129f5af8ee60e30bd72ccb415b2b4ce9a0ea14f5a337f21a170"
+        },
+        {
+          "path": "knowledge-base/listing-soft-writing-rules.md",
+          "sha256": "6f8d60ceaec1b081cf6e0e863e2f8f0d1bf91d59dd1e7986495882d6042b4832"
+        },
+        {
+          "path": "knowledge-base/listing-title-highlight-writing-rules.md",
+          "sha256": "89e1a3e5e9bfd283e63278b99e1c6cd938870cee8fe13517cbd3a103a9820685"
+        }
+      ],
+      "rule_id": "FRONT-COPY-DISADVANTAGE-EXCLUDE-01"
+    },
+    {
+      "full_governing_documents": [
+        {
+          "path": "knowledge-base/listing-final-assembly-rules.md",
+          "sha256": "b19ce1d3243ef129f5af8ee60e30bd72ccb415b2b4ce9a0ea14f5a337f21a170"
+        },
+        {
+          "path": "knowledge-base/listing-title-highlight-writing-rules.md",
+          "sha256": "89e1a3e5e9bfd283e63278b99e1c6cd938870cee8fe13517cbd3a103a9820685"
+        }
+      ],
+      "rule_id": "IH-BENEFIT-DEDUPE-01"
+    },
+    {
+      "full_governing_documents": [
+        {
+          "path": "knowledge-base/listing-final-assembly-rules.md",
+          "sha256": "b19ce1d3243ef129f5af8ee60e30bd72ccb415b2b4ce9a0ea14f5a337f21a170"
+        },
+        {
+          "path": "knowledge-base/listing-title-highlight-writing-rules.md",
+          "sha256": "89e1a3e5e9bfd283e63278b99e1c6cd938870cee8fe13517cbd3a103a9820685"
+        }
+      ],
+      "rule_id": "IH-COMPONENT-GROUP-01"
+    },
+    {
+      "full_governing_documents": [
+        {
+          "path": "knowledge-base/listing-final-assembly-rules.md",
+          "sha256": "b19ce1d3243ef129f5af8ee60e30bd72ccb415b2b4ce9a0ea14f5a337f21a170"
+        },
+        {
+          "path": "knowledge-base/listing-title-highlight-writing-rules.md",
+          "sha256": "89e1a3e5e9bfd283e63278b99e1c6cd938870cee8fe13517cbd3a103a9820685"
+        }
+      ],
+      "rule_id": "IH-TITLE-DEDUPE-01"
+    },
+    {
+      "full_governing_documents": [
+        {
+          "path": "knowledge-base/listing-final-assembly-rules.md",
+          "sha256": "b19ce1d3243ef129f5af8ee60e30bd72ccb415b2b4ce9a0ea14f5a337f21a170"
+        },
+        {
+          "path": "knowledge-base/listing-title-highlight-writing-rules.md",
+          "sha256": "89e1a3e5e9bfd283e63278b99e1c6cd938870cee8fe13517cbd3a103a9820685"
+        }
+      ],
+      "rule_id": "TITLE-CORE-ROOT-01"
+    }
+  ],
+  "scope": "navigation_to_complete_current_rules; no_raw_chat_or_new_case"
+}

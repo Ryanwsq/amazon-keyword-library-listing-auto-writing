@@ -1,0 +1,20 @@
+{
+  "capabilities": [
+    {
+      "id": "listing.listing-writing-qa.execute",
+      "input": "确认07、已验收06、锁定事实、写作知识库及正文确认记录",
+      "output": "待确认Title/IH/Bullet草案；确认后最终ST、14Sheet和规则检查",
+      "permission": "只读接收；业务执行和输出须当次明确授权，原SOP边界保持",
+      "purpose": "按两道确认门执行正文草案、ST、14Sheet装配及规则检查",
+      "risk": "外部工具与登录未验证；不得替代来源、扩大职责或绕过人工确认",
+      "status": "planned",
+      "type": "manual"
+    }
+  ],
+  "skill": {
+    "last_verified": null,
+    "maturity": "draft",
+    "name": "apply-amazon-listing-hard-rules",
+    "scope": "new_structure_revision_only; historical_acceptance_not_reassessed"
+  }
+}

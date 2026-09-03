@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "structure_version": "listing-structure-2",
+  "reviewed_on": "2026-09-03",
+  "baseline_version": "listing-task-packages-20260903-v1",
+  "skills": {
+    "orchestrate-amazon-listing-pipeline": {"input":"锁定的产品输入或01–05封存包、独立06及用户确认记录", "output":"07信息校准、09映射、双确认门和10交付验收", "workflow":"执行流程", "quality":"完成条件", "exception":"运行状态", "type":"manual"},
+    "sku-usable-keyword-library": {"input":"已锁定的最终关键词总工作簿及当前唯一SKU事实卡", "output":"五Sheet的06及完整过程决策账本", "workflow":"执行流程", "quality":"质量门", "exception":"停止与人工升级", "type":"manual"},
+    "audit-alexa-shopping-product-info": {"input":"新品基础信息、基础配置、竞品对标ASIN三表及采集授权", "output":"02十字段审计和03优势/卖点排序，保持事实来源分离", "workflow":"执行流程", "quality":"交付前自检", "exception":"Alexa 访问边界", "type":"manual"},
+    "extract-amazon-product-insights": {"input":"锁定的ASIN、站点和语言及采集授权", "output":"01五维双问事实并集和独立技术状态", "workflow":"执行规则", "quality":"交付前检查", "exception":"唯一来源边界", "type":"manual"},
+    "prioritize-amazon-insight-tags": {"input":"本品三表和竞品五维洞察并集两个工作簿", "output":"05固定五Sheet标签、Coverage、Expression和参数优先级", "workflow":"唯一工作流", "quality":"交付前验收", "exception":"关键不变量", "type":"manual"},
+    "alexa-painpoint-frequency": {"input":"锁定ASIN列表及Alexa采集授权", "output":"04痛点明细与有效ASIN频率两Sheet", "workflow":"Alexa access", "quality":"Completion check", "exception":"Evidence rules", "type":"manual"},
+    "alexa-painpoint-phrasing": {"input":"合格04中已有的标准化痛点与ASIN配对", "output":"08口语明细与汇总两Sheet，标为Alexa归纳而非消费者原话", "workflow":"Alexa access and execution", "quality":"Completion check", "exception":"Required upstream input", "type":"manual"},
+    "apply-amazon-listing-hard-rules": {"input":"确认07、已验收06、锁定事实、写作知识库及正文确认记录", "output":"待确认Title/IH/Bullet草案；确认后最终ST、14Sheet和规则检查", "workflow":"执行原则", "quality":"输出要求", "exception":"执行原则", "type":"manual"},
+    "receive-listing-selling-point-files": {"input":"锁定Run、SKU、路径和哈希的卖点配置文件", "output":"只读接收回执、字段证据映射、冲突和缺口", "workflow":"执行", "quality":"禁止与质量门", "exception":"禁止与质量门", "type":"manual"},
+    "receive-listing-tag-painpoint-files": {"input":"锁定的标签优先级和劣势/痛点补充文件", "output":"只读接收回执、原排序、证据与样本限制", "workflow":"执行", "quality":"禁止与质量门", "exception":"禁止与质量门", "type":"manual"}
+  }
+}

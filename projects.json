@@ -1,0 +1,22 @@
+{
+  "schema": "amazon-workflow-projects/v1",
+  "projects": [
+    {
+      "id": "amazon-keyword-library",
+      "path": "projects/amazon-keyword-library",
+      "entry": "AGENTS.md",
+      "maintenance_skills": ".agents/skills",
+      "expected_skill_count": 12,
+      "checks": ["scripts/validate_repository.py", "scripts/validate_skill_dependencies.py"]
+    },
+    {
+      "id": "amazon-listing-pipeline",
+      "path": "projects/amazon-listing-pipeline",
+      "entry": "AGENTS.md",
+      "maintenance_skills": ".agents/skills",
+      "expected_skill_count": 10,
+      "role_registry": "task-packages/registry.json",
+      "checks": ["scripts/validate_skill_packages.py", "scripts/task_packages.py validate"]
+    }
+  ]
+}

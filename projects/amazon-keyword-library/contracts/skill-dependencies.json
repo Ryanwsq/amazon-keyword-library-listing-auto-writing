@@ -1,0 +1,120 @@
+{
+  "schema": "amazon-keyword-skill-dependencies/v1",
+  "shared_files": [
+    "AGENTS.md",
+    "README.md",
+    "PROJECT.md",
+    "docs/thread-architecture.md",
+    "docs/thread-roles.md",
+    "docs/task-routing.md",
+    "docs/risk-gates.md",
+    "docs/end-to-end-workflow.md",
+    "docs/runtime-optimization-contract.md",
+    "docs/dispatch-control-contract.md",
+    "docs/keyword-judgment-boundaries.md",
+    "docs/skill-package-standard.md",
+    "docs/agents/README.md",
+    "docs/github-branching.md",
+    "docs/thread-map.local.example.md",
+    "knowledge/INDEX.md",
+    "knowledge/product-keyword-library.md",
+    "knowledge/keyword-decision-log.md",
+    "knowledge/keyword-cleaning-case-evidence.md",
+    "knowledge/keyword-library-method-v0.1.md",
+    "contracts/runtime-rule-map.json",
+    "contracts/run-spec.example.json",
+    "contracts/source-preflight.example.json",
+    "contracts/skill-dependencies.json",
+    "scripts/runtime_contract.py",
+    "scripts/dispatch_guard.py",
+    "scripts/keyword_deterministic_core.py",
+    "scripts/run_runtime_fixtures.py",
+    "scripts/test_dispatch_guard.py",
+    "scripts/validate_repository.py",
+    "scripts/validate_skill_dependencies.py",
+    "scripts/test_skill_dependencies.py"
+  ],
+  "skills": {
+    "amazon-keyword-library-operations": {
+      "entry": ".agents/skills/amazon-keyword-library-operations/SKILL.md",
+      "resources": [
+        ".agents/skills/amazon-keyword-library-operations/references/source-merge-contract.md",
+        ".agents/skills/amazon-keyword-library-operations/references/recent-library-reuse-contract.md",
+        ".agents/skills/amazon-keyword-library-operations/references/listing-handoff-contract.md"
+      ]
+    },
+    "amazon-keyword-library-publication": {
+      "entry": ".agents/skills/amazon-keyword-library-publication/SKILL.md",
+      "resources": []
+    },
+    "amazon-keyword-sif-competitor-collection": {
+      "entry": ".agents/skills/amazon-keyword-sif-competitor-collection/SKILL.md",
+      "resources": [
+        ".agents/skills/amazon-keyword-sif-competitor-collection/references/source-contract.md"
+      ]
+    },
+    "amazon-keyword-amazon-autocomplete": {
+      "entry": ".agents/skills/amazon-keyword-amazon-autocomplete/SKILL.md",
+      "resources": [
+        ".agents/skills/amazon-keyword-amazon-autocomplete/references/source-contract.md"
+      ]
+    },
+    "amazon-keyword-sellersprite-expansion": {
+      "entry": ".agents/skills/amazon-keyword-sellersprite-expansion/SKILL.md",
+      "resources": [
+        ".agents/skills/amazon-keyword-sellersprite-expansion/references/source-contract.md"
+      ]
+    },
+    "amazon-keyword-category-cleaning": {
+      "entry": ".agents/skills/amazon-keyword-category-cleaning/SKILL.md",
+      "resources": [
+        ".agents/skills/amazon-keyword-category-cleaning/references/workbook-contract.md"
+      ]
+    },
+    "amazon-keyword-word-frequency": {
+      "entry": ".agents/skills/amazon-keyword-word-frequency/SKILL.md",
+      "resources": [
+        ".agents/skills/amazon-keyword-word-frequency/references/workbook-contract.md"
+      ]
+    },
+    "amazon-keyword-classification": {
+      "entry": ".agents/skills/amazon-keyword-classification/SKILL.md",
+      "resources": [
+        ".agents/skills/amazon-keyword-classification/references/output-contract.md",
+        ".agents/skills/amazon-keyword-classification/agents/openai.yaml"
+      ]
+    },
+    "amazon-keyword-competition-analysis": {
+      "entry": ".agents/skills/amazon-keyword-competition-analysis/SKILL.md",
+      "resources": [
+        ".agents/skills/amazon-keyword-competition-analysis/references/output-contract.md"
+      ]
+    },
+    "amazon-keyword-trend-analysis": {
+      "entry": ".agents/skills/amazon-keyword-trend-analysis/SKILL.md",
+      "resources": [
+        ".agents/skills/amazon-keyword-trend-analysis/references/output-contract.md",
+        ".agents/skills/amazon-keyword-trend-analysis/scripts/audit_trend_ooxml.py",
+        ".agents/skills/amazon-keyword-trend-analysis/tests/test_audit_trend_ooxml.py"
+      ]
+    },
+    "amazon-keyword-final-workbook-assembly": {
+      "entry": ".agents/skills/amazon-keyword-final-workbook-assembly/SKILL.md",
+      "resources": [
+        ".agents/skills/amazon-keyword-final-workbook-assembly/references/workbook-contract.md",
+        ".agents/skills/amazon-keyword-final-workbook-assembly/scripts/delivery-privacy-audit.mjs",
+        ".agents/skills/amazon-keyword-final-workbook-assembly/scripts/normalize-module-metadata.mjs",
+        ".agents/skills/amazon-keyword-final-workbook-assembly/scripts/post-qa-package.mjs",
+        ".agents/skills/amazon-keyword-final-workbook-assembly/scripts/run-fixtures.mjs",
+        ".agents/skills/amazon-keyword-library-operations/references/recent-library-reuse-contract.md"
+      ]
+    },
+    "amazon-keyword-quality-validation": {
+      "entry": ".agents/skills/amazon-keyword-quality-validation/SKILL.md",
+      "resources": [
+        ".agents/skills/amazon-keyword-quality-validation/references/quality-contract.md",
+        ".agents/skills/amazon-keyword-library-operations/references/recent-library-reuse-contract.md"
+      ]
+    }
+  }
+}

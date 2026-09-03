@@ -1,0 +1,4 @@
+interface:
+  display_name: "Alexa 痛点频率统计"
+  short_description: "从竞品 ASIN 提取有证据的痛点并统计跨 ASIN 频率"
+  default_prompt: "使用 $alexa-painpoint-frequency 分析这份 ASIN 列表，并输出痛点明细和痛点频率统计。"
