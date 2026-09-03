@@ -4,10 +4,13 @@
   "business_run": "not_executed",
   "P1": "not_executed",
   "files": {
+    ".gitattributes": "12c3732ce54ea848209459be7d22f611c432a525ae85e142ef426fc1597bfa21",
     ".gitignore": "eddb4eef0433427111ae65018d26d656ceda74c282f0b99d0e02c449d167db2b",
     "AGENTS.md": "1896b821a9fb551628b17068545c89bfd26970896b5378e4f7d040045e05be6c",
-    "README.md": "6b193c7c18f9f6f81817b83174eb083b9d25e132e255cac251f0e947770546c5",
-    "docs/merge-and-publication.md": "3c8a67e132c6e1a1a54140cb8cb4eab17a6e0a10936ccd1eb84bf2e9661d1135",
+    "README.md": "1c980fc7e3a9965f9da076315f4d8c76dfe740f1c51a40adb90a6f7fb10f6a8b",
+    "docs/cross-device-setup.md": "1d807710a74a44e4313b74b9de3959a8d26d54ec139709e83aebff5393eb8eba",
+    "docs/merge-and-publication.md": "8c5d794a99731a278b1e347f721446fdcf11284fe8356e743341ef2067083dfc",
+    "migration/cross-device-review.json": "e31b7f5cba7a7c686af4e23d9cc79cd1d5455125a4bcb6ca46f2896d081841c9",
     "migration/keyword-navigation-adapters.json": "afeba5a98bb7ef84dcd499ae34b0b8e6494c7948b72631253f5d7c6ad55d8af9",
     "migration/keyword-source-lock.json": "0dc971f988973301da7c5ed728df48fd5acdcacb8d31dfb9d2ab6a230e31fd4d",
     "migration/merge-review.json": "607e3aaca3e71adf2aeaf297011919db34ac81c2ec98583e843d099e46b80000",
@@ -723,7 +726,9 @@
     "projects/amazon-listing-pipeline/task-packages/listing-release-candidate-20260903-rc1/tag-priority/rules/rule-map.json": "27dfeb3e47fc73e767d36083e1ea2ebb125e0313836d09931a63ab9f720b5033",
     "projects/amazon-listing-pipeline/task-packages/listing-release-candidate-20260903-rc1/tag-priority/scripts/validate_skill_packages.py": "4969534ba03d59094247575c43772ff27b93e25c66957eaa565b48874b27618c",
     "projects/amazon-listing-pipeline/task-packages/registry.json": "03e782fbf32b45fc2fadb0d041faa82bb6a6e8e7889339586d61157499a5b33f",
-    "scripts/test_validate_projects.py": "d2554890e05d60b909a8838ddc6f20066ad68751dadadc5e8fb516270aa9d46b",
-    "scripts/validate_projects.py": "d735499006a0d10e8d09ba168f898ecea22741f2a547da67111f411aa92626f7"
+    "scripts/check_environment.py": "cde75a10f99cce750b2e9f6a27fc7f81e96c113b9c3b93067ef0f4558e94ce24",
+    "scripts/test_check_environment.py": "be0be9c3d812a2099dec91b25491e65bf21eafb7d505fe9315de0dd1ed5fe74e",
+    "scripts/test_validate_projects.py": "25d067c1b36e5b2d6ee9bde00169f40b3887242d38c85662dd10da4e3442a682",
+    "scripts/validate_projects.py": "83695c4919bd6b57a8dda43c46825b101f8c2fc7e4c29dbb891a8b8980e05d88"
   }
 }

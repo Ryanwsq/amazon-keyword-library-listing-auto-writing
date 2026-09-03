@@ -1,0 +1,23 @@
+{
+  "schema": "amazon-workflow-cross-device-review/v1",
+  "reviewed_on": "2026-09-03",
+  "base_commit": "3d6210b5fd64c57dcc153cfcaa2ac666ea3d449c",
+  "scope": "repository-root deployment documentation and prerequisite probes only",
+  "project_files_policy": "all files under projects/ must retain their base SHA-256",
+  "frozen_assets_policy": "preserved unchanged including user-approved golden workbook copies",
+  "newline_reproduction": {
+    "host": "macOS",
+    "checkout_setting": "core.autocrlf=true",
+    "base_manifest_hash_mismatches": 714,
+    "remedy": "root .gitattributes: * -text",
+    "acceptance": "fresh checkout has zero manifest hash mismatches and passes original project validators"
+  },
+  "runtime_policy": "Python 3.11+, Node.js 20+, Git and compatible unzip; zip required for assembly fixtures; spreadsheet and browser capabilities checked separately",
+  "inventory_policy": "explicit private bindings/config and OS metadata are not release inputs and cannot be declared in the inventory; unreviewed business files still fail",
+  "business_rules_changed": false,
+  "credentials_included": false,
+  "real_task_bindings_included": false,
+  "external_services": "not_checked",
+  "windows_business_run": "not_executed",
+  "P1": "not_executed"
+}

@@ -1,0 +1,3 @@
+# Frozen manifests verify bytes, including line endings, on every device.
+# Never normalize an imported rule, role package, or workbook during checkout.
+* -text
