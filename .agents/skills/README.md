@@ -29,9 +29,9 @@
 
 当前共有十个业务Skill（SIF、Amazon联想、卖家精灵、品类清洗、词频、关键词分类、竞争、趋势、最终装配、独立质量验证）和两个项目维护Skill（operations、publication）。当前合同固定三组开头输入、分层核心、多细分类目的目标细分简称强等价闭环、条件式Amazon联想锚点、卖家精灵官网完整导出优先及一至两个锁定种子、每种子一个成功完整导出、超过5个竞品时按稳定产品类型每类选择输入顺序首个有效代表、两Sheet第一板块、四Sheet清洗与Sheet2通用词库资格、资格纳入人口的介词过滤词频/Top3-only竞争/24月趋势、三去向51+N总表、分类Sheet4机械复制的二类词独立Sheet和八Sheet最终工作簿。普通production不调用独立质量验证；test-validation才采用compact-validation或full-regression，二者都只读执行原21项门，compact机械全量检查并逐行审计完整风险人口，只省略重复质量工作簿和预览。十二个Skill均为`draft`，全部能力为`planned`，没有真实P1三案例前不得声称已验证。
 
-2026-08-27起，十二个包都必须从`draft`阶段维护`evidence/index.md`，固定登记`case-01-normal`、`case-02-normal`和`case-03-edge-or-error`三个槽位。当前全部槽位为`planned`；索引不是案例证据，不得用历史运行倒填。一个真实端到端Run可以为实际执行到的每个Skill各贡献一个案例，但必须分别形成模块证据并通过该Skill自身质量门。
+2026-08-27起，十二个包都必须从`draft`阶段维护`evidence/index.md`，固定登记`case-01-normal`、`case-02-normal`和`case-03-edge-or-error`三个槽位。各槽位当前状态以对应`evidence/index.md`为准，汇总与开放问题由`../../PROJECT.md`维护，不将初始planned快照当作当前状态。索引不是案例证据，不得用历史运行倒填。一个真实端到端Run可以为实际执行到的每个Skill各贡献一个案例，但必须分别形成模块证据并通过该Skill自身质量门。
 
-2026-08-20 已完成以下结构调整，并通过当前仓库 P0：
+2026-08-20完成以下结构调整并通过当时的仓库P0；这是历史记录，不替代当前版本检查：
 
 - `amazon-keyword-source-collection` 拆为 SIF竞品反查、Amazon联想采集和卖家精灵扩词三个单一职责 Skill；三来源机械合并继续由主任务控制。
 - `amazon-keyword-competition-trend-analysis` 拆为竞争性分析和趋势性分析两个单一职责 Skill。
