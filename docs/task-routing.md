@@ -25,6 +25,12 @@
 
 派发前必须用被Git忽略的`thread-map.local.md`和当前Codex任务列表完成机械身份门，并把本次核对结果只写入本地dispatch：`Logical role、固定任务标题、Task ID、host、execution cwd、Run ID、locked revision、output directory`必须同时匹配。实际Task ID、host和绝对路径不得进入任何tracked文件或最终交付。任一字段不符时停止派发，不得新建临时任务或由主任务代跑。
 
+## Cross-project keyword handoff
+
+从Listing接收输入或向其交付前，完整读取operations的[Listing交接合同](../.agents/skills/amazon-keyword-library-operations/references/listing-handoff-contract.md)。关键词主任务接收三组输入的明确字段/来源及类目附加对象，返回本项目Run身份；正式交付回执给Listing主任务，完整八Sheet文件可供其SKU任务预接收，但只有Listing主任务核验并发出当前启动标志后才允许SKU业务执行。双Run、当前事实、历史source及对应哈希分别锁定，不把预接收、发送成功或包已准备登记为业务完成。
+
+本项目内阶段仍使用既有dispatch guard；跨项目接口不伪造本项目副任务角色或替代对方执行权限。真实任务映射仅保存在本机忽略文件，派发前独立核对目标任务元数据。
+
 ## Side-task return
 
 传输层优先发送固定身份、单调seq、状态、人口/缺口以及当前Run文件指针/哈希。完整Sources、Verification与下面各项保存在manifest或唯一问题文件中，主任务按验收需要读取；不能因紧凑传输删去检查内容或必读资料。重复/迟到消息不重新派发，身份冲突不得静默去重。

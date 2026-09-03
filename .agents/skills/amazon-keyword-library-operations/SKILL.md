@@ -11,6 +11,8 @@ description: Coordinate the Amazon keyword-library baseline, recent same-categor
 
 ## 输入
 
+接收Listing项目输入或向其正式回传时，先完整读取[跨项目交接合同](references/listing-handoff-contract.md)，锁定三组输入的明确映射、类目附加字段、双方Run及当前事实来源；单项目直入不因此新增Listing依赖。
+
 用户开头一次性提交三项输入：产品基础信息配置、产品配置卖点、竞品对标ASIN。其中产品基础信息必须包含目标Amazon类目及该类目是否存在多个稳定产品类型细分。另锁定`run_type=production|test-validation`、Run_ID、revision、站点、规则版本、获准本机目录，以及各副任务工作簿和manifest；未明确为测试、回归、能力案例或P1评估时默认`production`。原始直接竞品ASIN超过5个时，必须先按稳定竞品产品类型分组，每类只保留输入顺序中的第一个有效ASIN，并锁定原始/入选/排除清单和理由。多细分类目还必须形成目标细分强等价闭环的候选、逐项结论和证据。执行三来源合并时读取`references/source-merge-contract.md`；执行性能、断点续跑和失败隔离另读取`../../../docs/runtime-optimization-contract.md`，该合同不得覆盖任何业务规则。
 
 ## 输出
@@ -19,6 +21,7 @@ description: Coordinate the Amazon keyword-library baseline, recent same-categor
 - 适用时输出近30天同类目/条件式同细分的复用合同、新事实卡锁与历史来源血缘；执行此入口完整读取`references/recent-library-reuse-contract.md`。
 - 第一板块两Sheet业务工作簿及本地manifest。
 - 最终两个顶层交付对象的汇合状态。
+- 跨项目时另有给Listing主任务的正式输入/交付回执；SKU预接收不等于业务启动，缺失值与表名按交接合同兼容，不改业务工作簿。
 - production Run的装配自检/交付状态，或test-validation Run的compact/full独立QA结论和可回滚版本说明。
 
 ## 可调用能力

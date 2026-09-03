@@ -39,7 +39,8 @@
       "entry": ".agents/skills/amazon-keyword-library-operations/SKILL.md",
       "resources": [
         ".agents/skills/amazon-keyword-library-operations/references/source-merge-contract.md",
-        ".agents/skills/amazon-keyword-library-operations/references/recent-library-reuse-contract.md"
+        ".agents/skills/amazon-keyword-library-operations/references/recent-library-reuse-contract.md",
+        ".agents/skills/amazon-keyword-library-operations/references/listing-handoff-contract.md"
       ]
     },
     "amazon-keyword-library-publication": {

@@ -2,6 +2,7 @@
 
 | Knowledge ID | Content | Source | Scope | Updated | Use |
 |---|---|---|---|---|---|
+| `keyword-listing-handoff` | `../references/listing-handoff-contract.md` | 2026-09-03用户授权双方接口协调 | 三组输入/类目字段、双Run及新事实锁、主任务正式回执、合法分类缺失与三类词表名称；不改变业务判断 | 2026-09-03 | 仅接收Listing输入或向其交付前完整读取；机械兼容不等于P1 |
 | `keyword-dispatch-control` | `../../../../docs/dispatch-control-contract.md` | 2026-09-03用户确认调度优化 | 事务幂等派发、双向Run校验、最小事件和不确定送达恢复；不拥有业务语义 | 2026-09-03 | 每个新阶段派发/接收前完整阅读；必读Skill、人口及Gate不减 |
 | `keyword-recent-library-reuse` | `../references/recent-library-reuse-contract.md` | 2026-09-03用户确认；稳定定义见项目知识§2.5，判断门见边界§2.0 | 同类目/条件式同细分/原始最终输出30天、独立复用合同、新事实隔离和装配路由 | 2026-09-03 | 来源登录前选择复用或全采集，保留旧stage-key续跑门 |
 | `keyword-baseline-v2.1-plus-components` | `../../../../knowledge/product-keyword-library.md` | 用户确认归档、词频组件和来源/输出合同回写 | V2.1、三项开头输入锁、ASIN代表选择、SIF/卖家精灵登录回传、单次导出、分层核心、严格任务分离、资格人口、八Sheet与production/test-validation质量生命周期 | 2026-09-02 | 确定项目对象、概念关系和稳定方法 |

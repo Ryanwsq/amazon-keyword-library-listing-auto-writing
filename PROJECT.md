@@ -9,6 +9,8 @@
 
 ## Current state
 
+- 2026-09-03与Listing的`AKW-LISTING-INTERFACE-v1`接口维护已完成：三组/类目附加输入、双Run与新事实锁、正式回执/启动权限、合法ABA缺失兼容及词库名称均经双方核对。本项目operations合同与知识/流程已同步，P0/依赖检查和29项依赖测试通过；Listing端完成兼容实现、102项机械测试及v3包，主任务与SKU任务实际只读装载回执已核验。原业务判断、人口及固定表结构不变；这是接口/机械验收，不是业务Run READY、跨项目真实运行、合并或P1。未重跑业务、未修改历史产物；通用quick_validate因环境缺PyYAML未运行成功，原项目检查正常。
+
 - 2026-09-03按用户确认依次处理项目一致性问题：先完成本机副任务磁盘基线同步和旧修改备份，再修正总览/角色文件的陈旧状态说明。案例状态仍由各Skill证据索引拥有、本文汇总；不改写历史案例、业务规则或P1。本机任务身份、恢复点与当前装载状态只保留在Git忽略资料中。
 - 同批修正失效模板入口，并增加显式Skill文件依赖清单及只读检查器，接入原P0；检查文件缺失、源引用、静态脚本依赖、同名来源和路径越界。默认不回退到用户全局Skill；显式额外发现范围只用于查冲突。既有业务脚本/合同/规则与原回归测试保留，检查器通过不证明真实执行、动态外部依赖或P1；下一次test-validation仍按变更条件full-regression。
 
@@ -82,6 +84,8 @@ production封包为候选装配、装配检查/隐私、直接封包三阶段，
 
 ## Open work
 
+- Listing接口的合同/机械/相关任务只读装载验收已关闭；下次获准业务执行仍须锁定实际输入/双Run/规则哈希、核验真实来源并由Listing主任务发出当前READY。其他Listing业务角色仍按其本机登记在执行前装载，历史临时脚本不得不经当前合同核对直接复用。独立二类词是否额外进入Listing交付须另行明确，当前不增加Sheet；公开发布脱敏、Git同步和项目合并另行处理。
+
 - 新增30天复用入口及事实替换需在后续真实测试中按现有full-regression条件验证；本批不重跑业务、不覆盖历史最终工作簿、不追加模块案例或P1。
 
 - 用户复核本批跟踪变更后，决定publication Skill的`case-01-normal`候选是否改为`accepted`。
@@ -108,6 +112,7 @@ production封包为候选装配、装配检查/隐私、直接封包三阶段，
 - 判定门槛与人工升级：`docs/keyword-judgment-boundaries.md`
 - 运行性能、续跑与失败隔离：`docs/runtime-optimization-contract.md`
 - 近30天最终词库复用执行合同：`.agents/skills/amazon-keyword-library-operations/references/recent-library-reuse-contract.md`
+- Listing跨项目交接执行合同：`.agents/skills/amazon-keyword-library-operations/references/listing-handoff-contract.md`
 - 运行时规则覆盖映射：`contracts/runtime-rule-map.json`
 - 可重复执行流程：`.agents/skills/<single-purpose>/`
 
