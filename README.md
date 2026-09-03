@@ -1,6 +1,8 @@
-# Amazon Keyword and Listing Workflows
+# Amazon Keyword Library + Listing Auto Writing
 
 同一Git仓库中的两个独立工作区。保留各自的主任务、专责模块、完整Skill、知识、判断边界及输出合同；这里只合并版本管理和发布入口。
+
+当前GitHub仓库：[amazon-keyword-library-listing-auto-writing](https://github.com/Ryanwsq/amazon-keyword-library-listing-auto-writing)。这是原仓库改名，不是新仓库；两个内部项目ID和相对目录保持不变，历史交接中的旧名称保留其当时含义。见[仓库名称与版本记录](docs/repository-identity.md)。
 
 | 项目 | 工作入口 | 负责的结果 |
 |---|---|---|
@@ -16,11 +18,11 @@
 只克隆这一个仓库，并将它作为统一日常项目入口；不再另建一份独立Listing代码仓库。两个业务子目录仍保留各自的规则与角色分工。旧电脑的原始输入、历史产物和旧任务不要删除，也不要自动当作新Run输入。
 
 ```sh
-git clone https://github.com/Ryanwsq/amazon-keyword-library.git
-cd amazon-keyword-library
+git clone https://github.com/Ryanwsq/amazon-keyword-library-listing-auto-writing.git akw
+cd akw
 ```
 
-Windows建议使用短路径，例如`C:\work\akw`，避免长角色包路径叠加深层用户目录。仓库的`.gitattributes`禁止Git自动换行转换：冻结清单校验文件原始字节，不能用重新生成哈希来掩盖CRLF漂移。
+示例刻意使用短目录名`akw`；GitHub名称不要求与本地目录同名。Windows建议使用短路径，例如`C:\work\akw`，避免长角色包路径叠加深层用户目录。仓库的`.gitattributes`禁止Git自动换行转换：冻结清单校验文件原始字节，不能用重新生成哈希来掩盖CRLF漂移。
 
 先准备Python 3.11或更新版本、Node.js 20或更新版本及Git。关键词装配隐私检查还依赖支持`-Z1`和`-p`的`unzip`；装配夹具额外需要支持`-q -r`的`zip`。这些工具必须在运行任务的同一个环境中可执行，不能仅在另一套终端里可用。Windows不默认视为已安装；缺少时先由设备管理员安装兼容工具，不能跳过隐私检查。工作簿生成、重载、公式及图表渲染另外需要执行环境提供的Spreadsheets Skill及其规定的Artifact Tool；仓库不打包该运行时，也不能用只有openpyxl的环境冒充已具备完整渲染能力。
 
