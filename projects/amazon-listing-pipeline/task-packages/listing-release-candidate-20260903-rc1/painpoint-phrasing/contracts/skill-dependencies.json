@@ -1,0 +1,160 @@
+{
+  "P1": "not_executed",
+  "business_rule_owner": "original_skill_and_references",
+  "discovery_roots": [
+    ".agents/skills"
+  ],
+  "external_runtime": {
+    "Alexa_authentication": "not_checked",
+    "Amazon_keyword_main": "external_independent_task",
+    "spreadsheets": "not_checked"
+  },
+  "files": [
+    {
+      "path": ".agents/skills/alexa-painpoint-phrasing/Agent.md",
+      "sha256": "f79c65a1f47ed454c92de0b4f1ba4248147ebb1ef646d4787e81159502e58437"
+    },
+    {
+      "path": ".agents/skills/alexa-painpoint-phrasing/SKILL.md",
+      "sha256": "6b2200e790b9a753b15b871004f57b73bbac4f3bdd0737b365ae214944d63c65"
+    },
+    {
+      "path": ".agents/skills/alexa-painpoint-phrasing/agents/openai.yaml",
+      "sha256": "7b98e3cc40b0bb172dc4b42871418b4b04ae956b3ca8e75ecf241ac80d1f85e0"
+    },
+    {
+      "path": ".agents/skills/alexa-painpoint-phrasing/capabilities.yaml",
+      "sha256": "0a55877ae40129392fd60891c47a9540b868d33499207e3a5fb3cc1987d6a78c"
+    },
+    {
+      "path": ".agents/skills/alexa-painpoint-phrasing/evidence/cases.json",
+      "sha256": "832a02233a31d0c1020901cff9a18221e3465aa4e08a595077f5c532b5ae479c"
+    },
+    {
+      "path": ".agents/skills/alexa-painpoint-phrasing/evidence/index.md",
+      "sha256": "749b6b23ffa1fa255d1632bab21fda9ec4a34b0aba8ed22abff63615f7ef8c8a"
+    },
+    {
+      "path": ".agents/skills/alexa-painpoint-phrasing/knowledge/catalog.json",
+      "sha256": "0ee91ce1fd36e3d6163f29db9931b89d3a2bba40d8063793c44b8671cc76747a"
+    },
+    {
+      "path": ".agents/skills/alexa-painpoint-phrasing/knowledge/index.md",
+      "sha256": "221083ea069d59726f747b4d513f8e8dac86b9fa2dd09532c72f3897c34ad076"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "d802f3ff6703ddff2be59fcbf936e948c65c2be6975e9bcdc9ad938556ee8801"
+    },
+    {
+      "path": "Agent.md",
+      "sha256": "45b68c7da79f9f8dbb160e76bafc091729434b23047d0b6fef48cf4fe25afcf1"
+    },
+    {
+      "path": "LOAD_ORDER.md",
+      "sha256": "10c8081633258aa2717d19f5284e5efe2a47ff938bfb46f3922b714ed38699d9"
+    },
+    {
+      "path": "PUBLICATION.md",
+      "sha256": "85467e59876faa90f3d2e89c583a30c19df72cee99fae55c22602011535fce65"
+    },
+    {
+      "path": "contracts/dispatch-and-loading.md",
+      "sha256": "735148be6801e7741d179f3414684a3c984c85e96e8a3318ba71478374fdbee8"
+    },
+    {
+      "path": "dependencies/skills/alexa-painpoint-frequency/Agent.md",
+      "sha256": "633faed232ada63609f018ed9d06cdcd5eb96e8abd054e2e28b688405729e0e5"
+    },
+    {
+      "path": "dependencies/skills/alexa-painpoint-frequency/SKILL.md",
+      "sha256": "b467f09c4d86920c6fb7191854fdb6d889d3600c0ec384ea09749e4bed71e59c"
+    },
+    {
+      "path": "dependencies/skills/alexa-painpoint-frequency/agents/openai.yaml",
+      "sha256": "b71d0495354f81bca83224a006637f3a491f82d4cf865870c14635987eb3e2dc"
+    },
+    {
+      "path": "dependencies/skills/alexa-painpoint-frequency/capabilities.yaml",
+      "sha256": "af814406946dc3e13e5b49ad032e3cd4e5a04e48320e8f2a36f97efe2033531b"
+    },
+    {
+      "path": "dependencies/skills/alexa-painpoint-frequency/evidence/cases.json",
+      "sha256": "0b405daa255967b7be77d39c69b07c8164a3c8c5b6b7d7ee67ca63c63bc814fe"
+    },
+    {
+      "path": "dependencies/skills/alexa-painpoint-frequency/evidence/index.md",
+      "sha256": "7c532400bcd085137daaf917e1f0b1c448a9aeb2d25ff5cff5969f21529ac6d7"
+    },
+    {
+      "path": "dependencies/skills/alexa-painpoint-frequency/knowledge/catalog.json",
+      "sha256": "4f6741e9b869071d528078eb4d60b771397c6152af1237df68dd8e3cd6a1a5f2"
+    },
+    {
+      "path": "dependencies/skills/alexa-painpoint-frequency/knowledge/index.md",
+      "sha256": "8cb76b7d8a0707fa98bd5ede3e1a4490193edeaebc4c0df792701544ddbcf8cd"
+    },
+    {
+      "path": "docs/skill-package-standard.md",
+      "sha256": "b8eda6f3bdb54968578d822f048dedd48c860a160ee89f4a1ba5af1983c4ce1b"
+    },
+    {
+      "path": "evidence/index.md",
+      "sha256": "5789e016ffe478b6c37d40bf7cffe3a9003aca0ddf91460c1d059e06d2df7437"
+    },
+    {
+      "path": "knowledge-base/index.md",
+      "sha256": "ac55b9cba730724e878f81f76e3f598a0792d3b633386ba1f4b92c64d7f31bc3"
+    },
+    {
+      "path": "rules/index.md",
+      "sha256": "a084897ec57d25bb6d6607e4f2b2298fa80bd49ffa6db49769c603f26bbd7d8b"
+    },
+    {
+      "path": "rules/rule-map.json",
+      "sha256": "2bba2d8ff45002dd177e96da5761808d988653b77a14c8f895be97cb02ca4439"
+    },
+    {
+      "path": "scripts/validate_skill_packages.py",
+      "sha256": "4969534ba03d59094247575c43772ff27b93e25c66957eaa565b48874b27618c"
+    }
+  ],
+  "schema_version": 2,
+  "scope": "local_structure_and_file_dependencies",
+  "skills": [
+    {
+      "mode": "executable",
+      "name": "alexa-painpoint-phrasing",
+      "path": ".agents/skills/alexa-painpoint-phrasing",
+      "required_files": [
+        ".agents/skills/alexa-painpoint-phrasing/Agent.md",
+        ".agents/skills/alexa-painpoint-phrasing/SKILL.md",
+        ".agents/skills/alexa-painpoint-phrasing/agents/openai.yaml",
+        ".agents/skills/alexa-painpoint-phrasing/capabilities.yaml",
+        ".agents/skills/alexa-painpoint-phrasing/evidence/cases.json",
+        ".agents/skills/alexa-painpoint-phrasing/evidence/index.md",
+        ".agents/skills/alexa-painpoint-phrasing/knowledge/catalog.json",
+        ".agents/skills/alexa-painpoint-phrasing/knowledge/index.md"
+      ],
+      "role": "painpoint-phrasing"
+    },
+    {
+      "mode": "reference",
+      "name": "alexa-painpoint-frequency",
+      "path": "dependencies/skills/alexa-painpoint-frequency",
+      "required_files": [
+        "dependencies/skills/alexa-painpoint-frequency/Agent.md",
+        "dependencies/skills/alexa-painpoint-frequency/SKILL.md",
+        "dependencies/skills/alexa-painpoint-frequency/agents/openai.yaml",
+        "dependencies/skills/alexa-painpoint-frequency/capabilities.yaml",
+        "dependencies/skills/alexa-painpoint-frequency/evidence/cases.json",
+        "dependencies/skills/alexa-painpoint-frequency/evidence/index.md",
+        "dependencies/skills/alexa-painpoint-frequency/knowledge/catalog.json",
+        "dependencies/skills/alexa-painpoint-frequency/knowledge/index.md"
+      ],
+      "role": "painpoint-frequency"
+    }
+  ],
+  "static_dependencies": [],
+  "version": "listing-release-candidate-20260903-rc1"
+}

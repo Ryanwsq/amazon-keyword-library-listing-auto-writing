@@ -1,39 +1,26 @@
-# Device-local task and execution state
-thread-map.local.md
-**/thread-map.local.md
+# Local state, credentials and original business evidence (all projects)
 .local/
+**/.local/
 .codex/
-
-# Credentials and environment files
+**/.codex/
+.codex-tmp/
+**/.codex-tmp/
+**/thread-map.local.md
+**/*bindings.local.json
+**/thread-map.yaml
 .env
 .env.*
 *.pem
 *.key
 *.p12
-
-# Business and generated artifacts
-runs/
-raw-data/
-outputs/
-previews/
-*.xlsx
-*.xls
-*.csv
-*.tsv
-*.zip
-*.png
-*.jpg
-*.jpeg
-
-# Tool caches
-__pycache__/
+**/outputs/
+**/raw-data/
+**/runs/
+**/previews/
+**/__pycache__/
 *.pyc
-.pytest_cache/
-.mypy_cache/
-node_modules/
-
-# Editor and OS noise
+**/node_modules/
 .DS_Store
 Thumbs.db
-.idea/
-.vscode/
+
+# No blanket XLSX exemption: each publishable asset must be in the reviewed manifest.

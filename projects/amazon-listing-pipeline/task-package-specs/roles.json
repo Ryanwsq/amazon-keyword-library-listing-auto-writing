@@ -1,0 +1,111 @@
+{
+  "maintenance": {
+    "P1": "not_executed",
+    "affected_roles": [],
+    "business_run": "not_executed",
+    "id": "AKW-LISTING-MERGE-PREP-20260903-01",
+    "protocol_id": "AKW-LISTING-INTERFACE-v1",
+    "scope": "候选路径、发布元数据、匿名规则沿革及经单独授权的模板脱敏；业务规则保持v3"
+  },
+  "predecessor_version": "listing-task-packages-20260903-v3",
+  "publication_status": "SANITIZED_CANDIDATE_NOT_PUBLISHED",
+  "roles": [
+    {
+      "all_sources": true,
+      "id": "main",
+      "kind": "main",
+      "purpose": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+      "skill": "orchestrate-amazon-listing-pipeline",
+      "title": "Listing撰写信息决策｜项目主线程"
+    },
+    {
+      "id": "sku-keywords",
+      "kind": "specialist",
+      "purpose": "只执行SKU事实终筛与原词文本质量门；不复判品类/意图或重算指标",
+      "skill": "sku-usable-keyword-library",
+      "title": "副线程｜SKU可用关键词库"
+    },
+    {
+      "id": "product-audit",
+      "kind": "specialist",
+      "purpose": "02/03接收；获明确采集授权后才按十字段合同执行审计",
+      "skill": "audit-alexa-shopping-product-info",
+      "title": "副线程｜Alexa商品信息审计"
+    },
+    {
+      "id": "five-dimension-insights",
+      "kind": "specialist",
+      "purpose": "01接收；获明确采集授权后才执行固定五题双问并集",
+      "skill": "extract-amazon-product-insights",
+      "title": "副线程｜Alexa五维洞察"
+    },
+    {
+      "id": "tag-priority",
+      "kind": "specialist",
+      "purpose": "05接收；获明确处理授权后按固定五Sheet合同处理标签",
+      "skill": "prioritize-amazon-insight-tags",
+      "title": "副线程｜Amazon标签优先级"
+    },
+    {
+      "id": "painpoint-frequency",
+      "kind": "specialist",
+      "purpose": "04接收；获明确采集授权后执行七题及有效ASIN频率统计",
+      "skill": "alexa-painpoint-frequency",
+      "title": "副线程｜Alexa痛点频率"
+    },
+    {
+      "dependency_skills": [
+        "alexa-painpoint-frequency"
+      ],
+      "id": "painpoint-phrasing",
+      "kind": "specialist",
+      "purpose": "仅对合格上游痛点生成Alexa归纳表达，不写Listing正文",
+      "skill": "alexa-painpoint-phrasing",
+      "title": "副线程｜Alexa痛点口语表达"
+    },
+    {
+      "id": "listing-writing-qa",
+      "include_knowledge": true,
+      "include_orchestrator_support": true,
+      "kind": "specialist",
+      "purpose": "按两道确认门执行正文草案、ST、14Sheet装配及规则检查",
+      "skill": "apply-amazon-listing-hard-rules",
+      "title": "副线程｜Listing硬规则与最终QA"
+    },
+    {
+      "dependency_skills": [
+        "audit-alexa-shopping-product-info"
+      ],
+      "id": "selling-point-intake",
+      "kind": "receive_only",
+      "purpose": "保留接收整理入口，默认只核验与登记；不另造优势或重排卖点",
+      "skill": "receive-listing-selling-point-files",
+      "title": "副线程｜卖点配置文件接收整理"
+    },
+    {
+      "dependency_skills": [
+        "prioritize-amazon-insight-tags",
+        "alexa-painpoint-frequency"
+      ],
+      "id": "tag-painpoint-intake",
+      "kind": "receive_only",
+      "purpose": "保留标签与QA文件接收入口，默认不重排、不生成QA/评论",
+      "skill": "receive-listing-tag-painpoint-files",
+      "title": "副线程｜标签与QA文件接收整理"
+    }
+  ],
+  "schema_version": 1,
+  "source_interface_maintenance": {
+    "P1": "not_executed",
+    "affected_roles": [
+      "main",
+      "sku-keywords",
+      "listing-writing-qa"
+    ],
+    "business_run": "not_executed",
+    "id": "AKW-LISTING-INTERFACE-20260903-01",
+    "protocol_id": "AKW-LISTING-INTERFACE-v1",
+    "scope": "关键词附加输入及READY回执、合法ABA缺失窄兼容、三类词表名称分离"
+  },
+  "version": "listing-release-candidate-20260903-rc1"
+}

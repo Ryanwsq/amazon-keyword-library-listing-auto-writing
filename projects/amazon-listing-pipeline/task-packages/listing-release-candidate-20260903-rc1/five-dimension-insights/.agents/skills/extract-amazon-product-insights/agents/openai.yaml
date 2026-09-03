@@ -1,0 +1,6 @@
+interface:
+  display_name: "Alexa ASIN 双问并集 Excel"
+  short_description: "五个维度双问取并集，输出横向 Excel 与说明 Sheet"
+  default_prompt: "Use $extract-amazon-product-insights to query Alexa for Shopping twice per dimension, retain the trustworthy semantic union, and return the two-sheet Excel workbook."
+policy:
+  allow_implicit_invocation: true

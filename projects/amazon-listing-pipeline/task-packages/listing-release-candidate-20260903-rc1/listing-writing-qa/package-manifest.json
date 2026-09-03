@@ -1,0 +1,541 @@
+{
+  "authorized_maintenance": {
+    "P1": "not_executed",
+    "affected_roles": [],
+    "business_run": "not_executed",
+    "id": "AKW-LISTING-MERGE-PREP-20260903-01",
+    "protocol_id": "AKW-LISTING-INTERFACE-v1",
+    "scope": "候选路径、发布元数据、匿名规则沿革及经单独授权的模板脱敏；业务规则保持v3"
+  },
+  "business_rules_changed": false,
+  "files": [
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/apply-amazon-listing-hard-rules/Agent.md",
+      "sha256": "0990d298ad1bff7d3a2d7e5d8c21993d4138a86dfd7856802f827d7218fef6d6",
+      "source": ".agents/skills/apply-amazon-listing-hard-rules/Agent.md",
+      "source_sha256": "0990d298ad1bff7d3a2d7e5d8c21993d4138a86dfd7856802f827d7218fef6d6"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "declared_reference_rebase",
+      "path": ".agents/skills/apply-amazon-listing-hard-rules/SKILL.md",
+      "sha256": "652e67a2fa6b0b23953ce2cf277c46ab85892521ff25a1eeae4f1a6220f94f70",
+      "source": ".agents/skills/apply-amazon-listing-hard-rules/SKILL.md",
+      "source_sha256": "66e034526e9f4112e346736ab84c55f4fb673d1263535dcaa175510d33458425"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/apply-amazon-listing-hard-rules/agents/openai.yaml",
+      "sha256": "c57730e95f50ddb17a837a43a8e581d4f6d25bf2d7fcf5da9923307273f5e68c",
+      "source": ".agents/skills/apply-amazon-listing-hard-rules/agents/openai.yaml",
+      "source_sha256": "c57730e95f50ddb17a837a43a8e581d4f6d25bf2d7fcf5da9923307273f5e68c"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/apply-amazon-listing-hard-rules/capabilities.yaml",
+      "sha256": "8d9f4bc98c399bcb5e875617e4651489b01f472188ca7ffcdb3b3776e9740647",
+      "source": ".agents/skills/apply-amazon-listing-hard-rules/capabilities.yaml",
+      "source_sha256": "8d9f4bc98c399bcb5e875617e4651489b01f472188ca7ffcdb3b3776e9740647"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/apply-amazon-listing-hard-rules/evidence/cases.json",
+      "sha256": "6086a359d4311417f6f955915362be8d7b46f6c03d7cdfbbe42d6cdb39cf53d9",
+      "source": ".agents/skills/apply-amazon-listing-hard-rules/evidence/cases.json",
+      "source_sha256": "6086a359d4311417f6f955915362be8d7b46f6c03d7cdfbbe42d6cdb39cf53d9"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/apply-amazon-listing-hard-rules/evidence/index.md",
+      "sha256": "93b15bd8381e5bb554601ed9d33e70ab3fa3c13ce7f74a554a09b1899ae7b89d",
+      "source": ".agents/skills/apply-amazon-listing-hard-rules/evidence/index.md",
+      "source_sha256": "93b15bd8381e5bb554601ed9d33e70ab3fa3c13ce7f74a554a09b1899ae7b89d"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/apply-amazon-listing-hard-rules/knowledge/catalog.json",
+      "sha256": "f6a41918834160ee441b16d3f04e53dedc27d40234a7214bbfadc1f88b675f61",
+      "source": ".agents/skills/apply-amazon-listing-hard-rules/knowledge/catalog.json",
+      "source_sha256": "f6a41918834160ee441b16d3f04e53dedc27d40234a7214bbfadc1f88b675f61"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/apply-amazon-listing-hard-rules/knowledge/index.md",
+      "sha256": "d4fa793ff0b48a4113bd4f4984263b03102a274562104134f4995b8ef1333dc4",
+      "source": ".agents/skills/apply-amazon-listing-hard-rules/knowledge/index.md",
+      "source_sha256": "d4fa793ff0b48a4113bd4f4984263b03102a274562104134f4995b8ef1333dc4"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊A+硬性规则.md",
+      "sha256": "5563d10257b78e5b882e111eff530fcc2f8c795db7511ac7e3204585817be290",
+      "source": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊A+硬性规则.md",
+      "source_sha256": "5563d10257b78e5b882e111eff530fcc2f8c795db7511ac7e3204585817be290"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊ST硬性规则.md",
+      "sha256": "9da4dab692df763c7f029e43572ecc95dbe5869faa447e226a553198c7ee36ac",
+      "source": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊ST硬性规则.md",
+      "source_sha256": "9da4dab692df763c7f029e43572ecc95dbe5869faa447e226a553198c7ee36ac"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊五点描述硬性规则.md",
+      "sha256": "32a32f14d1eb3f9f31d0e9b801dbf15ed9814ce2e384eaeaad47a5c116cce385",
+      "source": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊五点描述硬性规则.md",
+      "source_sha256": "32a32f14d1eb3f9f31d0e9b801dbf15ed9814ce2e384eaeaad47a5c116cce385"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊图片硬性规则.md",
+      "sha256": "fdb239ea0af10d369ce35b8ec58af4876a9f2fae9220a91b0d2ca8e2ad2e2f82",
+      "source": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊图片硬性规则.md",
+      "source_sha256": "fdb239ea0af10d369ce35b8ec58af4876a9f2fae9220a91b0d2ca8e2ad2e2f82"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊标题硬性规则.md",
+      "sha256": "91fba1818a01cbf64f38fd1e3cec8b2aceb884f14422867e75a4a012d0ba8be4",
+      "source": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊标题硬性规则.md",
+      "source_sha256": "91fba1818a01cbf64f38fd1e3cec8b2aceb884f14422867e75a4a012d0ba8be4"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "AGENTS.md",
+      "sha256": "a646ff45a3ce8b762d15a215619a29bf9eba7a97f96121e14ba3fa8ccc8e538e"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "Agent.md",
+      "sha256": "0a3cf0a4e964dfe8ed5c7aac7632dc15509142e6d7b07bf1394cd4ac0a259686"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "LOAD_ORDER.md",
+      "sha256": "7f286c5a03e4abb9760a31232d3c0e506902d9bd383611e7532600deb564508c"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "PUBLICATION.md",
+      "sha256": "85467e59876faa90f3d2e89c583a30c19df72cee99fae55c22602011535fce65"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "contracts/dispatch-and-loading.md",
+      "sha256": "735148be6801e7741d179f3414684a3c984c85e96e8a3318ba71478374fdbee8"
+    },
+    {
+      "operation": "generated_dependency_contract",
+      "path": "contracts/skill-dependencies.json",
+      "sha256": "cdfc07fadde48e1d0f472578e3950abc0a2fbfbd684a85f884118f5556c1d3d4"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/Agent.md",
+      "sha256": "ddf7c46bef56b76ae644a26a71fa0051c74a277e6bd3e6579ea4cf6373ca8452",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/Agent.md",
+      "source_sha256": "ddf7c46bef56b76ae644a26a71fa0051c74a277e6bd3e6579ea4cf6373ca8452"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/SKILL.md",
+      "sha256": "172dcff1787398e4e0fcb153642ea986849d74a3cafe1b67702ac4db13f8e1a4",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/SKILL.md",
+      "source_sha256": "172dcff1787398e4e0fcb153642ea986849d74a3cafe1b67702ac4db13f8e1a4"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/agents/openai.yaml",
+      "sha256": "81267e76340f935510ce6ea85c3901d3d2a1a14619001057da4da8e275b2db11",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/agents/openai.yaml",
+      "source_sha256": "81267e76340f935510ce6ea85c3901d3d2a1a14619001057da4da8e275b2db11"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/assets/amazon-listing-pipeline-input-template.xlsx",
+      "sha256": "0e12595f07375c3fb601cd5c5c9c760579ebfa5ff3643842107946eefb60ed1b",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/assets/amazon-listing-pipeline-input-template.xlsx",
+      "source_sha256": "0e12595f07375c3fb601cd5c5c9c760579ebfa5ff3643842107946eefb60ed1b"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/capabilities.yaml",
+      "sha256": "de6ac0e6742f6bacdfab0c11ae336033368f3a7345f7147bb13105e1041bd08a",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/capabilities.yaml",
+      "source_sha256": "de6ac0e6742f6bacdfab0c11ae336033368f3a7345f7147bb13105e1041bd08a"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/evidence/cases.json",
+      "sha256": "d3de833852f4c100742e647773e202419ab856ac232f2824285a5a5a6c0e6595",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/evidence/cases.json",
+      "source_sha256": "d3de833852f4c100742e647773e202419ab856ac232f2824285a5a5a6c0e6595"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/evidence/index.md",
+      "sha256": "2b0a679a9f41a0a98845ccd30d0ad3fa29f491657e5c3bc8cc74d884271272d8",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/evidence/index.md",
+      "source_sha256": "2b0a679a9f41a0a98845ccd30d0ad3fa29f491657e5c3bc8cc74d884271272d8"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "declared_reference_rebase",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/knowledge/catalog.json",
+      "sha256": "92cd799ea4f38a31cad2776339783d49d9b79ac7f7d00e0916553713b40c43a9",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/knowledge/catalog.json",
+      "source_sha256": "fe0e1354791593654d0ba83e04d1f948f2d4cf2b82ec062fa6b6917c5ef57ebe"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/knowledge/index.md",
+      "sha256": "e0fb691fb61dc37046ad54226d422f8b2ed8f6a2ac29257d431b0485a87dc7a7",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/knowledge/index.md",
+      "source_sha256": "e0fb691fb61dc37046ad54226d422f8b2ed8f6a2ac29257d431b0485a87dc7a7"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/input-contract.md",
+      "sha256": "716f56f90a00c399830dcca70e4915e0f8fa2993c6059334d592c4fb6d0ee402",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/references/input-contract.md",
+      "source_sha256": "716f56f90a00c399830dcca70e4915e0f8fa2993c6059334d592c4fb6d0ee402"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/keyword-allocation.md",
+      "sha256": "02c42670fde9d1950726b8f56b983b230f1beda8f0dac42fda0c6c1b61f07952",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/references/keyword-allocation.md",
+      "source_sha256": "02c42670fde9d1950726b8f56b983b230f1beda8f0dac42fda0c6c1b61f07952"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/keyword-handoff-contract.md",
+      "sha256": "ec81712e0430def4d8202fced192efe3316d6eeadd0e5599f0b9f59aa4d746aa",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/references/keyword-handoff-contract.md",
+      "source_sha256": "ec81712e0430def4d8202fced192efe3316d6eeadd0e5599f0b9f59aa4d746aa"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/output-contract.md",
+      "sha256": "e48071b07502967f5073054506cc921f9e25657a0b0a022d949b907e74a07924",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/references/output-contract.md",
+      "source_sha256": "e48071b07502967f5073054506cc921f9e25657a0b0a022d949b907e74a07924"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/pipeline-map.md",
+      "sha256": "ed03ae9fc4326e4fe22f56f00b1430f37cc7e3704ce315fee5e441b007ce0a38",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/references/pipeline-map.md",
+      "source_sha256": "ed03ae9fc4326e4fe22f56f00b1430f37cc7e3704ce315fee5e441b007ce0a38"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/preserved-sheet-transfer.md",
+      "sha256": "36704362b87b6b86527e684bca23820e61a7997582e3b035b8f5bf35f28421b9",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/references/preserved-sheet-transfer.md",
+      "source_sha256": "36704362b87b6b86527e684bca23820e61a7997582e3b035b8f5bf35f28421b9"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/project-adapter.md",
+      "sha256": "44d772d467bf3803579a4dde6b27823357d1b9ab9d5c9821b2493dd7625f1922",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/references/project-adapter.md",
+      "source_sha256": "44d772d467bf3803579a4dde6b27823357d1b9ab9d5c9821b2493dd7625f1922"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/quality-gates.md",
+      "sha256": "b32c39521871568cbb021f01153c6f3573f92250f1fd4a7120046b6a8a56c0fa",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/references/quality-gates.md",
+      "source_sha256": "b32c39521871568cbb021f01153c6f3573f92250f1fd4a7120046b6a8a56c0fa"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/stage-copy-review.md",
+      "sha256": "60efbd303b17203e45f60cba16ad6a5be66e79b327f6cf626b3e67f1654b45d9",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-copy-review.md",
+      "source_sha256": "60efbd303b17203e45f60cba16ad6a5be66e79b327f6cf626b3e67f1654b45d9"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/stage-keywords.md",
+      "sha256": "ef00f690ccdf3d72f7454418b20cfacbed3bcb37941d22789fbf09fc822084e1",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-keywords.md",
+      "source_sha256": "ef00f690ccdf3d72f7454418b20cfacbed3bcb37941d22789fbf09fc822084e1"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/stage-listing-generation.md",
+      "sha256": "8377506344e54f806a975e4676e7802b038842de79c9dffcd92d6e1e898e7637",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-listing-generation.md",
+      "source_sha256": "8377506344e54f806a975e4676e7802b038842de79c9dffcd92d6e1e898e7637"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/stage-market-insights.md",
+      "sha256": "591cc559826de224054ad99c776f479648f33c01aba3e0103fe543a937f882ce",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-market-insights.md",
+      "source_sha256": "591cc559826de224054ad99c776f479648f33c01aba3e0103fe543a937f882ce"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/stage-pain-points.md",
+      "sha256": "80df3c8cc575b6aab8257d2e92e83285d51d557703e336a7266d3e27ae254019",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-pain-points.md",
+      "source_sha256": "80df3c8cc575b6aab8257d2e92e83285d51d557703e336a7266d3e27ae254019"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/stage-product-audit.md",
+      "sha256": "2c9c679795e230d2ba75ccebcadcbdfdd8a66f7d037fbec4f30d3d092e606480",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-product-audit.md",
+      "source_sha256": "2c9c679795e230d2ba75ccebcadcbdfdd8a66f7d037fbec4f30d3d092e606480"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/stage-selling-point-decision.md",
+      "sha256": "9ae4d742cdf62a6c35826ecaffd39dbbc068007396a983beb4be42f8483c0029",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-selling-point-decision.md",
+      "source_sha256": "9ae4d742cdf62a6c35826ecaffd39dbbc068007396a983beb4be42f8483c0029"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/scripts/copy_preserved_sheets.py",
+      "sha256": "b51c8ff1f3c33c126316da794173aea4ed4e0f28b4d76d1a5fdf825c27733673",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/copy_preserved_sheets.py",
+      "source_sha256": "b51c8ff1f3c33c126316da794173aea4ed4e0f28b4d76d1a5fdf825c27733673"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/scripts/pipeline_state.py",
+      "sha256": "8b97d550fee8644bfae440ae910360cc8335ce3a09a79dcb057dbb7d9d950ed3",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/pipeline_state.py",
+      "source_sha256": "8b97d550fee8644bfae440ae910360cc8335ce3a09a79dcb057dbb7d9d950ed3"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/scripts/test_copy_preserved_sheets.py",
+      "sha256": "68fc80f7819fe120c9f9b48a662cbd61c4b27e79284e239ed823bf41d7855aa5",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/test_copy_preserved_sheets.py",
+      "source_sha256": "68fc80f7819fe120c9f9b48a662cbd61c4b27e79284e239ed823bf41d7855aa5"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/scripts/test_pipeline_state.py",
+      "sha256": "50beb4e6019409d3caed34c7e4c749e2ccf2c99219c92becda78b6cc22f6b23b",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/test_pipeline_state.py",
+      "source_sha256": "50beb4e6019409d3caed34c7e4c749e2ccf2c99219c92becda78b6cc22f6b23b"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/scripts/validate_dependencies.py",
+      "sha256": "831075e6b151d0ef1d496695badc0cb1a33fe859a657905281723bea45b324da",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/validate_dependencies.py",
+      "source_sha256": "831075e6b151d0ef1d496695badc0cb1a33fe859a657905281723bea45b324da"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/orchestrate-amazon-listing-pipeline/scripts/validate_input.py",
+      "sha256": "9160af44dad298e30b384379a992e47aab60f512c041259d46a2200e97695a39",
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/validate_input.py",
+      "source_sha256": "9160af44dad298e30b384379a992e47aab60f512c041259d46a2200e97695a39"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "docs/skill-package-standard.md",
+      "sha256": "b8eda6f3bdb54968578d822f048dedd48c860a160ee89f4a1ba5af1983c4ce1b",
+      "source": "docs/skill-package-standard.md",
+      "source_sha256": "b8eda6f3bdb54968578d822f048dedd48c860a160ee89f4a1ba5af1983c4ce1b"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "evidence/index.md",
+      "sha256": "5789e016ffe478b6c37d40bf7cffe3a9003aca0ddf91460c1d059e06d2df7437"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "declared_reference_rebase",
+      "path": "knowledge-base/final-workbook-presentation.md",
+      "sha256": "b8a7802e35759197e46b31fbe00b6e81f81c89eb2c010e481c2a78df199ac50c",
+      "source": "knowledge-base/final-workbook-presentation.md",
+      "source_sha256": "f4971ea1291ab0127a53b26cdc7e26fbc999df2049cbf145a55151c9e52066e9"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "knowledge-base/index.md",
+      "sha256": "a16796c926b0b8b2eb4d5203289d27a851a417c0bb037fe2de8d9bca6effb8b1"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "knowledge-base/listing-final-assembly-rules.md",
+      "sha256": "b19ce1d3243ef129f5af8ee60e30bd72ccb415b2b4ce9a0ea14f5a337f21a170",
+      "source": "knowledge-base/listing-final-assembly-rules.md",
+      "source_sha256": "b19ce1d3243ef129f5af8ee60e30bd72ccb415b2b4ce9a0ea14f5a337f21a170"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "knowledge-base/listing-hard-rules/README.md",
+      "sha256": "a72e0dc0261b0eab743f1f25a9401e90bdaf9dceff9cd342f3373f038d11b5c2",
+      "source": "knowledge-base/listing-hard-rules/README.md",
+      "source_sha256": "a72e0dc0261b0eab743f1f25a9401e90bdaf9dceff9cd342f3373f038d11b5c2"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "knowledge-base/listing-hard-rules/manifest.yaml",
+      "sha256": "cb9b98b08a8395dc04c951248bf01b4e9e9e2c4016f0df606b639c067c1e1a96",
+      "source": "knowledge-base/listing-hard-rules/manifest.yaml",
+      "source_sha256": "cb9b98b08a8395dc04c951248bf01b4e9e9e2c4016f0df606b639c067c1e1a96"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "knowledge-base/listing-hard-rules/亚马逊A+硬性规则.md",
+      "sha256": "5563d10257b78e5b882e111eff530fcc2f8c795db7511ac7e3204585817be290",
+      "source": "knowledge-base/listing-hard-rules/亚马逊A+硬性规则.md",
+      "source_sha256": "5563d10257b78e5b882e111eff530fcc2f8c795db7511ac7e3204585817be290"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "knowledge-base/listing-hard-rules/亚马逊ST硬性规则.md",
+      "sha256": "9da4dab692df763c7f029e43572ecc95dbe5869faa447e226a553198c7ee36ac",
+      "source": "knowledge-base/listing-hard-rules/亚马逊ST硬性规则.md",
+      "source_sha256": "9da4dab692df763c7f029e43572ecc95dbe5869faa447e226a553198c7ee36ac"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "knowledge-base/listing-hard-rules/亚马逊五点描述硬性规则.md",
+      "sha256": "32a32f14d1eb3f9f31d0e9b801dbf15ed9814ce2e384eaeaad47a5c116cce385",
+      "source": "knowledge-base/listing-hard-rules/亚马逊五点描述硬性规则.md",
+      "source_sha256": "32a32f14d1eb3f9f31d0e9b801dbf15ed9814ce2e384eaeaad47a5c116cce385"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "knowledge-base/listing-hard-rules/亚马逊图片硬性规则.md",
+      "sha256": "fdb239ea0af10d369ce35b8ec58af4876a9f2fae9220a91b0d2ca8e2ad2e2f82",
+      "source": "knowledge-base/listing-hard-rules/亚马逊图片硬性规则.md",
+      "source_sha256": "fdb239ea0af10d369ce35b8ec58af4876a9f2fae9220a91b0d2ca8e2ad2e2f82"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "knowledge-base/listing-hard-rules/亚马逊标题硬性规则.md",
+      "sha256": "91fba1818a01cbf64f38fd1e3cec8b2aceb884f14422867e75a4a012d0ba8be4",
+      "source": "knowledge-base/listing-hard-rules/亚马逊标题硬性规则.md",
+      "source_sha256": "91fba1818a01cbf64f38fd1e3cec8b2aceb884f14422867e75a4a012d0ba8be4"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "knowledge-base/listing-soft-writing-rules.md",
+      "sha256": "6f8d60ceaec1b081cf6e0e863e2f8f0d1bf91d59dd1e7986495882d6042b4832",
+      "source": "knowledge-base/listing-soft-writing-rules.md",
+      "source_sha256": "6f8d60ceaec1b081cf6e0e863e2f8f0d1bf91d59dd1e7986495882d6042b4832"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "knowledge-base/listing-title-highlight-writing-rules.md",
+      "sha256": "89e1a3e5e9bfd283e63278b99e1c6cd938870cee8fe13517cbd3a103a9820685",
+      "source": "knowledge-base/listing-title-highlight-writing-rules.md",
+      "source_sha256": "89e1a3e5e9bfd283e63278b99e1c6cd938870cee8fe13517cbd3a103a9820685"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "knowledge-base/listing-writing-case-learning.md",
+      "sha256": "3cc2dc396fa4152a709f4dc04ad900af22cccd8e12cf7ac6c342effacfe0305b",
+      "source": "knowledge-base/listing-writing-case-learning.md",
+      "source_sha256": "3cc2dc396fa4152a709f4dc04ad900af22cccd8e12cf7ac6c342effacfe0305b"
+    },
+    {
+      "classification": "local_provenance",
+      "operation": "byte_identical_copy",
+      "path": "project-control/listing-writing-iteration-log.md",
+      "sha256": "bff803c8617e96dabdcfa574cd06c0c9c73121e3ad77126761e7537fb9f69b94",
+      "source": "project-control/listing-writing-iteration-log.md",
+      "source_sha256": "bff803c8617e96dabdcfa574cd06c0c9c73121e3ad77126761e7537fb9f69b94"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "rules/index.md",
+      "sha256": "a084897ec57d25bb6d6607e4f2b2298fa80bd49ffa6db49769c603f26bbd7d8b"
+    },
+    {
+      "operation": "generated_complete_section_map",
+      "path": "rules/rule-map.json",
+      "sha256": "a1e072addd1eea11c63ad3c33f58f907aa3e30dcd045a724faeaa6e1a0bf71b5"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "scripts/validate_skill_packages.py",
+      "sha256": "4969534ba03d59094247575c43772ff27b93e25c66957eaa565b48874b27618c",
+      "source": "scripts/validate_skill_packages.py",
+      "source_sha256": "4969534ba03d59094247575c43772ff27b93e25c66957eaa565b48874b27618c"
+    }
+  ],
+  "kind": "specialist",
+  "new_business_run": false,
+  "original_business_skill_count": 8,
+  "owned_skills": [
+    "apply-amazon-listing-hard-rules"
+  ],
+  "publication_status": "SANITIZED_CANDIDATE_NOT_PUBLISHED",
+  "reference_skills": [
+    "orchestrate-amazon-listing-pipeline"
+  ],
+  "role": "listing-writing-qa",
+  "schema_version": 1,
+  "title": "副线程｜Listing硬规则与最终QA",
+  "version": "listing-release-candidate-20260903-rc1"
+}

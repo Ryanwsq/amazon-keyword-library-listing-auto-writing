@@ -1,0 +1,64 @@
+schema_version: 1
+knowledge_base_id: amazon-listing-hard-rules
+status: active
+updated_on: 2026-09-03
+imported_on: 2026-08-31
+purpose: final_assembly_boundary_and_compliance_validation
+content_role: hard_constraints_not_writing_style
+applies_to:
+  - listing_final_assembly
+  - image_distribution_preview
+  - a_plus_distribution_preview
+  - pre_submission_validation
+does_not_apply_to:
+  - sku_keyword_fact_matching
+  - sku_keyword_search_intent_matching
+  - tag_fact_generation
+  - selling_point_fact_generation
+  - writing_tone_or_style
+files:
+  - component: title_and_item_highlights
+    knowledge_file_status: user_amended_20260903
+    knowledge_file_sha256: 91fba1818a01cbf64f38fd1e3cec8b2aceb884f14422867e75a4a012d0ba8be4
+    knowledge_file: 亚马逊标题硬性规则.md
+    source_file: 亚马逊标题硬性规则.md
+    source_sha256: 60c9f48127fb6816785e8f2806b45202ad6f6d90356758ced37b1d8b81f6fe25
+  - component: listing_images
+    knowledge_file: 亚马逊图片硬性规则.md
+    source_file: 亚马逊图片硬性规则.md
+    source_sha256: cc3646eef68c724ff89503d1e2d72d141bb1ca0694c730bb2ecd212c4d4bd822
+    knowledge_file_status: user_amended
+    knowledge_file_sha256: fdb239ea0af10d369ce35b8ec58af4876a9f2fae9220a91b0d2ca8e2ad2e2f82
+  - component: bullet_points
+    knowledge_file_status: user_amended_20260903
+    knowledge_file_sha256: 32a32f14d1eb3f9f31d0e9b801dbf15ed9814ce2e384eaeaad47a5c116cce385
+    knowledge_file: 亚马逊五点描述硬性规则.md
+    source_file: 亚马逊五点描述硬性规则.md
+    source_sha256: ba96f70afda32805247c4357ddbb5848097bb460affbd24b0b431001f7ba2500
+  - component: premium_a_plus
+    knowledge_file: 亚马逊A+硬性规则.md
+    source_file: 亚马逊A+硬性规则.md
+    source_sha256: 5563d10257b78e5b882e111eff530fcc2f8c795db7511ac7e3204585817be290
+  - component: backend_search_terms
+    knowledge_file: 亚马逊ST硬性规则.md
+    source_file: 亚马逊ST硬性规则.md
+    source_sha256: 9da4dab692df763c7f029e43572ecc95dbe5869faa447e226a553198c7ee36ac
+project_overrides:
+  - override_id: IMG-MAIN-01-SCENE-ALLOWED
+    confirmed_on: 2026-08-31
+    scope: listing_images_first_position
+    rule: 第一张图片仍为MAIN首图，但可以选择白底首图或场景首图。
+    authority: explicit_user_confirmation
+  - override_id: LISTING-V22-WRITING-DISCUSSION
+    confirmed_on: 2026-09-03
+    scope: new_runs_after_gaming_v1_delivery
+    rule: Title先排搜索量再对照卖点选词；IH先排除Title已表达卖点（含T0），再按剩余优先级补充；两字段无颜色、允许短语。Bullet至少5条、按覆盖选5–6条，五条完整就不补第六条，超过六条须确认环境/条数；动态用途组合、允许多句，无固定字符限制；真实售后单独核实。
+    writing_rules_version: v2.2
+    active_amendments: [IH-TITLE-DEDUPE-01, BULLET-COVERAGE-COUNT-01]
+    bullet_count_policy: coverage_based_5_to_6
+    discussion_record: project-control/listing-writing-iteration-log.md
+    historical_runs: preserve_original_locked_contract
+    authority: explicit_user_request
+    title_writing_source: 亚马逊标题.md
+    title_writing_source_sha256: da19a5569424006ba91063f2c13724ba74937b3478ca4f21a5e85359b1d3406b
+    keyword_source: 当前已验收06_SKU可用关键词库.xlsx的SKU可用关键词库Sheet

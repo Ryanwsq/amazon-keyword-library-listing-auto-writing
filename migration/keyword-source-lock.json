@@ -1,0 +1,689 @@
+{
+  "schema": "keyword-relocation-source/v1",
+  "source_revision": "9d18a4dc9d32d820bcba27dbe31c8f50b363351f",
+  "source_file_count": 136,
+  "relocation": "byte-identical before navigation adapters",
+  "business_run": "not_executed",
+  "files": [
+    {
+      "source": ".agents/skills/README.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/README.md",
+      "sha256": "45c428a216536bcfdf08eaca52a6dac4b30a0cfc4d217fe9499ed82968c13cb5"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-amazon-autocomplete/Agent.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-amazon-autocomplete/Agent.md",
+      "sha256": "053b74e75a0a38c65492e8239204b69d5203352bad6c4370dac8d204f2608b2d"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-amazon-autocomplete/SKILL.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-amazon-autocomplete/SKILL.md",
+      "sha256": "294c6e30c324a0e14f084143ccac0b3e662890c675a2cf99c88f49bc8c883fbf"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-amazon-autocomplete/capabilities.yaml",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-amazon-autocomplete/capabilities.yaml",
+      "sha256": "fd6d3dd0c3b1beb26103701df702a8681f2c1a801c629d22916b8ff7052ced4e"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-amazon-autocomplete/evidence/case-01-normal.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-amazon-autocomplete/evidence/case-01-normal.md",
+      "sha256": "a44a9ca1a170c356231320e9a6d0ac4f7dd505dc02b779560e30a99b754e4b3f"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-amazon-autocomplete/evidence/index.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-amazon-autocomplete/evidence/index.md",
+      "sha256": "865a909167b6674f30249946518b331cfbbba404df530a572c4aae106ce971d6"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-amazon-autocomplete/knowledge/index.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-amazon-autocomplete/knowledge/index.md",
+      "sha256": "1e6551315f9972ca97566944d9fa493672b2ff926a5672c52a657fec850fa881"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-amazon-autocomplete/references/source-contract.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-amazon-autocomplete/references/source-contract.md",
+      "sha256": "0a088cdf85cf41e49f430b1f3494cfc61da2690b7f6fa797604ab42bc54eb5cf"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-category-cleaning/Agent.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-category-cleaning/Agent.md",
+      "sha256": "b0970c2f45de98003d755c0d6c0c32ca19e5d747d3ad99b38fb3a8643d792a82"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-category-cleaning/SKILL.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-category-cleaning/SKILL.md",
+      "sha256": "1e831971b11a2ad6a58c12dafc5c7e404dcf875e91e52f452e1a8d8b7f8de97d"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-category-cleaning/capabilities.yaml",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-category-cleaning/capabilities.yaml",
+      "sha256": "6123a66045bbb71650e83ce3959ef7785625f11598ec2d616ec6ab58956ceec2"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-category-cleaning/evidence/case-01-normal.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-category-cleaning/evidence/case-01-normal.md",
+      "sha256": "6b2ccbdfbadf77a9f5e36af6c3a8ca57d7930d610ccf49933cce368dd016f778"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-category-cleaning/evidence/index.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-category-cleaning/evidence/index.md",
+      "sha256": "628a63c05106975d70c38a5e724601bb1561437f141e3e50f6af35622be9fa04"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-category-cleaning/knowledge/index.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-category-cleaning/knowledge/index.md",
+      "sha256": "78f54254ffd89af811d723b3bbd52c4ab5fe4f1a237c21334af17356fad7cd58"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-category-cleaning/references/workbook-contract.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-category-cleaning/references/workbook-contract.md",
+      "sha256": "cc0005effabf2c5048a2a2282d452cd6103252f615e59f8d43a08ce676a79c9e"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-classification/Agent.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-classification/Agent.md",
+      "sha256": "fbd26b275114c252f6eea2d4790d61850b7047f0cd02ff438922304cf251540d"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-classification/SKILL.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-classification/SKILL.md",
+      "sha256": "5baaeb5ceb622cf4a3118dcf76c36dfbdcca8efca594f8a97cc7b7409b7c66ec"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-classification/agents/openai.yaml",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-classification/agents/openai.yaml",
+      "sha256": "5510212b9b843d1ab71a61b0a1a7ef4c89853adad1d258731fcdddf42115d0d4"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-classification/capabilities.yaml",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-classification/capabilities.yaml",
+      "sha256": "ccdba0a9c488e8f09455f44c5c08a708bf7eb1e79af2448e41055803a9c31f66"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-classification/evidence/case-01-normal.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-classification/evidence/case-01-normal.md",
+      "sha256": "f8903612651fda82a98e59924cad8983fc3b17b11cf7fc8300c8a4f0e30496ce"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-classification/evidence/index.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-classification/evidence/index.md",
+      "sha256": "06dfbe4713008316d6138c176df06dcf01008666128514643974444c27473bf5"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-classification/knowledge/index.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-classification/knowledge/index.md",
+      "sha256": "862ea5981e64e15475bfaf2ff27511b6115a968f764678dba911efc20144a4ec"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-classification/references/output-contract.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-classification/references/output-contract.md",
+      "sha256": "1083b8905220bf11d6472b28cadb5dad3491efd847105940cda06b43d3adb43e"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-competition-analysis/Agent.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-competition-analysis/Agent.md",
+      "sha256": "b74c94d34352b24486d2a33ac76444b1f08c1758ba4387f6d8486b8e99a9b5cf"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-competition-analysis/SKILL.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-competition-analysis/SKILL.md",
+      "sha256": "4bb34f4c1960b5753c804c26d59af682af8a253bf5c504024c9936e6ca213165"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-competition-analysis/capabilities.yaml",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-competition-analysis/capabilities.yaml",
+      "sha256": "df65a0f6536d2d0d52e7f848490df1fb5a80fe1b0b6343ea5917636e6b84fafb"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-competition-analysis/evidence/case-01-normal.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-competition-analysis/evidence/case-01-normal.md",
+      "sha256": "66159118b36e9b54c0f8af0d9ba0d24a426ebc1eaa5deddbf97051390c30c65a"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-competition-analysis/evidence/index.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-competition-analysis/evidence/index.md",
+      "sha256": "ad34a13eac54e95c163e8e291950392aa6a6249bd04cf647c0e6cdf64d1fd2ba"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-competition-analysis/knowledge/index.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-competition-analysis/knowledge/index.md",
+      "sha256": "dd5c1c3074c57c84711ba433f386ec55114010ea5574b9e34929aed9ad60192b"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-competition-analysis/references/output-contract.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-competition-analysis/references/output-contract.md",
+      "sha256": "f4446fe1db118e463bd4815425cd522a121620e9edd936940eedf394525fe1d1"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-final-workbook-assembly/Agent.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-final-workbook-assembly/Agent.md",
+      "sha256": "681beae15b400cfa586ee91566f3e54b82ccde85c683fc4b786b9ce725689ad8"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-final-workbook-assembly/SKILL.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-final-workbook-assembly/SKILL.md",
+      "sha256": "9c7ce262ab51a51ef3af43c87e7e0f6527da3e7920416135b998976155318efa"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-final-workbook-assembly/capabilities.yaml",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-final-workbook-assembly/capabilities.yaml",
+      "sha256": "2e4bdc86d0e3e45257e176c70657d3e9a69e16f74078a293a2fe40ef54a27f40"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-final-workbook-assembly/evidence/case-03-edge-or-error.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-final-workbook-assembly/evidence/case-03-edge-or-error.md",
+      "sha256": "138c0aa5c38000715be07e90000311e8ad75a86f4bc32f3387b09aa0a5826b6c"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-final-workbook-assembly/evidence/index.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-final-workbook-assembly/evidence/index.md",
+      "sha256": "81fb03b5c6ce5387c91a4e50464d65b02a2545b743c0fe3c3b4c5e96fc756e75"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-final-workbook-assembly/knowledge/index.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-final-workbook-assembly/knowledge/index.md",
+      "sha256": "67128eb580b436e2d85fb4a851671597ac055a9a7ef0c763989d4c4b37d85e30"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-final-workbook-assembly/references/workbook-contract.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-final-workbook-assembly/references/workbook-contract.md",
+      "sha256": "8c9c750be975f68006f5b5cbce339dc42fd341e65de9d0086dac96df6662a400"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-final-workbook-assembly/scripts/delivery-privacy-audit.mjs",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-final-workbook-assembly/scripts/delivery-privacy-audit.mjs",
+      "sha256": "1f254fc21373478cb1d082e88b72aa1e29221c41f818b7296f8e412ea82dfb46"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-final-workbook-assembly/scripts/normalize-module-metadata.mjs",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-final-workbook-assembly/scripts/normalize-module-metadata.mjs",
+      "sha256": "ba04d7cabefca382b2bf15a58dc712c096d45b8922b9683e1e86cb4ffbc87226"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-final-workbook-assembly/scripts/post-qa-package.mjs",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-final-workbook-assembly/scripts/post-qa-package.mjs",
+      "sha256": "ad7fcb691fcc7218e4f34bfac842a2112ebd13ab56a95aa2081789fd8bbb8d6e"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-final-workbook-assembly/scripts/run-fixtures.mjs",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-final-workbook-assembly/scripts/run-fixtures.mjs",
+      "sha256": "793d7d03a52d8e9350cb37686250671545c4b462f2500d498ad5daa5412da2db"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-library-operations/Agent.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-library-operations/Agent.md",
+      "sha256": "111e0fb081065ee3b0d2202f7ef885dd744b91957daebd0f99907f5097c577e7"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-library-operations/SKILL.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-library-operations/SKILL.md",
+      "sha256": "d1eb7c98834b51ab65570faebbd98dc76429dc739457279ea5674ef7af836d9a"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-library-operations/capabilities.yaml",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-library-operations/capabilities.yaml",
+      "sha256": "ea11348c3ace71dcee96f841084703bb2fb387c92c275b355e924912fb67aa32"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-library-operations/evidence/case-03-edge-or-error.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-library-operations/evidence/case-03-edge-or-error.md",
+      "sha256": "905e553ebe656f301d6589c83154e68ba2e9cbe929e40ec0b8b811c86be4dcd0"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-library-operations/evidence/index.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-library-operations/evidence/index.md",
+      "sha256": "3f2f8992bf4989d9dcfba113cd3c1a5560dc353bcee68415a187fa565e02866e"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-library-operations/knowledge/index.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-library-operations/knowledge/index.md",
+      "sha256": "2fe1ca0e35bea2e505432e9417d75b5c138032dc065a868e23fc942020536e7e"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-library-operations/references/listing-handoff-contract.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-library-operations/references/listing-handoff-contract.md",
+      "sha256": "87c7007be23bc22bf36eceda1735948291592f9022f01995518048ea43f66420"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-library-operations/references/recent-library-reuse-contract.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-library-operations/references/recent-library-reuse-contract.md",
+      "sha256": "00564f1bd2eb42a2efb51daa601e9fe29ff76a58c4d1586dc3961c5f5462f294"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-library-operations/references/source-merge-contract.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-library-operations/references/source-merge-contract.md",
+      "sha256": "4358beaa403083155575ad22a4c9cf76b45d5e3f6ff8483013a92744c543e7a8"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-library-publication/Agent.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-library-publication/Agent.md",
+      "sha256": "4a05b732fa4301b2a780564130da9808dd005f748c3ed081414cba55866a2198"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-library-publication/SKILL.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-library-publication/SKILL.md",
+      "sha256": "0e571c0b1f968fbff4eb6a59264393e97afb5fddb80b9260287813d5b2964214"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-library-publication/capabilities.yaml",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-library-publication/capabilities.yaml",
+      "sha256": "6572b72fab37585087744b85772655534b773e5551bb039c298e94a4fa60c0da"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-library-publication/evidence/case-01-normal.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-library-publication/evidence/case-01-normal.md",
+      "sha256": "e0c867a6f5bbbb1929d6847c4ad669cd3c929a5b0fe1e098729eb7ad32c69cf8"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-library-publication/evidence/index.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-library-publication/evidence/index.md",
+      "sha256": "a9701236607fe95b8e13c772f82b63e4eed2de6e8f96ca535431d957ebbc04a1"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-library-publication/knowledge/index.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-library-publication/knowledge/index.md",
+      "sha256": "dc2e94ab567eab28cf39bd4b1d73ebd697b51571fd8f8145de569d9696fa65b0"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-quality-validation/Agent.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-quality-validation/Agent.md",
+      "sha256": "5930ec1723d385aa2a60525ba1a9ab0690dadeb39bafba597df9aa7a42c64a33"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-quality-validation/SKILL.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-quality-validation/SKILL.md",
+      "sha256": "8406c024dd2889831254fec433e2121f36343efd0422ee9850d86a0589cc7de0"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-quality-validation/capabilities.yaml",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-quality-validation/capabilities.yaml",
+      "sha256": "44bc62c75a21a4b89cb3e6b2569a0a3929435fabb6a85313d3518948c7c443be"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-quality-validation/evidence/case-03-edge-or-error.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-quality-validation/evidence/case-03-edge-or-error.md",
+      "sha256": "9217c38eae1e542d78bd59b0893bd8ad2172f7a385f7c4fd60e59c6280c38c8e"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-quality-validation/evidence/index.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-quality-validation/evidence/index.md",
+      "sha256": "e3d8d17baf3d872991f62c5e3c1a6587346645f9d532c333a8c0a4d0fb44b904"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-quality-validation/knowledge/index.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-quality-validation/knowledge/index.md",
+      "sha256": "d3b54ecceac9a27b980bce4f3a108930587daaf56313a3081f9c6477925fb06f"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-quality-validation/references/quality-contract.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-quality-validation/references/quality-contract.md",
+      "sha256": "fb79aaa7c285b56f432c137e3c8e830277ade7a8839458c046e2c1df505f2fb0"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-sellersprite-expansion/Agent.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-sellersprite-expansion/Agent.md",
+      "sha256": "c80bfbdd0eb39fe68cd5a3806b03ee3222c55d4f4a03a01e0290a9aea8123e4f"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-sellersprite-expansion/SKILL.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-sellersprite-expansion/SKILL.md",
+      "sha256": "66b6287e2050b2328d84c0b57dcda61f3e3bac84f6541fe207ca5bd68dbdf420"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-sellersprite-expansion/capabilities.yaml",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-sellersprite-expansion/capabilities.yaml",
+      "sha256": "84f9ed5c2508c916f324c43ddaa21b1c02002b0145a447f996b774b7a7bb38e6"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-sellersprite-expansion/evidence/case-01-normal.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-sellersprite-expansion/evidence/case-01-normal.md",
+      "sha256": "99f4d5d398d08c9ccd5354917d3c594662334893a3ca97479ef378a6b9a8903e"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-sellersprite-expansion/evidence/index.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-sellersprite-expansion/evidence/index.md",
+      "sha256": "03d54702512c21b357cdb8120e1de309a78648a990afb830e8e94c94ec8ea2be"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-sellersprite-expansion/knowledge/index.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-sellersprite-expansion/knowledge/index.md",
+      "sha256": "9172863d3bd7fe95a270ba1515daef67f45bd6fbfc223841f8e327609b299f46"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-sellersprite-expansion/references/source-contract.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-sellersprite-expansion/references/source-contract.md",
+      "sha256": "044a0c8949aca17f28008fad45b996845ac06c543c1847cba44b96b4d03b6b13"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-sif-competitor-collection/Agent.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-sif-competitor-collection/Agent.md",
+      "sha256": "c4f821841a1ae1ff5d4d68a796e4255fabf9758220c872da1a8ca04fd4973acc"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-sif-competitor-collection/SKILL.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-sif-competitor-collection/SKILL.md",
+      "sha256": "d169d9040f823c82055e56b4773ae88e6a32cb3e0773a863ca26b2ad0707f5f7"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-sif-competitor-collection/capabilities.yaml",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-sif-competitor-collection/capabilities.yaml",
+      "sha256": "c24295714b1456a3a3988921aa97d58a04e98a53b278f90305290fd05a7b369b"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-sif-competitor-collection/evidence/case-03-edge-or-error.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-sif-competitor-collection/evidence/case-03-edge-or-error.md",
+      "sha256": "24e84601aca97c9967eab1535f4ffbf82b5dc183466439d3f6ae9b462de375c6"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-sif-competitor-collection/evidence/index.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-sif-competitor-collection/evidence/index.md",
+      "sha256": "339f4af3d0c2ba4db2c5192a2f6fff8027d7f6e532e87fea84d8a35a38fab82c"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-sif-competitor-collection/knowledge/index.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-sif-competitor-collection/knowledge/index.md",
+      "sha256": "b9d9b362b7752c9de9a77f05c2bb6a9ad52f7c58de4f1f591ceb1ddf95bdb490"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-sif-competitor-collection/references/source-contract.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-sif-competitor-collection/references/source-contract.md",
+      "sha256": "26a99180bc68ecc8baf8e903c9e17ea7f89a0f57f0e1d0a01d8c4941278e1dc2"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-trend-analysis/Agent.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-trend-analysis/Agent.md",
+      "sha256": "a12b7f4b208a5480743b82e761e37f4d0ac337d912194a4e9e74fbc37b4d5a80"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-trend-analysis/SKILL.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-trend-analysis/SKILL.md",
+      "sha256": "eb1248440cd45721799542a8a609f9a4392ec1a92f46a68e5bd75819fef0d17c"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-trend-analysis/capabilities.yaml",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-trend-analysis/capabilities.yaml",
+      "sha256": "5d232ae01f6100fd0a46bbf8ac5b233ff8e03db6ce7a150e72cde59a15f0be9b"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-trend-analysis/evidence/case-01-normal.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-trend-analysis/evidence/case-01-normal.md",
+      "sha256": "c3f5cd885692352e04c9441506ee2fb70d48cde1ee6507994a2df0dec0528d0d"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-trend-analysis/evidence/index.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-trend-analysis/evidence/index.md",
+      "sha256": "d39552ae99189fdfc23540217a78485c1ab489ac60825da2dd3f868471402671"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-trend-analysis/knowledge/index.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-trend-analysis/knowledge/index.md",
+      "sha256": "1961481c341c44a08d773754af8c6feaecce5d13fbb6235e779a5145b6cb1a98"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-trend-analysis/references/output-contract.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-trend-analysis/references/output-contract.md",
+      "sha256": "4adb8a17a844cae168b6e3f64721ff63f30fc0182f8816b64082d9364e63a3c0"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-trend-analysis/scripts/audit_trend_ooxml.py",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-trend-analysis/scripts/audit_trend_ooxml.py",
+      "sha256": "11074550f038366131cf81c31187e57ac744fc4c0849d3c0c4903a4450b8a185"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-trend-analysis/tests/test_audit_trend_ooxml.py",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-trend-analysis/tests/test_audit_trend_ooxml.py",
+      "sha256": "ef4e6667a95cebdbc7680373a90ad7873758f80934afb46e2aa40bfbdfdaa952"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-word-frequency/Agent.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-word-frequency/Agent.md",
+      "sha256": "24fbffc2e35013db0302e78df5d42003d40c66ab43d6e371f758b838c94ae653"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-word-frequency/SKILL.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-word-frequency/SKILL.md",
+      "sha256": "9c411778058c6549f76aee918dc0a5c43436c7fbd359d9ee56a5053f0ac4a7b2"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-word-frequency/capabilities.yaml",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-word-frequency/capabilities.yaml",
+      "sha256": "52cd2650cdb1a1d60d113c0e9b93bcf88d9bd9a28ae378b8054ac7c09dff4a62"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-word-frequency/evidence/case-03-edge-or-error.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-word-frequency/evidence/case-03-edge-or-error.md",
+      "sha256": "6bbf1e6450e99bc0379ef05c8b2c0cf713dea21e2c8a767c235fe6b04e9030d5"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-word-frequency/evidence/index.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-word-frequency/evidence/index.md",
+      "sha256": "5abc6c9b6e6fcd912e9f2cc2fb9edd472eca963a5018fc4d946e4553f0b191d9"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-word-frequency/knowledge/index.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-word-frequency/knowledge/index.md",
+      "sha256": "187fc24611d99636d97c7a87a9454fe32f68e4094fb6506f1d882de2c0c05055"
+    },
+    {
+      "source": ".agents/skills/amazon-keyword-word-frequency/references/workbook-contract.md",
+      "destination": "projects/amazon-keyword-library/.agents/skills/amazon-keyword-word-frequency/references/workbook-contract.md",
+      "sha256": "d5cfb1915f3e37ea229717a11966ed8687f03c6d7dd8e905200ba813f2b58dca"
+    },
+    {
+      "source": ".gitignore",
+      "destination": "projects/amazon-keyword-library/.gitignore",
+      "sha256": "e1b53702925063908cac2d77143ba1783b4e300b9809c2d916c26ae6f9cca092"
+    },
+    {
+      "source": "AGENTS.md",
+      "destination": "projects/amazon-keyword-library/AGENTS.md",
+      "sha256": "c4b95bb928711c980c299dcc8f2cf689a8769062fdb716673b0e7a712830e77b"
+    },
+    {
+      "source": "PROJECT.md",
+      "destination": "projects/amazon-keyword-library/PROJECT.md",
+      "sha256": "9bfb5dce9e86bf937e67d7ca71373dcb828e8100aa7afbff1497306192e85286"
+    },
+    {
+      "source": "README.md",
+      "destination": "projects/amazon-keyword-library/README.md",
+      "sha256": "0888f66a4c715494d5f8a4a73a17e7022b0b33c99b6551fad983d62049eaefff"
+    },
+    {
+      "source": "contracts/run-spec.example.json",
+      "destination": "projects/amazon-keyword-library/contracts/run-spec.example.json",
+      "sha256": "427592d639f4339790848ffc636a0acac95fb8a4d15e75dc03ba35466fd50518"
+    },
+    {
+      "source": "contracts/runtime-rule-map.json",
+      "destination": "projects/amazon-keyword-library/contracts/runtime-rule-map.json",
+      "sha256": "0641b7094e48603aef3c1669379c3563625dbe572518bf2b5248c5eb59d4baba"
+    },
+    {
+      "source": "contracts/skill-dependencies.json",
+      "destination": "projects/amazon-keyword-library/contracts/skill-dependencies.json",
+      "sha256": "2c85fb580b6b665d2dd55caef5c2dbc52cf4a6b0de3dd0c0874fd51cb69595b3"
+    },
+    {
+      "source": "contracts/source-preflight.example.json",
+      "destination": "projects/amazon-keyword-library/contracts/source-preflight.example.json",
+      "sha256": "109c70bdb737ec18398464cdcdc39cf5dfb782ec07770d962f28c760a28c6b7b"
+    },
+    {
+      "source": "docs/agents/README.md",
+      "destination": "projects/amazon-keyword-library/docs/agents/README.md",
+      "sha256": "458836df25d4dfce4ec8e4f871a49f7f3033b39f436c8719ecccb885ac8fa9ce"
+    },
+    {
+      "source": "docs/dispatch-control-contract.md",
+      "destination": "projects/amazon-keyword-library/docs/dispatch-control-contract.md",
+      "sha256": "5699b5f59fb37551f7766334a2f90387e332a367b0ce9d77bb88fd163a3c550a"
+    },
+    {
+      "source": "docs/end-to-end-workflow.md",
+      "destination": "projects/amazon-keyword-library/docs/end-to-end-workflow.md",
+      "sha256": "6f1fcb7b299c3d0654f927e2da90ee9ed4fc33281a5dfedc1fa12a46d229fb97"
+    },
+    {
+      "source": "docs/github-branching.md",
+      "destination": "projects/amazon-keyword-library/docs/github-branching.md",
+      "sha256": "54e06ec9e63dedeb88070bb5dcada7511f814ed47293891908e96de7678f691c"
+    },
+    {
+      "source": "docs/keyword-judgment-boundaries.md",
+      "destination": "projects/amazon-keyword-library/docs/keyword-judgment-boundaries.md",
+      "sha256": "39462cc2758a432ea95453f4c018af6e1adb3d2224e6fde4f392436c2face1c1"
+    },
+    {
+      "source": "docs/risk-gates.md",
+      "destination": "projects/amazon-keyword-library/docs/risk-gates.md",
+      "sha256": "e386ff596a569c1dc6b8702dfb140a5b0934dc8bab5971d583db98466cb4dc4b"
+    },
+    {
+      "source": "docs/runtime-optimization-contract.md",
+      "destination": "projects/amazon-keyword-library/docs/runtime-optimization-contract.md",
+      "sha256": "9b9a1d93bba88c1e2395884d098708439cb7945e2144832f94e410768a44caa0"
+    },
+    {
+      "source": "docs/skill-package-standard.md",
+      "destination": "projects/amazon-keyword-library/docs/skill-package-standard.md",
+      "sha256": "fe2c4d8ace4ff85fa7b5ec6855cd24cf644bfd383c4719dd9089a5d7dc7ff96a"
+    },
+    {
+      "source": "docs/task-routing.md",
+      "destination": "projects/amazon-keyword-library/docs/task-routing.md",
+      "sha256": "23f22e88df376e3a28e947f54c05db5c0755b4278ce3f69ce008ddeb401986fd"
+    },
+    {
+      "source": "docs/thread-architecture.md",
+      "destination": "projects/amazon-keyword-library/docs/thread-architecture.md",
+      "sha256": "0cb87368cd87cd7166c3b82732c2412e568b63988c87fb6499143cd5f0fd812b"
+    },
+    {
+      "source": "docs/thread-map.local.example.md",
+      "destination": "projects/amazon-keyword-library/docs/thread-map.local.example.md",
+      "sha256": "1fe62ce765a147ac14e1c799a2c6df3079e250bd39e6b6cb3f7e7e1c5436ec6e"
+    },
+    {
+      "source": "docs/thread-roles.md",
+      "destination": "projects/amazon-keyword-library/docs/thread-roles.md",
+      "sha256": "6e69754cd32411a035ee4366c7682355182c0c70520199abd8b0609ed5ba6bea"
+    },
+    {
+      "source": "handoffs/2026-08-07-company-archive-import.md",
+      "destination": "projects/amazon-keyword-library/handoffs/2026-08-07-company-archive-import.md",
+      "sha256": "5698b2c3f52d9a7766d84daf2ac63b8f63bad9896f11d0c0ba403f806594383f"
+    },
+    {
+      "source": "handoffs/2026-08-19-project-main-first-validation-browser-continuation.md",
+      "destination": "projects/amazon-keyword-library/handoffs/2026-08-19-project-main-first-validation-browser-continuation.md",
+      "sha256": "02197a70a1d92cb86d173798824754b8c77d52b7521c6255f716bcad4c3ff3d3"
+    },
+    {
+      "source": "handoffs/2026-08-20-github-baseline-published.md",
+      "destination": "projects/amazon-keyword-library/handoffs/2026-08-20-github-baseline-published.md",
+      "sha256": "3e096d2fbae97f6d7e1ac92a17559b8d74481948838a9140e8c64bf6d21b9c65"
+    },
+    {
+      "source": "handoffs/2026-08-20-persistent-side-tasks-created.md",
+      "destination": "projects/amazon-keyword-library/handoffs/2026-08-20-persistent-side-tasks-created.md",
+      "sha256": "f280432e9d4d54b90ada7e42413391b8cac26911b69981d43b410b7e53909933"
+    },
+    {
+      "source": "handoffs/2026-08-20-single-responsibility-skill-split.md",
+      "destination": "projects/amazon-keyword-library/handoffs/2026-08-20-single-responsibility-skill-split.md",
+      "sha256": "1e52b86156a7b9fca796f8ab31206182d1f3ccb2b5fca4e9194fd4323a685b9c"
+    },
+    {
+      "source": "handoffs/2026-08-20-standalone-repository-bootstrap.md",
+      "destination": "projects/amazon-keyword-library/handoffs/2026-08-20-standalone-repository-bootstrap.md",
+      "sha256": "cbbdcf7b7f534f3f6d1a5407ca2ba6859ed77ed3578c842a826945fbe6a68b41"
+    },
+    {
+      "source": "handoffs/2026-08-21-first-run-right-sizing.md",
+      "destination": "projects/amazon-keyword-library/handoffs/2026-08-21-first-run-right-sizing.md",
+      "sha256": "ab9a7036836a9f515fda467e7657701301773bb1780945d97ceaf22ea6db2347"
+    },
+    {
+      "source": "handoffs/2026-08-21-output-contract-sync.md",
+      "destination": "projects/amazon-keyword-library/handoffs/2026-08-21-output-contract-sync.md",
+      "sha256": "7f15d194f491be8d6a6b0de1014c2627d789efd6990a449e20dc8bf030a36da9"
+    },
+    {
+      "source": "handoffs/2026-08-24-secondary-term-final-sheet.md",
+      "destination": "projects/amazon-keyword-library/handoffs/2026-08-24-secondary-term-final-sheet.md",
+      "sha256": "bbe62737b394ae521a1a9b95daa9ba92e1b88c0afae9ab6659cf450084556610"
+    },
+    {
+      "source": "handoffs/README.md",
+      "destination": "projects/amazon-keyword-library/handoffs/README.md",
+      "sha256": "7ec8a5d78ceb80ef9a7bf499ff6d4f944aaebce80078a1c6cd7e158427dd5f00"
+    },
+    {
+      "source": "knowledge/INDEX.md",
+      "destination": "projects/amazon-keyword-library/knowledge/INDEX.md",
+      "sha256": "734986c910b0e77d90a0ae5aaece9686eacaeeccda77156a993cb00f9330c826"
+    },
+    {
+      "source": "knowledge/keyword-cleaning-case-evidence.md",
+      "destination": "projects/amazon-keyword-library/knowledge/keyword-cleaning-case-evidence.md",
+      "sha256": "ae5d8864bacb3a58ae97528dfe5995e506ff3e5483c079c33bc3fd97e0d4d037"
+    },
+    {
+      "source": "knowledge/keyword-decision-log.md",
+      "destination": "projects/amazon-keyword-library/knowledge/keyword-decision-log.md",
+      "sha256": "93b7565c4819e97bafaccf53681f722e492630452b6d97a44e7671c2339a3e85"
+    },
+    {
+      "source": "knowledge/keyword-library-method-v0.1.md",
+      "destination": "projects/amazon-keyword-library/knowledge/keyword-library-method-v0.1.md",
+      "sha256": "747c3dc2705da7ccef16a1e3f099c753c786abe52683d886858a1fe601b46a2a"
+    },
+    {
+      "source": "knowledge/product-keyword-library.md",
+      "destination": "projects/amazon-keyword-library/knowledge/product-keyword-library.md",
+      "sha256": "5dbaabc623340005930de7c77f77f4c1db855f0e13897983ac52bd9e13a8df5e"
+    },
+    {
+      "source": "scripts/dispatch_guard.py",
+      "destination": "projects/amazon-keyword-library/scripts/dispatch_guard.py",
+      "sha256": "b0220187c891b9431bfd0ab3d5a267b9a6c2149959493250a63529d62369d14f"
+    },
+    {
+      "source": "scripts/keyword_deterministic_core.py",
+      "destination": "projects/amazon-keyword-library/scripts/keyword_deterministic_core.py",
+      "sha256": "54f73e288498117601f3c1141bac47f8de08e24199b9d8c3bf44d67486d8d648"
+    },
+    {
+      "source": "scripts/run_runtime_fixtures.py",
+      "destination": "projects/amazon-keyword-library/scripts/run_runtime_fixtures.py",
+      "sha256": "687ea14f5a3a6902c4cf90bb72933561b9723f9ffb28eff0efac6c787fedad59"
+    },
+    {
+      "source": "scripts/runtime_contract.py",
+      "destination": "projects/amazon-keyword-library/scripts/runtime_contract.py",
+      "sha256": "0373cabe117a78b2fde0ac3fc914d49fd41b0842658747fe09df39e305b21c99"
+    },
+    {
+      "source": "scripts/test_dispatch_guard.py",
+      "destination": "projects/amazon-keyword-library/scripts/test_dispatch_guard.py",
+      "sha256": "cbd0a0a1dfb83b694f6049a225bf91f967d9be53b7ba8336cffb10823a0ee05c"
+    },
+    {
+      "source": "scripts/test_skill_dependencies.py",
+      "destination": "projects/amazon-keyword-library/scripts/test_skill_dependencies.py",
+      "sha256": "f4a08a8a1bc5ad309ed121fd427e981c5dde1190b764d3e9cbbf5a3f7f2e070c"
+    },
+    {
+      "source": "scripts/validate_repository.py",
+      "destination": "projects/amazon-keyword-library/scripts/validate_repository.py",
+      "sha256": "34abf224a76cad53f8b6dd7eb28d05e8c0bc2c6d7606fbbcc641b643ed96d244"
+    },
+    {
+      "source": "scripts/validate_skill_dependencies.py",
+      "destination": "projects/amazon-keyword-library/scripts/validate_skill_dependencies.py",
+      "sha256": "e80d30e374f3090e1acb27a5979520c7cfa5d3b2109438d822e700f771a431b5"
+    }
+  ]
+}

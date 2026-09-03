@@ -1,0 +1,40 @@
+{
+  "schema": "keyword-navigation-adapters/v1",
+  "source_revision": "9d18a4dc9d32d820bcba27dbe31c8f50b363351f",
+  "source_file_count": 136,
+  "byte_identical_files": 132,
+  "missing_files": [],
+  "scope": "Four additive navigation and candidate-status notes only; original business text retained.",
+  "business_run": "not_executed",
+  "P1": "not_executed",
+  "adapters": [
+    {
+      "source": "AGENTS.md",
+      "destination": "projects/amazon-keyword-library/AGENTS.md",
+      "source_sha256": "c4b95bb928711c980c299dcc8f2cf689a8769062fdb716673b0e7a712830e77b",
+      "candidate_sha256": "0c50ba9a2707ebd2114ce7badbedae7b29664d1229fa8541a392655644631689",
+      "change": "Define the project root within the shared repository; preserve ownership and rules."
+    },
+    {
+      "source": "PROJECT.md",
+      "destination": "projects/amazon-keyword-library/PROJECT.md",
+      "source_sha256": "9bfb5dce9e86bf937e67d7ca71373dcb828e8100aa7afbff1497306192e85286",
+      "candidate_sha256": "def763b8685e84a9ddd1dab81d058c0f559bbbb143822b8da3d38ff919e11037",
+      "change": "Record candidate relocation without claiming publication or task loading."
+    },
+    {
+      "source": "README.md",
+      "destination": "projects/amazon-keyword-library/README.md",
+      "source_sha256": "0888f66a4c715494d5f8a4a73a17e7022b0b33c99b6551fad983d62049eaefff",
+      "candidate_sha256": "daf4958310ac723607413a31bacd92f9eb7b78f6facd8479892192359b07a212",
+      "change": "Explain the project-relative entry and independent business scope."
+    },
+    {
+      "source": "docs/end-to-end-workflow.md",
+      "destination": "projects/amazon-keyword-library/docs/end-to-end-workflow.md",
+      "source_sha256": "6f1fcb7b299c3d0654f927e2da90ee9ed4fc33281a5dfedc1fa12a46d229fb97",
+      "candidate_sha256": "74b0a4a6072191ede3acaf6d2e7996922c7ce2ed6576b8be71495cc73dbba4cf",
+      "change": "Record navigation synchronization; no business workflow change."
+    }
+  ]
+}

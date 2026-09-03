@@ -1,0 +1,39 @@
+# Device-local task and execution state
+thread-map.local.md
+**/thread-map.local.md
+.local/
+.codex/
+
+# Credentials and environment files
+.env
+.env.*
+*.pem
+*.key
+*.p12
+
+# Business and generated artifacts
+runs/
+raw-data/
+outputs/
+previews/
+*.xlsx
+*.xls
+*.csv
+*.tsv
+*.zip
+*.png
+*.jpg
+*.jpeg
+
+# Tool caches
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+node_modules/
+
+# Editor and OS noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Alexa Shopping 商品信息审计"
+  short_description: "审计新品在 Alexa Shopping 中的信息完整度，并横向抓取竞品同字段信息"
+  default_prompt: "Use $audit-alexa-shopping-product-info to audit my three-sheet Alexa for Shopping product workbook."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon Listing 自动化总控"
+  short_description: "串联上游证据、七类人工校准、埋词与 Listing 交付"
+  default_prompt: "Use $orchestrate-amazon-listing-pipeline to build and confirm the seven-part information-calibration preview before writing or assembling the final Amazon Listing."
