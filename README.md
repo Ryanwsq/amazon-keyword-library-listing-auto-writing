@@ -1,6 +1,6 @@
 # Amazon Keyword Library + Listing Auto Writing
 
-同一Git仓库中的两个独立工作区。保留各自的主任务、专责模块、完整Skill、知识、判断边界及输出合同；这里只合并版本管理和发布入口。
+同一 Git 仓库、一个 Codex 项目中的两个独立业务模块。Listing 主任务是整条产品输入到 Listing 交付的统一入口；关键词主任务管理关键词子流程及其专责模块。完整 Skill、知识、判断边界、双 Run、正式回执和两道人机确认门均保留，不合并业务执行权。
 
 当前GitHub仓库：[amazon-keyword-library-listing-auto-writing](https://github.com/Ryanwsq/amazon-keyword-library-listing-auto-writing)。这是原仓库改名，不是新仓库；两个内部项目ID和相对目录保持不变，历史交接中的旧名称保留其当时含义。见[仓库名称与版本记录](docs/repository-identity.md)。
 
@@ -15,7 +15,9 @@
 
 ## 新电脑从哪里开始
 
-只克隆这一个仓库，并将它作为统一日常项目入口；不再另建一份独立Listing代码仓库。两个业务子目录仍保留各自的规则与角色分工。旧电脑的原始输入、历史产物和旧任务不要删除，也不要自动当作新Run输入。
+只克隆这一个仓库，将总仓目录添加为一个 Codex 项目；不另建独立 Listing 代码仓库，也不需要再为两个子目录分别添加 Codex 项目。在同一个目标项目中初始化 Listing 总控和其完整注册角色，以及关键词主任务和其固定副任务。已有目标任务先核对复用，缺少任务只有获得用户明确创建授权后才补齐；仅打开仓库或读取本文不授权创建任务。
+
+当前角色清点为 Listing 10 个（1 总控、7 业务、2 接收整理）和关键词 11 个（1 主任务、10 长期副任务）；具体职责和加载要求仍以各项目拥有的角色表、当前注册表为准。日常整条流程向 Listing 总控提交输入；明确的关键词独立任务仍可交关键词主任务。旧电脑或旧项目的任务、聊天、原始输入和历史产物完整保留，不迁移、不删除，也不自动成为新 Run 输入或新目标的已加载任务。
 
 ```sh
 git clone https://github.com/Ryanwsq/amazon-keyword-library-listing-auto-writing.git akw
