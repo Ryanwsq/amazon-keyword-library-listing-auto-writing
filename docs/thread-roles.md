@@ -25,7 +25,7 @@
 | `keyword-final-workbook-assembler` | `Amazon关键词词库｜最终工作簿装配｜main` | `amazon-keyword-final-workbook-assembly` | same | migrated draft |
 | `keyword-quality-reviewer` | `Amazon关键词词库｜独立质量验证｜main` | `amazon-keyword-quality-validation` | current checks were distributed across Skills | draft package; test-validation only; compact-validation/full-regression; P0 passed |
 
-上述十个长期副任务已在本设备的独立 Codex 项目中创建、完成只读初始化并进入空闲等待，实际任务 ID、路径、授权和 Worktree 只保存在被忽略的本机映射。所有目标包仍是`draft/planned`而不是已验证能力；十二个Skill已分别建立三个证据登记槽位且当前均为`planned`，全新正常案例01才产生首轮真实 P1 候选证据。
+上表的迁入来源和首次验证前状态仅用于历史追溯，不表示当前设备已装载、已登录或空闲。实际任务ID、路径、授权、Worktree及核验时间只保存在被忽略的本机映射，每次派发仍须读取实时任务元数据并核对磁盘revision。所有目标包仍是`draft/planned`而不是已验证能力；十二个Skill均有三个证据登记槽位，当前状态以各自`evidence/index.md`为准，汇总与开放问题以`PROJECT.md`为准。磁盘同步、P0和单个已接纳案例均不等于完整P1。
 
 ## Ownership rule
 
@@ -45,4 +45,4 @@
 - 多细分类目的目标细分简称/紧凑表达强等价闭环由主任务在清洗前锁定；清洗发现锚点与完整词组合证据冲突时停止回传，不自行改层级。产品关系与通用词库资格只由第二板块依据已闭合分层锚点、SKU事实和完整词中心对象判定；分类只传递，词频、竞争、趋势和最终通用词库只消费资格为`纳入`的人口。
 - 用户开头三组输入中的产品基础信息必须已包含目标类目与多稳定类型回答；齐全后不在运行途中重复询问。production不派发独立质量验证；test-validation的compact-validation与full-regression共享全部21项门和完整风险人口，compact不得作为P1三案例的替代。
 - 每Run的run contract、preflight和stage status只在本机忽略目录；Rule ID/哈希不替代完整Skill阅读。阶段仅在身份、输出/证据哈希、人口和完成状态完全一致时复用；失败只阻断后代，最终汇合门不变。确定性核心不拥有任何关键词语义判断。
-- 当前 gaming-chair 运行是迁移前问题发现证据，不是独立仓库的第一次正式只读验证。
+- 迁移前的gaming-chair运行仅作为历史问题发现证据，不代表当前Run状态，也不是独立仓库的第一次正式只读验证。

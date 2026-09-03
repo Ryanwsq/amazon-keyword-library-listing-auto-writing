@@ -9,6 +9,8 @@ import sys
 from pathlib import Path
 from typing import Dict, List, Set, Tuple
 
+from validate_skill_dependencies import audit_dependencies
+
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS_ROOT = ROOT / ".agents" / "skills"
@@ -42,6 +44,9 @@ REQUIRED_PATHS = {
     Path("scripts/run_runtime_fixtures.py"),
     Path("scripts/dispatch_guard.py"),
     Path("scripts/test_dispatch_guard.py"),
+    Path("contracts/skill-dependencies.json"),
+    Path("scripts/validate_skill_dependencies.py"),
+    Path("scripts/test_skill_dependencies.py"),
 }
 
 TEXT_SUFFIXES = {
@@ -743,6 +748,8 @@ def main() -> int:
     skill_count, draft_count, verified_count = validate_skills(errors)
     validate_keyword_contract_sync(errors)
     validate_runtime_layer(errors)
+    dependency_report = audit_dependencies(ROOT)
+    errors.extend("dependency check: " + error for error in dependency_report["errors"])
     file_count = validate_repository_files(errors)
 
     if errors:

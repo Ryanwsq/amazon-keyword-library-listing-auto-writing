@@ -1,7 +1,7 @@
 # Agent and Skill package standard
 
 - Status: active
-- Last reviewed: 2026-08-27
+- Last reviewed: 2026-09-03
 - Purpose: 统一仓库中公共与项目专用 Skill 的角色边界、能力登记、知识依赖和真实运行证据
 
 ## Directory naming
@@ -22,7 +22,7 @@
     └── case-03-edge-or-error.md  # 对应案例被接纳后存在
 ```
 
-项目专用 Skill 使用同样结构，放在 `projects/<project>/.agents/skills/<skill-purpose>/`。目录名、`SKILL.md` frontmatter `name` 和 `capabilities.yaml` 中的 `skill.name` 必须一致。
+本独立仓库当前使用仓库根`.agents/skills/<skill-purpose>/`。未来若迁入多项目仓库，可在另行确认并完成发现/路径/验证适配后采用`projects/<project>/.agents/skills/<skill-purpose>/`；该形式不是当前已生效入口。目录名、`SKILL.md` frontmatter `name` 和 `capabilities.yaml` 中的 `skill.name` 必须一致。
 
 ## Maturity
 
@@ -136,6 +136,23 @@ capabilities:
 
 P0 通过只表示材料结构合格。
 
+### Dependency integrity
+
+`contracts/skill-dependencies.json`登记本项目十二个Skill的唯一仓库入口、共享资料和必需模块资源；它只拥有文件依赖，不拥有业务规则、必读顺序、运行状态或P1。各包现有文件随包检查，已登记资源缺失不能因目录扫描未找到而被静默忽略。共享知识继续引用唯一拥有文件，不复制成多份可编辑规则。
+
+`scripts/validate_skill_dependencies.py`已接入原仓库P0，检查包清单与实际入口、必需知识索引/合同/脚本/资产、当前包中的显式本地源引用、项目知识索引目标、静态脚本依赖、路径越界、同名身份以及已接纳/候选案例文件存在性。planned槽位不要求伪造案例。裸业务产物名和历史案例正文不作为当前源依赖；动态运行依赖、外部服务可用性、自然语言规则是否完整仍须由原Skill/合同及运行检查确认。
+
+默认只解析当前仓库声明的路径，不在用户全局Skill目录寻找替代品。可显式传入额外发现范围检查同名来源；发现重复即失败，不因文件相同而任选一份。多项目仓库、插件或其他机器的实际装载范围不在本次自动发现范围内，不能宣称已验证。
+
+```text
+python3 scripts/validate_repository.py
+python3 scripts/validate_skill_dependencies.py --json
+python3 scripts/validate_skill_dependencies.py --additional-skill-root <明确获准的其他Skill根>
+python3 scripts/test_skill_dependencies.py
+```
+
+检查器只读，JSON输出为仓库相对文件清单、各任务依赖关系和当次SHA-256，不写报告、不加载外部Skill、不改变本机任务。清单哈希不能代替完整读取，也不能替代Run合同的revision/输入/规则哈希锁。依赖增删须同步清单并保留原检查与测试；检查器变更后的真实test-validation仍按既有条件执行full-regression，不以本地夹具冒充P1。
+
 ### P1: runnable verification
 
 - 在同一已锁定规则 revision 的受控环境中真实执行三种案例。
@@ -148,4 +165,6 @@ P1 通过后才能把 `maturity` 改为 `verified`。MCP 采纳、生产部署�
 
 ## Template
 
-从 `templates/skill-package/` 复制文件到正确的 `.agents/skills/<skill-purpose>/` 后再填写。不要把模板目录本身当作可运行 Skill。
+本独立仓库未分发单独的Skill模板目录；本文件上方的目录树、必需标题与能力字段示例就是建包结构入口。只有用户授权创建具体Skill时，才在当前`.agents/skills/<skill-purpose>/`下按这些要求建立实际文件；无需寻找或复制一个不存在的模板目录。
+
+按真实依赖保留完整知识索引、直接合同和所需脚本/模板，不为凑结构创建空壳资源。案例索引先登记真实状态，未执行的案例只保留槽位，不复制其他Skill证据、虚构案例或登记已验证能力。此入口修正不改变任何现有Skill的必需内容、业务步骤或P0/P1门槛。
