@@ -6,9 +6,9 @@
   "files": {
     ".gitattributes": "12c3732ce54ea848209459be7d22f611c432a525ae85e142ef426fc1597bfa21",
     ".gitignore": "eddb4eef0433427111ae65018d26d656ceda74c282f0b99d0e02c449d167db2b",
-    "AGENTS.md": "1896b821a9fb551628b17068545c89bfd26970896b5378e4f7d040045e05be6c",
-    "README.md": "0fc21c193a4cedda8d118e47bc843b3ef7be87c4ee9c5e5b5e5f787b04660719",
-    "docs/cross-device-setup.md": "6f13d8e09760204508d4067571bbf0245d007d65eff95834d77a5d8524e8f4aa",
+    "AGENTS.md": "1df8dd47c4eabc0452cdbf279910dff24d6db8a4ba83cee75dde7822998bb2f3",
+    "README.md": "894c39b616fe3e1b48618d69f7b57a8f9b25ab6b75210d8856717c814ab8476b",
+    "docs/cross-device-setup.md": "55198cadd5702d62d4355778c9ccd8ed667871b32d3c286dea96b5d83c871aa3",
     "docs/merge-and-publication.md": "8c5d794a99731a278b1e347f721446fdcf11284fe8356e743341ef2067083dfc",
     "docs/repository-identity.md": "f9552d29ab740e50759b3e774d066a76f8969904c98d6bafbbd86c216fd25cbd",
     "migration/cross-device-review.json": "e31b7f5cba7a7c686af4e23d9cc79cd1d5455125a4bcb6ca46f2896d081841c9",
