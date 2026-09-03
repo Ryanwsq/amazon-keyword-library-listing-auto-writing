@@ -4,6 +4,14 @@ skill:
   last_verified: null
 
 capabilities:
+  - id: keyword.runtime.dispatch.guard
+    type: cli
+    purpose: 机械生成派发身份、事务去重、接收端当前Run校验、增量事件处理及网络不确定恢复
+    status: planned
+    input: 当前运行合同、独立任务身份快照、依赖文件哈希、固定本机ledger及拥有任务紧凑事件
+    output: dispatch envelope、一次性发送/执行许可、重复或错Run阻断、状态增量及有证据的恢复回执
+    permission: local-draft-and-verify
+    risk: 不发送任务或连接外部服务，不代替业务门；不得绕过accept、以重建ledger解除占用、把不确定送达当失败重发或把状态摘要当完整Skill/证据
   - id: keyword.library.version.manage
     type: manual
     purpose: 锁定一次三项用户输入、run_type和运行版本，协调ASIN代表选择、长期副任务、登录升级、汇合门、最终交付及测试专用独立验收

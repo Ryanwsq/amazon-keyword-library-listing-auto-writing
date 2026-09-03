@@ -4,6 +4,18 @@
   "purpose": "运行时只引用权威规则的内容哈希和稳定规则族，不复制或缩写业务判断边界。",
   "rules": [
     {
+      "id": "DISPATCH-EXECUTOR-INTEGRITY",
+      "owner": "scripts/dispatch_guard.py",
+      "anchor": "VERSION = \"dispatch-guard/1.0.0\"",
+      "stages": ["sif", "amazon-autocomplete", "sellersprite", "cleaning", "word-frequency", "classification", "competition", "trend", "assembly", "quality-validation"]
+    },
+    {
+      "id": "DISPATCH-IDENTITY-IDEMPOTENCY",
+      "owner": "docs/dispatch-control-contract.md",
+      "anchor": "同一个目标任务有未解决派发",
+      "stages": ["sif", "amazon-autocomplete", "sellersprite", "cleaning", "word-frequency", "classification", "competition", "trend", "assembly", "quality-validation"]
+    },
+    {
       "id": "INPUT-THREE-GROUPS",
       "owner": "AGENTS.md",
       "anchor": "用户开头输入固定为三组",
