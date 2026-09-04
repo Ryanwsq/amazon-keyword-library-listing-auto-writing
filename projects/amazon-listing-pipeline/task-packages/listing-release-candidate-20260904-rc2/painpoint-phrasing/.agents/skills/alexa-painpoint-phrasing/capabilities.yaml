@@ -1,0 +1,20 @@
+{
+  "capabilities": [
+    {
+      "id": "listing.painpoint-phrasing.execute",
+      "input": "合格04中的标准化痛点与ASIN配对、marketplace及派生路由、购物助手会话authenticated回执",
+      "output": "08口语明细与汇总两Sheet，标为Alexa归纳而非消费者原话",
+      "permission": "只读接收；业务执行和输出须当次明确授权，原SOP边界保持",
+      "purpose": "仅对合格上游痛点生成Alexa归纳表达，不写Listing正文",
+      "risk": "不得缺省到美国站；外部工具与登录未验证时停止，不得替代来源、扩大职责或绕过人工确认",
+      "status": "planned",
+      "type": "manual"
+    }
+  ],
+  "skill": {
+    "last_verified": null,
+    "maturity": "draft",
+    "name": "alexa-painpoint-phrasing",
+    "scope": "new_structure_revision_only; historical_acceptance_not_reassessed"
+  }
+}

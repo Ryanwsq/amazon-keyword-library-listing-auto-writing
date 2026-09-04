@@ -1,0 +1,189 @@
+{
+  "authorized_maintenance": {
+    "P1": "not_executed",
+    "affected_roles": [
+      "main",
+      "product-audit",
+      "five-dimension-insights",
+      "tag-priority",
+      "painpoint-frequency",
+      "painpoint-phrasing",
+      "listing-writing-qa",
+      "selling-point-intake",
+      "tag-painpoint-intake"
+    ],
+    "business_run": "not_executed",
+    "id": "AKW-DE-VALIDATION-FIXES-20260904-01",
+    "protocol_id": "AKW-MARKETPLACE-ROUTING-v1",
+    "scope": "新品基础信息末列市场选择硬锁（不设运行配置Sheet、不接受keyword_skill输入覆盖）、Amazon-US/Amazon-DE端到端路由、统一网页登录门、德国站Rufus固定德语问题与上下文例外、站点专属硬规则及告警语义；本批不执行新业务Run或P1"
+  },
+  "business_rules_changed": true,
+  "files": [
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/prioritize-amazon-insight-tags/Agent.md",
+      "sha256": "29ca37c4fe215539ab2a7fe2333236ff9b1c977fb0daf25c90432d9791986e9b",
+      "source": ".agents/skills/prioritize-amazon-insight-tags/Agent.md",
+      "source_sha256": "29ca37c4fe215539ab2a7fe2333236ff9b1c977fb0daf25c90432d9791986e9b"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md",
+      "sha256": "18a12599077d746dbe5d384075f557d51e4515dc0376a9be344f15891cd3984f",
+      "source": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md",
+      "source_sha256": "18a12599077d746dbe5d384075f557d51e4515dc0376a9be344f15891cd3984f"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/prioritize-amazon-insight-tags/agents/openai.yaml",
+      "sha256": "d1d0555ae328ce422e41e26f5aa09fac5e7da1fecd7d210146a520b29d2ca9d3",
+      "source": ".agents/skills/prioritize-amazon-insight-tags/agents/openai.yaml",
+      "source_sha256": "d1d0555ae328ce422e41e26f5aa09fac5e7da1fecd7d210146a520b29d2ca9d3"
+    },
+    {
+      "classification": "candidate_template_asset",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/prioritize-amazon-insight-tags/assets/golden-tag-priority-workbook.xlsx",
+      "sha256": "7ee355536f9ca806b82b1d91d08d8bec0f56f9ba90df99068a05707d8a28cb9c",
+      "source": ".agents/skills/prioritize-amazon-insight-tags/assets/golden-tag-priority-workbook.xlsx",
+      "source_sha256": "7ee355536f9ca806b82b1d91d08d8bec0f56f9ba90df99068a05707d8a28cb9c"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/prioritize-amazon-insight-tags/capabilities.yaml",
+      "sha256": "a642bb9f51d9772e522db17dcd81e3b63496516b701fb6bbd45511a9b792537b",
+      "source": ".agents/skills/prioritize-amazon-insight-tags/capabilities.yaml",
+      "source_sha256": "a642bb9f51d9772e522db17dcd81e3b63496516b701fb6bbd45511a9b792537b"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/prioritize-amazon-insight-tags/evidence/cases.json",
+      "sha256": "2cff78e73f199dd3c8af68f89ed21012584397dba38733378bad8d67bc6929f0",
+      "source": ".agents/skills/prioritize-amazon-insight-tags/evidence/cases.json",
+      "source_sha256": "2cff78e73f199dd3c8af68f89ed21012584397dba38733378bad8d67bc6929f0"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/prioritize-amazon-insight-tags/evidence/index.md",
+      "sha256": "d8d0cf586b81814224a4b0cbf337d9afa4585d593e6da8889779a94ced92d86a",
+      "source": ".agents/skills/prioritize-amazon-insight-tags/evidence/index.md",
+      "source_sha256": "d8d0cf586b81814224a4b0cbf337d9afa4585d593e6da8889779a94ced92d86a"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/prioritize-amazon-insight-tags/knowledge/catalog.json",
+      "sha256": "28afa029b35a2b3d9a88bee4f2c1d561e970fe8e635f219d251152605f0e977d",
+      "source": ".agents/skills/prioritize-amazon-insight-tags/knowledge/catalog.json",
+      "source_sha256": "28afa029b35a2b3d9a88bee4f2c1d561e970fe8e635f219d251152605f0e977d"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/prioritize-amazon-insight-tags/knowledge/index.md",
+      "sha256": "a75c87d91521a6935f8030f44e582c63b4a5cd08c2c68f73c5aac881e016f530",
+      "source": ".agents/skills/prioritize-amazon-insight-tags/knowledge/index.md",
+      "source_sha256": "a75c87d91521a6935f8030f44e582c63b4a5cd08c2c68f73c5aac881e016f530"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/prioritize-amazon-insight-tags/references/final-workbook-format.md",
+      "sha256": "09675c2e57e00f2f0c89e5abb17fde3d437ee8dccf4df0dde2250358c022d30b",
+      "source": ".agents/skills/prioritize-amazon-insight-tags/references/final-workbook-format.md",
+      "source_sha256": "09675c2e57e00f2f0c89e5abb17fde3d437ee8dccf4df0dde2250358c022d30b"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+      "sha256": "28353235c033e0c43d6fe1e09ae61e6a8c3ba8ccfcddd967374694d75db8cecd",
+      "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+      "source_sha256": "28353235c033e0c43d6fe1e09ae61e6a8c3ba8ccfcddd967374694d75db8cecd"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "AGENTS.md",
+      "sha256": "042b7d1850873c7c4d2081f4be898996e05ade44f4a4c0d9d8aab23e271cf69c"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "Agent.md",
+      "sha256": "113ae4654aefe5015f71dfc67f01839c19c75ff1456edbe12e14eb4a45c3f490"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "LOAD_ORDER.md",
+      "sha256": "78d5ecad4939846b6304ef26f722fa1114e01a3422e754bb3a05ef8cebbba00b"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "PUBLICATION.md",
+      "sha256": "0a8e0cf03ff515060e35141668da325dad7e102b9ef826664b528883f9ade520"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "contracts/dispatch-and-loading.md",
+      "sha256": "97773bf80ca66c00f017e0618c84f3617ec99a07c0730b33103d0ad1b0bd315f"
+    },
+    {
+      "operation": "generated_dependency_contract",
+      "path": "contracts/skill-dependencies.json",
+      "sha256": "ee83ef8bb73a658f6fd0547552e9052463e25524757a2741d23ad538f0079b5e"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "docs/skill-package-standard.md",
+      "sha256": "c783e8fa85352b6c2e3f742510b4dc79b122101b2c410acd207f799b15c965fa",
+      "source": "docs/skill-package-standard.md",
+      "source_sha256": "c783e8fa85352b6c2e3f742510b4dc79b122101b2c410acd207f799b15c965fa"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "evidence/index.md",
+      "sha256": "c57b06e4d7b10e77c3aeb988cd16a57169d7d315444a1a47e0f9419d6fd8fb37"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "knowledge-base/index.md",
+      "sha256": "2d12314e3feed718692741dbfb6465b5a9c31552ebc4271291e617fb5588a9c8"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "rules/index.md",
+      "sha256": "7b8dcc6eaa66b8f62ee4d5e8ec36e9f74e850b8fa4a3cf9c034362e83e1df62c"
+    },
+    {
+      "operation": "generated_complete_section_map",
+      "path": "rules/rule-map.json",
+      "sha256": "da1d21c29c5bbc8afcd3fa50a8f9e20e28edde922e363e71ecc81e4cf92ba2f4"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "scripts/validate_skill_packages.py",
+      "sha256": "4969534ba03d59094247575c43772ff27b93e25c66957eaa565b48874b27618c",
+      "source": "scripts/validate_skill_packages.py",
+      "source_sha256": "4969534ba03d59094247575c43772ff27b93e25c66957eaa565b48874b27618c"
+    }
+  ],
+  "kind": "specialist",
+  "new_business_run": false,
+  "original_business_skill_count": 8,
+  "owned_skills": [
+    "prioritize-amazon-insight-tags"
+  ],
+  "publication_status": "SANITIZED_CANDIDATE_NOT_PUBLISHED",
+  "reference_skills": [],
+  "role": "tag-priority",
+  "schema_version": 1,
+  "title": "副线程｜Amazon标签优先级",
+  "version": "listing-release-candidate-20260904-rc2"
+}

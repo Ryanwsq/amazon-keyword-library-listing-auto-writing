@@ -1,0 +1,165 @@
+{
+  "P1": "not_executed",
+  "business_rule_owner": "original_skill_and_references",
+  "discovery_roots": [
+    ".agents/skills"
+  ],
+  "external_runtime": {
+    "Alexa_authentication": "not_checked",
+    "Amazon_keyword_main": "external_independent_task",
+    "spreadsheets": "not_checked"
+  },
+  "files": [
+    {
+      "path": ".agents/skills/receive-listing-selling-point-files/Agent.md",
+      "sha256": "2b36f141911f960766aeb2afa1433e8efbf3984886bad052efb7bd8de4d89dcd"
+    },
+    {
+      "path": ".agents/skills/receive-listing-selling-point-files/SKILL.md",
+      "sha256": "8c5f1e2c4e5500464f57a505f2c970d077c8c96e118f35416443067663259ee2"
+    },
+    {
+      "path": ".agents/skills/receive-listing-selling-point-files/capabilities.yaml",
+      "sha256": "bdd6525e598429b9ee149b6d9204d7b9e940e3c8efb48f37659a4e4e29138ef9"
+    },
+    {
+      "path": ".agents/skills/receive-listing-selling-point-files/evidence/cases.json",
+      "sha256": "79899734f9e15d77fcc4cf03e799d74ea77763410f4dccca887ea1c9a4ada3c0"
+    },
+    {
+      "path": ".agents/skills/receive-listing-selling-point-files/evidence/index.md",
+      "sha256": "9a5df2f7dffd65ce9f06591e61229c5b0708f9a94f1ab7f396e5e5aacc23ac68"
+    },
+    {
+      "path": ".agents/skills/receive-listing-selling-point-files/knowledge/catalog.json",
+      "sha256": "a121f65dab5c20243df4be0dc5d15afbe9f31c183499c99ebe0641795fac9bfe"
+    },
+    {
+      "path": ".agents/skills/receive-listing-selling-point-files/knowledge/index.md",
+      "sha256": "5747ff59d046995ff454230cd6a874127b34bac3907ce91bf9e0b03582a756d9"
+    },
+    {
+      "path": ".agents/skills/receive-listing-selling-point-files/references/intake-contract.md",
+      "sha256": "7ad0118cdfefcbeadc723dbb6d3d0274f6356505ccb14c18f5c8a3f516c34da5"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "c2246d86686e02033152eba56775fa145e1659624982c64b4ba8da347fa0c864"
+    },
+    {
+      "path": "Agent.md",
+      "sha256": "cf79b73b04e85f9a78c1f0e3f75ff0dabc1b7ac1bb2317ebf3b2ef1540a19f9c"
+    },
+    {
+      "path": "LOAD_ORDER.md",
+      "sha256": "9913a0acf4cd3a113780e80a9d4f127d1b749c94016bb73085d24935a5a79b1e"
+    },
+    {
+      "path": "PUBLICATION.md",
+      "sha256": "4af58c68a519b9056c84327e9385c93c4a7096be87dbbbc55c395fd914e4e69c"
+    },
+    {
+      "path": "contracts/dispatch-and-loading.md",
+      "sha256": "1564e4d5a1a08d98284a136cdfecb57aea2269adc015abf07eb74447d7cb62c9"
+    },
+    {
+      "path": "dependencies/skills/audit-alexa-shopping-product-info/Agent.md",
+      "sha256": "de2f2423ef838306599a4d22f6e8265e36172f9c2c9a7e1dfcc572fba97281ca"
+    },
+    {
+      "path": "dependencies/skills/audit-alexa-shopping-product-info/SKILL.md",
+      "sha256": "2254067ab118388c5058a0b338cbcd0d3ca87e85417716c81c350177ef75fcfc"
+    },
+    {
+      "path": "dependencies/skills/audit-alexa-shopping-product-info/agents/openai.yaml",
+      "sha256": "c3c223b3301e28dbe6bc518f7beed264240b0deb2d6ab45f0d054441a3dc67f8"
+    },
+    {
+      "path": "dependencies/skills/audit-alexa-shopping-product-info/capabilities.yaml",
+      "sha256": "47f72d8777ea664a013f25c1c6ee88d7e70adba65b6759086ff5ed244b71d5e8"
+    },
+    {
+      "path": "dependencies/skills/audit-alexa-shopping-product-info/evidence/cases.json",
+      "sha256": "8b736dd1d72fffbde18938a81fe964a9174a9f45d8ba054835b785db5529e33c"
+    },
+    {
+      "path": "dependencies/skills/audit-alexa-shopping-product-info/evidence/index.md",
+      "sha256": "624cb5a22c3e8e327813b20d22008d561dfe766500b4ef7a5a39d69cfc60364a"
+    },
+    {
+      "path": "dependencies/skills/audit-alexa-shopping-product-info/knowledge/catalog.json",
+      "sha256": "d29d36aec1f03b053dba8920acbe7bd28ba4caa1a7e5e943f7ac30c79b9e27cd"
+    },
+    {
+      "path": "dependencies/skills/audit-alexa-shopping-product-info/knowledge/index.md",
+      "sha256": "19e1eced77cc2d04c9b6c74f04688c583e9f7742ccdbee5c9f8916adb7f71936"
+    },
+    {
+      "path": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+      "sha256": "577917cbf678477cf9722a3126be3fb011dfdacfb5411827083e6398dcb6e770"
+    },
+    {
+      "path": "docs/skill-package-standard.md",
+      "sha256": "5ebb1007e34dec5a34a7f2b234b9af6f4460da7d20a2b4b49ece17640f023ec7"
+    },
+    {
+      "path": "evidence/index.md",
+      "sha256": "6a88452a0682434b46de244b32f0881506a42c5765e6349b1fa4027363855674"
+    },
+    {
+      "path": "knowledge-base/index.md",
+      "sha256": "35df64633fe7588c0df347079f0a0e3374294c286a8a92585df7f6be9c5a74de"
+    },
+    {
+      "path": "rules/index.md",
+      "sha256": "6723af386bb0d1dafc6571575db50df61e708e90068968f1f23076be6137845b"
+    },
+    {
+      "path": "rules/rule-map.json",
+      "sha256": "af766329b9a245361c91bdb8574a08fb3eaaa187dd597234c86fc1c479728c69"
+    },
+    {
+      "path": "scripts/validate_skill_packages.py",
+      "sha256": "4969534ba03d59094247575c43772ff27b93e25c66957eaa565b48874b27618c"
+    }
+  ],
+  "schema_version": 2,
+  "scope": "local_structure_and_file_dependencies",
+  "skills": [
+    {
+      "mode": "executable",
+      "name": "receive-listing-selling-point-files",
+      "path": ".agents/skills/receive-listing-selling-point-files",
+      "required_files": [
+        ".agents/skills/receive-listing-selling-point-files/Agent.md",
+        ".agents/skills/receive-listing-selling-point-files/SKILL.md",
+        ".agents/skills/receive-listing-selling-point-files/capabilities.yaml",
+        ".agents/skills/receive-listing-selling-point-files/evidence/cases.json",
+        ".agents/skills/receive-listing-selling-point-files/evidence/index.md",
+        ".agents/skills/receive-listing-selling-point-files/knowledge/catalog.json",
+        ".agents/skills/receive-listing-selling-point-files/knowledge/index.md",
+        ".agents/skills/receive-listing-selling-point-files/references/intake-contract.md"
+      ],
+      "role": "selling-point-intake"
+    },
+    {
+      "mode": "reference",
+      "name": "audit-alexa-shopping-product-info",
+      "path": "dependencies/skills/audit-alexa-shopping-product-info",
+      "required_files": [
+        "dependencies/skills/audit-alexa-shopping-product-info/Agent.md",
+        "dependencies/skills/audit-alexa-shopping-product-info/SKILL.md",
+        "dependencies/skills/audit-alexa-shopping-product-info/agents/openai.yaml",
+        "dependencies/skills/audit-alexa-shopping-product-info/capabilities.yaml",
+        "dependencies/skills/audit-alexa-shopping-product-info/evidence/cases.json",
+        "dependencies/skills/audit-alexa-shopping-product-info/evidence/index.md",
+        "dependencies/skills/audit-alexa-shopping-product-info/knowledge/catalog.json",
+        "dependencies/skills/audit-alexa-shopping-product-info/knowledge/index.md",
+        "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+      ],
+      "role": "product-audit"
+    }
+  ],
+  "static_dependencies": [],
+  "version": "listing-release-candidate-20260904-rc3"
+}

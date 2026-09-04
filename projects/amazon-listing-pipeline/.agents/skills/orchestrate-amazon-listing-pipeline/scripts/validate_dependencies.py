@@ -11,7 +11,6 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--project-skills')
     parser.add_argument('--extra-root', action='append', default=[])
-    parser.add_argument('--keyword-skill')
     args = parser.parse_args()
     script = Path(__file__).resolve()
     root = next((p for p in script.parents if (p / 'contracts/skill-dependencies.json').is_file()), None)
@@ -27,8 +26,6 @@ def main() -> int:
         validator = runpy.run_path(str(root / 'scripts/validate_skill_packages.py'))
         report = validator['validate'](root)
         errors.extend(report['errors'])
-        if args.keyword_skill and args.keyword_skill != 'sku-usable-keyword-library':
-            errors.append('Unexpected keyword adapter')
     except (OSError, ValueError, KeyError, TypeError) as exc:
         errors.append(str(exc))
     result = {'valid': not errors, 'errors': errors, 'searched_roots': [str(root)],

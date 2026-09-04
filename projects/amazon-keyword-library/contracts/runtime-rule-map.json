@@ -22,6 +22,12 @@
       "stages": ["sif", "core-lock"]
     },
     {
+      "id": "MARKETPLACE-ROUTE-LOCK",
+      "owner": "AGENTS.md",
+      "anchor": "站点只允许锁为`Amazon-US`或`Amazon-DE`",
+      "stages": ["sif", "core-lock", "amazon-autocomplete", "sellersprite", "first-board", "cleaning", "classification", "competition", "trend", "assembly", "quality-validation"]
+    },
+    {
       "id": "ASIN-REPRESENTATIVE-SELECTION",
       "owner": ".agents/skills/amazon-keyword-library-operations/SKILL.md",
       "anchor": "原始直接竞品ASIN不超过5个时全部保留",
@@ -50,6 +56,12 @@
       "owner": ".agents/skills/amazon-keyword-amazon-autocomplete/references/source-contract.md",
       "anchor": "底部商品卡、价格卡和商品轮播",
       "stages": ["amazon-autocomplete"]
+    },
+    {
+      "id": "CORE-SOURCE-PARALLEL-WAVE",
+      "owner": "AGENTS.md",
+      "anchor": "Amazon联想与卖家精灵扩词必须在同一调度波次派发",
+      "stages": ["amazon-autocomplete", "sellersprite", "first-board"]
     },
     {
       "id": "SELLERSPRITE-ONE-COMPLETE-EXPORT",
@@ -102,7 +114,7 @@
     {
       "id": "TREND-SINGLE-PROVIDER",
       "owner": ".agents/skills/amazon-keyword-trend-analysis/references/output-contract.md",
-      "anchor": "全部关键词和月份只使用该提供商",
+      "anchor": "来源接口优先级固定为`SellerSprite MCP -> Sorftime MCP`",
       "stages": ["trend"]
     },
     {

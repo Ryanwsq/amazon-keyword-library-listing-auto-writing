@@ -1,0 +1,394 @@
+[
+  {
+    "end_line": 2,
+    "sha256": "907c0140971831347668a35e7ec5386431de07e10807febfa3ea3a7eaf63f1c0",
+    "source": ".agents/skills/extract-amazon-product-insights/Agent.md",
+    "start_line": 1,
+    "target": ".agents/skills/extract-amazon-product-insights/Agent.md"
+  },
+  {
+    "end_line": 6,
+    "sha256": "11497e138493f16bee7748c92346f6acca3080a6e94f1042c5e0db2fe4a4862f",
+    "source": ".agents/skills/extract-amazon-product-insights/Agent.md",
+    "start_line": 3,
+    "target": ".agents/skills/extract-amazon-product-insights/Agent.md"
+  },
+  {
+    "end_line": 10,
+    "sha256": "0fbdbc44ee518c5914ff61cd6a35085a616998ad2d36f9444568eb1d6996bf72",
+    "source": ".agents/skills/extract-amazon-product-insights/Agent.md",
+    "start_line": 7,
+    "target": ".agents/skills/extract-amazon-product-insights/Agent.md"
+  },
+  {
+    "end_line": 14,
+    "sha256": "1fb206b378ccff654de2de1851eab09772647db0667808366155fcd9b13fbb45",
+    "source": ".agents/skills/extract-amazon-product-insights/Agent.md",
+    "start_line": 11,
+    "target": ".agents/skills/extract-amazon-product-insights/Agent.md"
+  },
+  {
+    "end_line": 18,
+    "sha256": "042d3231e76ae51a45fdeee4b9b7f4cffe0ea1994858fe05729403846c09d4a0",
+    "source": ".agents/skills/extract-amazon-product-insights/Agent.md",
+    "start_line": 15,
+    "target": ".agents/skills/extract-amazon-product-insights/Agent.md"
+  },
+  {
+    "end_line": 23,
+    "sha256": "80bba0a2533469366598be4c8cfcbf6a5049ad6787ff05d1dd647f8b1e216cd2",
+    "source": ".agents/skills/extract-amazon-product-insights/Agent.md",
+    "start_line": 19,
+    "target": ".agents/skills/extract-amazon-product-insights/Agent.md"
+  },
+  {
+    "end_line": 5,
+    "sha256": "594c36a333c2a7d0bc8724c5b106515e479879440e60a060fef88eb50da1a41c",
+    "source": ".agents/skills/extract-amazon-product-insights/SKILL.md",
+    "start_line": 1,
+    "target": ".agents/skills/extract-amazon-product-insights/SKILL.md"
+  },
+  {
+    "end_line": 7,
+    "sha256": "cb31ff24521bcc8b4199f382d4a0d7d0797a01841266f7fd2b5940a23e9c2ce7",
+    "source": ".agents/skills/extract-amazon-product-insights/SKILL.md",
+    "start_line": 6,
+    "target": ".agents/skills/extract-amazon-product-insights/SKILL.md"
+  },
+  {
+    "end_line": 21,
+    "sha256": "022b5e5ca3259e85f0694aa89c7cca5ade251ba060d342d6a1799600b26b6f27",
+    "source": ".agents/skills/extract-amazon-product-insights/SKILL.md",
+    "start_line": 8,
+    "target": ".agents/skills/extract-amazon-product-insights/SKILL.md"
+  },
+  {
+    "end_line": 25,
+    "sha256": "291bd1b9aabdce9d81eea8d0288b59b582b26144ed07cdad09715b5ee03f0450",
+    "source": ".agents/skills/extract-amazon-product-insights/SKILL.md",
+    "start_line": 22,
+    "target": ".agents/skills/extract-amazon-product-insights/SKILL.md"
+  },
+  {
+    "end_line": 32,
+    "sha256": "7ff1b0795b8a77f0d0c39ed2fdeb38afa6f3b4fe2a6b9330cce51d5789145c7c",
+    "source": ".agents/skills/extract-amazon-product-insights/SKILL.md",
+    "start_line": 26,
+    "target": ".agents/skills/extract-amazon-product-insights/SKILL.md"
+  },
+  {
+    "end_line": 41,
+    "sha256": "25073177f0d0853c0c3506ec202a24cf81fe81fb145808537d81bed59e999a6e",
+    "source": ".agents/skills/extract-amazon-product-insights/SKILL.md",
+    "start_line": 33,
+    "target": ".agents/skills/extract-amazon-product-insights/SKILL.md"
+  },
+  {
+    "end_line": 57,
+    "sha256": "7b7e71f43a9299368ed63fedc8c4add987b5fc8641bc26874fc71d8cca8a3b60",
+    "source": ".agents/skills/extract-amazon-product-insights/SKILL.md",
+    "start_line": 42,
+    "target": ".agents/skills/extract-amazon-product-insights/SKILL.md"
+  },
+  {
+    "end_line": 69,
+    "sha256": "50a0c3197d3f8a30fc3b4cc1d7c2d91b9e03d5822d557103f190c80c76df2835",
+    "source": ".agents/skills/extract-amazon-product-insights/SKILL.md",
+    "start_line": 58,
+    "target": ".agents/skills/extract-amazon-product-insights/SKILL.md"
+  },
+  {
+    "end_line": 86,
+    "sha256": "4419f3c100869f0c4a24fb568473f121930ea46f7f5604fdd82ec1ca7130c5a1",
+    "source": ".agents/skills/extract-amazon-product-insights/SKILL.md",
+    "start_line": 70,
+    "target": ".agents/skills/extract-amazon-product-insights/SKILL.md"
+  },
+  {
+    "end_line": 90,
+    "sha256": "4706ec7ad182bfea378e378c12c78989991ff07b809e3c43a201931fed5c6998",
+    "source": ".agents/skills/extract-amazon-product-insights/SKILL.md",
+    "start_line": 87,
+    "target": ".agents/skills/extract-amazon-product-insights/SKILL.md"
+  },
+  {
+    "end_line": 94,
+    "sha256": "39c1da44ad325e2d99458602c14e6b65be951253503ff0dc9f28ced128d58820",
+    "source": ".agents/skills/extract-amazon-product-insights/SKILL.md",
+    "start_line": 91,
+    "target": ".agents/skills/extract-amazon-product-insights/SKILL.md"
+  },
+  {
+    "end_line": 98,
+    "sha256": "31e83f3173e91a6f5c82e565b1d0b5fd9a85401d6ea29c5ee8a8e2062b9953d8",
+    "source": ".agents/skills/extract-amazon-product-insights/SKILL.md",
+    "start_line": 95,
+    "target": ".agents/skills/extract-amazon-product-insights/SKILL.md"
+  },
+  {
+    "end_line": 102,
+    "sha256": "5f466bbc062bbbadac2fb363928886556c1be826dbc5e3e3f1d62ccc9c1961c9",
+    "source": ".agents/skills/extract-amazon-product-insights/SKILL.md",
+    "start_line": 99,
+    "target": ".agents/skills/extract-amazon-product-insights/SKILL.md"
+  },
+  {
+    "end_line": 106,
+    "sha256": "f763aac7aaef2498a4688120663e2b1f67fa54e546d0ac24b4dc4633b4ebc88c",
+    "source": ".agents/skills/extract-amazon-product-insights/SKILL.md",
+    "start_line": 103,
+    "target": ".agents/skills/extract-amazon-product-insights/SKILL.md"
+  },
+  {
+    "end_line": 111,
+    "sha256": "46cf7adc1c96d69d19e45ab4c310aec4d236d396e89763706b01b020eb1475c3",
+    "source": ".agents/skills/extract-amazon-product-insights/SKILL.md",
+    "start_line": 107,
+    "target": ".agents/skills/extract-amazon-product-insights/SKILL.md"
+  },
+  {
+    "end_line": 11,
+    "sha256": "b26bee57abedabe7c4205e0279f846c8721497e2516e28f769b0e6818faad93d",
+    "source": ".agents/skills/extract-amazon-product-insights/evidence/index.md",
+    "start_line": 1,
+    "target": ".agents/skills/extract-amazon-product-insights/evidence/index.md"
+  },
+  {
+    "end_line": 10,
+    "sha256": "c51b1afbe992c1f1b389e718dfa89575c7c9f4da375cbcf5621793e6bc7a7faf",
+    "source": ".agents/skills/extract-amazon-product-insights/knowledge/index.md",
+    "start_line": 1,
+    "target": ".agents/skills/extract-amazon-product-insights/knowledge/index.md"
+  },
+  {
+    "end_line": 2,
+    "sha256": "73c147d350fe9b0593dc951414c2d6a7cdecfb5fdff33925f20241503ad87985",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 1,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 6,
+    "sha256": "46a3bb8e0a78a66c7ed3c58296fe8e1159fd628916c55df5105ae54e8104e172",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 3,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 18,
+    "sha256": "27fb05fdf11a167d4c8793902859e9dab1784bca6c60a4da5555ab68e35a47ef",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 7,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 26,
+    "sha256": "661d98cdbedae64b3e27302c58195ce7f822da19ee742bc47952a032303a9cc7",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 19,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 34,
+    "sha256": "f094ca2db7e95bbf3f1e9c5f8c612a94f8632406426785159cea1bcf340a57f8",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 27,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 42,
+    "sha256": "e70840f4f0feea138bbeaa369a07074d3a183830b5aa02c241205c7de5a8fe92",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 35,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 50,
+    "sha256": "4b92cc0ffa4cd78a98a81b2b919500072ba369cb98bbc805c7d5049136c74934",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 43,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 58,
+    "sha256": "3c0a908c62da129bdfb529c0605eaa011c81bf563527589a15e878b5b06b38e6",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 51,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 71,
+    "sha256": "222aef038676206187db4136c7d2810823f93663abbf1f44967deceaa524731f",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 59,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 104,
+    "sha256": "fe02a085b05966692c79207215c09418ad794a33950c32a317b34e32823fb4af",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 72,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 114,
+    "sha256": "57e3eb6859293a96d1195a8d516a6c26545b63f301d334a919fb033969f42164",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 105,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 150,
+    "sha256": "b72194e4e9bc406c71c1e4a37b454186d14d6b09ced1659b18c5a608fee50517",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 115,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 156,
+    "sha256": "90f3ce7a873a1e136876c101b8a748cd28cd9b517f7fff154dea591e56f6f029",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 151,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 166,
+    "sha256": "0c31760c54a7f6ad8b6c63269c0aff08ce46a42382442742fc36403b589726be",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 157,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 179,
+    "sha256": "a4c56bcaaf8a526b1e663ad169b9499ae6d7d01b3664b1ea58a48e4e4ed7fd0e",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 167,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 191,
+    "sha256": "8be103cebd73fb925a642c52ccbc760980b3b042b4fa1657b5eb708fab428e5a",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 180,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 199,
+    "sha256": "afc826af37182cdf6dfafa47c7e2fc5769b9b091d495f956e1d2da53224fb44d",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 192,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 201,
+    "sha256": "ba3a383afad302f9bfe9401a3d736fc649b356803569da38fab378bbda998f36",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 200,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 208,
+    "sha256": "afe0b5822f9008cba1c1a4dcbb845981b125224f6b9503e98b221339d14cf351",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 202,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 217,
+    "sha256": "fd9ba6e12fb3e98ddf82b6a1eb11d6ad2ed0b01404b1f12ea0a50ca33dbfa2a4",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 209,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 228,
+    "sha256": "f6734fcb8977282a5756888486b789eee8e8e1b8809f4617363c969d513fbf4d",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 218,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 232,
+    "sha256": "891c1eb25aa81aa10a2812589285e4082f818d7e9d21dd45dff0c47f4139dea3",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 229,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 248,
+    "sha256": "fdd1e66a30546c00ca1d4962365bba984c36a9cb709ebbfc9dadebece000de49",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 233,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 260,
+    "sha256": "be55b9d7664f820ed642ccf5edc9170e07b06729225281d1c45859d4ac89e022",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 249,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 266,
+    "sha256": "b4298cd3c084f77f516cd87423a3fd9815ece6d0273cfbbbf4a108c93dabf7b7",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 261,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 273,
+    "sha256": "07200e2bbbccd4639190605aac0c0d9e7e48ef4627fb6ecfb4ab1d8ec32635d2",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 267,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 289,
+    "sha256": "b2bb4ef0d66feac7c41d63002fca9610abc4f53904cc593b48fa0a140f6506ae",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 274,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 305,
+    "sha256": "ee5b9f79b7055ba66f5b9a9b68e116b554d9c08a09cd3ca09ad9bfcd040959dd",
+    "source": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "start_line": 290,
+    "target": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+  },
+  {
+    "end_line": 6,
+    "sha256": "c902cb5fc6418ffe6b3721ada3560533c57214d6d42fbc80ee6637a0d87ea6e8",
+    "source": "docs/skill-package-standard.md",
+    "start_line": 1,
+    "target": "docs/skill-package-standard.md"
+  },
+  {
+    "end_line": 12,
+    "sha256": "b52f5642630723c186bbe44ff84f116d082dff71c9eb2366ede27bd45efb4462",
+    "source": "docs/skill-package-standard.md",
+    "start_line": 7,
+    "target": "docs/skill-package-standard.md"
+  },
+  {
+    "end_line": 20,
+    "sha256": "8813a1fdf0340227188748802487045261be96848bfddbbb275e928f57cae5bf",
+    "source": "docs/skill-package-standard.md",
+    "start_line": 13,
+    "target": "docs/skill-package-standard.md"
+  },
+  {
+    "end_line": 34,
+    "sha256": "8f0a19f4459eb161ea9c79af61b362a7b729c869adbc72b116d4e4132fb45db4",
+    "source": "docs/skill-package-standard.md",
+    "start_line": 21,
+    "target": "docs/skill-package-standard.md"
+  },
+  {
+    "end_line": 39,
+    "sha256": "0f2926350ae575ba16c928d1e1761175e251ba9e7d3d634b818ef5d0dfb66ef5",
+    "source": "docs/skill-package-standard.md",
+    "start_line": 35,
+    "target": "docs/skill-package-standard.md"
+  }
+]

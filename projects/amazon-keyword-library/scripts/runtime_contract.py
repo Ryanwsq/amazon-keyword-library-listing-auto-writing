@@ -24,7 +24,28 @@ RULE_MAP_PATH = ROOT / "contracts" / "runtime-rule-map.json"
 CONTRACT_SCHEMA = "amazon-keyword-run-contract/v1"
 STATUS_SCHEMA = "amazon-keyword-stage-status/v1"
 PREFLIGHT_SCHEMA = "amazon-keyword-source-preflight/v1"
-EXECUTOR_VERSION = "runtime-contract/1.0.0"
+EXECUTOR_VERSION = "runtime-contract/1.1.0"
+
+MARKETPLACE_ROUTES: Dict[str, Dict[str, str]] = {
+    "Amazon-US": {
+        "domain": "amazon.com",
+        "department": "All",
+        "postal_code": "10001",
+        "shopping_assistant": "Alexa for Shopping",
+        "prompt_language": "English",
+    },
+    "Amazon-DE": {
+        "domain": "amazon.de",
+        "department": "Alle",
+        "postal_code": "80539",
+        "shopping_assistant": "Rufus",
+        "prompt_language": "German",
+    },
+}
+
+PARALLEL_WAVES = {
+    "core-sources": ["amazon-autocomplete", "sellersprite"],
+}
 
 STAGE_GRAPH: Dict[str, List[str]] = {
     "sif": [],
@@ -42,6 +63,7 @@ STAGE_GRAPH: Dict[str, List[str]] = {
 }
 
 SOURCE_PREFLIGHT = {
+    "amazon-autocomplete": "amazon",
     "sif": "sif",
     "sellersprite": "sellersprite",
 }
@@ -248,8 +270,8 @@ def validate_spec(spec: Mapping[str, Any]) -> None:
     if not REVISION_RE.fullmatch(revision):
         raise ContractError("revision must be a 40-character Git commit")
     site = spec.get("site")
-    if not isinstance(site, str) or not site.strip():
-        raise ContractError("site is required")
+    if site not in MARKETPLACE_ROUTES:
+        raise ContractError("site must be exactly Amazon-US or Amazon-DE")
     hashes = spec.get("input_hashes")
     if not isinstance(hashes, Mapping):
         raise ContractError("input_hashes must be an object")
@@ -310,6 +332,7 @@ def compute_stage_keys(contract: MutableMapping[str, Any]) -> None:
                     "run_type": contract["run_type"],
                     "revision": contract["revision"],
                     "site": contract["site"],
+                    "marketplace_route": contract["marketplace_route"],
                     "input_hashes": input_hashes,
                     "locks": contract["locks"],
                     "quality_routing": (
@@ -363,6 +386,8 @@ def build_contract(spec: Mapping[str, Any]) -> Dict[str, Any]:
         "run_type": run_type,
         "revision": str(spec["revision"]).lower(),
         "site": spec["site"],
+        "marketplace_route": dict(MARKETPLACE_ROUTES[str(spec["site"])]),
+        "parallel_waves": PARALLEL_WAVES,
         "input_hashes": {
             key: require_sha256(value, f"input_hashes.{key}")
             for key, value in spec["input_hashes"].items()
@@ -410,6 +435,13 @@ def verify_contract(contract: Mapping[str, Any], check_current_rules: bool = Tru
             raise ContractError("test-validation quality routing is invalid")
         if contract.get("change_flags") and contract.get("quality_routing") != "full-regression":
             raise ContractError("test-validation with contract changes requires full-regression")
+    site = contract.get("site")
+    if site not in MARKETPLACE_ROUTES:
+        raise ContractError("run contract has invalid site")
+    if contract.get("marketplace_route") != MARKETPLACE_ROUTES[str(site)]:
+        raise ContractError("run contract marketplace route does not match site")
+    if contract.get("parallel_waves") != PARALLEL_WAVES:
+        raise ContractError("run contract parallel dispatch waves drifted")
     copy = json.loads(json.dumps(contract, ensure_ascii=False))
     compute_stage_keys(copy)
     for stage_name in expected_stage_names:
@@ -431,8 +463,12 @@ def validate_preflight(preflight: Mapping[str, Any]) -> None:
     if preflight.get("schema") != PREFLIGHT_SCHEMA:
         raise ContractError("unsupported source preflight schema")
     providers = preflight.get("providers")
-    if not isinstance(providers, Mapping) or set(providers) != {"sif", "sellersprite"}:
-        raise ContractError("preflight must contain exactly sif and sellersprite")
+    if not isinstance(providers, Mapping) or set(providers) != {
+        "amazon",
+        "sif",
+        "sellersprite",
+    }:
+        raise ContractError("preflight must contain exactly amazon, sif and sellersprite")
     for provider, record in providers.items():
         if not isinstance(record, Mapping):
             raise ContractError(f"{provider}: preflight record must be an object")

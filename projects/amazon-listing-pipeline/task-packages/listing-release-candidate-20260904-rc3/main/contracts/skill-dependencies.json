@@ -1,0 +1,795 @@
+{
+  "P1": "not_executed",
+  "business_rule_owner": "original_skill_and_references",
+  "discovery_roots": [
+    ".agents/skills"
+  ],
+  "external_runtime": {
+    "Alexa_authentication": "not_checked",
+    "Amazon_keyword_main": "external_independent_task",
+    "spreadsheets": "not_checked"
+  },
+  "files": [
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/Agent.md",
+      "sha256": "b983397ff6c2ba59912a880afe87f6bf26d45e97c65b36e887a34e3376886d16"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/SKILL.md",
+      "sha256": "82c41ad242d9718ca79d48db63e16912065fb7694bd6d003c7dd18b012ac3862"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/agents/openai.yaml",
+      "sha256": "1d794e33eddce9b1d0e1db95995d47f7de39ea26c1ec29174a4b0b2e44c5e638"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/assets/amazon-listing-pipeline-input-template.xlsx",
+      "sha256": "8c616373a93d3de95b72f920f46271b0c80ac4ba940f4783c166df5c123c567e"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/capabilities.yaml",
+      "sha256": "67271e049f5c939c27dfe376d34e8613b3f6716aba990c875d64efd3d7c9bedb"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/evidence/cases.json",
+      "sha256": "d3de833852f4c100742e647773e202419ab856ac232f2824285a5a5a6c0e6595"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/evidence/index.md",
+      "sha256": "2b0a679a9f41a0a98845ccd30d0ad3fa29f491657e5c3bc8cc74d884271272d8"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/knowledge/catalog.json",
+      "sha256": "fe0e1354791593654d0ba83e04d1f948f2d4cf2b82ec062fa6b6917c5ef57ebe"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/knowledge/index.md",
+      "sha256": "e0fb691fb61dc37046ad54226d422f8b2ed8f6a2ac29257d431b0485a87dc7a7"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/input-contract.md",
+      "sha256": "0a18ff5f5e5cf009aecc55dee91f00a367baa6b1f677e0cf187d59b04ee4f9e4"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/keyword-allocation.md",
+      "sha256": "78c9fa837d38853535d9a0085f3a9ecfbeac74b1387d5db6a4260adb59e1ab60"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/keyword-handoff-contract.md",
+      "sha256": "fddaf22cd9122710ec7d1db00483bc4a75322b6fbf87430dcbdcd2a1b33b225a"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/login-session-contract.md",
+      "sha256": "e1cdd40319e8734f5408e6d572f1ae99ef4cc58968c73d5f8c388060a80e91bc"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/output-contract.md",
+      "sha256": "e48071b07502967f5073054506cc921f9e25657a0b0a022d949b907e74a07924"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/pipeline-map.md",
+      "sha256": "0734ce8faefa16f61c5400c8e75dbddb3dc2159ada64c5b7efa7cecffc915bb7"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/preserved-sheet-transfer.md",
+      "sha256": "36704362b87b6b86527e684bca23820e61a7997582e3b035b8f5bf35f28421b9"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/project-adapter.md",
+      "sha256": "44d772d467bf3803579a4dde6b27823357d1b9ab9d5c9821b2493dd7625f1922"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/quality-gates.md",
+      "sha256": "90a7817665157e45112a3f19578cddf38df48712aba5a5f2569b27304f10d9d4"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-copy-review.md",
+      "sha256": "60efbd303b17203e45f60cba16ad6a5be66e79b327f6cf626b3e67f1654b45d9"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-keywords.md",
+      "sha256": "ef00f690ccdf3d72f7454418b20cfacbed3bcb37941d22789fbf09fc822084e1"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-listing-generation.md",
+      "sha256": "8377506344e54f806a975e4676e7802b038842de79c9dffcd92d6e1e898e7637"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-market-insights.md",
+      "sha256": "591cc559826de224054ad99c776f479648f33c01aba3e0103fe543a937f882ce"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-pain-points.md",
+      "sha256": "ce72710a0acfc7bfb928fab16b54711ca105abcdd2a4738dc472a6acc677e697"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-product-audit.md",
+      "sha256": "2c9c679795e230d2ba75ccebcadcbdfdd8a66f7d037fbec4f30d3d092e606480"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-selling-point-decision.md",
+      "sha256": "9ae4d742cdf62a6c35826ecaffd39dbbc068007396a983beb4be42f8483c0029"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/copy_preserved_sheets.py",
+      "sha256": "b51c8ff1f3c33c126316da794173aea4ed4e0f28b4d76d1a5fdf825c27733673"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/pipeline_state.py",
+      "sha256": "b63f8fdbe67e02b76c0fcdbe82cf60ad8559a1c88966a0f1ac1856d59f4c2d22"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/test_copy_preserved_sheets.py",
+      "sha256": "68fc80f7819fe120c9f9b48a662cbd61c4b27e79284e239ed823bf41d7855aa5"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/test_marketplace_route.py",
+      "sha256": "8293eb0565ed66af9a6b8864f85d8922f4c3994aebd58219c3ac6083b3044b2a"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/test_pipeline_state.py",
+      "sha256": "50beb4e6019409d3caed34c7e4c749e2ccf2c99219c92becda78b6cc22f6b23b"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/validate_dependencies.py",
+      "sha256": "43bf5c8cd3e5728f52dd756735d32e458090f9d10243326427de95892c225c37"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/validate_input.py",
+      "sha256": "25a14c36f0d2d1986904a51c0baf9b699bcd8d474abb20cac5595416cc4491dd"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "c0f80780656f570f279f05e09fc72264bd05e6f9caf090996b967de2cdec7b31"
+    },
+    {
+      "path": "Agent.md",
+      "sha256": "12454ab5b1a3cc4fdf558ed9866102e9b3a35c46c1f280beae0b502a547be4a0"
+    },
+    {
+      "path": "LOAD_ORDER.md",
+      "sha256": "b98cc826c02a529f9a2c9df91660a1e34fd83b9cb25a4019aea9f0ac1892b528"
+    },
+    {
+      "path": "PUBLICATION.md",
+      "sha256": "4af58c68a519b9056c84327e9385c93c4a7096be87dbbbc55c395fd914e4e69c"
+    },
+    {
+      "path": "contracts/dispatch-and-loading.md",
+      "sha256": "1564e4d5a1a08d98284a136cdfecb57aea2269adc015abf07eb74447d7cb62c9"
+    },
+    {
+      "path": "dependencies/skills/alexa-painpoint-frequency/Agent.md",
+      "sha256": "24cb59fd328cde8e919cc73cfa7aed90a136f53442478de6d6ec6415398e0c3a"
+    },
+    {
+      "path": "dependencies/skills/alexa-painpoint-frequency/SKILL.md",
+      "sha256": "45844fd30f470e71efd48505c02b1eaba120348398d8c0850a7276ab46d851d8"
+    },
+    {
+      "path": "dependencies/skills/alexa-painpoint-frequency/agents/openai.yaml",
+      "sha256": "71bbd0ca627f63e9eb01c6b22a1726420de343ef0615aa020b5b6bf61cf9a645"
+    },
+    {
+      "path": "dependencies/skills/alexa-painpoint-frequency/capabilities.yaml",
+      "sha256": "7e9cb2deaba94b2a34b5a5efab753b146a3c83a21410f4b97afb90cecd971785"
+    },
+    {
+      "path": "dependencies/skills/alexa-painpoint-frequency/evidence/cases.json",
+      "sha256": "0b405daa255967b7be77d39c69b07c8164a3c8c5b6b7d7ee67ca63c63bc814fe"
+    },
+    {
+      "path": "dependencies/skills/alexa-painpoint-frequency/evidence/index.md",
+      "sha256": "7c532400bcd085137daaf917e1f0b1c448a9aeb2d25ff5cff5969f21529ac6d7"
+    },
+    {
+      "path": "dependencies/skills/alexa-painpoint-frequency/knowledge/catalog.json",
+      "sha256": "4f6741e9b869071d528078eb4d60b771397c6152af1237df68dd8e3cd6a1a5f2"
+    },
+    {
+      "path": "dependencies/skills/alexa-painpoint-frequency/knowledge/index.md",
+      "sha256": "8cb76b7d8a0707fa98bd5ede3e1a4490193edeaebc4c0df792701544ddbcf8cd"
+    },
+    {
+      "path": "dependencies/skills/alexa-painpoint-phrasing/Agent.md",
+      "sha256": "e3f67bf798ed584dd17c5bfdf429ab37006b3ea8c3bfa8460b5028168b16f8ba"
+    },
+    {
+      "path": "dependencies/skills/alexa-painpoint-phrasing/SKILL.md",
+      "sha256": "15149f9ea4db7bd788b705c1bc635197b41a0e6386a7e19b6bd582f0df7eb902"
+    },
+    {
+      "path": "dependencies/skills/alexa-painpoint-phrasing/agents/openai.yaml",
+      "sha256": "d5b12683aae245fdfcca3bf7e3b9294a245d514a25e40fd13e053794f26ea68f"
+    },
+    {
+      "path": "dependencies/skills/alexa-painpoint-phrasing/capabilities.yaml",
+      "sha256": "10fc7df652138b01e6075cc457e6612014f826ba128784e34b1cf6b5d4248b59"
+    },
+    {
+      "path": "dependencies/skills/alexa-painpoint-phrasing/evidence/cases.json",
+      "sha256": "832a02233a31d0c1020901cff9a18221e3465aa4e08a595077f5c532b5ae479c"
+    },
+    {
+      "path": "dependencies/skills/alexa-painpoint-phrasing/evidence/index.md",
+      "sha256": "749b6b23ffa1fa255d1632bab21fda9ec4a34b0aba8ed22abff63615f7ef8c8a"
+    },
+    {
+      "path": "dependencies/skills/alexa-painpoint-phrasing/knowledge/catalog.json",
+      "sha256": "24e203e384621b77574b21d876178dac3a1d9aace9395cb63da00fea00625452"
+    },
+    {
+      "path": "dependencies/skills/alexa-painpoint-phrasing/knowledge/index.md",
+      "sha256": "221083ea069d59726f747b4d513f8e8dac86b9fa2dd09532c72f3897c34ad076"
+    },
+    {
+      "path": "dependencies/skills/apply-amazon-listing-hard-rules/Agent.md",
+      "sha256": "364e7e4e65e8ffabca59e6c2c5e2db67dbdae8b6ecce72bdb68513aff9d61df9"
+    },
+    {
+      "path": "dependencies/skills/apply-amazon-listing-hard-rules/SKILL.md",
+      "sha256": "751a36ba1299dad3656ae3edc3d5f822923fd6749fcf8f6bb54b119ceaec4a6f"
+    },
+    {
+      "path": "dependencies/skills/apply-amazon-listing-hard-rules/agents/openai.yaml",
+      "sha256": "fc12d9d93589f794aea534954cf9a91635e15e3457fe58d7a6cee5dd43745785"
+    },
+    {
+      "path": "dependencies/skills/apply-amazon-listing-hard-rules/capabilities.yaml",
+      "sha256": "2f86f758a786810004631a9d828e7d89492ca74da345dfd50b5997306afc8a75"
+    },
+    {
+      "path": "dependencies/skills/apply-amazon-listing-hard-rules/evidence/cases.json",
+      "sha256": "6086a359d4311417f6f955915362be8d7b46f6c03d7cdfbbe42d6cdb39cf53d9"
+    },
+    {
+      "path": "dependencies/skills/apply-amazon-listing-hard-rules/evidence/index.md",
+      "sha256": "93b15bd8381e5bb554601ed9d33e70ab3fa3c13ce7f74a554a09b1899ae7b89d"
+    },
+    {
+      "path": "dependencies/skills/apply-amazon-listing-hard-rules/knowledge/catalog.json",
+      "sha256": "2b17a0df63389dbbf9a97d403278c15132d6847bba36f6b75d8ddfd15dc09843"
+    },
+    {
+      "path": "dependencies/skills/apply-amazon-listing-hard-rules/knowledge/index.md",
+      "sha256": "d4fa793ff0b48a4113bd4f4984263b03102a274562104134f4995b8ef1333dc4"
+    },
+    {
+      "path": "dependencies/skills/apply-amazon-listing-hard-rules/references/亚马逊A+硬性规则.md",
+      "sha256": "559abfe5fce3a00064ab0dc756ca514f33ba71db35b89e988e94c5d2687f48e6"
+    },
+    {
+      "path": "dependencies/skills/apply-amazon-listing-hard-rules/references/亚马逊ST硬性规则.md",
+      "sha256": "349e100bac3b89af6a29b7feb5cd7bcce442e8c4f42df5ad7685ff029cdab8f9"
+    },
+    {
+      "path": "dependencies/skills/apply-amazon-listing-hard-rules/references/亚马逊五点描述硬性规则.md",
+      "sha256": "4be7a940d4d9860d433766cd6a680453712714d4725263f49a3d1ea6077e120a"
+    },
+    {
+      "path": "dependencies/skills/apply-amazon-listing-hard-rules/references/亚马逊图片硬性规则.md",
+      "sha256": "a0623d2f09c674dbce334e0f9d5022b0cca4af30082bb42db808f994a3bee484"
+    },
+    {
+      "path": "dependencies/skills/apply-amazon-listing-hard-rules/references/亚马逊标题硬性规则.md",
+      "sha256": "91fba1818a01cbf64f38fd1e3cec8b2aceb884f14422867e75a4a012d0ba8be4"
+    },
+    {
+      "path": "dependencies/skills/audit-alexa-shopping-product-info/Agent.md",
+      "sha256": "de2f2423ef838306599a4d22f6e8265e36172f9c2c9a7e1dfcc572fba97281ca"
+    },
+    {
+      "path": "dependencies/skills/audit-alexa-shopping-product-info/SKILL.md",
+      "sha256": "2254067ab118388c5058a0b338cbcd0d3ca87e85417716c81c350177ef75fcfc"
+    },
+    {
+      "path": "dependencies/skills/audit-alexa-shopping-product-info/agents/openai.yaml",
+      "sha256": "c3c223b3301e28dbe6bc518f7beed264240b0deb2d6ab45f0d054441a3dc67f8"
+    },
+    {
+      "path": "dependencies/skills/audit-alexa-shopping-product-info/capabilities.yaml",
+      "sha256": "47f72d8777ea664a013f25c1c6ee88d7e70adba65b6759086ff5ed244b71d5e8"
+    },
+    {
+      "path": "dependencies/skills/audit-alexa-shopping-product-info/evidence/cases.json",
+      "sha256": "8b736dd1d72fffbde18938a81fe964a9174a9f45d8ba054835b785db5529e33c"
+    },
+    {
+      "path": "dependencies/skills/audit-alexa-shopping-product-info/evidence/index.md",
+      "sha256": "624cb5a22c3e8e327813b20d22008d561dfe766500b4ef7a5a39d69cfc60364a"
+    },
+    {
+      "path": "dependencies/skills/audit-alexa-shopping-product-info/knowledge/catalog.json",
+      "sha256": "d29d36aec1f03b053dba8920acbe7bd28ba4caa1a7e5e943f7ac30c79b9e27cd"
+    },
+    {
+      "path": "dependencies/skills/audit-alexa-shopping-product-info/knowledge/index.md",
+      "sha256": "19e1eced77cc2d04c9b6c74f04688c583e9f7742ccdbee5c9f8916adb7f71936"
+    },
+    {
+      "path": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+      "sha256": "577917cbf678477cf9722a3126be3fb011dfdacfb5411827083e6398dcb6e770"
+    },
+    {
+      "path": "dependencies/skills/extract-amazon-product-insights/Agent.md",
+      "sha256": "e1a05fe7c252c2b818c62c775d07f6fc37d0e1f0a69d458600c62b7d7e928789"
+    },
+    {
+      "path": "dependencies/skills/extract-amazon-product-insights/SKILL.md",
+      "sha256": "dd405b9c2976154d16d288816fdbe6fd1dd1ec3d29cc8bc068c8159bb475777a"
+    },
+    {
+      "path": "dependencies/skills/extract-amazon-product-insights/agents/openai.yaml",
+      "sha256": "d8c129bae840d36ba5dc5e459de69e951584ccbed3380793f0378953b9d63fac"
+    },
+    {
+      "path": "dependencies/skills/extract-amazon-product-insights/capabilities.yaml",
+      "sha256": "c9e2dec99e3b2d4c79191305ce54fe7c7e0c94888e2345e71eb49cfd9e9f2c34"
+    },
+    {
+      "path": "dependencies/skills/extract-amazon-product-insights/evidence/cases.json",
+      "sha256": "42e2c91d264ed63b974db9a3111ea0b0920a72c42d746fb7050aadc3b0fa7097"
+    },
+    {
+      "path": "dependencies/skills/extract-amazon-product-insights/evidence/index.md",
+      "sha256": "b26bee57abedabe7c4205e0279f846c8721497e2516e28f769b0e6818faad93d"
+    },
+    {
+      "path": "dependencies/skills/extract-amazon-product-insights/knowledge/catalog.json",
+      "sha256": "1e9889e2d07a6c5ea8716a8f3621c9bdcdbd85e28870ad7299d8c3ba5ee8c824"
+    },
+    {
+      "path": "dependencies/skills/extract-amazon-product-insights/knowledge/index.md",
+      "sha256": "c51b1afbe992c1f1b389e718dfa89575c7c9f4da375cbcf5621793e6bc7a7faf"
+    },
+    {
+      "path": "dependencies/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+      "sha256": "8133e702e24759e5f2e8b604935a25b741744a14ebb2fe2503879ca74b4ff342"
+    },
+    {
+      "path": "dependencies/skills/prioritize-amazon-insight-tags/Agent.md",
+      "sha256": "71b47a02b3145fee183c7e2d2ffa9c8c2ec081b55fd0d86cf180ed1ac5d59b92"
+    },
+    {
+      "path": "dependencies/skills/prioritize-amazon-insight-tags/SKILL.md",
+      "sha256": "75e107a5f91e3703f2a713ce2b3bf63316d6932a265aff725bea95d789739473"
+    },
+    {
+      "path": "dependencies/skills/prioritize-amazon-insight-tags/agents/openai.yaml",
+      "sha256": "d1d0555ae328ce422e41e26f5aa09fac5e7da1fecd7d210146a520b29d2ca9d3"
+    },
+    {
+      "path": "dependencies/skills/prioritize-amazon-insight-tags/assets/golden-tag-priority-workbook.xlsx",
+      "sha256": "7ee355536f9ca806b82b1d91d08d8bec0f56f9ba90df99068a05707d8a28cb9c"
+    },
+    {
+      "path": "dependencies/skills/prioritize-amazon-insight-tags/capabilities.yaml",
+      "sha256": "35369c3536b27a3d046433e0b86526ee992d0d1f030ee73fc5a8163230fb5b07"
+    },
+    {
+      "path": "dependencies/skills/prioritize-amazon-insight-tags/evidence/cases.json",
+      "sha256": "2cff78e73f199dd3c8af68f89ed21012584397dba38733378bad8d67bc6929f0"
+    },
+    {
+      "path": "dependencies/skills/prioritize-amazon-insight-tags/evidence/index.md",
+      "sha256": "d8d0cf586b81814224a4b0cbf337d9afa4585d593e6da8889779a94ced92d86a"
+    },
+    {
+      "path": "dependencies/skills/prioritize-amazon-insight-tags/knowledge/catalog.json",
+      "sha256": "22cc3f5a7a5fcdf6c0a0cc5eb910dd69d60db355c497bf12ba52a06adffd2ead"
+    },
+    {
+      "path": "dependencies/skills/prioritize-amazon-insight-tags/knowledge/index.md",
+      "sha256": "a75c87d91521a6935f8030f44e582c63b4a5cd08c2c68f73c5aac881e016f530"
+    },
+    {
+      "path": "dependencies/skills/prioritize-amazon-insight-tags/references/final-workbook-format.md",
+      "sha256": "09675c2e57e00f2f0c89e5abb17fde3d437ee8dccf4df0dde2250358c022d30b"
+    },
+    {
+      "path": "dependencies/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+      "sha256": "28353235c033e0c43d6fe1e09ae61e6a8c3ba8ccfcddd967374694d75db8cecd"
+    },
+    {
+      "path": "dependencies/skills/receive-listing-selling-point-files/Agent.md",
+      "sha256": "2b36f141911f960766aeb2afa1433e8efbf3984886bad052efb7bd8de4d89dcd"
+    },
+    {
+      "path": "dependencies/skills/receive-listing-selling-point-files/SKILL.md",
+      "sha256": "8c5f1e2c4e5500464f57a505f2c970d077c8c96e118f35416443067663259ee2"
+    },
+    {
+      "path": "dependencies/skills/receive-listing-selling-point-files/capabilities.yaml",
+      "sha256": "bdd6525e598429b9ee149b6d9204d7b9e940e3c8efb48f37659a4e4e29138ef9"
+    },
+    {
+      "path": "dependencies/skills/receive-listing-selling-point-files/evidence/cases.json",
+      "sha256": "79899734f9e15d77fcc4cf03e799d74ea77763410f4dccca887ea1c9a4ada3c0"
+    },
+    {
+      "path": "dependencies/skills/receive-listing-selling-point-files/evidence/index.md",
+      "sha256": "9a5df2f7dffd65ce9f06591e61229c5b0708f9a94f1ab7f396e5e5aacc23ac68"
+    },
+    {
+      "path": "dependencies/skills/receive-listing-selling-point-files/knowledge/catalog.json",
+      "sha256": "5e003f1d0cd17200f3d6b3a140ca60a86f087efc28e1563cbfefad4c264ee685"
+    },
+    {
+      "path": "dependencies/skills/receive-listing-selling-point-files/knowledge/index.md",
+      "sha256": "5747ff59d046995ff454230cd6a874127b34bac3907ce91bf9e0b03582a756d9"
+    },
+    {
+      "path": "dependencies/skills/receive-listing-selling-point-files/references/intake-contract.md",
+      "sha256": "7ad0118cdfefcbeadc723dbb6d3d0274f6356505ccb14c18f5c8a3f516c34da5"
+    },
+    {
+      "path": "dependencies/skills/receive-listing-tag-painpoint-files/Agent.md",
+      "sha256": "b6037f92aa8c62af2067e93c24c05e1b7084cceac3b591ede58ae0bb2debe1d5"
+    },
+    {
+      "path": "dependencies/skills/receive-listing-tag-painpoint-files/SKILL.md",
+      "sha256": "f1108e2056127026e083bb1d327a13d15d2f0e8da98d7aeb11cb47abebd79518"
+    },
+    {
+      "path": "dependencies/skills/receive-listing-tag-painpoint-files/capabilities.yaml",
+      "sha256": "bae8b08bbdcd3d606e87e258462bb0b4235b7aff6bba63359c191d84d74cbf44"
+    },
+    {
+      "path": "dependencies/skills/receive-listing-tag-painpoint-files/evidence/cases.json",
+      "sha256": "2b840537e10e709697a139b311a722b446520558e23b3a312d1698e1c535b303"
+    },
+    {
+      "path": "dependencies/skills/receive-listing-tag-painpoint-files/evidence/index.md",
+      "sha256": "18367e6401d87ee2b19aa5ac85e16bdd6d7520b89c0321235d111e68a6c44ea5"
+    },
+    {
+      "path": "dependencies/skills/receive-listing-tag-painpoint-files/knowledge/catalog.json",
+      "sha256": "7b28232e0c139e97eb94269cca00090ce72d0f8b44ba04b6c34aca71a9314ed3"
+    },
+    {
+      "path": "dependencies/skills/receive-listing-tag-painpoint-files/knowledge/index.md",
+      "sha256": "f0b5121238c6d4f56b0e5d262b7c270c7d518638f38145600288a0800e8c3857"
+    },
+    {
+      "path": "dependencies/skills/receive-listing-tag-painpoint-files/references/intake-contract.md",
+      "sha256": "514490440d728bc3c948d6d0f1fe613ea96d456dfd5b08ff52e9add4c9931c04"
+    },
+    {
+      "path": "dependencies/skills/sku-usable-keyword-library/Agent.md",
+      "sha256": "472267f0734d00de72c5cdd5f66f2db8949a627e7efa6f1a502b27449227c6d6"
+    },
+    {
+      "path": "dependencies/skills/sku-usable-keyword-library/SKILL.md",
+      "sha256": "31ba1d505a99562af051b08da6402e6aa73355de786753f977dcaef869159a66"
+    },
+    {
+      "path": "dependencies/skills/sku-usable-keyword-library/capabilities.yaml",
+      "sha256": "98a70122b9999fa4f6510937315e671056bbda6d9549b440a26889957ef7dca1"
+    },
+    {
+      "path": "dependencies/skills/sku-usable-keyword-library/evidence/cases.json",
+      "sha256": "8e02c62b042ccd21b93d9e8cba70379eedee006cd2651637dd13284d496a5ce5"
+    },
+    {
+      "path": "dependencies/skills/sku-usable-keyword-library/evidence/index.md",
+      "sha256": "61c947d3ca9745b00c6dd76799cb2a40fbc6c85f6ecd98f2401f178701e72e7f"
+    },
+    {
+      "path": "dependencies/skills/sku-usable-keyword-library/knowledge/catalog.json",
+      "sha256": "507c1c776255a642106b9b4c16870c81b75245a32fb4e016a1a10aa35d0f4383"
+    },
+    {
+      "path": "dependencies/skills/sku-usable-keyword-library/knowledge/index.md",
+      "sha256": "21aec31759504bbac66a9abc5d77c6f9cac168e32adbea4a6f0ea28a08875457"
+    },
+    {
+      "path": "dependencies/skills/sku-usable-keyword-library/references/decision-boundaries.md",
+      "sha256": "92fce8debf786c3874f4876ed11c7b4827034efe24dbcdbaff2203b0a3328bf0"
+    },
+    {
+      "path": "dependencies/skills/sku-usable-keyword-library/references/reference-provenance.md",
+      "sha256": "6c6fa7ac10e35c1f73552c74c5e4a5e56e2e08147f0461de9a75c8449531f8be"
+    },
+    {
+      "path": "dependencies/skills/sku-usable-keyword-library/references/workbook-contract.md",
+      "sha256": "baba69c2e1a1fcdf778ed9ea22664c3db41f467c930fb792c9b4ee87ff74908e"
+    },
+    {
+      "path": "dependencies/skills/sku-usable-keyword-library/scripts/classification_compat.py",
+      "sha256": "37148719bd64ed513084a25bcb1554131dfdc6bfaf1936828ab2adacc9c1c8f3"
+    },
+    {
+      "path": "dependencies/skills/sku-usable-keyword-library/scripts/test_classification_compat.py",
+      "sha256": "760eaa74efa78ec3902e898e49bfa57deca3f43f0cdd7a6e4ab4733789dbaa9b"
+    },
+    {
+      "path": "docs/skill-package-standard.md",
+      "sha256": "5ebb1007e34dec5a34a7f2b234b9af6f4460da7d20a2b4b49ece17640f023ec7"
+    },
+    {
+      "path": "evidence/index.md",
+      "sha256": "6a88452a0682434b46de244b32f0881506a42c5765e6349b1fa4027363855674"
+    },
+    {
+      "path": "knowledge-base/final-workbook-presentation.md",
+      "sha256": "f4971ea1291ab0127a53b26cdc7e26fbc999df2049cbf145a55151c9e52066e9"
+    },
+    {
+      "path": "knowledge-base/index.md",
+      "sha256": "f86f810e7bfe7161e2007f6fd8d5004dcfd4b2029ade7b89cd79ee23731e9f3d"
+    },
+    {
+      "path": "knowledge-base/listing-final-assembly-rules.md",
+      "sha256": "b19ce1d3243ef129f5af8ee60e30bd72ccb415b2b4ce9a0ea14f5a337f21a170"
+    },
+    {
+      "path": "knowledge-base/listing-hard-rules/README.md",
+      "sha256": "f9219b78030843083d38b45f1dbb0643ceb9d1875592da54b8b38289044e769d"
+    },
+    {
+      "path": "knowledge-base/listing-hard-rules/manifest.yaml",
+      "sha256": "65f55db97918d810dd497f67af2e349c5d33201a10f52e3f4d4410eda51ec2f7"
+    },
+    {
+      "path": "knowledge-base/listing-hard-rules/亚马逊A+硬性规则.md",
+      "sha256": "559abfe5fce3a00064ab0dc756ca514f33ba71db35b89e988e94c5d2687f48e6"
+    },
+    {
+      "path": "knowledge-base/listing-hard-rules/亚马逊ST硬性规则.md",
+      "sha256": "349e100bac3b89af6a29b7feb5cd7bcce442e8c4f42df5ad7685ff029cdab8f9"
+    },
+    {
+      "path": "knowledge-base/listing-hard-rules/亚马逊五点描述硬性规则.md",
+      "sha256": "4be7a940d4d9860d433766cd6a680453712714d4725263f49a3d1ea6077e120a"
+    },
+    {
+      "path": "knowledge-base/listing-hard-rules/亚马逊图片硬性规则.md",
+      "sha256": "a0623d2f09c674dbce334e0f9d5022b0cca4af30082bb42db808f994a3bee484"
+    },
+    {
+      "path": "knowledge-base/listing-hard-rules/亚马逊标题硬性规则.md",
+      "sha256": "91fba1818a01cbf64f38fd1e3cec8b2aceb884f14422867e75a4a012d0ba8be4"
+    },
+    {
+      "path": "knowledge-base/listing-soft-writing-rules.md",
+      "sha256": "6f8d60ceaec1b081cf6e0e863e2f8f0d1bf91d59dd1e7986495882d6042b4832"
+    },
+    {
+      "path": "knowledge-base/listing-title-highlight-writing-rules.md",
+      "sha256": "89e1a3e5e9bfd283e63278b99e1c6cd938870cee8fe13517cbd3a103a9820685"
+    },
+    {
+      "path": "knowledge-base/listing-writing-case-learning.md",
+      "sha256": "3cc2dc396fa4152a709f4dc04ad900af22cccd8e12cf7ac6c342effacfe0305b"
+    },
+    {
+      "path": "project-control/listing-writing-iteration-log.md",
+      "sha256": "bff803c8617e96dabdcfa574cd06c0c9c73121e3ad77126761e7537fb9f69b94"
+    },
+    {
+      "path": "rules/index.md",
+      "sha256": "6723af386bb0d1dafc6571575db50df61e708e90068968f1f23076be6137845b"
+    },
+    {
+      "path": "rules/rule-map.json",
+      "sha256": "a6665a3d1a98b289750ba5f014b8b983242598e682be915f7a375a4707b1d67d"
+    },
+    {
+      "path": "scripts/validate_skill_packages.py",
+      "sha256": "4969534ba03d59094247575c43772ff27b93e25c66957eaa565b48874b27618c"
+    }
+  ],
+  "schema_version": 2,
+  "scope": "local_structure_and_file_dependencies",
+  "skills": [
+    {
+      "mode": "executable",
+      "name": "orchestrate-amazon-listing-pipeline",
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline",
+      "required_files": [
+        ".agents/skills/orchestrate-amazon-listing-pipeline/Agent.md",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/SKILL.md",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/agents/openai.yaml",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/assets/amazon-listing-pipeline-input-template.xlsx",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/capabilities.yaml",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/evidence/cases.json",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/evidence/index.md",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/knowledge/catalog.json",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/knowledge/index.md",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/references/input-contract.md",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/references/keyword-allocation.md",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/references/keyword-handoff-contract.md",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/references/login-session-contract.md",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/references/output-contract.md",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/references/pipeline-map.md",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/references/preserved-sheet-transfer.md",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/references/project-adapter.md",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/references/quality-gates.md",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-copy-review.md",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-keywords.md",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-listing-generation.md",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-market-insights.md",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-pain-points.md",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-product-audit.md",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-selling-point-decision.md",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/copy_preserved_sheets.py",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/pipeline_state.py",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/test_copy_preserved_sheets.py",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/test_marketplace_route.py",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/test_pipeline_state.py",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/validate_dependencies.py",
+        ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/validate_input.py"
+      ],
+      "role": "main"
+    },
+    {
+      "mode": "reference",
+      "name": "alexa-painpoint-frequency",
+      "path": "dependencies/skills/alexa-painpoint-frequency",
+      "required_files": [
+        "dependencies/skills/alexa-painpoint-frequency/Agent.md",
+        "dependencies/skills/alexa-painpoint-frequency/SKILL.md",
+        "dependencies/skills/alexa-painpoint-frequency/agents/openai.yaml",
+        "dependencies/skills/alexa-painpoint-frequency/capabilities.yaml",
+        "dependencies/skills/alexa-painpoint-frequency/evidence/cases.json",
+        "dependencies/skills/alexa-painpoint-frequency/evidence/index.md",
+        "dependencies/skills/alexa-painpoint-frequency/knowledge/catalog.json",
+        "dependencies/skills/alexa-painpoint-frequency/knowledge/index.md"
+      ],
+      "role": "painpoint-frequency"
+    },
+    {
+      "mode": "reference",
+      "name": "alexa-painpoint-phrasing",
+      "path": "dependencies/skills/alexa-painpoint-phrasing",
+      "required_files": [
+        "dependencies/skills/alexa-painpoint-phrasing/Agent.md",
+        "dependencies/skills/alexa-painpoint-phrasing/SKILL.md",
+        "dependencies/skills/alexa-painpoint-phrasing/agents/openai.yaml",
+        "dependencies/skills/alexa-painpoint-phrasing/capabilities.yaml",
+        "dependencies/skills/alexa-painpoint-phrasing/evidence/cases.json",
+        "dependencies/skills/alexa-painpoint-phrasing/evidence/index.md",
+        "dependencies/skills/alexa-painpoint-phrasing/knowledge/catalog.json",
+        "dependencies/skills/alexa-painpoint-phrasing/knowledge/index.md"
+      ],
+      "role": "painpoint-phrasing"
+    },
+    {
+      "mode": "reference",
+      "name": "apply-amazon-listing-hard-rules",
+      "path": "dependencies/skills/apply-amazon-listing-hard-rules",
+      "required_files": [
+        "dependencies/skills/apply-amazon-listing-hard-rules/Agent.md",
+        "dependencies/skills/apply-amazon-listing-hard-rules/SKILL.md",
+        "dependencies/skills/apply-amazon-listing-hard-rules/agents/openai.yaml",
+        "dependencies/skills/apply-amazon-listing-hard-rules/capabilities.yaml",
+        "dependencies/skills/apply-amazon-listing-hard-rules/evidence/cases.json",
+        "dependencies/skills/apply-amazon-listing-hard-rules/evidence/index.md",
+        "dependencies/skills/apply-amazon-listing-hard-rules/knowledge/catalog.json",
+        "dependencies/skills/apply-amazon-listing-hard-rules/knowledge/index.md",
+        "dependencies/skills/apply-amazon-listing-hard-rules/references/亚马逊A+硬性规则.md",
+        "dependencies/skills/apply-amazon-listing-hard-rules/references/亚马逊ST硬性规则.md",
+        "dependencies/skills/apply-amazon-listing-hard-rules/references/亚马逊五点描述硬性规则.md",
+        "dependencies/skills/apply-amazon-listing-hard-rules/references/亚马逊图片硬性规则.md",
+        "dependencies/skills/apply-amazon-listing-hard-rules/references/亚马逊标题硬性规则.md"
+      ],
+      "role": "listing-writing-qa"
+    },
+    {
+      "mode": "reference",
+      "name": "audit-alexa-shopping-product-info",
+      "path": "dependencies/skills/audit-alexa-shopping-product-info",
+      "required_files": [
+        "dependencies/skills/audit-alexa-shopping-product-info/Agent.md",
+        "dependencies/skills/audit-alexa-shopping-product-info/SKILL.md",
+        "dependencies/skills/audit-alexa-shopping-product-info/agents/openai.yaml",
+        "dependencies/skills/audit-alexa-shopping-product-info/capabilities.yaml",
+        "dependencies/skills/audit-alexa-shopping-product-info/evidence/cases.json",
+        "dependencies/skills/audit-alexa-shopping-product-info/evidence/index.md",
+        "dependencies/skills/audit-alexa-shopping-product-info/knowledge/catalog.json",
+        "dependencies/skills/audit-alexa-shopping-product-info/knowledge/index.md",
+        "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+      ],
+      "role": "product-audit"
+    },
+    {
+      "mode": "reference",
+      "name": "extract-amazon-product-insights",
+      "path": "dependencies/skills/extract-amazon-product-insights",
+      "required_files": [
+        "dependencies/skills/extract-amazon-product-insights/Agent.md",
+        "dependencies/skills/extract-amazon-product-insights/SKILL.md",
+        "dependencies/skills/extract-amazon-product-insights/agents/openai.yaml",
+        "dependencies/skills/extract-amazon-product-insights/capabilities.yaml",
+        "dependencies/skills/extract-amazon-product-insights/evidence/cases.json",
+        "dependencies/skills/extract-amazon-product-insights/evidence/index.md",
+        "dependencies/skills/extract-amazon-product-insights/knowledge/catalog.json",
+        "dependencies/skills/extract-amazon-product-insights/knowledge/index.md",
+        "dependencies/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md"
+      ],
+      "role": "five-dimension-insights"
+    },
+    {
+      "mode": "reference",
+      "name": "prioritize-amazon-insight-tags",
+      "path": "dependencies/skills/prioritize-amazon-insight-tags",
+      "required_files": [
+        "dependencies/skills/prioritize-amazon-insight-tags/Agent.md",
+        "dependencies/skills/prioritize-amazon-insight-tags/SKILL.md",
+        "dependencies/skills/prioritize-amazon-insight-tags/agents/openai.yaml",
+        "dependencies/skills/prioritize-amazon-insight-tags/assets/golden-tag-priority-workbook.xlsx",
+        "dependencies/skills/prioritize-amazon-insight-tags/capabilities.yaml",
+        "dependencies/skills/prioritize-amazon-insight-tags/evidence/cases.json",
+        "dependencies/skills/prioritize-amazon-insight-tags/evidence/index.md",
+        "dependencies/skills/prioritize-amazon-insight-tags/knowledge/catalog.json",
+        "dependencies/skills/prioritize-amazon-insight-tags/knowledge/index.md",
+        "dependencies/skills/prioritize-amazon-insight-tags/references/final-workbook-format.md",
+        "dependencies/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+      ],
+      "role": "tag-priority"
+    },
+    {
+      "mode": "reference",
+      "name": "receive-listing-selling-point-files",
+      "path": "dependencies/skills/receive-listing-selling-point-files",
+      "required_files": [
+        "dependencies/skills/receive-listing-selling-point-files/Agent.md",
+        "dependencies/skills/receive-listing-selling-point-files/SKILL.md",
+        "dependencies/skills/receive-listing-selling-point-files/capabilities.yaml",
+        "dependencies/skills/receive-listing-selling-point-files/evidence/cases.json",
+        "dependencies/skills/receive-listing-selling-point-files/evidence/index.md",
+        "dependencies/skills/receive-listing-selling-point-files/knowledge/catalog.json",
+        "dependencies/skills/receive-listing-selling-point-files/knowledge/index.md",
+        "dependencies/skills/receive-listing-selling-point-files/references/intake-contract.md"
+      ],
+      "role": "selling-point-intake"
+    },
+    {
+      "mode": "reference",
+      "name": "receive-listing-tag-painpoint-files",
+      "path": "dependencies/skills/receive-listing-tag-painpoint-files",
+      "required_files": [
+        "dependencies/skills/receive-listing-tag-painpoint-files/Agent.md",
+        "dependencies/skills/receive-listing-tag-painpoint-files/SKILL.md",
+        "dependencies/skills/receive-listing-tag-painpoint-files/capabilities.yaml",
+        "dependencies/skills/receive-listing-tag-painpoint-files/evidence/cases.json",
+        "dependencies/skills/receive-listing-tag-painpoint-files/evidence/index.md",
+        "dependencies/skills/receive-listing-tag-painpoint-files/knowledge/catalog.json",
+        "dependencies/skills/receive-listing-tag-painpoint-files/knowledge/index.md",
+        "dependencies/skills/receive-listing-tag-painpoint-files/references/intake-contract.md"
+      ],
+      "role": "tag-painpoint-intake"
+    },
+    {
+      "mode": "reference",
+      "name": "sku-usable-keyword-library",
+      "path": "dependencies/skills/sku-usable-keyword-library",
+      "required_files": [
+        "dependencies/skills/sku-usable-keyword-library/Agent.md",
+        "dependencies/skills/sku-usable-keyword-library/SKILL.md",
+        "dependencies/skills/sku-usable-keyword-library/capabilities.yaml",
+        "dependencies/skills/sku-usable-keyword-library/evidence/cases.json",
+        "dependencies/skills/sku-usable-keyword-library/evidence/index.md",
+        "dependencies/skills/sku-usable-keyword-library/knowledge/catalog.json",
+        "dependencies/skills/sku-usable-keyword-library/knowledge/index.md",
+        "dependencies/skills/sku-usable-keyword-library/references/decision-boundaries.md",
+        "dependencies/skills/sku-usable-keyword-library/references/reference-provenance.md",
+        "dependencies/skills/sku-usable-keyword-library/references/workbook-contract.md",
+        "dependencies/skills/sku-usable-keyword-library/scripts/classification_compat.py",
+        "dependencies/skills/sku-usable-keyword-library/scripts/test_classification_compat.py"
+      ],
+      "role": "sku-keywords"
+    }
+  ],
+  "static_dependencies": [
+    {
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/test_copy_preserved_sheets.py",
+      "target": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/copy_preserved_sheets.py"
+    },
+    {
+      "source": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/test_pipeline_state.py",
+      "target": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/pipeline_state.py"
+    }
+  ],
+  "version": "listing-release-candidate-20260904-rc3"
+}

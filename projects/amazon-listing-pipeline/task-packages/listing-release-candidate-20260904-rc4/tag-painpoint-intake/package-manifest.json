@@ -1,0 +1,321 @@
+{
+  "authorized_maintenance": {
+    "P1": "not_executed",
+    "affected_roles": [
+      "main",
+      "product-audit",
+      "five-dimension-insights",
+      "tag-priority",
+      "painpoint-frequency",
+      "painpoint-phrasing",
+      "listing-writing-qa",
+      "selling-point-intake",
+      "tag-painpoint-intake",
+      "sku-keywords"
+    ],
+    "business_run": "not_executed",
+    "id": "AKW-TASK-SESSION-LOGIN-20260904-02",
+    "protocol_id": "AKW-TASK-SESSION-LOGIN-v1",
+    "scope": "在rc3任务会话合同基础上补齐必填marketplace与八会话初始化回归，保持无秘密登录准备Sheet、逐会话回执/失效和分支阻断；本批不执行新业务Run或P1"
+  },
+  "business_rules_changed": true,
+  "files": [
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/receive-listing-tag-painpoint-files/Agent.md",
+      "sha256": "b6037f92aa8c62af2067e93c24c05e1b7084cceac3b591ede58ae0bb2debe1d5",
+      "source": ".agents/skills/receive-listing-tag-painpoint-files/Agent.md",
+      "source_sha256": "b6037f92aa8c62af2067e93c24c05e1b7084cceac3b591ede58ae0bb2debe1d5"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/receive-listing-tag-painpoint-files/SKILL.md",
+      "sha256": "f1108e2056127026e083bb1d327a13d15d2f0e8da98d7aeb11cb47abebd79518",
+      "source": ".agents/skills/receive-listing-tag-painpoint-files/SKILL.md",
+      "source_sha256": "f1108e2056127026e083bb1d327a13d15d2f0e8da98d7aeb11cb47abebd79518"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/receive-listing-tag-painpoint-files/capabilities.yaml",
+      "sha256": "bae8b08bbdcd3d606e87e258462bb0b4235b7aff6bba63359c191d84d74cbf44",
+      "source": ".agents/skills/receive-listing-tag-painpoint-files/capabilities.yaml",
+      "source_sha256": "bae8b08bbdcd3d606e87e258462bb0b4235b7aff6bba63359c191d84d74cbf44"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/receive-listing-tag-painpoint-files/evidence/cases.json",
+      "sha256": "2b840537e10e709697a139b311a722b446520558e23b3a312d1698e1c535b303",
+      "source": ".agents/skills/receive-listing-tag-painpoint-files/evidence/cases.json",
+      "source_sha256": "2b840537e10e709697a139b311a722b446520558e23b3a312d1698e1c535b303"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/receive-listing-tag-painpoint-files/evidence/index.md",
+      "sha256": "18367e6401d87ee2b19aa5ac85e16bdd6d7520b89c0321235d111e68a6c44ea5",
+      "source": ".agents/skills/receive-listing-tag-painpoint-files/evidence/index.md",
+      "source_sha256": "18367e6401d87ee2b19aa5ac85e16bdd6d7520b89c0321235d111e68a6c44ea5"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/receive-listing-tag-painpoint-files/knowledge/catalog.json",
+      "sha256": "ebdd563dbbeb141de0238c45cbaad2c29fbea14f952baeaabd5c2b28b33440eb",
+      "source": ".agents/skills/receive-listing-tag-painpoint-files/knowledge/catalog.json",
+      "source_sha256": "ebdd563dbbeb141de0238c45cbaad2c29fbea14f952baeaabd5c2b28b33440eb"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/receive-listing-tag-painpoint-files/knowledge/index.md",
+      "sha256": "f0b5121238c6d4f56b0e5d262b7c270c7d518638f38145600288a0800e8c3857",
+      "source": ".agents/skills/receive-listing-tag-painpoint-files/knowledge/index.md",
+      "source_sha256": "f0b5121238c6d4f56b0e5d262b7c270c7d518638f38145600288a0800e8c3857"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/receive-listing-tag-painpoint-files/references/intake-contract.md",
+      "sha256": "514490440d728bc3c948d6d0f1fe613ea96d456dfd5b08ff52e9add4c9931c04",
+      "source": ".agents/skills/receive-listing-tag-painpoint-files/references/intake-contract.md",
+      "source_sha256": "514490440d728bc3c948d6d0f1fe613ea96d456dfd5b08ff52e9add4c9931c04"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "AGENTS.md",
+      "sha256": "1ae30a6d76d05ce506e53b680bb65953c5f3366d20d815eb0f453c96b1240313"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "Agent.md",
+      "sha256": "e0d06a7ec19d8e7194ae85a0d32f0aa57b90e8723fb48b575f8f41433ae63449"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "LOAD_ORDER.md",
+      "sha256": "109a6bd72f6e10212b7431030b952eddf97098dbaee848e9918e4c60c870ce06"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "PUBLICATION.md",
+      "sha256": "3035f29c5963ba19598b6cf6f5889227e4d73be96b05bf8bbf88b89087f8f238"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "contracts/dispatch-and-loading.md",
+      "sha256": "1564e4d5a1a08d98284a136cdfecb57aea2269adc015abf07eb74447d7cb62c9"
+    },
+    {
+      "operation": "generated_dependency_contract",
+      "path": "contracts/skill-dependencies.json",
+      "sha256": "0c5416a2b74af8577d86a59aeedf3d73b8e37ed98e2b95436f6bd1cef86dc7df"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/alexa-painpoint-frequency/Agent.md",
+      "sha256": "24cb59fd328cde8e919cc73cfa7aed90a136f53442478de6d6ec6415398e0c3a",
+      "source": ".agents/skills/alexa-painpoint-frequency/Agent.md",
+      "source_sha256": "24cb59fd328cde8e919cc73cfa7aed90a136f53442478de6d6ec6415398e0c3a"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/alexa-painpoint-frequency/SKILL.md",
+      "sha256": "45844fd30f470e71efd48505c02b1eaba120348398d8c0850a7276ab46d851d8",
+      "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+      "source_sha256": "45844fd30f470e71efd48505c02b1eaba120348398d8c0850a7276ab46d851d8"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/alexa-painpoint-frequency/agents/openai.yaml",
+      "sha256": "71bbd0ca627f63e9eb01c6b22a1726420de343ef0615aa020b5b6bf61cf9a645",
+      "source": ".agents/skills/alexa-painpoint-frequency/agents/openai.yaml",
+      "source_sha256": "71bbd0ca627f63e9eb01c6b22a1726420de343ef0615aa020b5b6bf61cf9a645"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/alexa-painpoint-frequency/capabilities.yaml",
+      "sha256": "7e9cb2deaba94b2a34b5a5efab753b146a3c83a21410f4b97afb90cecd971785",
+      "source": ".agents/skills/alexa-painpoint-frequency/capabilities.yaml",
+      "source_sha256": "7e9cb2deaba94b2a34b5a5efab753b146a3c83a21410f4b97afb90cecd971785"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/alexa-painpoint-frequency/evidence/cases.json",
+      "sha256": "0b405daa255967b7be77d39c69b07c8164a3c8c5b6b7d7ee67ca63c63bc814fe",
+      "source": ".agents/skills/alexa-painpoint-frequency/evidence/cases.json",
+      "source_sha256": "0b405daa255967b7be77d39c69b07c8164a3c8c5b6b7d7ee67ca63c63bc814fe"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/alexa-painpoint-frequency/evidence/index.md",
+      "sha256": "7c532400bcd085137daaf917e1f0b1c448a9aeb2d25ff5cff5969f21529ac6d7",
+      "source": ".agents/skills/alexa-painpoint-frequency/evidence/index.md",
+      "source_sha256": "7c532400bcd085137daaf917e1f0b1c448a9aeb2d25ff5cff5969f21529ac6d7"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "declared_reference_rebase",
+      "path": "dependencies/skills/alexa-painpoint-frequency/knowledge/catalog.json",
+      "sha256": "4f6741e9b869071d528078eb4d60b771397c6152af1237df68dd8e3cd6a1a5f2",
+      "source": ".agents/skills/alexa-painpoint-frequency/knowledge/catalog.json",
+      "source_sha256": "fd12bcdab8aa84129f929fdaa6e94fee46d6a0ca42052d8fc23868c4b5ff2e8b"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/alexa-painpoint-frequency/knowledge/index.md",
+      "sha256": "8cb76b7d8a0707fa98bd5ede3e1a4490193edeaebc4c0df792701544ddbcf8cd",
+      "source": ".agents/skills/alexa-painpoint-frequency/knowledge/index.md",
+      "source_sha256": "8cb76b7d8a0707fa98bd5ede3e1a4490193edeaebc4c0df792701544ddbcf8cd"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/prioritize-amazon-insight-tags/Agent.md",
+      "sha256": "71b47a02b3145fee183c7e2d2ffa9c8c2ec081b55fd0d86cf180ed1ac5d59b92",
+      "source": ".agents/skills/prioritize-amazon-insight-tags/Agent.md",
+      "source_sha256": "71b47a02b3145fee183c7e2d2ffa9c8c2ec081b55fd0d86cf180ed1ac5d59b92"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/prioritize-amazon-insight-tags/SKILL.md",
+      "sha256": "75e107a5f91e3703f2a713ce2b3bf63316d6932a265aff725bea95d789739473",
+      "source": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md",
+      "source_sha256": "75e107a5f91e3703f2a713ce2b3bf63316d6932a265aff725bea95d789739473"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/prioritize-amazon-insight-tags/agents/openai.yaml",
+      "sha256": "d1d0555ae328ce422e41e26f5aa09fac5e7da1fecd7d210146a520b29d2ca9d3",
+      "source": ".agents/skills/prioritize-amazon-insight-tags/agents/openai.yaml",
+      "source_sha256": "d1d0555ae328ce422e41e26f5aa09fac5e7da1fecd7d210146a520b29d2ca9d3"
+    },
+    {
+      "classification": "candidate_template_asset",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/prioritize-amazon-insight-tags/assets/golden-tag-priority-workbook.xlsx",
+      "sha256": "7ee355536f9ca806b82b1d91d08d8bec0f56f9ba90df99068a05707d8a28cb9c",
+      "source": ".agents/skills/prioritize-amazon-insight-tags/assets/golden-tag-priority-workbook.xlsx",
+      "source_sha256": "7ee355536f9ca806b82b1d91d08d8bec0f56f9ba90df99068a05707d8a28cb9c"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/prioritize-amazon-insight-tags/capabilities.yaml",
+      "sha256": "35369c3536b27a3d046433e0b86526ee992d0d1f030ee73fc5a8163230fb5b07",
+      "source": ".agents/skills/prioritize-amazon-insight-tags/capabilities.yaml",
+      "source_sha256": "35369c3536b27a3d046433e0b86526ee992d0d1f030ee73fc5a8163230fb5b07"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/prioritize-amazon-insight-tags/evidence/cases.json",
+      "sha256": "2cff78e73f199dd3c8af68f89ed21012584397dba38733378bad8d67bc6929f0",
+      "source": ".agents/skills/prioritize-amazon-insight-tags/evidence/cases.json",
+      "source_sha256": "2cff78e73f199dd3c8af68f89ed21012584397dba38733378bad8d67bc6929f0"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/prioritize-amazon-insight-tags/evidence/index.md",
+      "sha256": "d8d0cf586b81814224a4b0cbf337d9afa4585d593e6da8889779a94ced92d86a",
+      "source": ".agents/skills/prioritize-amazon-insight-tags/evidence/index.md",
+      "source_sha256": "d8d0cf586b81814224a4b0cbf337d9afa4585d593e6da8889779a94ced92d86a"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "declared_reference_rebase",
+      "path": "dependencies/skills/prioritize-amazon-insight-tags/knowledge/catalog.json",
+      "sha256": "22cc3f5a7a5fcdf6c0a0cc5eb910dd69d60db355c497bf12ba52a06adffd2ead",
+      "source": ".agents/skills/prioritize-amazon-insight-tags/knowledge/catalog.json",
+      "source_sha256": "28afa029b35a2b3d9a88bee4f2c1d561e970fe8e635f219d251152605f0e977d"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/prioritize-amazon-insight-tags/knowledge/index.md",
+      "sha256": "a75c87d91521a6935f8030f44e582c63b4a5cd08c2c68f73c5aac881e016f530",
+      "source": ".agents/skills/prioritize-amazon-insight-tags/knowledge/index.md",
+      "source_sha256": "a75c87d91521a6935f8030f44e582c63b4a5cd08c2c68f73c5aac881e016f530"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/prioritize-amazon-insight-tags/references/final-workbook-format.md",
+      "sha256": "09675c2e57e00f2f0c89e5abb17fde3d437ee8dccf4df0dde2250358c022d30b",
+      "source": ".agents/skills/prioritize-amazon-insight-tags/references/final-workbook-format.md",
+      "source_sha256": "09675c2e57e00f2f0c89e5abb17fde3d437ee8dccf4df0dde2250358c022d30b"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "dependencies/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+      "sha256": "28353235c033e0c43d6fe1e09ae61e6a8c3ba8ccfcddd967374694d75db8cecd",
+      "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+      "source_sha256": "28353235c033e0c43d6fe1e09ae61e6a8c3ba8ccfcddd967374694d75db8cecd"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "docs/skill-package-standard.md",
+      "sha256": "0e66459c3a672395256e7a25156c9a02a1ed67cc924a62a21c9cc500afa2e60a",
+      "source": "docs/skill-package-standard.md",
+      "source_sha256": "0e66459c3a672395256e7a25156c9a02a1ed67cc924a62a21c9cc500afa2e60a"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "evidence/index.md",
+      "sha256": "7a79c15c4b7a2b7ad51b570f124cc6ab543a9f77117952052842572205377bd7"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "knowledge-base/index.md",
+      "sha256": "368125e072dfffd57f21eaa1cec1a553f737316467ad9f7f2c990338a820302e"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "rules/index.md",
+      "sha256": "a7cd1c7c15010a3790875012c836e81f4816a3c5754abeb615ff8116d23f9417"
+    },
+    {
+      "operation": "generated_complete_section_map",
+      "path": "rules/rule-map.json",
+      "sha256": "749b1e7e6f3d7c780be09037ecb798b8245e8cbfa57e6febf860a7dee49c7087"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "scripts/validate_skill_packages.py",
+      "sha256": "4969534ba03d59094247575c43772ff27b93e25c66957eaa565b48874b27618c",
+      "source": "scripts/validate_skill_packages.py",
+      "source_sha256": "4969534ba03d59094247575c43772ff27b93e25c66957eaa565b48874b27618c"
+    }
+  ],
+  "kind": "receive_only",
+  "new_business_run": false,
+  "original_business_skill_count": 8,
+  "owned_skills": [
+    "receive-listing-tag-painpoint-files"
+  ],
+  "publication_status": "SANITIZED_CANDIDATE_NOT_PUBLISHED",
+  "reference_skills": [
+    "alexa-painpoint-frequency",
+    "prioritize-amazon-insight-tags"
+  ],
+  "role": "tag-painpoint-intake",
+  "schema_version": 1,
+  "title": "副线程｜标签与QA文件接收整理",
+  "version": "listing-release-candidate-20260904-rc4"
+}

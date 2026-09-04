@@ -1,11 +1,11 @@
 # Amazon 后台 Search Terms 硬性规则
 
-> 默认适用范围：Amazon 美国站 `Search Terms` / `generic_keywords` 字段  
+> 适用范围：Run锁定站点的 `Search Terms` / `generic_keywords` 字段；下列249 bytes是美国站规则，德国站不得静默套用
 > 规则冲突时，以当前站点、商品类型、后台字段、上传模板、Processing Summary 及错误提示中的更严格限制为准。
 
 ## 1. 字节上限
 
-- 美国站后台未显示更严格限制时，整个 `generic_keywords` 属性必须小于 250 bytes，即最多 249 bytes。
+- Amazon-US后台未显示更严格限制时，整个 `generic_keywords` 属性必须小于 250 bytes，即最多249 bytes。Amazon-DE必须先锁定当前德国站后台或类目规则的可核验上限；未核验时保持待确认，不得用249冒充德国站规则。
 - 当前上传模板、处理报告或错误提示要求小于 200 bytes 时，最多 199 bytes。
 - 上限按整个字段计算，不是按单词或词组分别计算。
 - 必须按最终文本的 UTF-8 字节数校验，不得用字符数代替字节数。
@@ -41,4 +41,3 @@
 - 格式仅含合规的小写词和单个空格。
 - 所有词均与当前商品真实相关。
 - 不含品牌、ASIN、临时性陈述、主观宣传词或其他禁止内容。
-

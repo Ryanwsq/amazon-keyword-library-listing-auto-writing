@@ -48,7 +48,7 @@ class DispatchTests(unittest.TestCase):
         runtime.write_json(self.contract_path, self.contract)
         self.preflight = self.root / "preflight.json"
         runtime.write_json(self.preflight, {"schema": runtime.PREFLIGHT_SCHEMA, "providers": {
-            p: {"status": "authenticated", "checked_at": "fixture"} for p in ("sif", "sellersprite")}})
+            p: {"status": "authenticated", "checked_at": "fixture"} for p in ("amazon", "sif", "sellersprite")}})
         self.spec = {"run_id": self.run, "run_type": self.contract["run_type"], "revision": self.revision,
                      "execution_mode": "fresh-collection", "role": guard.ROLES["sif"], "stage": "sif",
                      "stage_key": self.contract["stages"]["sif"]["stage_key"],

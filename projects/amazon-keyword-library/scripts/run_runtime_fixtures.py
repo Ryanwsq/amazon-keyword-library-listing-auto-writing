@@ -54,6 +54,27 @@ def spec(run_type: str = "production", qa_mode=None, change_flags=None):
 def test_runtime_contract() -> None:
     production = runtime.build_contract(spec())
     runtime.verify_contract(production)
+    assert production["marketplace_route"]["domain"] == "amazon.com"
+    assert production["parallel_waves"]["core-sources"] == [
+        "amazon-autocomplete",
+        "sellersprite",
+    ]
+    german_spec = spec()
+    german_spec["site"] = "Amazon-DE"
+    german = runtime.build_contract(german_spec)
+    assert german["marketplace_route"] == {
+        "domain": "amazon.de",
+        "department": "Alle",
+        "postal_code": "80539",
+        "shopping_assistant": "Rufus",
+        "prompt_language": "German",
+    }
+    invalid_site = spec()
+    invalid_site["site"] = "Amazon-UK"
+    expect_error(
+        lambda: runtime.build_contract(invalid_site),
+        "Amazon-US or Amazon-DE",
+    )
     assert "quality-validation" not in production["stages"]
     assert production["quality_routing"] == "not_applicable"
     assert runtime.descendants("word-frequency", "production") == ["assembly"]
@@ -84,6 +105,10 @@ def test_runtime_contract() -> None:
         preflight = {
             "schema": runtime.PREFLIGHT_SCHEMA,
             "providers": {
+                "amazon": {
+                    "status": "authenticated",
+                    "checked_at": "2026-09-02T10:00:00+08:00",
+                },
                 "sif": {"status": "authenticated", "checked_at": "2026-09-02T10:00:00+08:00"},
                 "sellersprite": {
                     "status": "awaiting_login",

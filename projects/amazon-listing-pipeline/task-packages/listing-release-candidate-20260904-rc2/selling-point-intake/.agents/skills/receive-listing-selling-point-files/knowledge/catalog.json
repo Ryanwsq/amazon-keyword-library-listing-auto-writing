@@ -1,0 +1,20 @@
+[
+  {
+    "content": "卖点配置文件接收",
+    "id": "KB-9da10cad2a11",
+    "scope": "保留接收整理入口，默认只核验与登记；不另造优势或重排卖点",
+    "source": ".agents/skills/receive-listing-selling-point-files/SKILL.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "卖点配置接收合同",
+    "id": "KB-1b46defbb00c",
+    "scope": "保留接收整理入口，默认只核验与登记；不另造优势或重排卖点",
+    "source": ".agents/skills/receive-listing-selling-point-files/references/intake-contract.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  }
+]

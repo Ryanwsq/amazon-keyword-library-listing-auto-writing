@@ -1,0 +1,20 @@
+{
+  "capabilities": [
+    {
+      "id": "listing.product-audit.execute",
+      "input": "新品基础信息、基础配置、竞品对标ASIN三表、marketplace及派生路由、购物助手会话authenticated回执和采集授权",
+      "output": "02十字段审计和03优势/卖点排序，保持事实来源分离",
+      "permission": "只读接收；业务执行和输出须当次明确授权，原SOP边界保持",
+      "purpose": "02/03接收；获明确采集授权后才按十字段合同执行审计",
+      "risk": "不得缺省到美国站；外部工具与登录未验证时停止，不得替代来源、扩大职责或绕过人工确认",
+      "status": "planned",
+      "type": "manual"
+    }
+  ],
+  "skill": {
+    "last_verified": null,
+    "maturity": "draft",
+    "name": "audit-alexa-shopping-product-info",
+    "scope": "new_structure_revision_only; historical_acceptance_not_reassessed"
+  }
+}

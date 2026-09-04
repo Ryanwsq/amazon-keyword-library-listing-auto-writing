@@ -1,0 +1,590 @@
+[
+  {
+    "end_line": 2,
+    "sha256": "620d5724d6cbe179d12b12019221928847bfa55346886c579b8c013fad4380d1",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/Agent.md",
+    "start_line": 1,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/Agent.md"
+  },
+  {
+    "end_line": 6,
+    "sha256": "b414c46551056b56d049556a0cf9f61f5d69fc4f182d8e2f423ab48fd689c68e",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/Agent.md",
+    "start_line": 3,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/Agent.md"
+  },
+  {
+    "end_line": 10,
+    "sha256": "34f2876a38324c1b0e05ce402af29f1169231888f35332f1a2bfe9bc07568cfb",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/Agent.md",
+    "start_line": 7,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/Agent.md"
+  },
+  {
+    "end_line": 14,
+    "sha256": "0082b4b0057bbe3aa6648f20c02604143822184073d4d6d4e90f49da95e4200e",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/Agent.md",
+    "start_line": 11,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/Agent.md"
+  },
+  {
+    "end_line": 18,
+    "sha256": "edd4d0fc2616600f6a869018d512ee86478b1452346980c8bd84ac882a75a74e",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/Agent.md",
+    "start_line": 15,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/Agent.md"
+  },
+  {
+    "end_line": 23,
+    "sha256": "80bba0a2533469366598be4c8cfcbf6a5049ad6787ff05d1dd647f8b1e216cd2",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/Agent.md",
+    "start_line": 19,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/Agent.md"
+  },
+  {
+    "end_line": 5,
+    "sha256": "73ff72ebf4de46b2dfe2ce46781881e650b8eeb46458d9b32b4fe2311831277b",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md",
+    "start_line": 1,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md"
+  },
+  {
+    "end_line": 7,
+    "sha256": "9987d72d58836faae718b4604d71877bf07f3d08bae7506e6e9d376dd7669168",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md",
+    "start_line": 6,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md"
+  },
+  {
+    "end_line": 24,
+    "sha256": "f4bb7d2b3f0950e988850a8ef61a1e48a4fda8d1d51c251f1d56a8e5109bd747",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md",
+    "start_line": 8,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md"
+  },
+  {
+    "end_line": 33,
+    "sha256": "fb89dc88247c96fa21deeef3a47ab1c2c458b68ca73c3bbec445677686f93d71",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md",
+    "start_line": 25,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md"
+  },
+  {
+    "end_line": 42,
+    "sha256": "965276556f33228f05e5c8fcb5ad17768fa74b759f17ca6f8a26d42c414fd5f3",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md",
+    "start_line": 34,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md"
+  },
+  {
+    "end_line": 52,
+    "sha256": "3475ac8944f8075e152e0e2f9c02bd65f04b34fb23a92e4ffa2ad6124cbcb775",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md",
+    "start_line": 43,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md"
+  },
+  {
+    "end_line": 60,
+    "sha256": "0437ec3c65f8560650fa850ee73b4abc2c3df8dc1310b1c5a9d8fcd1a3664dc5",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md",
+    "start_line": 53,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md"
+  },
+  {
+    "end_line": 72,
+    "sha256": "ef232294b6a241048055c7eee6345db0ee8eda4881540fe8a95c7c4d8ff2d163",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md",
+    "start_line": 61,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md"
+  },
+  {
+    "end_line": 86,
+    "sha256": "1825112aa730624b29dd55cd8adcd1dcc6fa9d6e9e56c32ff45a32ca4879e6a5",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md",
+    "start_line": 73,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md"
+  },
+  {
+    "end_line": 90,
+    "sha256": "996db9a6b9bc70d20d772df8d093af494ca5600c154f8bfa56ce464e6c373447",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md",
+    "start_line": 87,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md"
+  },
+  {
+    "end_line": 94,
+    "sha256": "1c23a11c04e31742f52cff4cd142399ed2bfb7942805aab404dad833a46b9809",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md",
+    "start_line": 91,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md"
+  },
+  {
+    "end_line": 98,
+    "sha256": "659db2f94694281331a787d74566a3070184a1146dec13bdca8305439a729d95",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md",
+    "start_line": 95,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md"
+  },
+  {
+    "end_line": 102,
+    "sha256": "c007538f152626c0df7ea09219728f2355186159079b730714a77db5766bbe44",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md",
+    "start_line": 99,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md"
+  },
+  {
+    "end_line": 106,
+    "sha256": "88ea419af85091e5dd8d3a934b9874f0fadd00e171417473012cc0d041b568b6",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md",
+    "start_line": 103,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md"
+  },
+  {
+    "end_line": 110,
+    "sha256": "b1ed3086fe16a0d83ef195373c3115821743140c31de9e6401ec94c5e72abb5c",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md",
+    "start_line": 107,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md"
+  },
+  {
+    "end_line": 115,
+    "sha256": "a380a4d24277c2e8d2061f78dc090560a3ccd794b18f9596c8efc631d226f011",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md",
+    "start_line": 111,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md"
+  },
+  {
+    "end_line": 11,
+    "sha256": "d8d0cf586b81814224a4b0cbf337d9afa4585d593e6da8889779a94ced92d86a",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/evidence/index.md",
+    "start_line": 1,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/evidence/index.md"
+  },
+  {
+    "end_line": 11,
+    "sha256": "a75c87d91521a6935f8030f44e582c63b4a5cd08c2c68f73c5aac881e016f530",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/knowledge/index.md",
+    "start_line": 1,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/knowledge/index.md"
+  },
+  {
+    "end_line": 4,
+    "sha256": "092ceac732002fa26eaada62b5f979946efcf7a8fbf84e8cd3c5995da71ae7e3",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/final-workbook-format.md",
+    "start_line": 1,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/final-workbook-format.md"
+  },
+  {
+    "end_line": 13,
+    "sha256": "dc1d92d326ef43bce989c5794e43cd8746b678e026087c49d87a6ff594da9288",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/final-workbook-format.md",
+    "start_line": 5,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/final-workbook-format.md"
+  },
+  {
+    "end_line": 28,
+    "sha256": "5bf848259551976b8242ed7c2200b2e662f095725cb617f0e5707f72af9a65be",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/final-workbook-format.md",
+    "start_line": 14,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/final-workbook-format.md"
+  },
+  {
+    "end_line": 35,
+    "sha256": "aba8b2a6827643d65239f8df1cc47e274befa37967441e16cacfc5aad84ed6c5",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/final-workbook-format.md",
+    "start_line": 29,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/final-workbook-format.md"
+  },
+  {
+    "end_line": 42,
+    "sha256": "2119b0e98a394d3978b71255140942c07d6bb2e44ca567822860933c4fdc4742",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/final-workbook-format.md",
+    "start_line": 36,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/final-workbook-format.md"
+  },
+  {
+    "end_line": 50,
+    "sha256": "b30e9195364ab7b9b8f0dc8ee05334429baedce3644db3f2a8f98c40d84c2f64",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/final-workbook-format.md",
+    "start_line": 43,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/final-workbook-format.md"
+  },
+  {
+    "end_line": 57,
+    "sha256": "518bdd7a0fcda1afae95bbb502a35e5cab248f114218eb8704299c38845750e1",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/final-workbook-format.md",
+    "start_line": 51,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/final-workbook-format.md"
+  },
+  {
+    "end_line": 66,
+    "sha256": "758d567a638336d2f151579620fd9fbbb2b0ca63107a7086e67cc7e64851094b",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/final-workbook-format.md",
+    "start_line": 58,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/final-workbook-format.md"
+  },
+  {
+    "end_line": 74,
+    "sha256": "6bb465b354a26b4db0b74d0310ee470885ce8b978e7f6ce088ae616a697d7830",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/final-workbook-format.md",
+    "start_line": 67,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/final-workbook-format.md"
+  },
+  {
+    "end_line": 8,
+    "sha256": "1cca205f3f8c2e6d039ed8a460efaef723a2e011e94c8ac8af6af76552b76918",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 1,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 25,
+    "sha256": "61a6bd77be22bc4ba1372831d6dc00cf2c174df1155848657a9d720b3f1493df",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 9,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 29,
+    "sha256": "620db729d6c5eb06e6d2c4b0caaec0a0de3d76765e1c9ca8dc5398cca70bacdd",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 26,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 35,
+    "sha256": "b56869cdb8029398c2994d743b6f48291db2a13930c983172a1a208edf6b0c27",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 30,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 46,
+    "sha256": "cd190f949c338c346babcad9693a3c867ede9f8def8c85c9fb1c3f9ddadb5ebc",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 36,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 55,
+    "sha256": "81ab44396da606e8816bc2db92c889577c15461194f048f2699e96add5012470",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 47,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 61,
+    "sha256": "1f4d8eb71e37cde381d5e50c6ed0886f1c887e77ae8fc1efc801dfa59f55ed95",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 56,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 65,
+    "sha256": "e62d0f347572877fb867e35df818dad3ab738aadae080e3a3bca2840531c2ab6",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 62,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 76,
+    "sha256": "e492f8ed8b712f06a8397372faf3a047f2641f8d1bda7847bca875b0d95a48f6",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 66,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 89,
+    "sha256": "8147d7b49fb73ba44caea61e3d10361e2fd1d88aa92133d67a80c124eba595c6",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 77,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 99,
+    "sha256": "7cf12c78fa265e9c8e46593cacfcfc383e94ffb44806071ff6cbfca624e9955d",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 90,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 119,
+    "sha256": "116484ac450986429b4424087ceff3380f376e7868c197133801f2119cdc6ae8",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 100,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 132,
+    "sha256": "7c61302d9e819ac99138d94b6371e536b670674efe3c6d510937e5d415890f1c",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 120,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 148,
+    "sha256": "ab7447dac52a9bb176be715430ada9e1c853cfed58b917fd8245bc9a69344335",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 133,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 150,
+    "sha256": "ac2fbeba5178ec22adb4a8fea1551c9622f3efaf031830253d12bfa7c8c642db",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 149,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 162,
+    "sha256": "fe5daa07112a2b5ebcf91f2ad46c569190ec094e770bc8d1fc23989e46c610ec",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 151,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 171,
+    "sha256": "1db43ea27822eea7a0e9737c125d660d257eaebb71ebfad7d0089f392b630008",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 163,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 177,
+    "sha256": "fbc0f50d254103f21d173338c355c370233137776444c18202b5f87e8eadfdb3",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 172,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 189,
+    "sha256": "b82c74ef9aaa06538a253b94d767d27a7fb7089e5353baa114cf48aa74290da5",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 178,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 213,
+    "sha256": "8970d5cf5c01c11e03b2651bbc6cddd173a11f0e1000b3dffed9a270ed61b485",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 190,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 219,
+    "sha256": "432d33feac7c4e823eb862624ec38f2074efdc52b24e6e01b3241cb0f98b8a13",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 214,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 223,
+    "sha256": "92594fb031398392e3927e569672366f37d4ebe25b70e733d7bd2491ce35795f",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 220,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 232,
+    "sha256": "8dea86a30d7eefa0a5f3bb886784692dadc9d8937f883df609a9dfbabef44494",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 224,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 242,
+    "sha256": "597b2879d2391b30e345c3f79f776be0d94872cdaf1cb2a88b42051e4a9b679d",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 233,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 261,
+    "sha256": "62666fc092acbac766f3e108585b7f30bf78e37555918a670e178f8938e2e80c",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 243,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 286,
+    "sha256": "98a994d2148bc811fda4b05ec01f06d25d783b0d4602598eb518cd7d9deadeb2",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 262,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 303,
+    "sha256": "46213363fcabff1147ebd186d7c3d1089dfd8ba6534d9811243db0675bc9df62",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 287,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 320,
+    "sha256": "05191ab03a0906c6acf7efd96620697082a86e66c072d4a6a4978278b3202135",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 304,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 328,
+    "sha256": "5ac9dd365e955481d931a3ba450416d7139114c15e7be6598e9d24e109775731",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 321,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 338,
+    "sha256": "a2d107579ff732bcf58fc62acc5a608eaf0f4fb6f73dd42efc2ba8e93f0381a2",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 329,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 346,
+    "sha256": "92fb873bbbdc8826d09dc0ba4a778a7eea22c87fbb1920b736ab70a9535740dc",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 339,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 360,
+    "sha256": "5bda35b99c5c890b030fc70385bc304c94f7d5527c476b14400845e3d96382d7",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 347,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 381,
+    "sha256": "2b9a9bd82cf543938a76a2b130eb61eefa2161e98b0a22a44d2da5f06db4d9ec",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 361,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 385,
+    "sha256": "82beb98382a76dbb81fb75f8ed02b060343559494ad60609c823c7c4dc052613",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 382,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 407,
+    "sha256": "053b72651f3d8b5333f9833d73e1d950cbd2b0c10817aae6a687905dcb0bddee",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 386,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 427,
+    "sha256": "c10bbbe7d419ddb30c85509e949646b37e7b9d7b90173f0594c5669d2f5d55e8",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 408,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 453,
+    "sha256": "b2d47aac3c8448c1d75770c9f925bf5a1cb5b2a02d4badd58657bd8a901b5993",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 428,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 477,
+    "sha256": "254d0abbe318aec55ca188813f11f8b98abd462ec8f62e87020cb2473aa752d3",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 454,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 519,
+    "sha256": "291f000bf9159c2424675307629baa893a4cda072108ac50b75f70faa5a23a1e",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 478,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 534,
+    "sha256": "2d9465a19c14e69c94745df263897fe4bc12799870f8b7922700d92e872be6c5",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 520,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 551,
+    "sha256": "50a6eb63b6b096de071ce89d0a7580bc1d61df06d06e8f73438ffa6f8edc8119",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 535,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 581,
+    "sha256": "6528b4c2f631e0cbbfb2c08ff69fb1e04690611f7ac020204be0260d5ba6ad91",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 552,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 585,
+    "sha256": "f32462aafaec4cfa83ea0c7797a7d9aa0f9599417c9dc81c056065c5211181fe",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 582,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 589,
+    "sha256": "ae97e22eb882d2fe11791914c484697009d1f5cbc5eee48fea69d0f593d7ca12",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 586,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 593,
+    "sha256": "82e92d495053054ef76b8a14e10978409f7d51d4b78a66dc0aaaac36b10bef89",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 590,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 608,
+    "sha256": "5544dac40e680015cb3ee56534165f5245343b14762d8eee4d063546e1dd9387",
+    "source": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
+    "start_line": 594,
+    "target": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md"
+  },
+  {
+    "end_line": 6,
+    "sha256": "c902cb5fc6418ffe6b3721ada3560533c57214d6d42fbc80ee6637a0d87ea6e8",
+    "source": "docs/skill-package-standard.md",
+    "start_line": 1,
+    "target": "docs/skill-package-standard.md"
+  },
+  {
+    "end_line": 12,
+    "sha256": "b52f5642630723c186bbe44ff84f116d082dff71c9eb2366ede27bd45efb4462",
+    "source": "docs/skill-package-standard.md",
+    "start_line": 7,
+    "target": "docs/skill-package-standard.md"
+  },
+  {
+    "end_line": 20,
+    "sha256": "8813a1fdf0340227188748802487045261be96848bfddbbb275e928f57cae5bf",
+    "source": "docs/skill-package-standard.md",
+    "start_line": 13,
+    "target": "docs/skill-package-standard.md"
+  },
+  {
+    "end_line": 36,
+    "sha256": "d0f3b408c0bb42b44a97b81eae848bf8eaac63751c5dac87da417b31fcd8e51e",
+    "source": "docs/skill-package-standard.md",
+    "start_line": 21,
+    "target": "docs/skill-package-standard.md"
+  },
+  {
+    "end_line": 41,
+    "sha256": "0f2926350ae575ba16c928d1e1761175e251ba9e7d3d634b818ef5d0dfb66ef5",
+    "source": "docs/skill-package-standard.md",
+    "start_line": 37,
+    "target": "docs/skill-package-standard.md"
+  }
+]
