@@ -1,0 +1,20 @@
+{
+  "capabilities": [
+    {
+      "id": "listing.sku-keywords.execute",
+      "input": "已锁定的最终关键词总工作簿及当前唯一SKU事实卡",
+      "output": "五Sheet的06及完整过程决策账本",
+      "permission": "只读接收；业务执行和输出须当次明确授权，原SOP边界保持",
+      "purpose": "只执行SKU事实终筛与原词文本质量门；不复判品类/意图或重算指标",
+      "risk": "外部工具与登录未验证；不得替代来源、扩大职责或绕过人工确认",
+      "status": "planned",
+      "type": "manual"
+    }
+  ],
+  "skill": {
+    "last_verified": null,
+    "maturity": "draft",
+    "name": "sku-usable-keyword-library",
+    "scope": "new_structure_revision_only; historical_acceptance_not_reassessed"
+  }
+}

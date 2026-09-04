@@ -93,7 +93,7 @@ class PackageTests(unittest.TestCase):
         result = self.run_dependencies('--extra-root', str(self.root / 'fake-global-skills'))
         self.assertNotEqual(result.returncode, 0)
 
-    def test_no_wrong_keyword_adapter(self):
+    def test_legacy_keyword_skill_override_rejected(self):
         result = self.run_dependencies('--keyword-skill', 'some-category-keyword-library')
         self.assertNotEqual(result.returncode, 0)
 

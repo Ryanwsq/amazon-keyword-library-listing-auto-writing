@@ -1,0 +1,254 @@
+[
+  {
+    "content": "Listing与关键词项目交接合同",
+    "id": "KB-akw-listing-interface-v1",
+    "scope": "关键词跨项目附加输入、回执与READY；不改变业务判断",
+    "source": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/keyword-handoff-contract.md",
+    "source_updated_on": "2026-09-03",
+    "updated_on": "2026-09-03",
+    "use": "关键词发送或接收前完整读取；不改变Alexa三表或SKU人口"
+  },
+  {
+    "content": "Amazon Listing 自动化总控",
+    "id": "KB-2aa94b41da34",
+    "scope": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+    "source": "dependencies/skills/orchestrate-amazon-listing-pipeline/SKILL.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "输入合同",
+    "id": "KB-7a78111719a2",
+    "scope": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+    "source": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/input-contract.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "关键词与标签落位规则",
+    "id": "KB-149bdc7b01db",
+    "scope": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+    "source": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/keyword-allocation.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "输出合同",
+    "id": "KB-05c5a5c86c0c",
+    "scope": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+    "source": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/output-contract.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "流程总图",
+    "id": "KB-9ab1267dcf44",
+    "scope": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+    "source": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/pipeline-map.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "四张来源表的保真装配",
+    "id": "KB-a5dcc2531372",
+    "scope": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+    "source": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/preserved-sheet-transfer.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "Listing撰写信息决策｜项目适配层",
+    "id": "KB-697a8a45a572",
+    "scope": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+    "source": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/project-adapter.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "质量闸门",
+    "id": "KB-6eef8b9a4fa0",
+    "scope": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+    "source": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/quality-gates.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "阶段：标题、Item Highlights与五点文案交互确认",
+    "id": "KB-fa0b283be003",
+    "scope": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+    "source": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/stage-copy-review.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "阶段：跨项目关键词生产与SKU终筛",
+    "id": "KB-906a573d2936",
+    "scope": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+    "source": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/stage-keywords.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "阶段：Listing 文案、确认与最终装配",
+    "id": "KB-e54c8f4f0ed8",
+    "scope": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+    "source": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/stage-listing-generation.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "阶段：竞品五维洞察与标签优先级",
+    "id": "KB-80d1f2e664c8",
+    "scope": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+    "source": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/stage-market-insights.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "阶段：痛点频率与口语表达",
+    "id": "KB-baa4c5d67551",
+    "scope": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+    "source": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/stage-pain-points.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "阶段：商品信息审计与参数优势",
+    "id": "KB-834bd26817d7",
+    "scope": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+    "source": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/stage-product-audit.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "阶段：信息校准与初步排布决策包",
+    "id": "KB-2a2478d8fe7e",
+    "scope": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+    "source": "dependencies/skills/orchestrate-amazon-listing-pipeline/references/stage-selling-point-decision.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "最终交付工作簿展示合同 v2",
+    "id": "KB-a95d0b03021f",
+    "scope": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+    "source": "knowledge-base/final-workbook-presentation.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "Listing 最终装配填充规则",
+    "id": "KB-786dfc35c221",
+    "scope": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+    "source": "knowledge-base/listing-final-assembly-rules.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "Amazon Listing 硬性规则知识库",
+    "id": "KB-d076e0410395",
+    "scope": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+    "source": "knowledge-base/listing-hard-rules/README.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "Amazon Premium A+ 内容硬性规则",
+    "id": "KB-03eabd4c2768",
+    "scope": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+    "source": "knowledge-base/listing-hard-rules/亚马逊A+硬性规则.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "Amazon 后台 Search Terms 硬性规则",
+    "id": "KB-8b208dc3052b",
+    "scope": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+    "source": "knowledge-base/listing-hard-rules/亚马逊ST硬性规则.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "Amazon Bullet Points（五点描述）硬性规则",
+    "id": "KB-0fe3eec4e5b7",
+    "scope": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+    "source": "knowledge-base/listing-hard-rules/亚马逊五点描述硬性规则.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "Amazon Listing 图片硬性规则",
+    "id": "KB-e09897061e3e",
+    "scope": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+    "source": "knowledge-base/listing-hard-rules/亚马逊图片硬性规则.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "Amazon 标题与 Item Highlights 硬性规则",
+    "id": "KB-068db09a2731",
+    "scope": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+    "source": "knowledge-base/listing-hard-rules/亚马逊标题硬性规则.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "Amazon Listing 软性写作规则",
+    "id": "KB-6ad3f3e7a0e8",
+    "scope": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+    "source": "knowledge-base/listing-soft-writing-rules.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "Title 与 Item Highlights 写作知识库",
+    "id": "KB-56dd49f6fde7",
+    "scope": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+    "source": "knowledge-base/listing-title-highlight-writing-rules.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "多案例驱动的核心写法迭代",
+    "id": "KB-73aadbf0624a",
+    "scope": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+    "source": "knowledge-base/listing-writing-case-learning.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "Listing 写法讨论与迭代记录",
+    "id": "KB-c205f13ff61d",
+    "scope": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+    "source": "project-control/listing-writing-iteration-log.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  }
+]

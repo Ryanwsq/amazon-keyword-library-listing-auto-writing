@@ -26,3 +26,9 @@
 ## Cross-device deployment maintenance
 
 2026-09-03根级部署增量：README及`cross-device-setup.md`登记运行时、网站账号、MCP配置和本机任务绑定要求；`.gitattributes`保留冻结文件原始字节，不因Windows换行设置变更哈希。`scripts/check_environment.py`只做本机合成预检，不新增业务规则或替代原校验。该批次所有`projects/`文件必须与合仓基线逐字节相同，发布清单只更新明确审查的根级文件；复核见`migration/cross-device-review.json`。配置就绪、结构通过、Windows换行模拟和真实Windows业务验证分别报告，不混称。
+
+## 2026-09-04德国站验证后维护
+
+用户完成德国站测试并明确要求修复后，允许在权威维护源中新增：将必填`市场选择`放在`新品基础信息`最后一列（不保留`运行配置`Sheet，也不接受`keyword_skill`输入覆盖）、US/DE派生路由、德国站Rufus固定德语问题与持续上下文例外、关键词挖掘/趋势分阶段来源优先级、核心来源并行波次、错站人工介入和告警/阻断语义，并冻结为不可变rc2。随后用户授权增加不含密码的`登录准备`Sheet和固定八Task/host会话登录门（Amazon由用户逐任务登录，SIF/卖家精灵使用本机已保存凭据），形成rc3；初始化回归补齐后形成以rc3为前序的当前候选`listing-release-candidate-20260904-rc4`。历史候选与Run不改；输入模板、依赖合同、来源清单和角色包必须同版更新。
+
+该维护只证明文档、Schema、规则包和机械回归闭合，不把2026-09-04已完成测试追认为新规则下的完整回归。外部网站真实登录、Rufus页面行为、MCP数据和业务判断仍须下一次`test-validation + full-regression`验证；`business_run=not_executed`、`P1=not_executed`，用户取消的最终QA仍不得改写为通过。

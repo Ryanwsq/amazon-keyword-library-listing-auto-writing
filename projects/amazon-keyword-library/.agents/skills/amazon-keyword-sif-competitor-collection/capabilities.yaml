@@ -7,10 +7,10 @@ capabilities:
     type: manual
     purpose: 通过长期副任务内置浏览器中的已登录SIF官网，首选执行直接竞品最近30天查询和完整官方导出
     status: planned
-    input: 站点、主任务筛选后的获准ASIN、原始/入选/排除ASIN及产品类型映射、最近30天口径、300条上限和浏览器证据目录
+    input: Amazon-US或Amazon-DE锁、匹配的提供商站点参数、输入表中的非敏感账户别名/凭据引用/登录方式、本Task/host对应keyword:sif-collector:sif的会话回执、获准ASIN、最近30天口径、300条上限和证据目录
     output: 登录/查询条件、页面或导出原始证据、结果顺序、七列业务字段、ASIN选择人口、数量闭环和入口状态
     permission: approved-read
-    risk: 查询前必须验证登录；未登录只回传主任务awaiting_login并暂停，不得直接发问或切MCP；原始ASIN超过5个时每类只取输入顺序首个有效ASIN；不得改变查询、字段或已锁定ASIN
+    risk: 查询前必须验证登录与站点一致；未登录只回传awaiting_login，站点不符回传marketplace_mismatch并等待用户介入；不得直接发问、切US或擅自切MCP
   - id: keyword.source.sif.persist-and-verify
     type: manual
     purpose: 在解析前保存每次SIF完整响应，再装配七列关键词明细和核心词候选摘要

@@ -1,0 +1,132 @@
+{
+  "P1": "not_executed",
+  "business_rule_owner": "original_skill_and_references",
+  "discovery_roots": [
+    ".agents/skills"
+  ],
+  "external_runtime": {
+    "Alexa_authentication": "not_checked",
+    "Amazon_keyword_main": "external_independent_task",
+    "spreadsheets": "not_checked"
+  },
+  "files": [
+    {
+      "path": ".agents/skills/sku-usable-keyword-library/Agent.md",
+      "sha256": "472267f0734d00de72c5cdd5f66f2db8949a627e7efa6f1a502b27449227c6d6"
+    },
+    {
+      "path": ".agents/skills/sku-usable-keyword-library/SKILL.md",
+      "sha256": "31ba1d505a99562af051b08da6402e6aa73355de786753f977dcaef869159a66"
+    },
+    {
+      "path": ".agents/skills/sku-usable-keyword-library/capabilities.yaml",
+      "sha256": "98a70122b9999fa4f6510937315e671056bbda6d9549b440a26889957ef7dca1"
+    },
+    {
+      "path": ".agents/skills/sku-usable-keyword-library/evidence/cases.json",
+      "sha256": "8e02c62b042ccd21b93d9e8cba70379eedee006cd2651637dd13284d496a5ce5"
+    },
+    {
+      "path": ".agents/skills/sku-usable-keyword-library/evidence/index.md",
+      "sha256": "61c947d3ca9745b00c6dd76799cb2a40fbc6c85f6ecd98f2401f178701e72e7f"
+    },
+    {
+      "path": ".agents/skills/sku-usable-keyword-library/knowledge/catalog.json",
+      "sha256": "92c8d54ea7d60426a9229cd0af17b0a5974b89a11389931138687936bb0ec203"
+    },
+    {
+      "path": ".agents/skills/sku-usable-keyword-library/knowledge/index.md",
+      "sha256": "21aec31759504bbac66a9abc5d77c6f9cac168e32adbea4a6f0ea28a08875457"
+    },
+    {
+      "path": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md",
+      "sha256": "92fce8debf786c3874f4876ed11c7b4827034efe24dbcdbaff2203b0a3328bf0"
+    },
+    {
+      "path": ".agents/skills/sku-usable-keyword-library/references/reference-provenance.md",
+      "sha256": "6c6fa7ac10e35c1f73552c74c5e4a5e56e2e08147f0461de9a75c8449531f8be"
+    },
+    {
+      "path": ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md",
+      "sha256": "baba69c2e1a1fcdf778ed9ea22664c3db41f467c930fb792c9b4ee87ff74908e"
+    },
+    {
+      "path": ".agents/skills/sku-usable-keyword-library/scripts/classification_compat.py",
+      "sha256": "37148719bd64ed513084a25bcb1554131dfdc6bfaf1936828ab2adacc9c1c8f3"
+    },
+    {
+      "path": ".agents/skills/sku-usable-keyword-library/scripts/test_classification_compat.py",
+      "sha256": "760eaa74efa78ec3902e898e49bfa57deca3f43f0cdd7a6e4ab4733789dbaa9b"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "853d410d51f911dab629b524fbb6ef5790eb990f5b0a9db300c973f03e9a7e7c"
+    },
+    {
+      "path": "Agent.md",
+      "sha256": "1dd72b57232b12538128afcb78608ac3d6c9276066cec67565f6b49f7995f412"
+    },
+    {
+      "path": "LOAD_ORDER.md",
+      "sha256": "9da9181d02d25a06189f1a0f95f837075a161a06a21a721d70b92eb47c987cf1"
+    },
+    {
+      "path": "PUBLICATION.md",
+      "sha256": "0a8e0cf03ff515060e35141668da325dad7e102b9ef826664b528883f9ade520"
+    },
+    {
+      "path": "contracts/dispatch-and-loading.md",
+      "sha256": "97773bf80ca66c00f017e0618c84f3617ec99a07c0730b33103d0ad1b0bd315f"
+    },
+    {
+      "path": "docs/skill-package-standard.md",
+      "sha256": "c783e8fa85352b6c2e3f742510b4dc79b122101b2c410acd207f799b15c965fa"
+    },
+    {
+      "path": "evidence/index.md",
+      "sha256": "c57b06e4d7b10e77c3aeb988cd16a57169d7d315444a1a47e0f9419d6fd8fb37"
+    },
+    {
+      "path": "knowledge-base/index.md",
+      "sha256": "939f128ea8816077d72176bf1d363baa1b1b7727e7545715194226a9589d5725"
+    },
+    {
+      "path": "rules/index.md",
+      "sha256": "7b8dcc6eaa66b8f62ee4d5e8ec36e9f74e850b8fa4a3cf9c034362e83e1df62c"
+    },
+    {
+      "path": "rules/rule-map.json",
+      "sha256": "d078d597807832bd8b46e9f81c5d3e175c61b24855bb885353a11ac0fff73bc4"
+    },
+    {
+      "path": "scripts/validate_skill_packages.py",
+      "sha256": "4969534ba03d59094247575c43772ff27b93e25c66957eaa565b48874b27618c"
+    }
+  ],
+  "schema_version": 2,
+  "scope": "local_structure_and_file_dependencies",
+  "skills": [
+    {
+      "mode": "executable",
+      "name": "sku-usable-keyword-library",
+      "path": ".agents/skills/sku-usable-keyword-library",
+      "required_files": [
+        ".agents/skills/sku-usable-keyword-library/Agent.md",
+        ".agents/skills/sku-usable-keyword-library/SKILL.md",
+        ".agents/skills/sku-usable-keyword-library/capabilities.yaml",
+        ".agents/skills/sku-usable-keyword-library/evidence/cases.json",
+        ".agents/skills/sku-usable-keyword-library/evidence/index.md",
+        ".agents/skills/sku-usable-keyword-library/knowledge/catalog.json",
+        ".agents/skills/sku-usable-keyword-library/knowledge/index.md",
+        ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md",
+        ".agents/skills/sku-usable-keyword-library/references/reference-provenance.md",
+        ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md",
+        ".agents/skills/sku-usable-keyword-library/scripts/classification_compat.py",
+        ".agents/skills/sku-usable-keyword-library/scripts/test_classification_compat.py"
+      ],
+      "role": "sku-keywords"
+    }
+  ],
+  "static_dependencies": [],
+  "version": "listing-release-candidate-20260904-rc2"
+}

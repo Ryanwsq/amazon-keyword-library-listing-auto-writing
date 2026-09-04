@@ -1,50 +1,50 @@
 {
   "P1": "not_executed",
-  "business_rules_changed": false,
+  "business_rules_changed": true,
   "business_run": "not_executed",
-  "candidate_version": "listing-release-candidate-20260903-rc1",
-  "maintenance_id": "AKW-LISTING-MERGE-PREP-20260903-01",
-  "source_registry_sha256": "d89c97fd88ec23b1d0a1ff82add26cf4af36bafa63ea067d730996a6a59b7994",
-  "source_version": "listing-task-packages-20260903-v3",
+  "candidate_version": "listing-release-candidate-20260904-rc4",
+  "maintenance_id": "AKW-TASK-SESSION-LOGIN-20260904-02",
+  "source_registry_sha256": "9351703206b6b0128598a7f76dc343e4fc45c65aa2c84f046994ceb40045c0bb",
+  "source_version": "listing-release-candidate-20260903-rc1",
   "sources": [
     {
-      "bytes": 1304,
+      "bytes": 1402,
       "candidate_path": ".agents/skills/alexa-painpoint-frequency/Agent.md",
-      "candidate_sha256": "633faed232ada63609f018ed9d06cdcd5eb96e8abd054e2e28b688405729e0e5",
+      "candidate_sha256": "24cb59fd328cde8e919cc73cfa7aed90a136f53442478de6d6ec6415398e0c3a",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_task_session_login_maintenance",
       "path": ".agents/skills/alexa-painpoint-frequency/Agent.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
       "sha256": "633faed232ada63609f018ed9d06cdcd5eb96e8abd054e2e28b688405729e0e5"
     },
     {
-      "bytes": 10212,
+      "bytes": 13835,
       "candidate_path": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
-      "candidate_sha256": "b467f09c4d86920c6fb7191854fdb6d889d3600c0ec384ea09749e4bed71e59c",
+      "candidate_sha256": "45844fd30f470e71efd48505c02b1eaba120348398d8c0850a7276ab46d851d8",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_task_session_login_maintenance",
       "path": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
       "sha256": "b467f09c4d86920c6fb7191854fdb6d889d3600c0ec384ea09749e4bed71e59c"
     },
     {
-      "bytes": 268,
+      "bytes": 386,
       "candidate_path": ".agents/skills/alexa-painpoint-frequency/agents/openai.yaml",
-      "candidate_sha256": "b71d0495354f81bca83224a006637f3a491f82d4cf865870c14635987eb3e2dc",
+      "candidate_sha256": "71bbd0ca627f63e9eb01c6b22a1726420de343ef0615aa020b5b6bf61cf9a645",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": ".agents/skills/alexa-painpoint-frequency/agents/openai.yaml",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "b71d0495354f81bca83224a006637f3a491f82d4cf865870c14635987eb3e2dc"
     },
     {
-      "bytes": 749,
+      "bytes": 890,
       "candidate_path": ".agents/skills/alexa-painpoint-frequency/capabilities.yaml",
-      "candidate_sha256": "af814406946dc3e13e5b49ad032e3cd4e5a04e48320e8f2a36f97efe2033531b",
+      "candidate_sha256": "7e9cb2deaba94b2a34b5a5efab753b146a3c83a21410f4b97afb90cecd971785",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_task_session_login_maintenance",
       "path": ".agents/skills/alexa-painpoint-frequency/capabilities.yaml",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
       "sha256": "af814406946dc3e13e5b49ad032e3cd4e5a04e48320e8f2a36f97efe2033531b"
     },
     {
@@ -54,7 +54,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/alexa-painpoint-frequency/evidence/cases.json",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "0b405daa255967b7be77d39c69b07c8164a3c8c5b6b7d7ee67ca63c63bc814fe"
     },
     {
@@ -64,7 +64,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/alexa-painpoint-frequency/evidence/index.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "7c532400bcd085137daaf917e1f0b1c448a9aeb2d25ff5cff5969f21529ac6d7"
     },
     {
@@ -74,7 +74,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/alexa-painpoint-frequency/knowledge/catalog.json",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "fd12bcdab8aa84129f929fdaa6e94fee46d6a0ca42052d8fc23868c4b5ff2e8b"
     },
     {
@@ -84,47 +84,47 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/alexa-painpoint-frequency/knowledge/index.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "8cb76b7d8a0707fa98bd5ede3e1a4490193edeaebc4c0df792701544ddbcf8cd"
     },
     {
-      "bytes": 1342,
+      "bytes": 1444,
       "candidate_path": ".agents/skills/alexa-painpoint-phrasing/Agent.md",
-      "candidate_sha256": "f79c65a1f47ed454c92de0b4f1ba4248147ebb1ef646d4787e81159502e58437",
+      "candidate_sha256": "e3f67bf798ed584dd17c5bfdf429ab37006b3ea8c3bfa8460b5028168b16f8ba",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_task_session_login_maintenance",
       "path": ".agents/skills/alexa-painpoint-phrasing/Agent.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
       "sha256": "f79c65a1f47ed454c92de0b4f1ba4248147ebb1ef646d4787e81159502e58437"
     },
     {
-      "bytes": 8706,
+      "bytes": 10560,
       "candidate_path": ".agents/skills/alexa-painpoint-phrasing/SKILL.md",
-      "candidate_sha256": "6b2200e790b9a753b15b871004f57b73bbac4f3bdd0737b365ae214944d63c65",
+      "candidate_sha256": "15149f9ea4db7bd788b705c1bc635197b41a0e6386a7e19b6bd582f0df7eb902",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_task_session_login_maintenance",
       "path": ".agents/skills/alexa-painpoint-phrasing/SKILL.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
       "sha256": "6b2200e790b9a753b15b871004f57b73bbac4f3bdd0737b365ae214944d63c65"
     },
     {
-      "bytes": 289,
+      "bytes": 374,
       "candidate_path": ".agents/skills/alexa-painpoint-phrasing/agents/openai.yaml",
-      "candidate_sha256": "7b98e3cc40b0bb172dc4b42871418b4b04ae956b3ca8e75ecf241ac80d1f85e0",
+      "candidate_sha256": "d5b12683aae245fdfcca3bf7e3b9294a245d514a25e40fd13e053794f26ea68f",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": ".agents/skills/alexa-painpoint-phrasing/agents/openai.yaml",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "7b98e3cc40b0bb172dc4b42871418b4b04ae956b3ca8e75ecf241ac80d1f85e0"
     },
     {
-      "bytes": 787,
+      "bytes": 926,
       "candidate_path": ".agents/skills/alexa-painpoint-phrasing/capabilities.yaml",
-      "candidate_sha256": "0a55877ae40129392fd60891c47a9540b868d33499207e3a5fb3cc1987d6a78c",
+      "candidate_sha256": "10fc7df652138b01e6075cc457e6612014f826ba128784e34b1cf6b5d4248b59",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_task_session_login_maintenance",
       "path": ".agents/skills/alexa-painpoint-phrasing/capabilities.yaml",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
       "sha256": "0a55877ae40129392fd60891c47a9540b868d33499207e3a5fb3cc1987d6a78c"
     },
     {
@@ -134,7 +134,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/alexa-painpoint-phrasing/evidence/cases.json",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "832a02233a31d0c1020901cff9a18221e3465aa4e08a595077f5c532b5ae479c"
     },
     {
@@ -144,7 +144,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/alexa-painpoint-phrasing/evidence/index.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "749b6b23ffa1fa255d1632bab21fda9ec4a34b0aba8ed22abff63615f7ef8c8a"
     },
     {
@@ -154,7 +154,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/alexa-painpoint-phrasing/knowledge/catalog.json",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "0ee91ce1fd36e3d6163f29db9931b89d3a2bba40d8063793c44b8671cc76747a"
     },
     {
@@ -164,47 +164,47 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/alexa-painpoint-phrasing/knowledge/index.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "221083ea069d59726f747b4d513f8e8dac86b9fa2dd09532c72f3897c34ad076"
     },
     {
-      "bytes": 1383,
+      "bytes": 1420,
       "candidate_path": ".agents/skills/apply-amazon-listing-hard-rules/Agent.md",
-      "candidate_sha256": "0990d298ad1bff7d3a2d7e5d8c21993d4138a86dfd7856802f827d7218fef6d6",
+      "candidate_sha256": "364e7e4e65e8ffabca59e6c2c5e2db67dbdae8b6ecce72bdb68513aff9d61df9",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": ".agents/skills/apply-amazon-listing-hard-rules/Agent.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "0990d298ad1bff7d3a2d7e5d8c21993d4138a86dfd7856802f827d7218fef6d6"
     },
     {
-      "bytes": 8161,
+      "bytes": 8374,
       "candidate_path": ".agents/skills/apply-amazon-listing-hard-rules/SKILL.md",
-      "candidate_sha256": "66e034526e9f4112e346736ab84c55f4fb673d1263535dcaa175510d33458425",
+      "candidate_sha256": "5126fd3ab5fdc0ce0800d9d830fe353411ec93d720d8044b7154503561191380",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": ".agents/skills/apply-amazon-listing-hard-rules/SKILL.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "66e034526e9f4112e346736ab84c55f4fb673d1263535dcaa175510d33458425"
     },
     {
-      "bytes": 322,
+      "bytes": 396,
       "candidate_path": ".agents/skills/apply-amazon-listing-hard-rules/agents/openai.yaml",
-      "candidate_sha256": "c57730e95f50ddb17a837a43a8e581d4f6d25bf2d7fcf5da9923307273f5e68c",
+      "candidate_sha256": "fc12d9d93589f794aea534954cf9a91635e15e3457fe58d7a6cee5dd43745785",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": ".agents/skills/apply-amazon-listing-hard-rules/agents/openai.yaml",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "c57730e95f50ddb17a837a43a8e581d4f6d25bf2d7fcf5da9923307273f5e68c"
     },
     {
-      "bytes": 828,
+      "bytes": 920,
       "candidate_path": ".agents/skills/apply-amazon-listing-hard-rules/capabilities.yaml",
-      "candidate_sha256": "8d9f4bc98c399bcb5e875617e4651489b01f472188ca7ffcdb3b3776e9740647",
+      "candidate_sha256": "2f86f758a786810004631a9d828e7d89492ca74da345dfd50b5997306afc8a75",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": ".agents/skills/apply-amazon-listing-hard-rules/capabilities.yaml",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "8d9f4bc98c399bcb5e875617e4651489b01f472188ca7ffcdb3b3776e9740647"
     },
     {
@@ -214,7 +214,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/apply-amazon-listing-hard-rules/evidence/cases.json",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "6086a359d4311417f6f955915362be8d7b46f6c03d7cdfbbe42d6cdb39cf53d9"
     },
     {
@@ -224,7 +224,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/apply-amazon-listing-hard-rules/evidence/index.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "93b15bd8381e5bb554601ed9d33e70ab3fa3c13ce7f74a554a09b1899ae7b89d"
     },
     {
@@ -234,7 +234,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/apply-amazon-listing-hard-rules/knowledge/catalog.json",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "f6a41918834160ee441b16d3f04e53dedc27d40234a7214bbfadc1f88b675f61"
     },
     {
@@ -244,47 +244,47 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/apply-amazon-listing-hard-rules/knowledge/index.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "d4fa793ff0b48a4113bd4f4984263b03102a274562104134f4995b8ef1333dc4"
     },
     {
-      "bytes": 6016,
+      "bytes": 6081,
       "candidate_path": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊A+硬性规则.md",
-      "candidate_sha256": "5563d10257b78e5b882e111eff530fcc2f8c795db7511ac7e3204585817be290",
+      "candidate_sha256": "559abfe5fce3a00064ab0dc756ca514f33ba71db35b89e988e94c5d2687f48e6",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊A+硬性规则.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "5563d10257b78e5b882e111eff530fcc2f8c795db7511ac7e3204585817be290"
     },
     {
-      "bytes": 2334,
+      "bytes": 2539,
       "candidate_path": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊ST硬性规则.md",
-      "candidate_sha256": "9da4dab692df763c7f029e43572ecc95dbe5869faa447e226a553198c7ee36ac",
+      "candidate_sha256": "349e100bac3b89af6a29b7feb5cd7bcce442e8c4f42df5ad7685ff029cdab8f9",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊ST硬性规则.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "9da4dab692df763c7f029e43572ecc95dbe5869faa447e226a553198c7ee36ac"
     },
     {
-      "bytes": 4652,
+      "bytes": 4687,
       "candidate_path": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊五点描述硬性规则.md",
-      "candidate_sha256": "32a32f14d1eb3f9f31d0e9b801dbf15ed9814ce2e384eaeaad47a5c116cce385",
+      "candidate_sha256": "4be7a940d4d9860d433766cd6a680453712714d4725263f49a3d1ea6077e120a",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊五点描述硬性规则.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "32a32f14d1eb3f9f31d0e9b801dbf15ed9814ce2e384eaeaad47a5c116cce385"
     },
     {
-      "bytes": 6034,
+      "bytes": 6094,
       "candidate_path": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊图片硬性规则.md",
-      "candidate_sha256": "fdb239ea0af10d369ce35b8ec58af4876a9f2fae9220a91b0d2ca8e2ad2e2f82",
+      "candidate_sha256": "a0623d2f09c674dbce334e0f9d5022b0cca4af30082bb42db808f994a3bee484",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊图片硬性规则.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "fdb239ea0af10d369ce35b8ec58af4876a9f2fae9220a91b0d2ca8e2ad2e2f82"
     },
     {
@@ -294,47 +294,47 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊标题硬性规则.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "91fba1818a01cbf64f38fd1e3cec8b2aceb884f14422867e75a4a012d0ba8be4"
     },
     {
-      "bytes": 1369,
+      "bytes": 1466,
       "candidate_path": ".agents/skills/audit-alexa-shopping-product-info/Agent.md",
-      "candidate_sha256": "7ae5ac39ddfa68ed452542ae1178c33b25ca775abbbc0dbbd0d0a7272f277ccc",
+      "candidate_sha256": "de2f2423ef838306599a4d22f6e8265e36172f9c2c9a7e1dfcc572fba97281ca",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_task_session_login_maintenance",
       "path": ".agents/skills/audit-alexa-shopping-product-info/Agent.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
       "sha256": "7ae5ac39ddfa68ed452542ae1178c33b25ca775abbbc0dbbd0d0a7272f277ccc"
     },
     {
-      "bytes": 9787,
+      "bytes": 10511,
       "candidate_path": ".agents/skills/audit-alexa-shopping-product-info/SKILL.md",
-      "candidate_sha256": "0afbd9d42c871617709feb6e4b1b0821056f8d0157a1ddd4b875beaa1562a919",
+      "candidate_sha256": "2254067ab118388c5058a0b338cbcd0d3ca87e85417716c81c350177ef75fcfc",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_task_session_login_maintenance",
       "path": ".agents/skills/audit-alexa-shopping-product-info/SKILL.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
       "sha256": "0afbd9d42c871617709feb6e4b1b0821056f8d0157a1ddd4b875beaa1562a919"
     },
     {
-      "bytes": 340,
+      "bytes": 429,
       "candidate_path": ".agents/skills/audit-alexa-shopping-product-info/agents/openai.yaml",
-      "candidate_sha256": "0f12d39bc6491e4ff619a760a2a70c92e63e6ce1cfdf74b4d623a06de77b3838",
+      "candidate_sha256": "c3c223b3301e28dbe6bc518f7beed264240b0deb2d6ab45f0d054441a3dc67f8",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": ".agents/skills/audit-alexa-shopping-product-info/agents/openai.yaml",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "0f12d39bc6491e4ff619a760a2a70c92e63e6ce1cfdf74b4d623a06de77b3838"
     },
     {
-      "bytes": 814,
+      "bytes": 954,
       "candidate_path": ".agents/skills/audit-alexa-shopping-product-info/capabilities.yaml",
-      "candidate_sha256": "add18847f160fa6a77acc8305f53c44a9c9458447f8c1d6782d2242b6accbb7b",
+      "candidate_sha256": "47f72d8777ea664a013f25c1c6ee88d7e70adba65b6759086ff5ed244b71d5e8",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_task_session_login_maintenance",
       "path": ".agents/skills/audit-alexa-shopping-product-info/capabilities.yaml",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
       "sha256": "add18847f160fa6a77acc8305f53c44a9c9458447f8c1d6782d2242b6accbb7b"
     },
     {
@@ -344,7 +344,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/audit-alexa-shopping-product-info/evidence/cases.json",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "8b736dd1d72fffbde18938a81fe964a9174a9f45d8ba054835b785db5529e33c"
     },
     {
@@ -354,7 +354,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/audit-alexa-shopping-product-info/evidence/index.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "624cb5a22c3e8e327813b20d22008d561dfe766500b4ef7a5a39d69cfc60364a"
     },
     {
@@ -364,7 +364,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/audit-alexa-shopping-product-info/knowledge/catalog.json",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "ae8e869320d6bf8dd4e25c0ee563f47bc7b235fd0b5e2b5578c2fcd8c99b2f3a"
     },
     {
@@ -374,57 +374,57 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/audit-alexa-shopping-product-info/knowledge/index.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "19e1eced77cc2d04c9b6c74f04688c583e9f7742ccdbee5c9f8916adb7f71936"
     },
     {
-      "bytes": 33601,
+      "bytes": 35368,
       "candidate_path": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
-      "candidate_sha256": "60cfd053e5845d0de3c3da40f4a936a90787cfc92f2def15ab1baf0a541091ac",
+      "candidate_sha256": "577917cbf678477cf9722a3126be3fb011dfdacfb5411827083e6398dcb6e770",
       "classification": "imported",
-      "operation": "redacted_device_path_or_example_identity_only",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
-      "sha256": "91cc0de3af9d92da6fa0c4ff921dd47063b9e0bf50378654ea8951ec415ca44d"
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
+      "sha256": "60cfd053e5845d0de3c3da40f4a936a90787cfc92f2def15ab1baf0a541091ac"
     },
     {
-      "bytes": 1326,
+      "bytes": 1415,
       "candidate_path": ".agents/skills/extract-amazon-product-insights/Agent.md",
-      "candidate_sha256": "f5e65329bcfeb27aed151ac1da91ff955f40651951dd1171f94d600b5cde132b",
+      "candidate_sha256": "e1a05fe7c252c2b818c62c775d07f6fc37d0e1f0a69d458600c62b7d7e928789",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_task_session_login_maintenance",
       "path": ".agents/skills/extract-amazon-product-insights/Agent.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
       "sha256": "f5e65329bcfeb27aed151ac1da91ff955f40651951dd1171f94d600b5cde132b"
     },
     {
-      "bytes": 7829,
+      "bytes": 8689,
       "candidate_path": ".agents/skills/extract-amazon-product-insights/SKILL.md",
-      "candidate_sha256": "4d00e4a610fcab26f64241c2599f5130cc1435fe4d6d610d1d1703f621c18c15",
+      "candidate_sha256": "dd405b9c2976154d16d288816fdbe6fd1dd1ec3d29cc8bc068c8159bb475777a",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_task_session_login_maintenance",
       "path": ".agents/skills/extract-amazon-product-insights/SKILL.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
       "sha256": "4d00e4a610fcab26f64241c2599f5130cc1435fe4d6d610d1d1703f621c18c15"
     },
     {
-      "bytes": 375,
+      "bytes": 435,
       "candidate_path": ".agents/skills/extract-amazon-product-insights/agents/openai.yaml",
-      "candidate_sha256": "f4e828e7d576204cc6fbeaf4ac6e7ef70b331f67df2a263142a278e1c9267062",
+      "candidate_sha256": "d8c129bae840d36ba5dc5e459de69e951584ccbed3380793f0378953b9d63fac",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": ".agents/skills/extract-amazon-product-insights/agents/openai.yaml",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "f4e828e7d576204cc6fbeaf4ac6e7ef70b331f67df2a263142a278e1c9267062"
     },
     {
-      "bytes": 771,
+      "bytes": 903,
       "candidate_path": ".agents/skills/extract-amazon-product-insights/capabilities.yaml",
-      "candidate_sha256": "39cd48b290632f08fbb331c2bb2efe9db83676cc5a8527192e6845a7925b70fa",
+      "candidate_sha256": "c9e2dec99e3b2d4c79191305ce54fe7c7e0c94888e2345e71eb49cfd9e9f2c34",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_task_session_login_maintenance",
       "path": ".agents/skills/extract-amazon-product-insights/capabilities.yaml",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
       "sha256": "39cd48b290632f08fbb331c2bb2efe9db83676cc5a8527192e6845a7925b70fa"
     },
     {
@@ -434,7 +434,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/extract-amazon-product-insights/evidence/cases.json",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "42e2c91d264ed63b974db9a3111ea0b0920a72c42d746fb7050aadc3b0fa7097"
     },
     {
@@ -444,7 +444,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/extract-amazon-product-insights/evidence/index.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "b26bee57abedabe7c4205e0279f846c8721497e2516e28f769b0e6818faad93d"
     },
     {
@@ -454,7 +454,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/extract-amazon-product-insights/knowledge/catalog.json",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "e52e354f9c39a8398226e3c0e0d43a88c85f64dbf151cfc689dfc4aac74e3019"
     },
     {
@@ -464,67 +464,67 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/extract-amazon-product-insights/knowledge/index.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "c51b1afbe992c1f1b389e718dfa89575c7c9f4da375cbcf5621793e6bc7a7faf"
     },
     {
-      "bytes": 12667,
+      "bytes": 13876,
       "candidate_path": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
-      "candidate_sha256": "fb3826515ee9e7bf86d895ca2632c2d62a548b13b8dfbde790ade365f52ca2ad",
+      "candidate_sha256": "8133e702e24759e5f2e8b604935a25b741744a14ebb2fe2503879ca74b4ff342",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": ".agents/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "fb3826515ee9e7bf86d895ca2632c2d62a548b13b8dfbde790ade365f52ca2ad"
     },
     {
-      "bytes": 1353,
+      "bytes": 1536,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/Agent.md",
-      "candidate_sha256": "ddf7c46bef56b76ae644a26a71fa0051c74a277e6bd3e6579ea4cf6373ca8452",
+      "candidate_sha256": "b983397ff6c2ba59912a880afe87f6bf26d45e97c65b36e887a34e3376886d16",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_task_session_login_maintenance",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/Agent.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
       "sha256": "ddf7c46bef56b76ae644a26a71fa0051c74a277e6bd3e6579ea4cf6373ca8452"
     },
     {
-      "bytes": 11030,
+      "bytes": 12042,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/SKILL.md",
-      "candidate_sha256": "172dcff1787398e4e0fcb153642ea986849d74a3cafe1b67702ac4db13f8e1a4",
+      "candidate_sha256": "82c41ad242d9718ca79d48db63e16912065fb7694bd6d003c7dd18b012ac3862",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_task_session_login_maintenance",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/SKILL.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
       "sha256": "172dcff1787398e4e0fcb153642ea986849d74a3cafe1b67702ac4db13f8e1a4"
     },
     {
-      "bytes": 334,
+      "bytes": 412,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/agents/openai.yaml",
-      "candidate_sha256": "81267e76340f935510ce6ea85c3901d3d2a1a14619001057da4da8e275b2db11",
+      "candidate_sha256": "1d794e33eddce9b1d0e1db95995d47f7de39ea26c1ec29174a4b0b2e44c5e638",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/agents/openai.yaml",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "81267e76340f935510ce6ea85c3901d3d2a1a14619001057da4da8e275b2db11"
     },
     {
-      "bytes": 14963,
+      "bytes": 15100,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/assets/amazon-listing-pipeline-input-template.xlsx",
-      "candidate_sha256": "0e12595f07375c3fb601cd5c5c9c760579ebfa5ff3643842107946eefb60ed1b",
+      "candidate_sha256": "8c616373a93d3de95b72f920f46271b0c80ac4ba940f4783c166df5c123c567e",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_task_session_login_maintenance",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/assets/amazon-listing-pipeline-input-template.xlsx",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
       "sha256": "0e12595f07375c3fb601cd5c5c9c760579ebfa5ff3643842107946eefb60ed1b"
     },
     {
-      "bytes": 798,
+      "bytes": 938,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/capabilities.yaml",
-      "candidate_sha256": "de6ac0e6742f6bacdfab0c11ae336033368f3a7345f7147bb13105e1041bd08a",
+      "candidate_sha256": "67271e049f5c939c27dfe376d34e8613b3f6716aba990c875d64efd3d7c9bedb",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_task_session_login_maintenance",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/capabilities.yaml",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
       "sha256": "de6ac0e6742f6bacdfab0c11ae336033368f3a7345f7147bb13105e1041bd08a"
     },
     {
@@ -534,7 +534,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/evidence/cases.json",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "d3de833852f4c100742e647773e202419ab856ac232f2824285a5a5a6c0e6595"
     },
     {
@@ -544,7 +544,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/evidence/index.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "2b0a679a9f41a0a98845ccd30d0ad3fa29f491657e5c3bc8cc74d884271272d8"
     },
     {
@@ -554,7 +554,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/knowledge/catalog.json",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "fe0e1354791593654d0ba83e04d1f948f2d4cf2b82ec062fa6b6917c5ef57ebe"
     },
     {
@@ -564,38 +564,48 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/knowledge/index.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "e0fb691fb61dc37046ad54226d422f8b2ed8f6a2ac29257d431b0485a87dc7a7"
     },
     {
-      "bytes": 5512,
+      "bytes": 7199,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/input-contract.md",
-      "candidate_sha256": "716f56f90a00c399830dcca70e4915e0f8fa2993c6059334d592c4fb6d0ee402",
+      "candidate_sha256": "0a18ff5f5e5cf009aecc55dee91f00a367baa6b1f677e0cf187d59b04ee4f9e4",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_task_session_login_maintenance",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/input-contract.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
       "sha256": "716f56f90a00c399830dcca70e4915e0f8fa2993c6059334d592c4fb6d0ee402"
     },
     {
-      "bytes": 6952,
+      "bytes": 7024,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/keyword-allocation.md",
-      "candidate_sha256": "02c42670fde9d1950726b8f56b983b230f1beda8f0dac42fda0c6c1b61f07952",
+      "candidate_sha256": "78c9fa837d38853535d9a0085f3a9ecfbeac74b1387d5db6a4260adb59e1ab60",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/keyword-allocation.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "02c42670fde9d1950726b8f56b983b230f1beda8f0dac42fda0c6c1b61f07952"
     },
     {
-      "bytes": 7863,
+      "bytes": 8025,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/keyword-handoff-contract.md",
-      "candidate_sha256": "ec81712e0430def4d8202fced192efe3316d6eeadd0e5599f0b9f59aa4d746aa",
+      "candidate_sha256": "fddaf22cd9122710ec7d1db00483bc4a75322b6fbf87430dcbdcd2a1b33b225a",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/keyword-handoff-contract.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "ec81712e0430def4d8202fced192efe3316d6eeadd0e5599f0b9f59aa4d746aa"
+    },
+    {
+      "bytes": 4299,
+      "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/login-session-contract.md",
+      "candidate_sha256": "e1cdd40319e8734f5408e6d572f1ae99ef4cc58968c73d5f8c388060a80e91bc",
+      "classification": "imported",
+      "operation": "authorized_20260904_task_session_login_maintenance",
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/login-session-contract.md",
+      "reason": "Authorized new task-session login contract or regression coverage",
+      "sha256": "e1cdd40319e8734f5408e6d572f1ae99ef4cc58968c73d5f8c388060a80e91bc"
     },
     {
       "bytes": 6117,
@@ -604,17 +614,17 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/output-contract.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "e48071b07502967f5073054506cc921f9e25657a0b0a022d949b907e74a07924"
     },
     {
-      "bytes": 6028,
+      "bytes": 6608,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/pipeline-map.md",
-      "candidate_sha256": "ed03ae9fc4326e4fe22f56f00b1430f37cc7e3704ce315fee5e441b007ce0a38",
+      "candidate_sha256": "0734ce8faefa16f61c5400c8e75dbddb3dc2159ada64c5b7efa7cecffc915bb7",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_task_session_login_maintenance",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/pipeline-map.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
       "sha256": "ed03ae9fc4326e4fe22f56f00b1430f37cc7e3704ce315fee5e441b007ce0a38"
     },
     {
@@ -624,7 +634,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/preserved-sheet-transfer.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "36704362b87b6b86527e684bca23820e61a7997582e3b035b8f5bf35f28421b9"
     },
     {
@@ -634,17 +644,17 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/project-adapter.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "44d772d467bf3803579a4dde6b27823357d1b9ab9d5c9821b2493dd7625f1922"
     },
     {
-      "bytes": 7151,
+      "bytes": 7568,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/quality-gates.md",
-      "candidate_sha256": "b32c39521871568cbb021f01153c6f3573f92250f1fd4a7120046b6a8a56c0fa",
+      "candidate_sha256": "90a7817665157e45112a3f19578cddf38df48712aba5a5f2569b27304f10d9d4",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/quality-gates.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "b32c39521871568cbb021f01153c6f3573f92250f1fd4a7120046b6a8a56c0fa"
     },
     {
@@ -654,7 +664,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-copy-review.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "60efbd303b17203e45f60cba16ad6a5be66e79b327f6cf626b3e67f1654b45d9"
     },
     {
@@ -664,7 +674,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-keywords.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "ef00f690ccdf3d72f7454418b20cfacbed3bcb37941d22789fbf09fc822084e1"
     },
     {
@@ -674,7 +684,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-listing-generation.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "8377506344e54f806a975e4676e7802b038842de79c9dffcd92d6e1e898e7637"
     },
     {
@@ -684,17 +694,17 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-market-insights.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "591cc559826de224054ad99c776f479648f33c01aba3e0103fe543a937f882ce"
     },
     {
-      "bytes": 1536,
+      "bytes": 1578,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-pain-points.md",
-      "candidate_sha256": "80df3c8cc575b6aab8257d2e92e83285d51d557703e336a7266d3e27ae254019",
+      "candidate_sha256": "ce72710a0acfc7bfb928fab16b54711ca105abcdd2a4738dc472a6acc677e697",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-pain-points.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "80df3c8cc575b6aab8257d2e92e83285d51d557703e336a7266d3e27ae254019"
     },
     {
@@ -704,7 +714,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-product-audit.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "2c9c679795e230d2ba75ccebcadcbdfdd8a66f7d037fbec4f30d3d092e606480"
     },
     {
@@ -714,7 +724,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/stage-selling-point-decision.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "9ae4d742cdf62a6c35826ecaffd39dbbc068007396a983beb4be42f8483c0029"
     },
     {
@@ -724,17 +734,17 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/copy_preserved_sheets.py",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "b51c8ff1f3c33c126316da794173aea4ed4e0f28b4d76d1a5fdf825c27733673"
     },
     {
-      "bytes": 30506,
+      "bytes": 49838,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/pipeline_state.py",
-      "candidate_sha256": "8b97d550fee8644bfae440ae910360cc8335ce3a09a79dcb057dbb7d9d950ed3",
+      "candidate_sha256": "b63f8fdbe67e02b76c0fcdbe82cf60ad8559a1c88966a0f1ac1856d59f4c2d22",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_task_session_login_maintenance",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/pipeline_state.py",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
       "sha256": "8b97d550fee8644bfae440ae910360cc8335ce3a09a79dcb057dbb7d9d950ed3"
     },
     {
@@ -744,67 +754,77 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/test_copy_preserved_sheets.py",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "68fc80f7819fe120c9f9b48a662cbd61c4b27e79284e239ed823bf41d7855aa5"
     },
     {
-      "bytes": 24094,
-      "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/test_pipeline_state.py",
-      "candidate_sha256": "50beb4e6019409d3caed34c7e4c749e2ccf2c99219c92becda78b6cc22f6b23b",
+      "bytes": 10531,
+      "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/test_marketplace_route.py",
+      "candidate_sha256": "8293eb0565ed66af9a6b8864f85d8922f4c3994aebd58219c3ac6083b3044b2a",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_task_session_login_maintenance",
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/test_marketplace_route.py",
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
+      "sha256": null
+    },
+    {
+      "bytes": 24254,
+      "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/test_pipeline_state.py",
+      "candidate_sha256": "5255cef27111377348a20821514839be624fe65464d2bb9e9d36b9c1acbb3cde",
+      "classification": "imported",
+      "operation": "authorized_20260904_task_session_login_maintenance",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/test_pipeline_state.py",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
       "sha256": "50beb4e6019409d3caed34c7e4c749e2ccf2c99219c92becda78b6cc22f6b23b"
     },
     {
-      "bytes": 2326,
+      "bytes": 2141,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/validate_dependencies.py",
-      "candidate_sha256": "831075e6b151d0ef1d496695badc0cb1a33fe859a657905281723bea45b324da",
+      "candidate_sha256": "43bf5c8cd3e5728f52dd756735d32e458090f9d10243326427de95892c225c37",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/validate_dependencies.py",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "831075e6b151d0ef1d496695badc0cb1a33fe859a657905281723bea45b324da"
     },
     {
-      "bytes": 14572,
+      "bytes": 19246,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/validate_input.py",
-      "candidate_sha256": "9160af44dad298e30b384379a992e47aab60f512c041259d46a2200e97695a39",
+      "candidate_sha256": "25a14c36f0d2d1986904a51c0baf9b699bcd8d474abb20cac5595416cc4491dd",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_task_session_login_maintenance",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/validate_input.py",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
       "sha256": "9160af44dad298e30b384379a992e47aab60f512c041259d46a2200e97695a39"
     },
     {
-      "bytes": 1341,
+      "bytes": 1476,
       "candidate_path": ".agents/skills/prioritize-amazon-insight-tags/Agent.md",
-      "candidate_sha256": "f6f5d5f08399ed969030ce1d7eac7cdffa3b7c83af4c67274c85863417a00135",
+      "candidate_sha256": "71b47a02b3145fee183c7e2d2ffa9c8c2ec081b55fd0d86cf180ed1ac5d59b92",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_task_session_login_maintenance",
       "path": ".agents/skills/prioritize-amazon-insight-tags/Agent.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
       "sha256": "f6f5d5f08399ed969030ce1d7eac7cdffa3b7c83af4c67274c85863417a00135"
     },
     {
-      "bytes": 5721,
+      "bytes": 6175,
       "candidate_path": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md",
-      "candidate_sha256": "d09e91431c43aca563b162828f8e29a8bf44870e9fefc0dccef0a1029dd94325",
+      "candidate_sha256": "75e107a5f91e3703f2a713ce2b3bf63316d6932a265aff725bea95d789739473",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_task_session_login_maintenance",
       "path": ".agents/skills/prioritize-amazon-insight-tags/SKILL.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
       "sha256": "d09e91431c43aca563b162828f8e29a8bf44870e9fefc0dccef0a1029dd94325"
     },
     {
-      "bytes": 368,
+      "bytes": 492,
       "candidate_path": ".agents/skills/prioritize-amazon-insight-tags/agents/openai.yaml",
-      "candidate_sha256": "b5cdc20d7239005358c7dd5c20785d2303e10ff52cd3eed36adedc4f036adbc7",
+      "candidate_sha256": "d1d0555ae328ce422e41e26f5aa09fac5e7da1fecd7d210146a520b29d2ca9d3",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": ".agents/skills/prioritize-amazon-insight-tags/agents/openai.yaml",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "b5cdc20d7239005358c7dd5c20785d2303e10ff52cd3eed36adedc4f036adbc7"
     },
     {
@@ -814,18 +834,17 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/prioritize-amazon-insight-tags/assets/golden-tag-priority-workbook.xlsx",
-      "publication_exception": "specific-user-approved-public-example",
-      "reason": "Explicit approval covers this exact original workbook and byte-identical role copies; not other raw data or new P1",
+      "reason": "Unchanged complete candidate source",
       "sha256": "7ee355536f9ca806b82b1d91d08d8bec0f56f9ba90df99068a05707d8a28cb9c"
     },
     {
-      "bytes": 786,
+      "bytes": 940,
       "candidate_path": ".agents/skills/prioritize-amazon-insight-tags/capabilities.yaml",
-      "candidate_sha256": "3e7dfea070b0e0650204dfc0596b95938a0b421ec8009f8e8a6091ce1e3c443e",
+      "candidate_sha256": "35369c3536b27a3d046433e0b86526ee992d0d1f030ee73fc5a8163230fb5b07",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_task_session_login_maintenance",
       "path": ".agents/skills/prioritize-amazon-insight-tags/capabilities.yaml",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
       "sha256": "3e7dfea070b0e0650204dfc0596b95938a0b421ec8009f8e8a6091ce1e3c443e"
     },
     {
@@ -835,7 +854,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/prioritize-amazon-insight-tags/evidence/cases.json",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "2cff78e73f199dd3c8af68f89ed21012584397dba38733378bad8d67bc6929f0"
     },
     {
@@ -845,7 +864,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/prioritize-amazon-insight-tags/evidence/index.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "d8d0cf586b81814224a4b0cbf337d9afa4585d593e6da8889779a94ced92d86a"
     },
     {
@@ -855,7 +874,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/prioritize-amazon-insight-tags/knowledge/catalog.json",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "28afa029b35a2b3d9a88bee4f2c1d561e970fe8e635f219d251152605f0e977d"
     },
     {
@@ -865,7 +884,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/prioritize-amazon-insight-tags/knowledge/index.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "a75c87d91521a6935f8030f44e582c63b4a5cd08c2c68f73c5aac881e016f530"
     },
     {
@@ -875,17 +894,17 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/prioritize-amazon-insight-tags/references/final-workbook-format.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "09675c2e57e00f2f0c89e5abb17fde3d437ee8dccf4df0dde2250358c022d30b"
     },
     {
-      "bytes": 18145,
+      "bytes": 18274,
       "candidate_path": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
-      "candidate_sha256": "74eaa20a923f226b2dc22f79e4d3d17ff6fe0b3a21f4395e84d87c3052d0badb",
+      "candidate_sha256": "28353235c033e0c43d6fe1e09ae61e6a8c3ba8ccfcddd967374694d75db8cecd",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": ".agents/skills/prioritize-amazon-insight-tags/references/tag-priority-sop-v2.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "74eaa20a923f226b2dc22f79e4d3d17ff6fe0b3a21f4395e84d87c3052d0badb"
     },
     {
@@ -895,7 +914,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/receive-listing-selling-point-files/Agent.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "2b36f141911f960766aeb2afa1433e8efbf3984886bad052efb7bd8de4d89dcd"
     },
     {
@@ -905,7 +924,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/receive-listing-selling-point-files/SKILL.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "8c5f1e2c4e5500464f57a505f2c970d077c8c96e118f35416443067663259ee2"
     },
     {
@@ -915,7 +934,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/receive-listing-selling-point-files/capabilities.yaml",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "bdd6525e598429b9ee149b6d9204d7b9e940e3c8efb48f37659a4e4e29138ef9"
     },
     {
@@ -925,7 +944,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/receive-listing-selling-point-files/evidence/cases.json",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "79899734f9e15d77fcc4cf03e799d74ea77763410f4dccca887ea1c9a4ada3c0"
     },
     {
@@ -935,7 +954,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/receive-listing-selling-point-files/evidence/index.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "9a5df2f7dffd65ce9f06591e61229c5b0708f9a94f1ab7f396e5e5aacc23ac68"
     },
     {
@@ -945,7 +964,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/receive-listing-selling-point-files/knowledge/catalog.json",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "a121f65dab5c20243df4be0dc5d15afbe9f31c183499c99ebe0641795fac9bfe"
     },
     {
@@ -955,7 +974,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/receive-listing-selling-point-files/knowledge/index.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "5747ff59d046995ff454230cd6a874127b34bac3907ce91bf9e0b03582a756d9"
     },
     {
@@ -965,7 +984,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/receive-listing-selling-point-files/references/intake-contract.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "7ad0118cdfefcbeadc723dbb6d3d0274f6356505ccb14c18f5c8a3f516c34da5"
     },
     {
@@ -975,7 +994,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/receive-listing-tag-painpoint-files/Agent.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "b6037f92aa8c62af2067e93c24c05e1b7084cceac3b591ede58ae0bb2debe1d5"
     },
     {
@@ -985,7 +1004,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/receive-listing-tag-painpoint-files/SKILL.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "f1108e2056127026e083bb1d327a13d15d2f0e8da98d7aeb11cb47abebd79518"
     },
     {
@@ -995,7 +1014,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/receive-listing-tag-painpoint-files/capabilities.yaml",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "bae8b08bbdcd3d606e87e258462bb0b4235b7aff6bba63359c191d84d74cbf44"
     },
     {
@@ -1005,7 +1024,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/receive-listing-tag-painpoint-files/evidence/cases.json",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "2b840537e10e709697a139b311a722b446520558e23b3a312d1698e1c535b303"
     },
     {
@@ -1015,7 +1034,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/receive-listing-tag-painpoint-files/evidence/index.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "18367e6401d87ee2b19aa5ac85e16bdd6d7520b89c0321235d111e68a6c44ea5"
     },
     {
@@ -1025,7 +1044,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/receive-listing-tag-painpoint-files/knowledge/catalog.json",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "ebdd563dbbeb141de0238c45cbaad2c29fbea14f952baeaabd5c2b28b33440eb"
     },
     {
@@ -1035,7 +1054,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/receive-listing-tag-painpoint-files/knowledge/index.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "f0b5121238c6d4f56b0e5d262b7c270c7d518638f38145600288a0800e8c3857"
     },
     {
@@ -1045,7 +1064,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/receive-listing-tag-painpoint-files/references/intake-contract.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "514490440d728bc3c948d6d0f1fe613ea96d456dfd5b08ff52e9add4c9931c04"
     },
     {
@@ -1055,7 +1074,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/sku-usable-keyword-library/Agent.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "472267f0734d00de72c5cdd5f66f2db8949a627e7efa6f1a502b27449227c6d6"
     },
     {
@@ -1065,7 +1084,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/sku-usable-keyword-library/SKILL.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "31ba1d505a99562af051b08da6402e6aa73355de786753f977dcaef869159a66"
     },
     {
@@ -1075,7 +1094,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/sku-usable-keyword-library/capabilities.yaml",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "98a70122b9999fa4f6510937315e671056bbda6d9549b440a26889957ef7dca1"
     },
     {
@@ -1085,7 +1104,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/sku-usable-keyword-library/evidence/cases.json",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "8e02c62b042ccd21b93d9e8cba70379eedee006cd2651637dd13284d496a5ce5"
     },
     {
@@ -1095,7 +1114,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/sku-usable-keyword-library/evidence/index.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "61c947d3ca9745b00c6dd76799cb2a40fbc6c85f6ecd98f2401f178701e72e7f"
     },
     {
@@ -1105,7 +1124,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/sku-usable-keyword-library/knowledge/catalog.json",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "92c8d54ea7d60426a9229cd0af17b0a5974b89a11389931138687936bb0ec203"
     },
     {
@@ -1115,7 +1134,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/sku-usable-keyword-library/knowledge/index.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "21aec31759504bbac66a9abc5d77c6f9cac168e32adbea4a6f0ea28a08875457"
     },
     {
@@ -1125,7 +1144,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "92fce8debf786c3874f4876ed11c7b4827034efe24dbcdbaff2203b0a3328bf0"
     },
     {
@@ -1135,7 +1154,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/sku-usable-keyword-library/references/reference-provenance.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "6c6fa7ac10e35c1f73552c74c5e4a5e56e2e08147f0461de9a75c8449531f8be"
     },
     {
@@ -1145,7 +1164,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "baba69c2e1a1fcdf778ed9ea22664c3db41f467c930fb792c9b4ee87ff74908e"
     },
     {
@@ -1155,7 +1174,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/sku-usable-keyword-library/scripts/classification_compat.py",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "37148719bd64ed513084a25bcb1554131dfdc6bfaf1936828ab2adacc9c1c8f3"
     },
     {
@@ -1165,17 +1184,17 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": ".agents/skills/sku-usable-keyword-library/scripts/test_classification_compat.py",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "760eaa74efa78ec3902e898e49bfa57deca3f43f0cdd7a6e4ab4733789dbaa9b"
     },
     {
-      "bytes": 4513,
+      "bytes": 5474,
       "candidate_path": "docs/skill-package-standard.md",
-      "candidate_sha256": "b8eda6f3bdb54968578d822f048dedd48c860a160ee89f4a1ba5af1983c4ce1b",
+      "candidate_sha256": "0e66459c3a672395256e7a25156c9a02a1ed67cc924a62a21c9cc500afa2e60a",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_task_session_login_maintenance",
       "path": "docs/skill-package-standard.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
       "sha256": "b8eda6f3bdb54968578d822f048dedd48c860a160ee89f4a1ba5af1983c4ce1b"
     },
     {
@@ -1185,77 +1204,77 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": "knowledge-base/final-workbook-presentation.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "f4971ea1291ab0127a53b26cdc7e26fbc999df2049cbf145a55151c9e52066e9"
     },
     {
-      "bytes": 20329,
+      "bytes": 20296,
       "candidate_path": "knowledge-base/listing-final-assembly-rules.md",
       "candidate_sha256": "b19ce1d3243ef129f5af8ee60e30bd72ccb415b2b4ce9a0ea14f5a337f21a170",
       "classification": "imported",
-      "operation": "redacted_device_path_or_example_identity_only",
+      "operation": "byte_identical_copy",
       "path": "knowledge-base/listing-final-assembly-rules.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
-      "sha256": "fb75e9cd1521df16ba0145bb2486fe7a2c7b8989231bbe618668899f9d5ab2cd"
+      "reason": "Unchanged complete candidate source",
+      "sha256": "b19ce1d3243ef129f5af8ee60e30bd72ccb415b2b4ce9a0ea14f5a337f21a170"
     },
     {
-      "bytes": 2756,
+      "bytes": 3113,
       "candidate_path": "knowledge-base/listing-hard-rules/README.md",
-      "candidate_sha256": "a72e0dc0261b0eab743f1f25a9401e90bdaf9dceff9cd342f3373f038d11b5c2",
+      "candidate_sha256": "f9219b78030843083d38b45f1dbb0643ceb9d1875592da54b8b38289044e769d",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": "knowledge-base/listing-hard-rules/README.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "a72e0dc0261b0eab743f1f25a9401e90bdaf9dceff9cd342f3373f038d11b5c2"
     },
     {
-      "bytes": 3462,
+      "bytes": 4031,
       "candidate_path": "knowledge-base/listing-hard-rules/manifest.yaml",
-      "candidate_sha256": "cb9b98b08a8395dc04c951248bf01b4e9e9e2c4016f0df606b639c067c1e1a96",
+      "candidate_sha256": "65f55db97918d810dd497f67af2e349c5d33201a10f52e3f4d4410eda51ec2f7",
       "classification": "imported",
-      "operation": "redacted_device_path_or_example_identity_only",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": "knowledge-base/listing-hard-rules/manifest.yaml",
-      "reason": "Complete required rule, asset, script or packaging dependency",
-      "sha256": "68919c319534f8f823db41ed9852cda635a9aa067148be5018cb2102cd27773c"
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
+      "sha256": "cb9b98b08a8395dc04c951248bf01b4e9e9e2c4016f0df606b639c067c1e1a96"
     },
     {
-      "bytes": 6016,
+      "bytes": 6081,
       "candidate_path": "knowledge-base/listing-hard-rules/亚马逊A+硬性规则.md",
-      "candidate_sha256": "5563d10257b78e5b882e111eff530fcc2f8c795db7511ac7e3204585817be290",
+      "candidate_sha256": "559abfe5fce3a00064ab0dc756ca514f33ba71db35b89e988e94c5d2687f48e6",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": "knowledge-base/listing-hard-rules/亚马逊A+硬性规则.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "5563d10257b78e5b882e111eff530fcc2f8c795db7511ac7e3204585817be290"
     },
     {
-      "bytes": 2334,
+      "bytes": 2539,
       "candidate_path": "knowledge-base/listing-hard-rules/亚马逊ST硬性规则.md",
-      "candidate_sha256": "9da4dab692df763c7f029e43572ecc95dbe5869faa447e226a553198c7ee36ac",
+      "candidate_sha256": "349e100bac3b89af6a29b7feb5cd7bcce442e8c4f42df5ad7685ff029cdab8f9",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": "knowledge-base/listing-hard-rules/亚马逊ST硬性规则.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "9da4dab692df763c7f029e43572ecc95dbe5869faa447e226a553198c7ee36ac"
     },
     {
-      "bytes": 4652,
+      "bytes": 4687,
       "candidate_path": "knowledge-base/listing-hard-rules/亚马逊五点描述硬性规则.md",
-      "candidate_sha256": "32a32f14d1eb3f9f31d0e9b801dbf15ed9814ce2e384eaeaad47a5c116cce385",
+      "candidate_sha256": "4be7a940d4d9860d433766cd6a680453712714d4725263f49a3d1ea6077e120a",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": "knowledge-base/listing-hard-rules/亚马逊五点描述硬性规则.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "32a32f14d1eb3f9f31d0e9b801dbf15ed9814ce2e384eaeaad47a5c116cce385"
     },
     {
-      "bytes": 6034,
+      "bytes": 6094,
       "candidate_path": "knowledge-base/listing-hard-rules/亚马逊图片硬性规则.md",
-      "candidate_sha256": "fdb239ea0af10d369ce35b8ec58af4876a9f2fae9220a91b0d2ca8e2ad2e2f82",
+      "candidate_sha256": "a0623d2f09c674dbce334e0f9d5022b0cca4af30082bb42db808f994a3bee484",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": "knowledge-base/listing-hard-rules/亚马逊图片硬性规则.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "fdb239ea0af10d369ce35b8ec58af4876a9f2fae9220a91b0d2ca8e2ad2e2f82"
     },
     {
@@ -1265,7 +1284,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": "knowledge-base/listing-hard-rules/亚马逊标题硬性规则.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "91fba1818a01cbf64f38fd1e3cec8b2aceb884f14422867e75a4a012d0ba8be4"
     },
     {
@@ -1275,18 +1294,18 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": "knowledge-base/listing-soft-writing-rules.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "6f8d60ceaec1b081cf6e0e863e2f8f0d1bf91d59dd1e7986495882d6042b4832"
     },
     {
-      "bytes": 13373,
+      "bytes": 13352,
       "candidate_path": "knowledge-base/listing-title-highlight-writing-rules.md",
       "candidate_sha256": "89e1a3e5e9bfd283e63278b99e1c6cd938870cee8fe13517cbd3a103a9820685",
       "classification": "imported",
-      "operation": "redacted_device_path_or_example_identity_only",
+      "operation": "byte_identical_copy",
       "path": "knowledge-base/listing-title-highlight-writing-rules.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
-      "sha256": "25c6ee9c8bc799dcffe141aba577fe72bbcb45fc0c73e62c394ed37f2c5cbba5"
+      "reason": "Unchanged complete candidate source",
+      "sha256": "89e1a3e5e9bfd283e63278b99e1c6cd938870cee8fe13517cbd3a103a9820685"
     },
     {
       "bytes": 2468,
@@ -1295,28 +1314,28 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": "knowledge-base/listing-writing-case-learning.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "3cc2dc396fa4152a709f4dc04ad900af22cccd8e12cf7ac6c342effacfe0305b"
     },
     {
-      "bytes": 25261,
+      "bytes": 5011,
       "candidate_path": "project-control/listing-writing-iteration-log.md",
       "candidate_sha256": "bff803c8617e96dabdcfa574cd06c0c9c73121e3ad77126761e7537fb9f69b94",
-      "classification": "local-only",
-      "operation": "local_chat_replaced_by_rule_lineage_navigation",
+      "classification": "imported",
+      "operation": "byte_identical_copy",
       "path": "project-control/listing-writing-iteration-log.md",
-      "reason": "Private dialogue source retained locally; public derived navigation preserves links to full governing rules",
-      "sha256": "7360b90efa4e42b227ddf9a40d909a57b1151e82e2d52de2c619f9e431c6e72c"
+      "reason": "Unchanged complete candidate source",
+      "sha256": "bff803c8617e96dabdcfa574cd06c0c9c73121e3ad77126761e7537fb9f69b94"
     },
     {
-      "bytes": 28581,
+      "bytes": 28602,
       "candidate_path": "scripts/task_packages.py",
       "candidate_sha256": "dbc809d9da2c7408f895f1b2467e65c369e1c1ded519e833fbac0ead915e8c4a",
       "classification": "imported",
-      "operation": "portable_root_and_binding_free_packaging_metadata",
+      "operation": "byte_identical_copy",
       "path": "scripts/task_packages.py",
-      "reason": "Complete required rule, asset, script or packaging dependency",
-      "sha256": "278785db85ab5224e9b17e13619731b6e9e41dd9b0b32abaf6f17a91ae037d46"
+      "reason": "Unchanged complete candidate source",
+      "sha256": "dbc809d9da2c7408f895f1b2467e65c369e1c1ded519e833fbac0ead915e8c4a"
     },
     {
       "bytes": 6013,
@@ -1325,17 +1344,17 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": "scripts/test_skill_package_structure.py",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "d143fa664e38c11c5289f185b779dd28a9de33c56ab7265bd1080f74cc01803d"
     },
     {
-      "bytes": 4991,
+      "bytes": 5005,
       "candidate_path": "scripts/test_task_packages.py",
-      "candidate_sha256": "ec730ad11ec82a30c4737e4b94c61d6aaedd38fd5376bff16bce5701c032e194",
+      "candidate_sha256": "680891bde94b1a1f12f5c2d7433ddc9fe3a3b017b397b27273342f114192a744",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": "scripts/test_task_packages.py",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "ec730ad11ec82a30c4737e4b94c61d6aaedd38fd5376bff16bce5701c032e194"
     },
     {
@@ -1345,37 +1364,37 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": "scripts/validate_skill_packages.py",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "4969534ba03d59094247575c43772ff27b93e25c66957eaa565b48874b27618c"
     },
     {
-      "bytes": 2993,
+      "bytes": 4024,
       "candidate_path": "task-package-specs/dispatch-and-loading.md",
-      "candidate_sha256": "735148be6801e7741d179f3414684a3c984c85e96e8a3318ba71478374fdbee8",
+      "candidate_sha256": "1564e4d5a1a08d98284a136cdfecb57aea2269adc015abf07eb74447d7cb62c9",
       "classification": "imported",
-      "operation": "candidate_publication_metadata_only",
+      "operation": "authorized_20260904_task_session_login_maintenance",
       "path": "task-package-specs/dispatch-and-loading.md",
-      "reason": "Complete required rule, asset, script or packaging dependency",
-      "sha256": "bc52f117774f712f06022dbf169090c299d4c8f80c414008c582c32f83fcbf23"
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
+      "sha256": "735148be6801e7741d179f3414684a3c984c85e96e8a3318ba71478374fdbee8"
     },
     {
-      "bytes": 3049,
+      "bytes": 4391,
       "candidate_path": "task-package-specs/roles.json",
-      "candidate_sha256": "3f53f61d83532f3221a4be0d307204c232b7f7d1326e28414e0934112a0ba8f0",
+      "candidate_sha256": "a8b96ee8ecdb0614ccb1ad147b5a3b4f2d1e8e2f0692b1c5d3362d82af68aaa1",
       "classification": "imported",
-      "operation": "new_candidate_version_preserving_all_ten_roles",
+      "operation": "authorized_20260904_task_session_login_maintenance",
       "path": "task-package-specs/roles.json",
-      "reason": "Complete required rule, asset, script or packaging dependency",
-      "sha256": "73debae3bdb8cfd57e9a3631ce770ce3a82600585737d0ed8069dc084fcc364b"
+      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
+      "sha256": "3f53f61d83532f3221a4be0d307204c232b7f7d1326e28414e0934112a0ba8f0"
     },
     {
-      "bytes": 2326,
+      "bytes": 2141,
       "candidate_path": "task-package-specs/runtime/validate_dependencies.py",
-      "candidate_sha256": "831075e6b151d0ef1d496695badc0cb1a33fe859a657905281723bea45b324da",
+      "candidate_sha256": "43bf5c8cd3e5728f52dd756735d32e458090f9d10243326427de95892c225c37",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260904_marketplace_routing_maintenance",
       "path": "task-package-specs/runtime/validate_dependencies.py",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
       "sha256": "831075e6b151d0ef1d496695badc0cb1a33fe859a657905281723bea45b324da"
     },
     {
@@ -1385,7 +1404,7 @@
       "classification": "imported",
       "operation": "byte_identical_copy",
       "path": "task-package-specs/skill-structure.json",
-      "reason": "Complete required rule, asset, script or packaging dependency",
+      "reason": "Unchanged complete candidate source",
       "sha256": "f4c45672c7ab595fac1de372c609adb260c050bf08d5d7bc8fb2c7bfcc7a93be"
     }
   ]

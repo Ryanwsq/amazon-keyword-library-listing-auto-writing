@@ -1,7 +1,7 @@
 # Amazon 关键词库版本决策记录
 
 - Status: verified
-- Last verified: 2026-09-03
+- Last verified: 2026-09-04
 - Sharing: sanitized
 - Provenance: 用户授权归档、用户确认记录、四轮历史案例脱敏结论、2026-08-11至2026-08-16增量决策、2026-08-20首轮真实正常案例问题台账、2026-08-21首轮运行后减配确认、2026-08-22词频介词白名单确认、2026-08-23核心层级与通用词库资格确认、2026-08-24二类词独立Sheet/输入核心门/网页导出优先/任务分离/联想边界/两级歧义/分类数据缺口与显示名确认、2026-08-25来源双种子/同类目二类词/配置假阴性/机械任务身份/审计与QA后封包确认、2026-08-26多细分类目目标细分简称强等价闭环确认、2026-08-27十二Skill证据治理与首批模块案例人工确认、2026-08-31三项开头输入锁与质量双模式确认、2026-09-01 SIF网页优先与登录门确认，以及2026-09-02单次导出/登录回传/ASIN代表选择/测试专用独立QA确认
 - Coverage: confirmed decisions through V2.1 plus V2.2 word frequency, 2026-08-21 output contracts, 2026-08-22 clarifications, 2026-08-23 core hierarchy/general-library eligibility correction, 2026-08-24 output and input gates, 2026-08-25 conditional dual-seed collection/same-category secondary terms/configuration-safe eligibility/task identity/trend audit/privacy and post-QA packaging, 2026-08-26 multi-subdivision target-subdivision alias closure, 2026-08-27 evidence governance plus first modular case publication, 2026-08-31 three-input lock and compact/full QA lifecycle, 2026-09-01 SIF website-first login gate, and 2026-09-02 single export/login escalation/ASIN representatives/test-only independent QA
@@ -11,6 +11,21 @@
 本文件只记录已确认版本决策、替代关系和理由。稳定领域定义由 `product-keyword-library.md` 拥有，当前进度和下一步由 `../PROJECT.md` 拥有，判定门槛和执行流程不在本文件重复维护。
 
 2026-09-03新增来源：用户明确要求同类目、条件式同细分、历史最终工作簿输出在30天内时，替换新产品事实卡后直接复用，并修改对应Skill与知识库。
+
+2026-09-04新增来源：德国站验证确认站点必须从输入贯穿全流程；Amazon-DE使用amazon.de/80539，联想和Rufus均不得回退美国站；德国Rufus使用德语问题，接受其无独立新会话且刷新仍保留上下文的限制；挖掘与趋势采用不同的固定来源优先级。
+
+## 2026-09-04：多站点路由、德国Rufus与阶段来源优先级
+
+本次德国站测试验证暴露出旧文档把来源优先级写成通用链路、输入模板默认美国站、浏览器登录门过晚，以及Rufus界面行为与美国站Alexa不同。本决定替代旧记录中不区分阶段的`SellerSprite -> Sorftime`简写，但不回写或提升本次已结束Run的QA/P1状态：
+
+1. `marketplace`成为Run必填锁。当前只允许`Amazon-US`和`Amazon-DE`；DE固定为`amazon.de/80539/Rufus/德语`，US固定为`amazon.com/10001/Alexa/英语`。进入非锁定站点时停止受影响来源、记录并通知用户介入，不自行切回US。
+2. 用户提交完整输入并确认站点摘要后，统一入口立即按固定八会话矩阵引导用户准备登录。关键词侧三个拥有任务分别回执：Amazon联想由用户手动登录；SIF和卖家精灵按输入表中的非敏感账户别名/凭据引用使用浏览器已保存凭据或本机密码管理器。每份回执绑定当前Task/host/dispatch，不能跨任务继承；未齐全前不允许联想、查询或导出。密码、验证码、Cookie、token和真实凭据不写入工作簿、Run或Git。
+3. Amazon联想跟随Run站点。核心词锁定后，Amazon联想与卖家精灵扩词必须在同一调度波次派发。
+4. SIF固定为`已登录SIF网页完整结果`优先；只有用户明确表示当前设备或会话无法完成SIF登录时，才允许切同提供商SIF MCP。关键词挖掘来源严格为`卖家精灵网页完整官方导出 > 卖家精灵MCP`；Sorftime网页或MCP均不得参与挖掘。
+5. 趋势来源严格为`SellerSprite MCP > Sorftime MCP`；两个提供商网页端都不是趋势采集入口，Sorftime网页只做账户、配置和用量检查。
+6. 德国站Rufus没有可依赖的New Chat，网页刷新后上下文也可能保留。本次确认德国站不以独立上下文为门：不反复刷新，每题必须自含ASIN并继续身份核验；面板已打开时不得再次点击Rufus开关使其隐藏。
+7. `⚠️/❗`图标不得独立充当阻断信号；必须附文字状态、影响范围和继续/停止结论。侧栏暂时不可见也不等于任务不存在，先核对任务清单、项目归属、Task ID、host和cwd。跳过独立QA仍保持`not_executed/cancelled_by_user`、交付不完整和`P1=false`。
+8. 本次修改了站点合同、Skill、Schema和检查器；下一次业务能力验证必须标记为`test-validation + full-regression`。本次德国站已结束验证不因规则回写被追认为P1。
 
 ## 2026-09-03：近30天最终词库常规复用
 
@@ -66,6 +81,7 @@
 | Post-V2.1 | 2026-09-01 | SIF竞品反查改为已登录官网网页端首选；未登录等待用户登录，只有用户明确无法登录时同提供商MCP备用 | confirmed source-entry increment; P1 pending |
 | Post-V2.1 | 2026-09-02 | 卖家精灵每种子单次成功导出；SIF/卖家精灵未登录只回传主任务；>5竞品按产品类型取代表；独立QA仅用于test-validation | confirmed operations and QA-routing increment; P1 pending |
 | Post-V2.1 | 2026-09-03 | 同类目、条件式同细分、原始最终工作簿输出30天内的常规复用；新事实卡替换、历史来源与当前Run隔离 | confirmed reuse-entry increment; P1 pending |
+| Post-V2.1 | 2026-09-04 | 多站点Run锁、Amazon-DE联想/Rufus路由、德国Rufus上下文限制、阶段来源优先级和同波次来源派发 | confirmed marketplace/source-routing increment; P1 pending |
 
 ## 2026-09-02：单次导出、登录回传、竞品代表与测试专用独立QA
 

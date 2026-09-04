@@ -62,14 +62,14 @@
 | 模块 | 当前合同 | 当前状态 |
 |---|---|---|
 | SIF竞品反查 | 七列业务明细；已登录SIF官网网页首选、未登录只回传主任务并由主任务提示用户、用户明确无法登录时同提供商MCP备用 | 旧入口顺序下已接纳一个官网备用边界案例，但不验证当前网页首选规则；当前revision仍需新的正常/边界案例，draft/planned |
-| Amazon联想 | 必选；有细分核心词时使用细分核心词，否则一级核心词；内置浏览器首选、普通Chrome备用；Amazon US未登录、All、10001、完整固定矩阵；排除底部商品/价格卡和商品轮播 | 已接纳正常案例01；正常案例02与边界案例待执行，draft/planned |
+| Amazon联想 | 必选；输入和站点锁定后由用户在拥有会话手动登录；有细分核心词时使用细分核心词，否则一级核心词；内置浏览器首选、普通Chrome备用；US=`amazon.com/All/10001`、DE=`amazon.de/Alle或等义项/80539`；完整固定矩阵；排除底部商品/价格卡和商品轮播 | 站点/登录合同已于2026-09-04修改；既有案例不能验证新合同，后续full-regression，draft/planned |
 | 卖家精灵扩词 | 有细分核心词时一级/细分双种子，否则单一级种子；查询前检查登录，未登录只回传主任务；拥有副任务已登录官网完整官方导出优先、同提供商MCP备用；每种子唯一成功导出、模块内机械去重四列业务表 | 旧正常案例01在前版多Pass合同下接纳；当前单次导出revision仍需新的正常/边界案例，draft/planned |
 | 三来源机械合并 | 两Sheet；分层锚点、目标细分强等价闭环、联想锚点、宽泛/相邻流量词与一至两个卖家精灵种子分别记录；确定性并集/来源人口验证 | 性能层脚本夹具通过；真实Run无损等价尚未full-regression，总控两个正常案例待执行 |
 | 品类清洗 | 四Sheet；Sheet2固定14列并闭合通用词库资格；同类目稳定直接替代可为二类词；配置、细分词字面和上位限定词缺失不作负面硬门 | 已接纳正常案例01；其余两案例待执行，draft/planned |
 | 分类 | 完整传递Sheet2十四列和资格，再追加4固定列+N动态语义列；Sheet4追加4固定列；最小否词库；ABA/搜索量缺口精确标记并作为QA允许缺口自动闭合 | 已接纳正常案例01；其余两案例待执行，draft/planned |
 | 词频 | 只读资格纳入的Sheet2英文词；`EN_PREP_CORE_V1`固定48-token排除与双词断点 | 已接纳独立加号最小修正边界案例；两个正常案例待执行，draft/planned |
 | 竞争 | 资格纳入的Sheet2 F1–F4；只用SIF Top3点击/转化份额；12列 | 已接纳正常案例01；其余两案例待执行，draft/planned |
-| 趋势 | 资格纳入的Sheet2 F1–F3；`SellerSprite -> Sorftime`且单Run单源；至少24完整月；月/季实际搜索量图；全worksheet/drawing/chart包级审计 | 已接纳SellerSprite正常案例01；其余两案例待执行，draft/planned |
+| 趋势 | 资格纳入的Sheet2 F1–F3；`SellerSprite MCP -> Sorftime MCP`且单Run单源，网页端不采集；至少24完整月；月/季实际搜索量图；全worksheet/drawing/chart包级审计 | 来源接口合同已于2026-09-04修改；既有案例不能验证新合同，后续full-regression，draft/planned |
 | 最终装配 | 两个顶层对象；最终工作簿固定八Sheet；总表覆盖三去向51+N列；二类词独立Sheet机械复制分类Sheet4；按run_type分流production直接封包或test-validation的QA后封包，并执行隐私扫描与最终重哈希 | 已接纳“业务候选通过、用户取消QA后seal”的历史边界案例；当前production不再调度独立QA，两个正常案例待执行 |
 | 独立质量验证 | 只用于test-validation；compact-validation/full-regression均保留21项门与完整风险人口逐行审计；production不调用且Gate 21为not_applicable | 已接纳“用户取消时不输出pass”的边界案例；当前revision两个正常案例待执行 |
 

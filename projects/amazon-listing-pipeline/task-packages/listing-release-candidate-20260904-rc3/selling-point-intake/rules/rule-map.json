@@ -1,0 +1,716 @@
+[
+  {
+    "end_line": 2,
+    "sha256": "262ae747c82465d793cef36f08fd042d36d947c413e1919e9d7bba4d4048aff9",
+    "source": ".agents/skills/receive-listing-selling-point-files/Agent.md",
+    "start_line": 1,
+    "target": ".agents/skills/receive-listing-selling-point-files/Agent.md"
+  },
+  {
+    "end_line": 6,
+    "sha256": "2eda7676dea9d3212d6fac51684577b52236e073d731680b60759389ed0e1f98",
+    "source": ".agents/skills/receive-listing-selling-point-files/Agent.md",
+    "start_line": 3,
+    "target": ".agents/skills/receive-listing-selling-point-files/Agent.md"
+  },
+  {
+    "end_line": 10,
+    "sha256": "5181b03dff17070c0effd144d7e9b5e2c8d51c519e62f52434fc87611f14ab52",
+    "source": ".agents/skills/receive-listing-selling-point-files/Agent.md",
+    "start_line": 7,
+    "target": ".agents/skills/receive-listing-selling-point-files/Agent.md"
+  },
+  {
+    "end_line": 14,
+    "sha256": "c1bfe02497c1020802a2e057232c778293ae303df977fda5fcfd8de2e6783536",
+    "source": ".agents/skills/receive-listing-selling-point-files/Agent.md",
+    "start_line": 11,
+    "target": ".agents/skills/receive-listing-selling-point-files/Agent.md"
+  },
+  {
+    "end_line": 18,
+    "sha256": "c35d62a72d96847af8c4382120ec90f112294f4462835491169080500edc1550",
+    "source": ".agents/skills/receive-listing-selling-point-files/Agent.md",
+    "start_line": 15,
+    "target": ".agents/skills/receive-listing-selling-point-files/Agent.md"
+  },
+  {
+    "end_line": 23,
+    "sha256": "80bba0a2533469366598be4c8cfcbf6a5049ad6787ff05d1dd647f8b1e216cd2",
+    "source": ".agents/skills/receive-listing-selling-point-files/Agent.md",
+    "start_line": 19,
+    "target": ".agents/skills/receive-listing-selling-point-files/Agent.md"
+  },
+  {
+    "end_line": 5,
+    "sha256": "98ca4ed793031090e67bbc73577a56be8c6a70d726539ad6ee8a103add0bddcd",
+    "source": ".agents/skills/receive-listing-selling-point-files/SKILL.md",
+    "start_line": 1,
+    "target": ".agents/skills/receive-listing-selling-point-files/SKILL.md"
+  },
+  {
+    "end_line": 7,
+    "sha256": "27e551394e555e6f91c59802dbfff1e221c5c86c4ac110210ddfbcf131e901f9",
+    "source": ".agents/skills/receive-listing-selling-point-files/SKILL.md",
+    "start_line": 6,
+    "target": ".agents/skills/receive-listing-selling-point-files/SKILL.md"
+  },
+  {
+    "end_line": 11,
+    "sha256": "b6e619a519f55d73f2f51f24d308ffd8cb44ee2751a07a1de490406b391b4866",
+    "source": ".agents/skills/receive-listing-selling-point-files/SKILL.md",
+    "start_line": 8,
+    "target": ".agents/skills/receive-listing-selling-point-files/SKILL.md"
+  },
+  {
+    "end_line": 15,
+    "sha256": "6d635ea25f35df2cd1323ffc9d5079d27677c752092c2f93ff2e718f0c3bedac",
+    "source": ".agents/skills/receive-listing-selling-point-files/SKILL.md",
+    "start_line": 12,
+    "target": ".agents/skills/receive-listing-selling-point-files/SKILL.md"
+  },
+  {
+    "end_line": 23,
+    "sha256": "a509b35287cbdc3563978c770e56f2aea0b441e3dcb8bed01cf917c170db1bcc",
+    "source": ".agents/skills/receive-listing-selling-point-files/SKILL.md",
+    "start_line": 16,
+    "target": ".agents/skills/receive-listing-selling-point-files/SKILL.md"
+  },
+  {
+    "end_line": 31,
+    "sha256": "4894f29d2885f34fac17dc8dd8cbdfb0260e4afbf2838bf9fcbcfe41bc1f2147",
+    "source": ".agents/skills/receive-listing-selling-point-files/SKILL.md",
+    "start_line": 24,
+    "target": ".agents/skills/receive-listing-selling-point-files/SKILL.md"
+  },
+  {
+    "end_line": 35,
+    "sha256": "7ef260d7c350932aa460bbe010daa03bce55e5c2df45b4ea1c38ee546cd984cf",
+    "source": ".agents/skills/receive-listing-selling-point-files/SKILL.md",
+    "start_line": 32,
+    "target": ".agents/skills/receive-listing-selling-point-files/SKILL.md"
+  },
+  {
+    "end_line": 39,
+    "sha256": "04628bbb1ea154a1d0f5ffe2d8d0564e6b0284a5bedd2004937396a2e5c2d21e",
+    "source": ".agents/skills/receive-listing-selling-point-files/SKILL.md",
+    "start_line": 36,
+    "target": ".agents/skills/receive-listing-selling-point-files/SKILL.md"
+  },
+  {
+    "end_line": 43,
+    "sha256": "a8eeebe6c5d10f3fced59b72be93d9c4d074d6a9402186fe46f7413203030931",
+    "source": ".agents/skills/receive-listing-selling-point-files/SKILL.md",
+    "start_line": 40,
+    "target": ".agents/skills/receive-listing-selling-point-files/SKILL.md"
+  },
+  {
+    "end_line": 47,
+    "sha256": "c1a0943680537e2d12dd3c963780c7311b4882799c3982651dcbaec6b77eba36",
+    "source": ".agents/skills/receive-listing-selling-point-files/SKILL.md",
+    "start_line": 44,
+    "target": ".agents/skills/receive-listing-selling-point-files/SKILL.md"
+  },
+  {
+    "end_line": 51,
+    "sha256": "85f660925d1714b63b5f052a57c7d80972526148641e2131482ce79dd7f6eb85",
+    "source": ".agents/skills/receive-listing-selling-point-files/SKILL.md",
+    "start_line": 48,
+    "target": ".agents/skills/receive-listing-selling-point-files/SKILL.md"
+  },
+  {
+    "end_line": 55,
+    "sha256": "b5594ab756f78df070c946df748da01f3662ddced9931e53214afe8a2c688a18",
+    "source": ".agents/skills/receive-listing-selling-point-files/SKILL.md",
+    "start_line": 52,
+    "target": ".agents/skills/receive-listing-selling-point-files/SKILL.md"
+  },
+  {
+    "end_line": 60,
+    "sha256": "3ccedaf85f031457571ade94ddab55ad38dec9c0dc4ce35111341b3b89a4d232",
+    "source": ".agents/skills/receive-listing-selling-point-files/SKILL.md",
+    "start_line": 56,
+    "target": ".agents/skills/receive-listing-selling-point-files/SKILL.md"
+  },
+  {
+    "end_line": 11,
+    "sha256": "9a5df2f7dffd65ce9f06591e61229c5b0708f9a94f1ab7f396e5e5aacc23ac68",
+    "source": ".agents/skills/receive-listing-selling-point-files/evidence/index.md",
+    "start_line": 1,
+    "target": ".agents/skills/receive-listing-selling-point-files/evidence/index.md"
+  },
+  {
+    "end_line": 10,
+    "sha256": "5747ff59d046995ff454230cd6a874127b34bac3907ce91bf9e0b03582a756d9",
+    "source": ".agents/skills/receive-listing-selling-point-files/knowledge/index.md",
+    "start_line": 1,
+    "target": ".agents/skills/receive-listing-selling-point-files/knowledge/index.md"
+  },
+  {
+    "end_line": 2,
+    "sha256": "534e73bbec69b3565b04211496e78c3a6500da824f286c03e53cb3f499fa728e",
+    "source": ".agents/skills/receive-listing-selling-point-files/references/intake-contract.md",
+    "start_line": 1,
+    "target": ".agents/skills/receive-listing-selling-point-files/references/intake-contract.md"
+  },
+  {
+    "end_line": 6,
+    "sha256": "ea06871df1c0448d02aa4d5c672d1d78e335a1afc071d8078b1fd6404eb8f19e",
+    "source": ".agents/skills/receive-listing-selling-point-files/references/intake-contract.md",
+    "start_line": 3,
+    "target": ".agents/skills/receive-listing-selling-point-files/references/intake-contract.md"
+  },
+  {
+    "end_line": 12,
+    "sha256": "f50cea4a151c844e63d494faf74cabf6d1586b43b9e4b73cc2f6216b0ea3f32a",
+    "source": ".agents/skills/receive-listing-selling-point-files/references/intake-contract.md",
+    "start_line": 7,
+    "target": ".agents/skills/receive-listing-selling-point-files/references/intake-contract.md"
+  },
+  {
+    "end_line": 19,
+    "sha256": "ecb0d23ee5d727aa34c952d25b8d0fef0ef93571ef83f27c40e7938becef3ce0",
+    "source": ".agents/skills/receive-listing-selling-point-files/references/intake-contract.md",
+    "start_line": 13,
+    "target": ".agents/skills/receive-listing-selling-point-files/references/intake-contract.md"
+  },
+  {
+    "end_line": 2,
+    "sha256": "e574ccd6abf4d47225101f29e3146af37c25fecf7ca64dd2c0697be79455f210",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/Agent.md",
+    "start_line": 1,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/Agent.md"
+  },
+  {
+    "end_line": 6,
+    "sha256": "620b7e0c2c63ba540d1ac864fd9250ff9f5181d619cdd4497304c4f6631f07ac",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/Agent.md",
+    "start_line": 3,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/Agent.md"
+  },
+  {
+    "end_line": 10,
+    "sha256": "77828fcdb776e30aedcdfe0f2be36138805bd284770f23b0fd19c04579f26d63",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/Agent.md",
+    "start_line": 7,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/Agent.md"
+  },
+  {
+    "end_line": 14,
+    "sha256": "272cb9aeaed2ba8003f244542de5773378a8850e7e1f65cae176d91edf3d1e26",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/Agent.md",
+    "start_line": 11,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/Agent.md"
+  },
+  {
+    "end_line": 18,
+    "sha256": "1edf98327e5fac7615b460d89bc84e5f48b77dc3b2057532676b8e172a35b6da",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/Agent.md",
+    "start_line": 15,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/Agent.md"
+  },
+  {
+    "end_line": 23,
+    "sha256": "80bba0a2533469366598be4c8cfcbf6a5049ad6787ff05d1dd647f8b1e216cd2",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/Agent.md",
+    "start_line": 19,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/Agent.md"
+  },
+  {
+    "end_line": 5,
+    "sha256": "6d2534521bc8e233559fd932b7621e0bb6b308cb51fe1f429b6d041daf7e81df",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/SKILL.md",
+    "start_line": 1,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/SKILL.md"
+  },
+  {
+    "end_line": 7,
+    "sha256": "4bde433c05b243ffbe1d2534a8fce1ea3f2470cf89540809f099745e7088cb33",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/SKILL.md",
+    "start_line": 6,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/SKILL.md"
+  },
+  {
+    "end_line": 21,
+    "sha256": "25bfa67c0b44a00598f148f016a8f6b3e9fcdcfb2c3a5522e1ce03f7c9dc07aa",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/SKILL.md",
+    "start_line": 8,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/SKILL.md"
+  },
+  {
+    "end_line": 25,
+    "sha256": "4447e0a713a1b2d74e878686e04b9fcf47e80de9df0a8d074ea9f34df715ab61",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/SKILL.md",
+    "start_line": 22,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/SKILL.md"
+  },
+  {
+    "end_line": 45,
+    "sha256": "ac4287023848d38f8c8465545118544bb8907e15479e3d0fa467fc6d9f704d22",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/SKILL.md",
+    "start_line": 26,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/SKILL.md"
+  },
+  {
+    "end_line": 59,
+    "sha256": "9726e245314a21f85c1641d3a9928adc12f452d159d5323f7d0197dd4ce39b8a",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/SKILL.md",
+    "start_line": 46,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/SKILL.md"
+  },
+  {
+    "end_line": 65,
+    "sha256": "3511378f5bbd2595f438b091426219e954cbda9aaca129f881d259b605028e65",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/SKILL.md",
+    "start_line": 60,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/SKILL.md"
+  },
+  {
+    "end_line": 75,
+    "sha256": "442b790f1074f92cfb915fc239bfa147929e9fb5edca6c539583da0a083a008b",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/SKILL.md",
+    "start_line": 66,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/SKILL.md"
+  },
+  {
+    "end_line": 92,
+    "sha256": "f00579088929f5af9f6a831b2cdf96b4af4a182cb4f8d10238b66ee78347302a",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/SKILL.md",
+    "start_line": 76,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/SKILL.md"
+  },
+  {
+    "end_line": 96,
+    "sha256": "d4b004fd4a29c246eb75a7355a0276c35fa10641b3ec20e087715d9e6eb2fce7",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/SKILL.md",
+    "start_line": 93,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/SKILL.md"
+  },
+  {
+    "end_line": 100,
+    "sha256": "3c02459a91db5433c53f79a6f079fe738a2f92ad7d3503592b595c0904d22b46",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/SKILL.md",
+    "start_line": 97,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/SKILL.md"
+  },
+  {
+    "end_line": 104,
+    "sha256": "045e3137b077843be737d347076dce832b5bf1042ba41cb774547147a309dc57",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/SKILL.md",
+    "start_line": 101,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/SKILL.md"
+  },
+  {
+    "end_line": 108,
+    "sha256": "cd06caf190eb6c59e50d0b0ebf7bfb8192e739065ddd55c89c667aa022e7e215",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/SKILL.md",
+    "start_line": 105,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/SKILL.md"
+  },
+  {
+    "end_line": 112,
+    "sha256": "ac0687493f9442709266600aac4368a7aea230f64ae0c705ea3bf91024a38dbc",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/SKILL.md",
+    "start_line": 109,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/SKILL.md"
+  },
+  {
+    "end_line": 117,
+    "sha256": "be07a15089f824ce8c8f5a6154ca0678c510f58dca2717a261e6089f466c8a66",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/SKILL.md",
+    "start_line": 113,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/SKILL.md"
+  },
+  {
+    "end_line": 11,
+    "sha256": "624cb5a22c3e8e327813b20d22008d561dfe766500b4ef7a5a39d69cfc60364a",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/evidence/index.md",
+    "start_line": 1,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/evidence/index.md"
+  },
+  {
+    "end_line": 10,
+    "sha256": "19e1eced77cc2d04c9b6c74f04688c583e9f7742ccdbee5c9f8916adb7f71936",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/knowledge/index.md",
+    "start_line": 1,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/knowledge/index.md"
+  },
+  {
+    "end_line": 6,
+    "sha256": "54435895784fc4609b1d407d3b95dfa395163813043e2c2d085e495e64f92873",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 1,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 24,
+    "sha256": "924292cc356630405255936bcc4bdbbebc5007ef9331ddc7f4c50fc225e9564f",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 7,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 34,
+    "sha256": "6541070036d6267148178da955adea5bbbb0afc1dc7e463ed6bc83b2574a126e",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 25,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 42,
+    "sha256": "b2363075198baf67879d8c1ed22c3d3dba6e6c37c615f9139d63caa0b2f9e22f",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 35,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 67,
+    "sha256": "3cf88154fce0fb81a60c6212be488dc5913888ef1e0127f678b98de55978cc1a",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 43,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 84,
+    "sha256": "b7d7844336bfa7969b07c990ab7f68f427da08d4d0b3dc7b39e52a8b28e605b8",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 68,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 95,
+    "sha256": "946272fae06176913897f07f74e73867b747055c1aab18d0f9a5e65635096ba5",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 85,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 113,
+    "sha256": "6ee3f49dff0c758e89f7cbcd8aaef51ed0e21c74f61cf74dccffbb1a7c0027ae",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 96,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 139,
+    "sha256": "91944ffe685952607e3a2ad797ff3e5f8d05a8c7ae672f05dc2e1ae95e995df1",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 114,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 179,
+    "sha256": "ce102c39de5b50110dd5645cfd796393eab20f9bda40c89c4a17dcf964ce3e8a",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 140,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 181,
+    "sha256": "f4364de6244081df313f4b45eb884f2465c9825c32a52eb47c9448ce303612f0",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 180,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 192,
+    "sha256": "07367fd4f125be617e7c6fdd2abc64013f8abe2490c45d43061dd5c3f43a7e71",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 182,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 209,
+    "sha256": "8423aa1a40b37d5fea6e069a3dbcb3dcfdd36650737d6fed1786f6a77304ad23",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 193,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 226,
+    "sha256": "1e0f7d065aa3a2c7f680dcc56eef9c24e0f5bdfe9974c63eb4f16454e40e6817",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 210,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 238,
+    "sha256": "49b2d2d22a0b8937a357db281b3f0435109a87a5f6f5bdd0f2f839e9b64e35df",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 227,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 252,
+    "sha256": "67f36ffe472e6b653a52ffe79c83f50d7669e5f0bbdb9654ee4bce54103e1725",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 239,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 254,
+    "sha256": "a82bac282c948aa935e08248c6788dcd41ddfecd5c378408c4d34bbd111bb625",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 253,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 265,
+    "sha256": "a73432c19cd667dd618fd6135b3a31e5acdd87caa4eca5eb94d1ba4b7083d666",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 255,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 269,
+    "sha256": "a0cbed2aee1cf66b6301b380b92e860e6ee63dd7fc80884138307af25b6b7a47",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 266,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 279,
+    "sha256": "2e0dd4cac0fcf4e38720c7f38f6d9b3b10f2f3a2ab31517be960a3a799c413f8",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 270,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 292,
+    "sha256": "9e3b49361132ba857ad87a62a6073ffd6f0d5829e091ad18ef78d63962a2793b",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 280,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 301,
+    "sha256": "fda9863a6150f7465b2dae55343a1da45afef946f509854e0fc7fb23cc0ca036",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 293,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 315,
+    "sha256": "3aedb8be30c496220d216d24562090e58401219776fd273d7f3b2e5210144de4",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 302,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 320,
+    "sha256": "1c4d6e0e6039bb4201979f2917edd0220e2656e911b3e336152a9474d734f122",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 316,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 324,
+    "sha256": "e3c42263b9d3b4a4c0d62a4d17c5597af3ac96eeec4cb2a015cdd4de43650cd6",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 321,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 331,
+    "sha256": "a8af69d659e249a4cf109a3de7a79c87d4f7ba9e94c90ceed28e8661543050cf",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 325,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 374,
+    "sha256": "257cf7b3c8e1def047834effb9fb67b15d487a3833c60822b4dac70437508d9d",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 332,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 391,
+    "sha256": "12fb0253b1561e425646df9bc3391098cd1c9b3a2dfc6f6504ee68f9b400ba5b",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 375,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 393,
+    "sha256": "922844122a2cd842659da7d6511d6eb5512289485c67e32856a95858bfa9fbf6",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 392,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 404,
+    "sha256": "787fff1c47a0f50f9734cac2ec4005eb1891b085f4be300e3459c0408dc8d1c9",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 394,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 424,
+    "sha256": "bf28994a6827031e2ff60c85a872ad8c9e3609f7347b91c5f69939d0d28848a6",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 405,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 455,
+    "sha256": "bba2a2d255264e7e080a8d4952f976e6cd97f395b25949aae53a0a8161a4ad18",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 425,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 461,
+    "sha256": "8ae6f6980ce862ac5318d2a46c0cf049d3464dc8e7cf2d03f6b4f4cc5ca1b883",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 456,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 473,
+    "sha256": "06c07ff22c3734df7c61bdbd3da1c9c81073d4d58a9ece0044f31b83620e808b",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 462,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 488,
+    "sha256": "7dd13acede3d5272197029751530879dba62b92e0d2d9dfbbf92daa39662448e",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 474,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 498,
+    "sha256": "73caf7f6e49faf6d5675ac392e2c85724473829236920002e9391e7d3655d8d4",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 489,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 516,
+    "sha256": "f9d4939266e6bf0f70bfec10de86a9008dcf6a561f009b1b51274436f003f4d1",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 499,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 518,
+    "sha256": "bec2f159c36f5457a23ccaada6190650f0ff8b1b7e23a71e3a574616102b0194",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 517,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 553,
+    "sha256": "c9dfa361ce1fa4ed4cb9a60340ad4083a77bd01eb48e7389a511b29f64433571",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 519,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 577,
+    "sha256": "9c749fdf32e9800fb8f1687da83c2547230bbd17744541d10524b87fc055ce0a",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 554,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 585,
+    "sha256": "93737faba3cdceb86175aa9c16af59d33816575ab359ab9cd5f84af32ff7b742",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 578,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 632,
+    "sha256": "1d061c555e394801d2da46aba94ed80b29eee0d43cb5252eef9d052f4d025feb",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 586,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 650,
+    "sha256": "58b7165969ea634c47b2c745ab033edb7c0862f597ee934e95ed7a535f902acd",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 633,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 654,
+    "sha256": "9bb4596681cd91bc378a636769cd85c76a47a81457b88f530c1d7afa7e20193b",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 651,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 662,
+    "sha256": "14f6f86b63ee65e21bc27f6a7efe0c69fe7493d5ee62b2286bc9791ff99b026e",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 655,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 670,
+    "sha256": "8143cd06c0b8e7bd0fe60cabfc32a518984c8ce7e5406367a4dda4cfba85ed87",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 663,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 679,
+    "sha256": "629093873e78c45a2f1e6d087426ce1a520abab5605f610233d731eb346bbc6f",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 671,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 694,
+    "sha256": "baf088e61fbefb50255f999cd2f0292c5bb21cd6bb41b82d0a98d4fc194847b7",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 680,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 712,
+    "sha256": "82c9e2a3d33614b5e263121a0993eba86a5f2ed1207e65a9da685dd50a904271",
+    "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+    "start_line": 695,
+    "target": "dependencies/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md"
+  },
+  {
+    "end_line": 6,
+    "sha256": "c902cb5fc6418ffe6b3721ada3560533c57214d6d42fbc80ee6637a0d87ea6e8",
+    "source": "docs/skill-package-standard.md",
+    "start_line": 1,
+    "target": "docs/skill-package-standard.md"
+  },
+  {
+    "end_line": 12,
+    "sha256": "b52f5642630723c186bbe44ff84f116d082dff71c9eb2366ede27bd45efb4462",
+    "source": "docs/skill-package-standard.md",
+    "start_line": 7,
+    "target": "docs/skill-package-standard.md"
+  },
+  {
+    "end_line": 20,
+    "sha256": "8813a1fdf0340227188748802487045261be96848bfddbbb275e928f57cae5bf",
+    "source": "docs/skill-package-standard.md",
+    "start_line": 13,
+    "target": "docs/skill-package-standard.md"
+  },
+  {
+    "end_line": 34,
+    "sha256": "8f0a19f4459eb161ea9c79af61b362a7b729c869adbc72b116d4e4132fb45db4",
+    "source": "docs/skill-package-standard.md",
+    "start_line": 21,
+    "target": "docs/skill-package-standard.md"
+  },
+  {
+    "end_line": 39,
+    "sha256": "0f2926350ae575ba16c928d1e1761175e251ba9e7d3d634b818ef5d0dfb66ef5",
+    "source": "docs/skill-package-standard.md",
+    "start_line": 35,
+    "target": "docs/skill-package-standard.md"
+  }
+]

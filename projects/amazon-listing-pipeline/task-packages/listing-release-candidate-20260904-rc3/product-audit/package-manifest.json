@@ -1,0 +1,174 @@
+{
+  "authorized_maintenance": {
+    "P1": "not_executed",
+    "affected_roles": [
+      "main",
+      "product-audit",
+      "five-dimension-insights",
+      "tag-priority",
+      "painpoint-frequency",
+      "painpoint-phrasing",
+      "listing-writing-qa",
+      "selling-point-intake",
+      "tag-painpoint-intake",
+      "sku-keywords"
+    ],
+    "business_run": "not_executed",
+    "id": "AKW-TASK-SESSION-LOGIN-20260904-01",
+    "protocol_id": "AKW-TASK-SESSION-LOGIN-v1",
+    "scope": "在rc2德国站路由与来源修复基础上，增加无秘密登录准备Sheet、固定八Task/host会话矩阵、逐会话回执/失效和分支阻断；Amazon由用户逐任务登录，SIF/卖家精灵使用本机已保存凭据；本批不执行新业务Run或P1"
+  },
+  "business_rules_changed": true,
+  "files": [
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/audit-alexa-shopping-product-info/Agent.md",
+      "sha256": "de2f2423ef838306599a4d22f6e8265e36172f9c2c9a7e1dfcc572fba97281ca",
+      "source": ".agents/skills/audit-alexa-shopping-product-info/Agent.md",
+      "source_sha256": "de2f2423ef838306599a4d22f6e8265e36172f9c2c9a7e1dfcc572fba97281ca"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/audit-alexa-shopping-product-info/SKILL.md",
+      "sha256": "2254067ab118388c5058a0b338cbcd0d3ca87e85417716c81c350177ef75fcfc",
+      "source": ".agents/skills/audit-alexa-shopping-product-info/SKILL.md",
+      "source_sha256": "2254067ab118388c5058a0b338cbcd0d3ca87e85417716c81c350177ef75fcfc"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/audit-alexa-shopping-product-info/agents/openai.yaml",
+      "sha256": "c3c223b3301e28dbe6bc518f7beed264240b0deb2d6ab45f0d054441a3dc67f8",
+      "source": ".agents/skills/audit-alexa-shopping-product-info/agents/openai.yaml",
+      "source_sha256": "c3c223b3301e28dbe6bc518f7beed264240b0deb2d6ab45f0d054441a3dc67f8"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/audit-alexa-shopping-product-info/capabilities.yaml",
+      "sha256": "47f72d8777ea664a013f25c1c6ee88d7e70adba65b6759086ff5ed244b71d5e8",
+      "source": ".agents/skills/audit-alexa-shopping-product-info/capabilities.yaml",
+      "source_sha256": "47f72d8777ea664a013f25c1c6ee88d7e70adba65b6759086ff5ed244b71d5e8"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/audit-alexa-shopping-product-info/evidence/cases.json",
+      "sha256": "8b736dd1d72fffbde18938a81fe964a9174a9f45d8ba054835b785db5529e33c",
+      "source": ".agents/skills/audit-alexa-shopping-product-info/evidence/cases.json",
+      "source_sha256": "8b736dd1d72fffbde18938a81fe964a9174a9f45d8ba054835b785db5529e33c"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/audit-alexa-shopping-product-info/evidence/index.md",
+      "sha256": "624cb5a22c3e8e327813b20d22008d561dfe766500b4ef7a5a39d69cfc60364a",
+      "source": ".agents/skills/audit-alexa-shopping-product-info/evidence/index.md",
+      "source_sha256": "624cb5a22c3e8e327813b20d22008d561dfe766500b4ef7a5a39d69cfc60364a"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/audit-alexa-shopping-product-info/knowledge/catalog.json",
+      "sha256": "ae8e869320d6bf8dd4e25c0ee563f47bc7b235fd0b5e2b5578c2fcd8c99b2f3a",
+      "source": ".agents/skills/audit-alexa-shopping-product-info/knowledge/catalog.json",
+      "source_sha256": "ae8e869320d6bf8dd4e25c0ee563f47bc7b235fd0b5e2b5578c2fcd8c99b2f3a"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/audit-alexa-shopping-product-info/knowledge/index.md",
+      "sha256": "19e1eced77cc2d04c9b6c74f04688c583e9f7742ccdbee5c9f8916adb7f71936",
+      "source": ".agents/skills/audit-alexa-shopping-product-info/knowledge/index.md",
+      "source_sha256": "19e1eced77cc2d04c9b6c74f04688c583e9f7742ccdbee5c9f8916adb7f71936"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+      "sha256": "577917cbf678477cf9722a3126be3fb011dfdacfb5411827083e6398dcb6e770",
+      "source": ".agents/skills/audit-alexa-shopping-product-info/references/white-box-workflow-and-decision-logic.md",
+      "source_sha256": "577917cbf678477cf9722a3126be3fb011dfdacfb5411827083e6398dcb6e770"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "AGENTS.md",
+      "sha256": "8a1d36b8796e331559ecaae96122b79e79013206d3b730265e1bd2f4880d40e3"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "Agent.md",
+      "sha256": "8388cbfc51f76f41ad5d2366eb98115acc8a3c5a1323c2af9b834d955aaa65d4"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "LOAD_ORDER.md",
+      "sha256": "724b78d7f38a2db46c25a599d96aae589d9e518ce5b2d5b95a5ae61de08d1670"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "PUBLICATION.md",
+      "sha256": "4af58c68a519b9056c84327e9385c93c4a7096be87dbbbc55c395fd914e4e69c"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "contracts/dispatch-and-loading.md",
+      "sha256": "1564e4d5a1a08d98284a136cdfecb57aea2269adc015abf07eb74447d7cb62c9"
+    },
+    {
+      "operation": "generated_dependency_contract",
+      "path": "contracts/skill-dependencies.json",
+      "sha256": "274ab8f7f5898f5f094419d8eb702d369ecdf4ea7dc855d1a0c6f9fb4b35ee24"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "docs/skill-package-standard.md",
+      "sha256": "5ebb1007e34dec5a34a7f2b234b9af6f4460da7d20a2b4b49ece17640f023ec7",
+      "source": "docs/skill-package-standard.md",
+      "source_sha256": "5ebb1007e34dec5a34a7f2b234b9af6f4460da7d20a2b4b49ece17640f023ec7"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "evidence/index.md",
+      "sha256": "6a88452a0682434b46de244b32f0881506a42c5765e6349b1fa4027363855674"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "knowledge-base/index.md",
+      "sha256": "ccb92d16b523e9f8cf1825341634c423521c7a83ad64f0d5ffea3e2a7e23da7d"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "rules/index.md",
+      "sha256": "6723af386bb0d1dafc6571575db50df61e708e90068968f1f23076be6137845b"
+    },
+    {
+      "operation": "generated_complete_section_map",
+      "path": "rules/rule-map.json",
+      "sha256": "93677e85850ce5fe57e3f9a93b4c985b140a373525cd2e3bd04913bc1b05b4bc"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "scripts/validate_skill_packages.py",
+      "sha256": "4969534ba03d59094247575c43772ff27b93e25c66957eaa565b48874b27618c",
+      "source": "scripts/validate_skill_packages.py",
+      "source_sha256": "4969534ba03d59094247575c43772ff27b93e25c66957eaa565b48874b27618c"
+    }
+  ],
+  "kind": "specialist",
+  "new_business_run": false,
+  "original_business_skill_count": 8,
+  "owned_skills": [
+    "audit-alexa-shopping-product-info"
+  ],
+  "publication_status": "SANITIZED_CANDIDATE_NOT_PUBLISHED",
+  "reference_skills": [],
+  "role": "product-audit",
+  "schema_version": 1,
+  "title": "副线程｜Alexa商品信息审计",
+  "version": "listing-release-candidate-20260904-rc3"
+}

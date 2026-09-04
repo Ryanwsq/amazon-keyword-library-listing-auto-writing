@@ -1,0 +1,20 @@
+{
+  "capabilities": [
+    {
+      "id": "listing.painpoint-frequency.execute",
+      "input": "锁定ASIN列表、marketplace及派生路由、购物助手会话authenticated回执和采集授权",
+      "output": "04痛点明细与有效ASIN频率两Sheet",
+      "permission": "只读接收；业务执行和输出须当次明确授权，原SOP边界保持",
+      "purpose": "04接收；获明确采集授权后执行七题及有效ASIN频率统计",
+      "risk": "不得缺省到美国站；外部工具与登录未验证时停止，不得替代来源、扩大职责或绕过人工确认",
+      "status": "planned",
+      "type": "manual"
+    }
+  ],
+  "skill": {
+    "last_verified": null,
+    "maturity": "draft",
+    "name": "alexa-painpoint-frequency",
+    "scope": "new_structure_revision_only; historical_acceptance_not_reassessed"
+  }
+}

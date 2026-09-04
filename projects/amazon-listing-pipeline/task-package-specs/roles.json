@@ -1,13 +1,24 @@
 {
   "maintenance": {
     "P1": "not_executed",
-    "affected_roles": [],
+    "affected_roles": [
+      "main",
+      "product-audit",
+      "five-dimension-insights",
+      "tag-priority",
+      "painpoint-frequency",
+      "painpoint-phrasing",
+      "listing-writing-qa",
+      "selling-point-intake",
+      "tag-painpoint-intake",
+      "sku-keywords"
+    ],
     "business_run": "not_executed",
-    "id": "AKW-LISTING-MERGE-PREP-20260903-01",
-    "protocol_id": "AKW-LISTING-INTERFACE-v1",
-    "scope": "候选路径、发布元数据、匿名规则沿革及经单独授权的模板脱敏；业务规则保持v3"
+    "id": "AKW-TASK-SESSION-LOGIN-20260904-02",
+    "protocol_id": "AKW-TASK-SESSION-LOGIN-v1",
+    "scope": "在rc3任务会话合同基础上补齐必填marketplace与八会话初始化回归，保持无秘密登录准备Sheet、逐会话回执/失效和分支阻断；本批不执行新业务Run或P1"
   },
-  "predecessor_version": "listing-task-packages-20260903-v3",
+  "predecessor_version": "listing-release-candidate-20260904-rc3",
   "publication_status": "SANITIZED_CANDIDATE_NOT_PUBLISHED",
   "roles": [
     {
@@ -107,5 +118,5 @@
     "protocol_id": "AKW-LISTING-INTERFACE-v1",
     "scope": "关键词附加输入及READY回执、合法ABA缺失窄兼容、三类词表名称分离"
   },
-  "version": "listing-release-candidate-20260903-rc1"
+  "version": "listing-release-candidate-20260904-rc4"
 }

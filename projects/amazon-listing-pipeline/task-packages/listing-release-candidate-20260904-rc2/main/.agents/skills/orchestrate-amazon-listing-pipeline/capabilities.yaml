@@ -1,0 +1,20 @@
+{
+  "capabilities": [
+    {
+      "id": "listing.main.execute",
+      "input": "含必填marketplace的锁定产品输入或01–05封存包、独立06、适用网页会话authenticated回执及用户确认记录",
+      "output": "07信息校准、09映射、双确认门和10交付验收",
+      "permission": "只读接收；业务执行和输出须当次明确授权，原SOP边界保持",
+      "purpose": "总控、跨项目交接、两道人机确认、07/09与最终交付验收",
+      "risk": "站点或登录回执不完整时不得派发网页业务动作；不得替代来源、扩大职责或绕过人工确认",
+      "status": "planned",
+      "type": "manual"
+    }
+  ],
+  "skill": {
+    "last_verified": null,
+    "maturity": "draft",
+    "name": "orchestrate-amazon-listing-pipeline",
+    "scope": "new_structure_revision_only; historical_acceptance_not_reassessed"
+  }
+}

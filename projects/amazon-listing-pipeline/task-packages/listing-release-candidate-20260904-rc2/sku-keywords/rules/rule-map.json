@@ -1,0 +1,408 @@
+[
+  {
+    "end_line": 2,
+    "sha256": "c747838ad8611df7725b8efef1e9d9c01511b94634b9aad89eb67b226a582e3c",
+    "source": ".agents/skills/sku-usable-keyword-library/Agent.md",
+    "start_line": 1,
+    "target": ".agents/skills/sku-usable-keyword-library/Agent.md"
+  },
+  {
+    "end_line": 6,
+    "sha256": "c13a09a3a91247306a5ac75227de12b31c5bfb710d40ba8b2e145fc89ed8c661",
+    "source": ".agents/skills/sku-usable-keyword-library/Agent.md",
+    "start_line": 3,
+    "target": ".agents/skills/sku-usable-keyword-library/Agent.md"
+  },
+  {
+    "end_line": 10,
+    "sha256": "9ee51eaa21212aa4e1166bd0f2b08717e2ab4d3ec3a739ddce0f7231ef11e3a3",
+    "source": ".agents/skills/sku-usable-keyword-library/Agent.md",
+    "start_line": 7,
+    "target": ".agents/skills/sku-usable-keyword-library/Agent.md"
+  },
+  {
+    "end_line": 14,
+    "sha256": "0895f8e2b28fd9f4c94d760e0fcc281060f6f6fe9b794fa35880a09c11beffca",
+    "source": ".agents/skills/sku-usable-keyword-library/Agent.md",
+    "start_line": 11,
+    "target": ".agents/skills/sku-usable-keyword-library/Agent.md"
+  },
+  {
+    "end_line": 18,
+    "sha256": "c26472cd6848cd43b1287093e18d5adef98d97e3122de4520f14dcec62d4da63",
+    "source": ".agents/skills/sku-usable-keyword-library/Agent.md",
+    "start_line": 15,
+    "target": ".agents/skills/sku-usable-keyword-library/Agent.md"
+  },
+  {
+    "end_line": 23,
+    "sha256": "80bba0a2533469366598be4c8cfcbf6a5049ad6787ff05d1dd647f8b1e216cd2",
+    "source": ".agents/skills/sku-usable-keyword-library/Agent.md",
+    "start_line": 19,
+    "target": ".agents/skills/sku-usable-keyword-library/Agent.md"
+  },
+  {
+    "end_line": 5,
+    "sha256": "cfff5e1fc68417aa590a640ede527ef2b374aaa77238ac3746d849a625bfa51a",
+    "source": ".agents/skills/sku-usable-keyword-library/SKILL.md",
+    "start_line": 1,
+    "target": ".agents/skills/sku-usable-keyword-library/SKILL.md"
+  },
+  {
+    "end_line": 7,
+    "sha256": "baf2ed5f2bb64ae143f69c91b01adfdf97ee80debef283cb1527490602c90fe5",
+    "source": ".agents/skills/sku-usable-keyword-library/SKILL.md",
+    "start_line": 6,
+    "target": ".agents/skills/sku-usable-keyword-library/SKILL.md"
+  },
+  {
+    "end_line": 11,
+    "sha256": "0459af715e50c121cdcaca36d478248a67fd490f84b5f19e82ba52087a51fba7",
+    "source": ".agents/skills/sku-usable-keyword-library/SKILL.md",
+    "start_line": 8,
+    "target": ".agents/skills/sku-usable-keyword-library/SKILL.md"
+  },
+  {
+    "end_line": 19,
+    "sha256": "ff24d6aa719fbe70fd4651003e8e8ed17c2e41cd1889932b16ea67f935449ba6",
+    "source": ".agents/skills/sku-usable-keyword-library/SKILL.md",
+    "start_line": 12,
+    "target": ".agents/skills/sku-usable-keyword-library/SKILL.md"
+  },
+  {
+    "end_line": 29,
+    "sha256": "8509a52eb6645bed468975260863a4560639dc5bcb661d835c6a2616bb9246a7",
+    "source": ".agents/skills/sku-usable-keyword-library/SKILL.md",
+    "start_line": 20,
+    "target": ".agents/skills/sku-usable-keyword-library/SKILL.md"
+  },
+  {
+    "end_line": 37,
+    "sha256": "27268b49daee80daa34e155c1454d02ed6f9aba5110c58b9d857c4d4434734c6",
+    "source": ".agents/skills/sku-usable-keyword-library/SKILL.md",
+    "start_line": 30,
+    "target": ".agents/skills/sku-usable-keyword-library/SKILL.md"
+  },
+  {
+    "end_line": 50,
+    "sha256": "5cc73ce02961a510f7ac61dbcb277cf201a7853ed4bfdb3b8d578c4cf3a405a1",
+    "source": ".agents/skills/sku-usable-keyword-library/SKILL.md",
+    "start_line": 38,
+    "target": ".agents/skills/sku-usable-keyword-library/SKILL.md"
+  },
+  {
+    "end_line": 62,
+    "sha256": "bcb4443a3b488363f037634d329d76e242e2f29a68f43d5ebd2e32a1472517ff",
+    "source": ".agents/skills/sku-usable-keyword-library/SKILL.md",
+    "start_line": 51,
+    "target": ".agents/skills/sku-usable-keyword-library/SKILL.md"
+  },
+  {
+    "end_line": 74,
+    "sha256": "fe45fb764df614db31a8890245e8359d9e00a0d856edef89feb6e8e79ec7dc9a",
+    "source": ".agents/skills/sku-usable-keyword-library/SKILL.md",
+    "start_line": 63,
+    "target": ".agents/skills/sku-usable-keyword-library/SKILL.md"
+  },
+  {
+    "end_line": 86,
+    "sha256": "4983ffb98ecb0d8ede457585055b65851364dd0d20f69a73c3f2ace8afe5a68d",
+    "source": ".agents/skills/sku-usable-keyword-library/SKILL.md",
+    "start_line": 75,
+    "target": ".agents/skills/sku-usable-keyword-library/SKILL.md"
+  },
+  {
+    "end_line": 96,
+    "sha256": "29c46d10150a7a640cb00c3ac59a31e5674bb5e038e80f5b8fdc92c7231c626a",
+    "source": ".agents/skills/sku-usable-keyword-library/SKILL.md",
+    "start_line": 87,
+    "target": ".agents/skills/sku-usable-keyword-library/SKILL.md"
+  },
+  {
+    "end_line": 100,
+    "sha256": "a40faafe40be91434527cac4c1aeb8e70cab2d73a59285ddf436b2e6c08dba4c",
+    "source": ".agents/skills/sku-usable-keyword-library/SKILL.md",
+    "start_line": 97,
+    "target": ".agents/skills/sku-usable-keyword-library/SKILL.md"
+  },
+  {
+    "end_line": 104,
+    "sha256": "045e3137b077843be737d347076dce832b5bf1042ba41cb774547147a309dc57",
+    "source": ".agents/skills/sku-usable-keyword-library/SKILL.md",
+    "start_line": 101,
+    "target": ".agents/skills/sku-usable-keyword-library/SKILL.md"
+  },
+  {
+    "end_line": 108,
+    "sha256": "dab76c9f1af613272eb794dec3af20c638b22078720ef732c6bd74ce602f1988",
+    "source": ".agents/skills/sku-usable-keyword-library/SKILL.md",
+    "start_line": 105,
+    "target": ".agents/skills/sku-usable-keyword-library/SKILL.md"
+  },
+  {
+    "end_line": 112,
+    "sha256": "fb257e3b6390d50b4aa73c468bf0111589017cfbc01f806a9ae2a1995704cb9b",
+    "source": ".agents/skills/sku-usable-keyword-library/SKILL.md",
+    "start_line": 109,
+    "target": ".agents/skills/sku-usable-keyword-library/SKILL.md"
+  },
+  {
+    "end_line": 117,
+    "sha256": "9de6c66b6065ff95ca191574de803f03f9c2382c495bffe6fc65793ec5afc831",
+    "source": ".agents/skills/sku-usable-keyword-library/SKILL.md",
+    "start_line": 113,
+    "target": ".agents/skills/sku-usable-keyword-library/SKILL.md"
+  },
+  {
+    "end_line": 11,
+    "sha256": "61c947d3ca9745b00c6dd76799cb2a40fbc6c85f6ecd98f2401f178701e72e7f",
+    "source": ".agents/skills/sku-usable-keyword-library/evidence/index.md",
+    "start_line": 1,
+    "target": ".agents/skills/sku-usable-keyword-library/evidence/index.md"
+  },
+  {
+    "end_line": 12,
+    "sha256": "21aec31759504bbac66a9abc5d77c6f9cac168e32adbea4a6f0ea28a08875457",
+    "source": ".agents/skills/sku-usable-keyword-library/knowledge/index.md",
+    "start_line": 1,
+    "target": ".agents/skills/sku-usable-keyword-library/knowledge/index.md"
+  },
+  {
+    "end_line": 2,
+    "sha256": "13e7747bb59ad854979506aac22b4a3b2a0e6e6794ec06c5269044d4d8956d51",
+    "source": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md",
+    "start_line": 1,
+    "target": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md"
+  },
+  {
+    "end_line": 10,
+    "sha256": "1e9be9157ae9d21495123a61f7bd403e4da3a2ff05776183b709f7e0369170e8",
+    "source": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md",
+    "start_line": 3,
+    "target": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md"
+  },
+  {
+    "end_line": 19,
+    "sha256": "7e5d16093845c08c52de3e0d8560479178005d99908920bf02bd6c19dd506786",
+    "source": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md",
+    "start_line": 11,
+    "target": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md"
+  },
+  {
+    "end_line": 23,
+    "sha256": "8e25b8c4ee26b65af0d41f0bb48075bbc9dfb66a9c21f3ba41bb8cb6305a0bae",
+    "source": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md",
+    "start_line": 20,
+    "target": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md"
+  },
+  {
+    "end_line": 29,
+    "sha256": "6d9c810953175c11bcc4fdfa6f7e325a4ae5cf72cfa96ef3025b1186e1349a1b",
+    "source": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md",
+    "start_line": 24,
+    "target": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md"
+  },
+  {
+    "end_line": 43,
+    "sha256": "97cd53a6126b0ea645c24eec8860a6068eefa81e92256e5205cb126133f3ac37",
+    "source": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md",
+    "start_line": 30,
+    "target": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md"
+  },
+  {
+    "end_line": 54,
+    "sha256": "7b73511055a5fd5c3a513b1a16e4e3f83812471d54cb8c14bccd8446a912a005",
+    "source": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md",
+    "start_line": 44,
+    "target": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md"
+  },
+  {
+    "end_line": 58,
+    "sha256": "17d89608c993769a76d5f595b7be7ecc09218cac2e66efa5d258dc8df9bf0d28",
+    "source": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md",
+    "start_line": 55,
+    "target": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md"
+  },
+  {
+    "end_line": 64,
+    "sha256": "3e1edefeedfe4465a46750d0e0ff452100163138258c6169943df7ff4f66027a",
+    "source": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md",
+    "start_line": 59,
+    "target": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md"
+  },
+  {
+    "end_line": 74,
+    "sha256": "5eec5befd274c10f86406ac6bf32690d352933f9035592d5647426b36e50a6a9",
+    "source": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md",
+    "start_line": 65,
+    "target": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md"
+  },
+  {
+    "end_line": 83,
+    "sha256": "4a6813db8f9a07153a3fc4dc6863341eb59d924fe11570045ffc706b9f37bd9d",
+    "source": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md",
+    "start_line": 75,
+    "target": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md"
+  },
+  {
+    "end_line": 95,
+    "sha256": "3ffc28c4d89537abe8be57477efc21e145313b8ba43e7d3587a7a7e9de69f54b",
+    "source": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md",
+    "start_line": 84,
+    "target": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md"
+  },
+  {
+    "end_line": 2,
+    "sha256": "b93ba5e3e84dba46ebe5fd5f667e75d42ccad8b1e815a467522fa37d73840898",
+    "source": ".agents/skills/sku-usable-keyword-library/references/reference-provenance.md",
+    "start_line": 1,
+    "target": ".agents/skills/sku-usable-keyword-library/references/reference-provenance.md"
+  },
+  {
+    "end_line": 12,
+    "sha256": "71d5d526d44e99e92d7de6b4f30102801e9ff59c39da83fea379f108329ba99f",
+    "source": ".agents/skills/sku-usable-keyword-library/references/reference-provenance.md",
+    "start_line": 3,
+    "target": ".agents/skills/sku-usable-keyword-library/references/reference-provenance.md"
+  },
+  {
+    "end_line": 22,
+    "sha256": "724ff49eba2688cd8c9b18c8ce094aebcbbfb55e45f1f47227a4049543f79537",
+    "source": ".agents/skills/sku-usable-keyword-library/references/reference-provenance.md",
+    "start_line": 13,
+    "target": ".agents/skills/sku-usable-keyword-library/references/reference-provenance.md"
+  },
+  {
+    "end_line": 30,
+    "sha256": "95e74d14268fa6b83ca35cf14208b61321049b3ff4e63bf7775c20ddfeb5d533",
+    "source": ".agents/skills/sku-usable-keyword-library/references/reference-provenance.md",
+    "start_line": 23,
+    "target": ".agents/skills/sku-usable-keyword-library/references/reference-provenance.md"
+  },
+  {
+    "end_line": 37,
+    "sha256": "255c810ea9514c7322cde9c9e4fa81054d820801c7a8222a5433a41abe036bc8",
+    "source": ".agents/skills/sku-usable-keyword-library/references/reference-provenance.md",
+    "start_line": 31,
+    "target": ".agents/skills/sku-usable-keyword-library/references/reference-provenance.md"
+  },
+  {
+    "end_line": 48,
+    "sha256": "6324f7a17f8c243be563af45a6cb3edf0c27e12f0e9edfe5276108f00b31a0b5",
+    "source": ".agents/skills/sku-usable-keyword-library/references/reference-provenance.md",
+    "start_line": 38,
+    "target": ".agents/skills/sku-usable-keyword-library/references/reference-provenance.md"
+  },
+  {
+    "end_line": 2,
+    "sha256": "d753c6bbbe3820f83faf7efb610a48b2970de4f992750737bf774e56c4abe5f7",
+    "source": ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md",
+    "start_line": 1,
+    "target": ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md"
+  },
+  {
+    "end_line": 15,
+    "sha256": "bf7ba22b2d1f6ff5726543a848b3070c87684bbb9cd158e4b32ca30b599ebacd",
+    "source": ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md",
+    "start_line": 3,
+    "target": ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md"
+  },
+  {
+    "end_line": 29,
+    "sha256": "87b44a84ca90438fb775775668afce6f13ce7981c394a92bd29c9213a545447e",
+    "source": ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md",
+    "start_line": 16,
+    "target": ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md"
+  },
+  {
+    "end_line": 43,
+    "sha256": "cc9732e5371bfe40b2de80759ca56e35bc0f734a3e5da23f3c2e747877cf5a76",
+    "source": ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md",
+    "start_line": 30,
+    "target": ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md"
+  },
+  {
+    "end_line": 56,
+    "sha256": "95c1e199e2b951a0dd5b83c620eacc2c5457718d7ace51a3fdb513edc81527c6",
+    "source": ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md",
+    "start_line": 44,
+    "target": ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md"
+  },
+  {
+    "end_line": 93,
+    "sha256": "bd09371957650fa926fd0e059c07ab61fdc03a69c247f782f47b7663a4a2ad16",
+    "source": ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md",
+    "start_line": 57,
+    "target": ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md"
+  },
+  {
+    "end_line": 107,
+    "sha256": "4ef5c9c12da4fbe4761328b4b698072b28d3edbf7b4d4b8ba0e873a7c6863876",
+    "source": ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md",
+    "start_line": 94,
+    "target": ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md"
+  },
+  {
+    "end_line": 129,
+    "sha256": "a4503e581199533f087f54b4dd8250fc3419d74b58d32a7030fcc2f442d5a6cb",
+    "source": ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md",
+    "start_line": 108,
+    "target": ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md"
+  },
+  {
+    "end_line": 136,
+    "sha256": "5b13f4b8f27dfee15451656bfb988db74952fa2b153abe7b447cb9f37fadaa19",
+    "source": ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md",
+    "start_line": 130,
+    "target": ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md"
+  },
+  {
+    "end_line": 151,
+    "sha256": "83385adc5e15797a7caa0f2bfdba6574e5298e5c21a3dedc65c3dffd35c682dc",
+    "source": ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md",
+    "start_line": 137,
+    "target": ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md"
+  },
+  {
+    "end_line": 157,
+    "sha256": "36513100f231e43a54de1811bada02fc15d9b529990b6bf5703b54a69ab44161",
+    "source": ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md",
+    "start_line": 152,
+    "target": ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md"
+  },
+  {
+    "end_line": 6,
+    "sha256": "c902cb5fc6418ffe6b3721ada3560533c57214d6d42fbc80ee6637a0d87ea6e8",
+    "source": "docs/skill-package-standard.md",
+    "start_line": 1,
+    "target": "docs/skill-package-standard.md"
+  },
+  {
+    "end_line": 12,
+    "sha256": "b52f5642630723c186bbe44ff84f116d082dff71c9eb2366ede27bd45efb4462",
+    "source": "docs/skill-package-standard.md",
+    "start_line": 7,
+    "target": "docs/skill-package-standard.md"
+  },
+  {
+    "end_line": 20,
+    "sha256": "8813a1fdf0340227188748802487045261be96848bfddbbb275e928f57cae5bf",
+    "source": "docs/skill-package-standard.md",
+    "start_line": 13,
+    "target": "docs/skill-package-standard.md"
+  },
+  {
+    "end_line": 32,
+    "sha256": "ff24b36d7724839453ffc90fee4bdfb50a1b136bb594554657a6659e6cdc3cc4",
+    "source": "docs/skill-package-standard.md",
+    "start_line": 21,
+    "target": "docs/skill-package-standard.md"
+  },
+  {
+    "end_line": 37,
+    "sha256": "0f2926350ae575ba16c928d1e1761175e251ba9e7d3d634b818ef5d0dfb66ef5",
+    "source": "docs/skill-package-standard.md",
+    "start_line": 33,
+    "target": "docs/skill-package-standard.md"
+  }
+]

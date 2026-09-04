@@ -1,6 +1,6 @@
 ---
 name: amazon-keyword-trend-analysis
-description: Build one product-library-eligible monthly and quarterly trend sheet for classified Amazon Sheet2 F1-F3 keywords using exact SellerSprite search volume or a locked Sorftime fallback. Use for月度环同比、季度环同比、实际搜索量折线图和趋势矩阵；do not use for competition, source mining, SIF trends, seasonality labels or ad decisions.
+description: Build one product-library-eligible monthly and quarterly trend sheet for classified Amazon Sheet2 F1-F3 keywords using SellerSprite MCP exact search volume or a locked Sorftime MCP fallback. Use for月度环同比、季度环同比、实际搜索量折线图和趋势矩阵；do not use for competition, source mining, website collection, SIF trends, seasonality labels or ad decisions.
 ---
 
 # Amazon Keyword Trend Analysis
@@ -11,7 +11,7 @@ description: Build one product-library-eligible monthly and quarterly trend shee
 
 ## 输入
 
-锁定分类工作簿、Sheet2总人口与资格人口、`通用词库资格=纳入`的F1–F3人口、Keyword_ID、站点、最新完整月、查询批次、趋势版本、来源优先级、选定提供商和获准趋势接口。
+锁定分类工作簿、Sheet2总人口与资格人口、`通用词库资格=纳入`的F1–F3人口、Keyword_ID、`marketplace`及提供商查询站点参数、最新完整月、查询批次、趋势版本、来源优先级、选定提供商和获准趋势接口。`marketplace`只允许`Amazon-US`或`Amazon-DE`，每次精确词查询的站点参数必须与Run一致。
 
 ## 输出
 
@@ -28,7 +28,7 @@ description: Build one product-library-eligible monthly and quarterly trend shee
 ## 执行步骤
 
 1. 读取知识、判断边界和`references/output-contract.md`，锁定Sheet2资格人口、`纳入`且为F1–F3的人口、主键、站点、最新完整月、至少24月范围、来源优先级和版本；不重算通用词库资格。
-2. 默认对每个完整英文关键词执行卖家精灵精确词趋势查询。卖家精灵不可用时允许改用Sorftime精确词月搜索量；一旦某个提供商成为本Run正式来源，全部锁定关键词必须使用同一提供商。主来源在批次中途失败时，保留诊断证据并从头用备用来源重跑全部人口，不混源；主来源中途恢复只影响下一个新Run。
+2. 默认对每个完整英文关键词执行SellerSprite MCP精确词趋势查询。SellerSprite MCP不可用时允许改用Sorftime MCP精确词月搜索量；网页端不属于趋势正式采集接口。每次查询前核对提供商站点参数与Run的`marketplace`一致；不一致时记录`marketplace_mismatch`、停止并通知用户介入，不自行改成US。一旦某个提供商成为本Run正式来源，全部锁定关键词必须使用同一提供商。主来源在批次中途失败时，保留诊断证据并从头用备用来源重跑全部人口，不混源；主来源中途恢复只影响下一个新Run。
 3. 保存选定提供商、入口、查询时间、实际返回和月份；当前未结束月排除。月份为空/不可解析无效，缺值留空，不填0、不插值。不得使用SIF、词根、近义词或跨提供商补月。
 4. 至少形成24个已结束完整月的查询范围；把资格纳入F1–F3人口、锁定提供商、最新完整月和逐词月份原值输入`scripts/keyword_deterministic_core.py trend`。最近12完整月进入月度矩阵，额外历史用于同比、季度基准和月度实际搜索量图。
 5. 由确定性核心计算月环比/月同比。当前或基准缺失、基准为0时留空。
