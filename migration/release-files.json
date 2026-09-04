@@ -1,13 +1,13 @@
 {
   "schema": "amazon-workflow-release-files/v1",
-  "reviewed_on": "2026-09-03",
+  "reviewed_on": "2026-09-04",
   "business_run": "not_executed",
   "P1": "not_executed",
   "files": {
     ".gitattributes": "12c3732ce54ea848209459be7d22f611c432a525ae85e142ef426fc1597bfa21",
     ".gitignore": "eddb4eef0433427111ae65018d26d656ceda74c282f0b99d0e02c449d167db2b",
     "AGENTS.md": "1df8dd47c4eabc0452cdbf279910dff24d6db8a4ba83cee75dde7822998bb2f3",
-    "README.md": "894c39b616fe3e1b48618d69f7b57a8f9b25ab6b75210d8856717c814ab8476b",
+    "README.md": "7afcb3a1a681c3a338000066af20b763f60228971042450d895893878cd7931d",
     "docs/cross-device-setup.md": "55198cadd5702d62d4355778c9ccd8ed667871b32d3c286dea96b5d83c871aa3",
     "docs/merge-and-publication.md": "8c5d794a99731a278b1e347f721446fdcf11284fe8356e743341ef2067083dfc",
     "docs/repository-identity.md": "f9552d29ab740e50759b3e774d066a76f8969904c98d6bafbbd86c216fd25cbd",
