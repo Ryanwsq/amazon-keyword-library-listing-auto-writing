@@ -5,6 +5,8 @@ description: "Assemble the Amazon keyword project's two-object delivery: a proce
 
 # Amazon Keyword Final Workbook Assembly
 
+2026-09-07先完整读取[执行减负合同](../../../docs/execution-efficiency-contract.md)。新test-validation默认qa_mode=not_executed：仍执行本Skill原装配检查，质量目录仅输出independent-qa-not-executed.json，Gate 21=not_executed、delivery_status=incomplete、P1=false，检查后交表不等独立QA。下文步骤12–13及post-qa-package只适用于明确启用compact/full的Run；其余业务输出与检查不变。重复通知只引用同锁已通过检查，不重复作者写入或渲染。
+
 ## 目标
 
 锁定全部阶段产物，不改变上游判断，装配一个过程文件夹和一个八Sheet最终工作簿，并执行21项装配门。

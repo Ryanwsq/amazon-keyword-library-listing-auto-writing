@@ -1,5 +1,7 @@
 # Amazon 产品关键词知识库
 
+2026-09-07执行层增量见[执行减负合同](../docs/execution-efficiency-contract.md)。全图就绪派发、事件驱动等待及同锁检查复用不改变本文领域判断。新普通test-validation不自动追加独立QA；下文compact/full和正式回归条款只在明确启用时适用，未执行仍为incomplete/P1=false，历史质量不升级。
+
 - Status: verified rules; P1 pending
 - Last verified: 2026-09-03
 - Sharing: sanitized

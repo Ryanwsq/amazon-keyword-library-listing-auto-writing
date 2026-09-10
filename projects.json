@@ -7,7 +7,7 @@
       "entry": "AGENTS.md",
       "maintenance_skills": ".agents/skills",
       "expected_skill_count": 12,
-      "checks": ["scripts/validate_repository.py", "scripts/validate_skill_dependencies.py"]
+      "checks": ["scripts/validate_repository.py", "scripts/validate_skill_dependencies.py", "scripts/run_runtime_fixtures.py", "scripts/test_dispatch_guard.py"]
     },
     {
       "id": "amazon-listing-pipeline",
@@ -16,7 +16,7 @@
       "maintenance_skills": ".agents/skills",
       "expected_skill_count": 10,
       "role_registry": "task-packages/registry.json",
-      "checks": ["scripts/validate_skill_packages.py", "scripts/task_packages.py validate"]
+      "checks": ["scripts/validate_skill_packages.py", "scripts/task_packages.py validate", ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/test_dispatch_plan.py", ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/test_pipeline_state.py"]
     }
   ]
 }

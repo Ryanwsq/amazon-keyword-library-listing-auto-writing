@@ -1,5 +1,7 @@
 # Amazon关键词判断边界
 
+2026-09-07仅质量调用策略由[执行减负合同](execution-efficiency-contract.md)更新：新普通测试默认not_executed独立QA，下文测试QA完成门只对明确compact/full适用；未执行仍为incomplete/P1=false。所有语义、来源、阈值、人口、字段与装配检查保持本文件原边界，不改历史Run。
+
 - Last reviewed: 2026-09-03
 - Cleaning baseline: V2.1
 - Output-contract increments: 2026-08-21, 2026-08-24, 2026-08-25, 2026-08-26, 2026-08-31, 2026-09-01 and 2026-09-02

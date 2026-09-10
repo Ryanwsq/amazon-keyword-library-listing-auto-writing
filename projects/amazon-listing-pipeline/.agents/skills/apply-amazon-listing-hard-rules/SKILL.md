@@ -7,6 +7,8 @@ description: 按项目提供的硬性规则撰写、检查或修订 Amazon Listi
 
 ## 执行原则
 
+2026-09-07执行增量：整套新版交付另读取[执行减负合同](../orchestrate-amazon-listing-pipeline/references/execution-efficiency.md)。本任务原有硬规则与软性自检在写作/装配时一次完成并回传同一检查证据，不另启动重复独立QA；不是免检。原字段、判断、两道人机确认及保真门全部保留，P1不升级。
+
 1. 先锁定`marketplace`（只允许Amazon-US或Amazon-DE）并识别用户要求处理的字段，再完整读取对应 reference；涉及整套 Listing 或跨字段一致性时，读取全部五份 reference。站点专属字符/字节/图片/A+规则不得跨站套用；缺少德国站当前规则证据时标记待确认，不能静默回退美国站默认值。
 2. 把 reference 视为本项目的最低硬性门槛。若用户提供的当前 Seller Central、站点或类目规则更严格，以更严格且更具体的规则为准。
 3. 只使用用户提供或可核验的商品事实。不得猜测材质、尺寸、数量、功能、认证、适用人群、兼容性、包装内容或效果。

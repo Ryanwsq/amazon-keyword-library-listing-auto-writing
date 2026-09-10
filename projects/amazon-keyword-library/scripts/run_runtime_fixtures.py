@@ -77,6 +77,12 @@ def test_runtime_contract() -> None:
     )
     assert "quality-validation" not in production["stages"]
     assert production["quality_routing"] == "not_applicable"
+    ordinary_test = runtime.build_contract(spec("test-validation", change_flags=["checker-change"]))
+    runtime.verify_contract(ordinary_test)
+    assert ordinary_test["run_type"] == "test-validation"
+    assert ordinary_test["quality_routing"] == "not_executed"
+    assert "quality-validation" not in ordinary_test["stages"]
+    assert set(ordinary_test["stages"]) == set(production["stages"])
     assert runtime.descendants("word-frequency", "production") == ["assembly"]
     assert runtime.descendants("classification", "production") == [
         "competition",

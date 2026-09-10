@@ -1,5 +1,7 @@
 # Merge and publication boundary
 
+2026-09-07用户确认执行减负维护：rc5以rc4为不可变前序，新增全图防漏派、独立QA调用和原检查回执执行方式；当前rc6以rc5为不可变前序，补齐上游锁变化向已完成下游传递的防旧结果复用检查。完整保留十角色及业务规则。历史Run/快照不改，源、依赖合同、角色包与发布清单同批生成；本地机械通过不是已发布、已装载、实测提速或P1。
+
 ## Layout and ownership
 
 两个项目分别位于`projects/amazon-keyword-library`与`projects/amazon-listing-pipeline`。根目录仅拥有仓库路由、项目登记和统一检查，不另写业务知识、判断边界、核心词或SKU筛选规则。原相对引用仍在各项目内解析；角色包只能按其当前登记版本装载。

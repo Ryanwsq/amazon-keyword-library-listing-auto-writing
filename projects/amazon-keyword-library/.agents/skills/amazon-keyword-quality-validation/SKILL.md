@@ -5,6 +5,8 @@ description: Independently validate a locked Amazon keyword-library test-validat
 
 # Amazon Keyword Quality Validation
 
+2026-09-07派发门：先按[执行减负合同](../../../docs/execution-efficiency-contract.md)核对明确的独立QA/正式回归/P1授权与compact/full锁。普通测试或qa_mode=not_executed不得启动本Skill；立即回传未执行，不生成独立QA产物。本Skill下文全部原检查仅在明确启用时适用，不改变历史取消状态和P1门。
+
 ## 目标
 
 在不丢失现有业务边界和21个Gate身份的前提下，只对锁定的`run_type=test-validation` Run执行独立只读验收。普通测试把全量机械检查交给确定性检查，只对完整风险人口做语义复核；完整回归保留全面重审。`run_type=production`禁止调度本Skill。

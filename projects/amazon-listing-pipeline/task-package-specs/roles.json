@@ -14,11 +14,11 @@
       "sku-keywords"
     ],
     "business_run": "not_executed",
-    "id": "AKW-TASK-SESSION-LOGIN-20260904-02",
-    "protocol_id": "AKW-TASK-SESSION-LOGIN-v1",
-    "scope": "在rc3任务会话合同基础上补齐必填marketplace与八会话初始化回归，保持无秘密登录准备Sheet、逐会话回执/失效和分支阻断；本批不执行新业务Run或P1"
+    "id": "WORKFLOW-EFFICIENCY-20260907-01",
+    "protocol_id": "WORKFLOW-EFFICIENCY-v1",
+    "scope": "用户确认全图防漏派、同锁输出复用、事件等待及装配内原检查；不另派重复独立QA。来源、业务判断、人口、字段与双确认门不变；本批不执行真实业务或P1"
   },
-  "predecessor_version": "listing-release-candidate-20260904-rc3",
+  "predecessor_version": "listing-release-candidate-20260907-rc5",
   "publication_status": "SANITIZED_CANDIDATE_NOT_PUBLISHED",
   "roles": [
     {
@@ -118,5 +118,5 @@
     "protocol_id": "AKW-LISTING-INTERFACE-v1",
     "scope": "关键词附加输入及READY回执、合法ABA缺失窄兼容、三类词表名称分离"
   },
-  "version": "listing-release-candidate-20260904-rc4"
+  "version": "listing-release-candidate-20260907-rc6"
 }

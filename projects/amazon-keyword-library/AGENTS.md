@@ -1,5 +1,7 @@
 # Amazon Keyword Library guidance
 
+2026-09-07执行调度增量：必读`docs/execution-efficiency-contract.md`。普通测试不再自动追加独立QA，下文测试独立QA条款仅在明确compact/full授权时适用；未执行仍incomplete/P1=false。每次状态变化与等待前全图scan-ready，核对实际派发。原业务规则和历史Run不变。
+
 ## Monorepo path adapter
 
 本项目在总仓内的项目根为`projects/amazon-keyword-library`。下文及原Skill中“本独立仓库根/仓库根”与相对文件路径均指该项目根；仅Git提交revision指总仓版本。业务任务仍从本项目根或其子目录启动，不能从总仓根借用另一个项目的入口。此路径适配不改变任何下文业务规则、主副任务所有权或P1状态；旧本机cwd必须在新Run前重新绑定和核验。

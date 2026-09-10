@@ -1,5 +1,7 @@
 # Runtime optimization contract
 
+2026-09-07执行增量见[执行减负合同](execution-efficiency-contract.md)：普通测试默认quality_routing=not_executed、不自动派独立QA；下文test-validation追加QA与full-regression路由只在明确独立验证时适用。业务阶段图不变，补全三组并行波次并在等待前全图扫描，规则/人口/完整检查不减。
+
 本文件只拥有执行性能、阶段身份、断点续跑和失败隔离合同；不拥有任何关键词业务判断。业务语义仍以`knowledge/`、`docs/keyword-judgment-boundaries.md`和各单一职责Skill合同为准。发生冲突时，本性能层必须停止，不能以“更快”为理由覆盖业务规则。
 
 本文件的stage graph和`scripts/runtime_contract.py`适用于`execution_mode=fresh-collection`及该流程的同Run续跑。2026-09-03用户确认的跨产品`recent-library-reuse`不是性能层跳过业务门，而是独立业务入口；按operations的`references/recent-library-reuse-contract.md`冻结当前三项输入/新事实/规则与历史来源/原始最终输出时间/人口/哈希，逐项预检后直接到装配。复用分支不调用本脚本制造全量上游ready，也不将历史stage改成本Runcompleted；本文件原精确续跑规则和确定性算法保持不变。

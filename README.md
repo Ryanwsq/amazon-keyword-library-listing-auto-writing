@@ -17,6 +17,8 @@
 
 ## 从用户输入到最终输出
 
+2026-09-07执行减负：主任务在状态变化和等待前扫描全部就绪分支、核对实际派发，防止只发一路后等待；新Run不自动追加独立重复QA，保留模块与装配原检查。详见[Listing执行合同](projects/amazon-listing-pipeline/.agents/skills/orchestrate-amazon-listing-pipeline/references/execution-efficiency.md)和[关键词执行合同](projects/amazon-keyword-library/docs/execution-efficiency-contract.md)。独立验证未执行不能写成QA/P1通过，原来源、字段和双确认门不变。
+
 日常完整业务从`Listing撰写信息决策｜项目主线程`进入。明确只做独立关键词项目时，才直接进入`Amazon关键词词库｜主任务｜main`。下面是跨项目完整流程的导航图；具体字段、阈值、来源备用条件和停止门仍以图中链接到的项目拥有文件为准。
 
 ```mermaid
