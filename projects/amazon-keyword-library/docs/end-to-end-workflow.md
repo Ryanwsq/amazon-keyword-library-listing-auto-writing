@@ -1,6 +1,7 @@
 # Amazon关键词词库端到端流程
 
-- Last synchronized: 2026-09-04
+- Last synchronized: 2026-09-07
+- Execution synchronization: 用户确认执行减负与防漏派，§1/§7/§8同步[执行减负合同](execution-efficiency-contract.md)。每次状态变化和等待前全图扫描、核对实际派发；普通测试默认not_executed独立QA并保持incomplete/P1=false，下文测试QA步骤仅对明确compact/full适用。首次及变更后必要检查不减，来源、语义判断、人口、字段和历史产物不改。
 - Marketplace/source/login synchronization: 2026-09-04德国站验证后，`marketplace`提升为必填Run锁；新增`Amazon-DE=amazon.de/80539`联想路由、错站人工介入、核心词后Amazon联想与卖家精灵同波次派发，并明确挖掘为`卖家精灵网页 > 卖家精灵MCP`、趋势为`SellerSprite MCP > Sorftime MCP`且Sorftime网页不采集。同批把网页登录升级为固定八个Task/host会话回执：Amazon由用户逐任务手动登录，SIF/卖家精灵按输入表中的非敏感账户别名/凭据引用使用本机已保存凭据；秘密不入表、Run或Git。本批修改Skill、合同、Schema和检查器；后续能力验证须使用`full-regression`，不回写本次已结束验证的P1。
 - Merge navigation review: 2026-09-03候选目录入口改为总仓内的`projects/amazon-keyword-library`；原相对路径继续按本项目根解析。已复核，无业务流程、知识判断、Skill正文、人口、来源、Sheet或质量路由变化；仅AGENTS/README/PROJECT导航说明同步，不产生P1或实际任务装载状态。
 - Cross-project synchronization: 2026-09-03用户授权协调Listing接口；同批补齐operations交接合同、稳定知识§2.6、全局接口边界和索引。本文§2输入与§7交付增加明确三组/类目映射、双Run回执、新事实隔离和合法缺失兼容；三类词表名称分开。已复核，项目内部业务流程、判断阈值、人口、八Sheet/21Gate及质量路由无变化；不重跑历史业务、不生成P1，双方验收状态以PROJECT为准。

@@ -24,7 +24,7 @@ RULE_MAP_PATH = ROOT / "contracts" / "runtime-rule-map.json"
 CONTRACT_SCHEMA = "amazon-keyword-run-contract/v1"
 STATUS_SCHEMA = "amazon-keyword-stage-status/v1"
 PREFLIGHT_SCHEMA = "amazon-keyword-source-preflight/v1"
-EXECUTOR_VERSION = "runtime-contract/1.1.0"
+EXECUTOR_VERSION = "runtime-contract/1.2.0"
 
 MARKETPLACE_ROUTES: Dict[str, Dict[str, str]] = {
     "Amazon-US": {
@@ -45,6 +45,8 @@ MARKETPLACE_ROUTES: Dict[str, Dict[str, str]] = {
 
 PARALLEL_WAVES = {
     "core-sources": ["amazon-autocomplete", "sellersprite"],
+    "cleaned-analysis": ["word-frequency", "classification"],
+    "classified-analysis": ["competition", "trend"],
 }
 
 STAGE_GRAPH: Dict[str, List[str]] = {
@@ -186,9 +188,9 @@ def validate_payload_safety(value: Any, trail: str = "$") -> None:
         raise ContractError(f"{trail}: secret-like value is forbidden")
 
 
-def active_stages(run_type: str) -> List[str]:
+def active_stages(run_type: str, qa_mode: str | None = None) -> List[str]:
     stages = list(STAGE_GRAPH)
-    if run_type == "production":
+    if run_type == "production" or qa_mode == "not_executed":
         stages.remove("quality-validation")
     return stages
 
@@ -260,11 +262,11 @@ def validate_spec(spec: Mapping[str, Any]) -> None:
         if qa_mode not in {None, "not_applicable"}:
             raise ContractError("production qa_mode must be omitted or not_applicable")
     else:
-        if qa_mode not in {"compact-validation", "full-regression"}:
+        if qa_mode not in {None, "not_executed", "compact-validation", "full-regression"}:
             raise ContractError(
-                "test-validation qa_mode must be compact-validation or full-regression"
+                "test-validation qa_mode must be not_executed, compact-validation or full-regression"
             )
-        if change_flags and qa_mode != "full-regression":
+        if change_flags and qa_mode not in {None, "not_executed", "full-regression"}:
             raise ContractError("test-validation with contract changes requires full-regression")
     revision = str(spec.get("revision", "")).lower()
     if not REVISION_RE.fullmatch(revision):
@@ -312,7 +314,7 @@ def compute_stage_keys(contract: MutableMapping[str, Any]) -> None:
     input_hashes = contract["input_hashes"]
     rule_by_id = {rule["id"]: rule for rule in contract["rules"]}
     stages = contract["stages"]
-    for stage_name in active_stages(contract["run_type"]):
+    for stage_name in active_stages(contract["run_type"], contract["quality_routing"]):
         stage = stages[stage_name]
         dependency_keys = {
             name: stages[name]["stage_key"] for name in stage["dependencies"]
@@ -359,6 +361,9 @@ def build_contract(spec: Mapping[str, Any]) -> Dict[str, Any]:
     rule_map = load_rule_map()
     snapshots = rule_snapshot(rule_map)
     run_type = str(spec["run_type"])
+    qa_mode = "not_applicable" if run_type == "production" else spec.get("qa_mode", "not_executed")
+    if qa_mode is None:
+        qa_mode = "not_executed"
     versions = spec.get("executor_versions", {})
     if not isinstance(versions, Mapping):
         raise ContractError("executor_versions must be an object")
@@ -366,12 +371,12 @@ def build_contract(spec: Mapping[str, Any]) -> Dict[str, Any]:
     if unknown_versions:
         raise ContractError(f"executor_versions has unknown stages: {unknown_versions}")
     stages: Dict[str, Dict[str, Any]] = {}
-    for stage_name in active_stages(run_type):
+    for stage_name in active_stages(run_type, qa_mode):
         stages[stage_name] = {
             "dependencies": [
                 item
                 for item in STAGE_GRAPH[stage_name]
-                if item in active_stages(run_type)
+                if item in active_stages(run_type, qa_mode)
             ],
             "executor_version": str(versions.get(stage_name, EXECUTOR_VERSION)),
             "rule_ids": sorted(
@@ -396,9 +401,7 @@ def build_contract(spec: Mapping[str, Any]) -> Dict[str, Any]:
         "change_flags": sorted(set(spec.get("change_flags", []))),
         "rules": snapshots,
         "stages": stages,
-        "quality_routing": (
-            "not_applicable" if run_type == "production" else spec["qa_mode"]
-        ),
+        "quality_routing": qa_mode,
     }
     compute_stage_keys(contract)
     contract["contract_sha256"] = sha256_bytes(
@@ -421,7 +424,7 @@ def verify_contract(contract: Mapping[str, Any], check_current_rules: bool = Tru
     run_type = contract.get("run_type")
     if run_type not in {"production", "test-validation"}:
         raise ContractError("run contract has invalid run_type")
-    expected_stage_names = set(active_stages(str(run_type)))
+    expected_stage_names = set(active_stages(str(run_type), contract.get("quality_routing")))
     stages = contract.get("stages")
     if not isinstance(stages, Mapping) or set(stages) != expected_stage_names:
         raise ContractError("run contract stage population does not match run_type")
@@ -431,17 +434,23 @@ def verify_contract(contract: Mapping[str, Any], check_current_rules: bool = Tru
         if contract.get("quality_routing") not in {
             "compact-validation",
             "full-regression",
+            "not_executed",
         }:
             raise ContractError("test-validation quality routing is invalid")
-        if contract.get("change_flags") and contract.get("quality_routing") != "full-regression":
+        if contract.get("change_flags") and contract.get("quality_routing") not in {"full-regression", "not_executed"}:
             raise ContractError("test-validation with contract changes requires full-regression")
     site = contract.get("site")
     if site not in MARKETPLACE_ROUTES:
         raise ContractError("run contract has invalid site")
     if contract.get("marketplace_route") != MARKETPLACE_ROUTES[str(site)]:
         raise ContractError("run contract marketplace route does not match site")
-    if contract.get("parallel_waves") != PARALLEL_WAVES:
+    expected_waves = ({"core-sources": PARALLEL_WAVES["core-sources"]}
+                      if contract.get("contract_version") == "runtime-contract/1.1.0" else PARALLEL_WAVES)
+    if contract.get("parallel_waves") != expected_waves:
         raise ContractError("run contract parallel dispatch waves drifted")
+    for stage_name, stage in stages.items():
+        if stage.get("dependencies") != STAGE_GRAPH[stage_name]:
+            raise ContractError(f"{stage_name}: business dependencies drifted")
     copy = json.loads(json.dumps(contract, ensure_ascii=False))
     compute_stage_keys(copy)
     for stage_name in expected_stage_names:
@@ -507,6 +516,8 @@ def load_statuses(status_dir: Path) -> Dict[str, Mapping[str, Any]]:
         value = read_json(path)
         stage = value.get("stage") if isinstance(value, Mapping) else None
         if isinstance(stage, str):
+            if stage in statuses or path.name != f"{stage}.json":
+                raise ContractError(f"duplicate or misnamed stage status: {stage}")
             statuses[stage] = value
     return statuses
 
@@ -518,8 +529,25 @@ def ready_for_stage(
     if stage not in contract["stages"]:
         raise ContractError(f"{stage} is not active for this run")
     statuses = load_statuses(status_dir)
+    preflight = read_json(preflight_path) if preflight_path else None
+    if preflight is not None:
+        validate_preflight(preflight)
+    return stage_readiness(contract, stage, statuses, preflight)
+
+
+def stage_readiness(contract, stage, statuses, preflight):
+    """Pure reducer; callers must verify the contract and preflight once per scan."""
     blocked_dependencies = []
-    for dependency in contract["stages"][stage]["dependencies"]:
+    dependencies = set()
+
+    def collect(name):
+        for dependency in contract["stages"][name]["dependencies"]:
+            if dependency not in dependencies:
+                dependencies.add(dependency)
+                collect(dependency)
+
+    collect(stage)
+    for dependency in sorted(dependencies):
         status = statuses.get(dependency)
         if status is None:
             blocked_dependencies.append({"stage": dependency, "reason": "missing_status"})
@@ -536,11 +564,9 @@ def ready_for_stage(
     preflight_result = "not_required"
     provider = SOURCE_PREFLIGHT.get(stage)
     if provider:
-        if preflight_path is None:
+        if preflight is None:
             preflight_result = "missing"
         else:
-            preflight = read_json(preflight_path)
-            validate_preflight(preflight)
             preflight_result = preflight["providers"][provider]["status"]
     ready = not blocked_dependencies and preflight_result in {
         "not_required",

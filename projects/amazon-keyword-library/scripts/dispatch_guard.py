@@ -132,13 +132,14 @@ def verify_admission(envelope):
         require(contract.get("schema") == "amazon-keyword-recent-library-reuse/v1", "wrong reuse schema")
         require(contract.get("execution_mode") == mode, "wrong reuse execution mode")
         require(contract.get("run_type") in {"production", "test-validation"}, "invalid reuse run type")
+        qa_enabled = contract.get("qa_mode") in {"compact-validation", "full-regression"}
         if contract["run_type"] == "test-validation":
-            require(contract.get("qa_mode") in {"compact-validation", "full-regression"}, "reuse QA mode missing")
-            require(not contract.get("change_flags") or contract["qa_mode"] == "full-regression", "reuse changes require full regression")
+            require(contract.get("qa_mode") in {"not_executed", "compact-validation", "full-regression"}, "reuse QA mode missing")
+            require(not contract.get("change_flags") or not qa_enabled or contract["qa_mode"] == "full-regression", "reuse changes require full regression")
         rules = contract.get("rule_owner_hashes")
         require(isinstance(rules, dict) and bool(rules), "reuse rule hashes required")
         required_rules = set(REUSE_RULES)
-        if contract["run_type"] == "test-validation":
+        if contract["run_type"] == "test-validation" and qa_enabled:
             required_rules.update({".agents/skills/amazon-keyword-quality-validation/SKILL.md",
                                    ".agents/skills/amazon-keyword-quality-validation/references/quality-contract.md"})
         require(required_rules <= set(rules), "reuse owning rule hash set incomplete")
@@ -147,7 +148,7 @@ def verify_admission(envelope):
             runtime.require_sha256(expected_hash, "rule owner hash")
             require(runtime.sha256_file(Path(envelope["target"]["cwd"]) / owner) == expected_hash,
                     "receiver reuse rule file drift")
-        require(stage == "assembly" or (stage == "quality-validation" and contract["run_type"] == "test-validation"),
+        require(stage == "assembly" or (stage == "quality-validation" and contract["run_type"] == "test-validation" and qa_enabled),
                 "reuse cannot dispatch upstream/production QA")
         require(envelope["stage_key"] == digest({"contract": envelope["contract"]["sha256"],
                                                 "stage": stage, "executor": VERSION}), "reuse stage key drift")
@@ -350,9 +351,72 @@ def reconcile(ledger, current_run, dispatch_id, evidence):
     return result
 
 
+def scan_ready(request, current_run, ledger):
+    """List the entire fresh frontier and refuse passive waiting with omitted work.
+
+    This is read-only, not a sender. Reserved/ambiguous sends require reconciliation,
+    successful owner events require business acceptance, and neither authorizes replay.
+    """
+    contract = runtime.read_json(Path(request["contract_path"]))
+    require(contract.get("run_id") == current_run, "wrong scan Run")
+    runtime.verify_contract(contract)
+    statuses = runtime.load_statuses(Path(request["status_dir"]))
+    preflight = runtime.read_json(Path(request["preflight"])) if request.get("preflight") else None
+    if preflight is not None:
+        runtime.validate_preflight(preflight)
+    jobs = {}
+    # A missing ledger is explicitly a setup/reconciliation task, not proof of idle.
+    ledger = Path(ledger).resolve()
+    if not ledger.is_file():
+        return {"run_id": current_run, "wait_allowed": False,
+                "action": "initialize_or_reconcile_ledger", "stages": []}
+    with sqlite3.connect(ledger.as_uri() + "?mode=ro", uri=True) as db:
+        for state, serialized in db.execute("SELECT state,envelope FROM jobs"):
+            envelope = json.loads(serialized)
+            stage = envelope["stage"]
+            if envelope["run_id"] == current_run and stage in contract["stages"]:
+                if envelope["stage_key"] == contract["stages"][stage]["stage_key"]:
+                    require(stage not in jobs, "duplicate stage dispatch identity")
+                    require(envelope["contract"] == file_record(request["contract_path"]), "scan contract drift")
+                    jobs[stage] = (state, envelope["dispatch_id"])
+    rows = []
+    actionable = {"dispatch", "main_action", "reconcile_delivery", "accept_output", "resume_required", "repair_lock"}
+    for stage in runtime.active_stages(contract["run_type"], contract["quality_routing"]):
+        row = {"stage": stage, "role": ROLES.get(stage, "keyword-main")}
+        status = statuses.get(stage)
+        try:
+            if status is not None:
+                runtime.validate_stage_status(status, contract, stage)
+            ready = runtime.stage_readiness(contract, stage, statuses, preflight)
+            row.update(ready)
+            if status and status["status"] in runtime.COMPLETED_STATUSES and not ready["blocked_dependencies"]:
+                row["action"] = "completed"
+            elif stage in jobs:
+                state, dispatch_id = jobs[stage]
+                row.update(dispatch_id=dispatch_id, dispatch_state=state)
+                row["action"] = ("reconcile_delivery" if state in {"reserved", "retry_authorized", "delivery_unknown"}
+                                 else "accept_output" if state in runtime.COMPLETED_STATUSES
+                                 else "in_flight" if state in {"sent", "accepted", "running"}
+                                 else "awaiting_login" if state == "awaiting_login"
+                                 else "resume_required")
+            elif status and status["status"] not in {"pending", "not_applicable"}:
+                # Runtime running without a journal entry must not hide an omitted send.
+                row["action"] = "repair_lock" if status["status"] == "running" else "resume_required"
+            elif ready["ready"]:
+                row["action"] = "dispatch" if stage in ROLES else "main_action"
+            else:
+                row["action"] = "blocked"
+        except runtime.ContractError as exc:
+            row.update(action="repair_lock", reason=str(exc))
+        rows.append(row)
+    return {"run_id": current_run, "contract_sha256": contract["contract_sha256"],
+            "wait_allowed": not any(row["action"] in actionable for row in rows),
+            "stages": rows, "business_acceptance": "still_required"}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=["build", "reserve", "sent", "accept", "observe", "reconcile"])
+    parser.add_argument("command", choices=["build", "reserve", "sent", "accept", "observe", "reconcile", "scan-ready"])
     parser.add_argument("--ledger")
     parser.add_argument("--run", required=True)
     parser.add_argument("--input", required=True, help="local spec/envelope/event/receipt JSON")
@@ -367,6 +431,8 @@ def main():
                     "use the fixed current-worktree journal, not a per-attempt ledger")
         if args.command == "build":
             result = build(payload, args.run)
+        elif args.command == "scan-ready":
+            result = scan_ready(payload, args.run, args.ledger)
         elif args.command in {"reserve", "accept"}:
             require(args.observed is not None, "observed task identity required")
             observed = runtime.read_json(Path(args.observed))
@@ -393,6 +459,8 @@ def main():
             result = {k: v for k, v in result.items() if k != "envelope"} if args.command == "reserve" else {"status": "built"}
             result["file"] = str(output)
         print(json.dumps(result, ensure_ascii=False))
+        if args.command == "scan-ready" and not result["wait_allowed"]:
+            raise SystemExit(1)
     except (runtime.ContractError, OSError, KeyError, TypeError, ValueError, sqlite3.Error, subprocess.CalledProcessError) as exc:
         print(json.dumps({"status": "blocked", "error": str(exc)}, ensure_ascii=False))
         raise SystemExit(2)

@@ -82,6 +82,79 @@ class DispatchTests(unittest.TestCase):
         self.assertFalse(duplicate["allowed_to_send"])
         self.assertEqual(first["dispatch_id"], duplicate["dispatch_id"])
 
+    def scan(self):
+        return guard.scan_ready({"contract_path": str(self.contract_path),
+                                 "status_dir": str(self.root / "status"),
+                                 "preflight": str(self.preflight)}, self.run, self.ledger)
+
+    def complete_through(self, last):
+        for stage in self.contract["stages"]:
+            runtime.write_json(self.root / "status" / f"{stage}.json", {
+                "schema": runtime.STATUS_SCHEMA, "stage": stage,
+                "stage_key": self.contract["stages"][stage]["stage_key"], "status": "completed",
+                "output_sha256": "a" * 64, "evidence_sha256": "b" * 64, "population": {"rows": 2}})
+            if stage == last:
+                break
+
+    def test_all_parallel_waves_are_scanned_without_omissions(self):
+        with guard.journal(self.ledger):
+            pass
+        for completed, expected in (("core-lock", {"amazon-autocomplete", "sellersprite"}),
+                                    ("cleaning", {"word-frequency", "classification"}),
+                                    ("classification", {"competition", "trend"})):
+            self.complete_through(completed)
+            result = self.scan()
+            self.assertFalse(result["wait_allowed"])
+            self.assertEqual(expected, {r["stage"] for r in result["stages"] if r["action"] == "dispatch"})
+
+    def test_reserved_is_not_sent_and_cannot_allow_wait(self):
+        self.reserve()
+        self.assertEqual("reconcile_delivery", self.scan()["stages"][0]["action"])
+        self.assertFalse(self.scan()["wait_allowed"])
+
+    def test_missing_journal_requires_reconciliation_not_blind_resend(self):
+        self.assertEqual("initialize_or_reconcile_ledger", self.scan()["action"])
+
+    def test_sent_one_branch_does_not_hide_unsent_sibling(self):
+        self.complete_through("core-lock")
+        target = dict(self.spec["target"], title=guard.TITLES["amazon-autocomplete"])
+        request = {"contract_path": str(self.contract_path), "stage": "amazon-autocomplete",
+                   "target": target, "output_root": self.spec["output_root"], "admission": self.spec["admission"]}
+        dispatch = self.reserve(guard.build(request, self.run), dict(target, status="idle"))
+        guard.sent(self.ledger, dispatch["dispatch_id"], {"dispatch_id": dispatch["dispatch_id"],
+                   "thread_id": target["thread_id"], "response": {"threadId": target["thread_id"]}})
+        actions = {r["stage"]: r["action"] for r in self.scan()["stages"]}
+        self.assertEqual("in_flight", actions["amazon-autocomplete"])
+        self.assertEqual("dispatch", actions["sellersprite"])
+        self.assertFalse(self.scan()["wait_allowed"])
+
+    def test_failure_isolates_only_descendants(self):
+        with guard.journal(self.ledger):
+            pass
+        self.complete_through("classification")
+        path = self.root / "status" / "word-frequency.json"
+        record = runtime.read_json(path)
+        record["status"] = "blocked"
+        runtime.write_json(path, record)
+        actions = {r["stage"]: r["action"] for r in self.scan()["stages"]}
+        self.assertEqual("dispatch", actions["competition"])
+        self.assertEqual("dispatch", actions["trend"])
+        self.assertEqual("blocked", actions["assembly"])
+
+    def test_old_stage_lock_and_duplicate_status_fail_closed(self):
+        with guard.journal(self.ledger):
+            pass
+        self.complete_through("core-lock")
+        path = self.root / "status" / "core-lock.json"
+        record = runtime.read_json(path)
+        record["stage_key"] = "f" * 64
+        runtime.write_json(path, record)
+        actions = {r["stage"]: r["action"] for r in self.scan()["stages"]}
+        self.assertEqual("blocked", actions["sellersprite"])
+        runtime.write_json(path.with_name("old-core-lock.json"), record)
+        with self.assertRaisesRegex(runtime.ContractError, "duplicate or misnamed"):
+            self.scan()
+
     def test_build_uses_contract_not_hand_copied_hashes(self):
         request = {"contract_path": str(self.contract_path), "stage": "sif", "target": self.spec["target"],
                    "output_root": self.spec["output_root"], "admission": self.spec["admission"]}

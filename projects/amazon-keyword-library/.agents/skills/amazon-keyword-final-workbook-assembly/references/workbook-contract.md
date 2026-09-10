@@ -1,5 +1,7 @@
 # Final delivery and workbook contract
 
+2026-09-07质量调用增量由[执行减负合同](../../../../docs/execution-efficiency-contract.md)拥有。下文test-validation独立QA生命周期、白名单及Gate 21完成要求仅适用于显式compact/full；新普通测试默认not_executed，只放independent-qa-not-executed.json、Gate 21=not_executed、delivery_status=incomplete、P1=false，原Gate 1–20与所有业务字段仍完整执行。已冻结历史不迁移。
+
 ## Top-level delivery
 
 顶层恰好两个对象：

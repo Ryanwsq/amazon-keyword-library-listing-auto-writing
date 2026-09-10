@@ -2,6 +2,7 @@
 
 | Topic | Status | Coverage | Last verified | Sharing | Purpose |
 |---|---|---|---:|---|---|
+| `../docs/execution-efficiency-contract.md` | active; runtime unverified | 全图防漏派、独立QA显式启用、同锁检查复用；业务规则不变 | 2026-09-07 | sanitized | 用户确认的执行减负；未执行QA不升级P1 |
 | `../docs/dispatch-control-contract.md` | active; runtime unverified | 幂等派发、当前Run双向校验、紧凑事件及网络不确定恢复；仅执行层，无业务判断变更 | 2026-09-03 | sanitized | 已确认调度方法的唯一执行合同；合成测试不等于P1 |
 | `product-keyword-library.md` | verified | V2.1 + V2.2 + Post-V2.1 contracts through 2026-09-04, including marketplace route lock, task-scoped login matrix, stage-specific source priorities, same-wave collection, test-only QA, lossless runtime, 30-day final-library reuse with new facts, and §2.6 cross-project input/library identity | 2026-09-04 | sanitized | 稳定领域对象、概念关系和已确认方法结论；跨项目执行入口见operations，双方验收见PROJECT |
 | `keyword-cleaning-case-evidence.md` | verified | four historical cases, one earlier incomplete case and one 2026-08-27 accepted cleaning-module normal case; no end-to-end P1 pass | 2026-08-27 | sanitized | 历史证据、当前模块案例及限制 |

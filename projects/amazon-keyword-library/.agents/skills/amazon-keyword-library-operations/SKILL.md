@@ -5,9 +5,11 @@ description: Coordinate the Amazon keyword-library baseline, recent same-categor
 
 # Amazon Keyword Library Operations
 
+2026-09-07执行增量：先完整读取[执行减负合同](../../../docs/execution-efficiency-contract.md)。普通测试不再自动派独立QA；下文compact/full步骤只适用于明确启用独立验证的Run。每次状态验收/解阻后及等待前使用dispatch_guard.py scan-ready列全就绪分支并核对实际派发；不得只启动一条支线后等待。业务步骤与判断不变。
+
 ## 目标
 
-锁定一次用户输入和运行版本，调度长期单一职责副任务，机械合并三来源，并控制各阶段汇合门与两对象最终交付；独立质量验证副任务只在明确的测试/回归验证Run中调度。
+锁定一次用户输入和运行版本，调度长期单一职责副任务，机械合并三来源，并控制各阶段汇合门与两对象最终交付；独立质量验证只在明确请求独立QA/正式回归/P1验证且锁定compact/full时调度。
 
 ## 输入
 
@@ -47,7 +49,7 @@ description: Coordinate the Amazon keyword-library baseline, recent same-categor
 7. 生成`Sheet1_关键词池`和`Sheet2_任务信息与类目锚点`；任务摘要必须记录原始/入选/排除ASIN及代表选择理由。锚点区必须分别记录一级品类核心大词、可选细分核心词、主执行锚点、Amazon联想锚点、卖家精灵一至两个种子、强等价表达、宽泛/相邻流量词、各自证据、目标细分强等价闭环状态和完整词覆盖边界。多细分类目中，SIF候选摘要及直接竞品高相关表达里的简称/紧凑写法必须逐项落入强等价、宽泛/相邻或未确认候选之一，并通过层级冲突检查。Amazon联想`not_executed`、任一必选来源未闭合或强等价闭环未闭合时，只能标记第一板块不完整。
 8. 路由第二板块清洗；清洗闭合后并行调度词频与分类；分类完成后并行调度竞争与趋势。每个模块必须由对应长期副任务执行并返回当前Run相对路径、哈希、人口、状态、缺口和验证。每个完成阶段写入匹配运行合同的stage status；只有stage key、输出/证据哈希、人口和状态全部闭合才可断点复用。阶段失败只阻断该阶段后代：词频失败不得暂停分类、竞争或趋势，分类失败不得推翻已完成词频；最终装配仍等待全部适用分支。词频、竞争和趋势只使用清洗已判定`通用词库资格=纳入`的适用人口；趋势调度固定`SellerSprite -> Sorftime`优先级，并要求同一Run全部趋势人口只使用一个锁定提供商。
 9. 等待所有适用分支并锁定哈希，路由最终装配生成`过程性文件/`和八Sheet最终工作簿；最终`二类词`Sheet必须机械复制分类完成的Sheet4全人口与固定十六列。production Run由装配任务执行全部机械、人口、公式、图表、渲染、隐私和哈希检查后直接交付，不调度独立质量验证副任务；21个Gate ID保留，独立QA专属Gate写`not_applicable`，不得伪写QA pass或P1。
-10. 只有`run_type=test-validation`时才路由独立质量验证副任务。普通测试可使用compact验证档；规则/Skill/Schema/公式/图表/封包/检查器变化、两个正常加一个边界案例或P1评估必须使用`full-regression`。测试Run中QA未通过不得把该测试交付标记完成。历史`compact-production`仅作为冻结旧Run标识，不再用于production路由。
+10. `run_type=test-validation`默认`qa_mode=not_executed`，不派发或等待独立QA；完成原装配检查后可输出表格，但测试交付仍为incomplete、Gate 21=not_executed、P1=false。明确请求独立验证才锁compact/full；启用后全部原full-regression触发条件、检查与封包门保持不变。历史Run和compact-production标识不重写。
 11. 正式只读Run中不修改知识或Skills；所有问题写同一个问题文档。整轮结束并经用户确认后，才进入获准迭代。除本Skill规定的近30天最终词库复用入口外，只有用户在了解影响后明确授权的一次性Run例外，主任务才可接收已经产生但未由拥有副任务正式回传的证据；例外必须留痕，不得成为默认路由或P1证据。常规复用也只承接历史来源，不许可主任务代跑装配或其他模块。
 12. 修改知识或Skill时同批同步端到端流程；发布前执行脱敏、结构、状态和Git检查。
 

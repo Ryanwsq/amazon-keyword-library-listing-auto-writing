@@ -1,5 +1,7 @@
 # Dispatch control contract
 
+2026-09-07补充[执行减负与全图派发](execution-efficiency-contract.md)：每次状态验收、解阻、恢复及等待前运行scan-ready，对全部已就绪节点核对实际送达；reserved不当sent，完成事件不当业务验收。普通测试不自动追加独立QA。下文compact/full条款仅在明确启用时适用，原身份/去重/接收门不变。
+
 本合同只拥有调度身份、幂等派发、消息增量和技术恢复；不拥有业务判断、来源选择、完成门或质量结论。入口是`scripts/dispatch_guard.py`，能力仍为`planned`。控制器不会调用Codex任务工具或外部服务，也不自动生成业务完成状态；主任务和拥有副任务必须实际执行下列接线。
 
 适用于fresh-collection/recent-library-reuse的新业务阶段，不把只读初始化、登录准备或approved iteration维护假装成业务Run。上述准备/维护消息也不授权开展采集或装配。

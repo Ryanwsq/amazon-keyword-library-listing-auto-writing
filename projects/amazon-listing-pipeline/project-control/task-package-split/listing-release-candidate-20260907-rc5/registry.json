@@ -1,0 +1,88 @@
+{
+  "publication_status": "SANITIZED_CANDIDATE_NOT_PUBLISHED",
+  "roles": [
+    {
+      "id": "main",
+      "kind": "main",
+      "manifest_sha256": "58fb861c55d241cf7b5b118237130f68c3984dbb78be6e73edf00384447879d6",
+      "path": "task-packages/listing-release-candidate-20260907-rc5/main",
+      "skill": "orchestrate-amazon-listing-pipeline",
+      "title": "Listing撰写信息决策｜项目主线程"
+    },
+    {
+      "id": "sku-keywords",
+      "kind": "specialist",
+      "manifest_sha256": "25a3a65c701e453a11119f805c3406b2a1511d5ef9d10a657af0ab00e4b24995",
+      "path": "task-packages/listing-release-candidate-20260907-rc5/sku-keywords",
+      "skill": "sku-usable-keyword-library",
+      "title": "副线程｜SKU可用关键词库"
+    },
+    {
+      "id": "product-audit",
+      "kind": "specialist",
+      "manifest_sha256": "66ce3a1a0b65cac5135f64394399f23b35b08ec1f580358845c9d09302c47e09",
+      "path": "task-packages/listing-release-candidate-20260907-rc5/product-audit",
+      "skill": "audit-alexa-shopping-product-info",
+      "title": "副线程｜Alexa商品信息审计"
+    },
+    {
+      "id": "five-dimension-insights",
+      "kind": "specialist",
+      "manifest_sha256": "c2ced9dfadf4fea95c86acad8cb331ae4a12f12f46d4b0258c626092ca4f640b",
+      "path": "task-packages/listing-release-candidate-20260907-rc5/five-dimension-insights",
+      "skill": "extract-amazon-product-insights",
+      "title": "副线程｜Alexa五维洞察"
+    },
+    {
+      "id": "tag-priority",
+      "kind": "specialist",
+      "manifest_sha256": "cd76d0ffa5567ea4085aab138302feb5c79cd7ab99db236be29cfad90b396796",
+      "path": "task-packages/listing-release-candidate-20260907-rc5/tag-priority",
+      "skill": "prioritize-amazon-insight-tags",
+      "title": "副线程｜Amazon标签优先级"
+    },
+    {
+      "id": "painpoint-frequency",
+      "kind": "specialist",
+      "manifest_sha256": "a260eae83e9b43bf673a3880cc2f93ca3409d246422aed9783d2e5471c542ee1",
+      "path": "task-packages/listing-release-candidate-20260907-rc5/painpoint-frequency",
+      "skill": "alexa-painpoint-frequency",
+      "title": "副线程｜Alexa痛点频率"
+    },
+    {
+      "id": "painpoint-phrasing",
+      "kind": "specialist",
+      "manifest_sha256": "ec707d87f6d33b2638185bb43e0dd7503f84268ce7909ab64cff14226b13afb2",
+      "path": "task-packages/listing-release-candidate-20260907-rc5/painpoint-phrasing",
+      "skill": "alexa-painpoint-phrasing",
+      "title": "副线程｜Alexa痛点口语表达"
+    },
+    {
+      "id": "listing-writing-qa",
+      "kind": "specialist",
+      "manifest_sha256": "bf1f6f82f910b9288dbf2d51dfb2ebd75cf6095d441358f78f14871d48096397",
+      "path": "task-packages/listing-release-candidate-20260907-rc5/listing-writing-qa",
+      "skill": "apply-amazon-listing-hard-rules",
+      "title": "副线程｜Listing硬规则与最终QA"
+    },
+    {
+      "id": "selling-point-intake",
+      "kind": "receive_only",
+      "manifest_sha256": "d474d49ee9aef525f58cafa908278993915f25dfb28f1186b33ba3732e7dd8a3",
+      "path": "task-packages/listing-release-candidate-20260907-rc5/selling-point-intake",
+      "skill": "receive-listing-selling-point-files",
+      "title": "副线程｜卖点配置文件接收整理"
+    },
+    {
+      "id": "tag-painpoint-intake",
+      "kind": "receive_only",
+      "manifest_sha256": "90966fa2041756ee3f55ed3fae45b8ce862b0413147624c36d05a7f930922abc",
+      "path": "task-packages/listing-release-candidate-20260907-rc5/tag-painpoint-intake",
+      "skill": "receive-listing-tag-painpoint-files",
+      "title": "副线程｜标签与QA文件接收整理"
+    }
+  ],
+  "schema_version": 1,
+  "source_lock": "project-control/task-package-split/listing-release-candidate-20260907-rc5/source-lock.json",
+  "version": "listing-release-candidate-20260907-rc5"
+}

@@ -134,6 +134,12 @@
       "owner": "AGENTS.md",
       "anchor": "P1验收未完成时不得冒充已完成或已验证能力",
       "stages": ["assembly", "quality-validation"]
+    },
+    {
+      "id": "EXECUTION-EFFICIENCY-ROUTING",
+      "owner": "docs/execution-efficiency-contract.md",
+      "anchor": "防漏派循环",
+      "stages": ["sif", "core-lock", "amazon-autocomplete", "sellersprite", "first-board", "cleaning", "word-frequency", "classification", "competition", "trend", "assembly", "quality-validation"]
     }
   ]
 }

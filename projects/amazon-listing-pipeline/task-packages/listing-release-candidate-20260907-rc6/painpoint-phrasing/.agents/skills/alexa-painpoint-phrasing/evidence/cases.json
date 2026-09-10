@@ -1,0 +1,32 @@
+{
+  "P1": "not_executed",
+  "cases": [
+    {
+      "acceptance": "not_requested",
+      "file": "case-01-normal.md",
+      "revision": null,
+      "sanitized_reference": null,
+      "status": "planned",
+      "type": "normal"
+    },
+    {
+      "acceptance": "not_requested",
+      "file": "case-02-normal.md",
+      "revision": null,
+      "sanitized_reference": null,
+      "status": "planned",
+      "type": "normal"
+    },
+    {
+      "acceptance": "not_requested",
+      "file": "case-03-edge-or-error.md",
+      "revision": null,
+      "sanitized_reference": null,
+      "status": "planned",
+      "type": "edge_or_error"
+    }
+  ],
+  "historical_project_acceptance": "preserved_not_reassessed",
+  "maturity": "draft",
+  "skill": "alexa-painpoint-phrasing"
+}
