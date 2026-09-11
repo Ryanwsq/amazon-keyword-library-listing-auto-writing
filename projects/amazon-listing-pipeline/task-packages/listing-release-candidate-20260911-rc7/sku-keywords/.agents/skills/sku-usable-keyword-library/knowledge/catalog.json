@@ -1,0 +1,38 @@
+[
+  {
+    "content": "SKU Usable Keyword Library",
+    "id": "KB-7585bc568cdc",
+    "scope": "只执行SKU事实终筛与原词文本质量门；不复判品类/意图或重算指标",
+    "source": ".agents/skills/sku-usable-keyword-library/SKILL.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "SKU产品事实匹配边界",
+    "id": "KB-2e2a7c5a88df",
+    "scope": "只执行SKU事实终筛与原词文本质量门；不复判品类/意图或重算指标",
+    "source": ".agents/skills/sku-usable-keyword-library/references/decision-boundaries.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "上游参考来源与继承边界",
+    "id": "KB-f007c81f0616",
+    "scope": "只执行SKU事实终筛与原词文本质量门；不复判品类/意图或重算指标",
+    "source": ".agents/skills/sku-usable-keyword-library/references/reference-provenance.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "SKU可用关键词库工作簿合同",
+    "id": "KB-f21e04f41441",
+    "scope": "只执行SKU事实终筛与原词文本质量门；不复判品类/意图或重算指标",
+    "source": ".agents/skills/sku-usable-keyword-library/references/workbook-contract.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  }
+]

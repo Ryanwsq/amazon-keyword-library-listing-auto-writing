@@ -13,6 +13,8 @@ description: Coordinate the Amazon keyword-library baseline, recent same-categor
 
 ## 输入
 
+2026-09-11入口恢复：跨项目`keyword_entry.policy`默认`recent-library-reuse-first`，收到完整输入即先按既有30天合同记录资格结论，再决定来源登录/派发。普通测试、旧Run隔离要求或发送方自由文本“no historical reuse”不构成禁用合法历史source的授权。仅用户明确要求fresh并提供来源指针时使用`fresh-by-user-request`；与`run_type`分开，历史合同不迁移。输入接收回执记录policy、资格结果/理由和证据指针，不凭文件名判同类目。
+
 接收Listing项目输入或向其正式回传时，先完整读取[跨项目交接合同](references/listing-handoff-contract.md)，锁定三组输入的明确映射、类目附加字段、双方Run及当前事实来源；单项目直入不因此新增Listing依赖。
 
 用户开头一次性提交三项输入：产品基础信息配置、产品配置卖点、竞品对标ASIN。其中产品基础信息必须包含目标Amazon类目及该类目是否存在多个稳定产品类型细分。另锁定`run_type=production|test-validation`、Run_ID、revision、站点、规则版本、获准本机目录，以及各副任务工作簿和manifest；未明确为测试、回归、能力案例或P1评估时默认`production`。原始直接竞品ASIN超过5个时，必须先按稳定竞品产品类型分组，每类只保留输入顺序中的第一个有效ASIN，并锁定原始/入选/排除清单和理由。多细分类目还必须形成目标细分强等价闭环的候选、逐项结论和证据。执行三来源合并时读取`references/source-merge-contract.md`；执行性能、断点续跑和失败隔离另读取`../../../docs/runtime-optimization-contract.md`，该合同不得覆盖任何业务规则。
@@ -35,6 +37,10 @@ description: Coordinate the Amazon keyword-library baseline, recent same-categor
 - `keyword.runtime.dispatch.guard`
 
 ## 执行步骤
+
+本批执行控制只用于新锁：完整读取dispatch合同的六字段根绑定、来源query_lock和`checkpoint`。来源周期/过滤/人口必须在build前锁全，卖家精灵挖掘固定提供商最近30天，不推断完整日历月；新回合/压缩/恢复首个业务读写前重新核对当前dispatch和允许路径。SIF已登录完整官网导出失败时保留真实技术失败并按其Skill取得当前Run用户批准及同提供商MCP鉴权，不把失败写成未登录或Not found。两个提供商只允许各自Skill规定的已填满登录表单一次点击恢复，空白/部分填充或任何挑战仍交用户；不读取、记录或补填凭据。
+
+来源完成验收以持久化文件和人口闭合为准：联想逐格落盘才推进游标，完成event需完整source_evidence；卖家精灵页面总数与导出实际行数分开，未解释差额保留partial/损失风险，不能把实际取得人口扩大为声明总数。以上机械检查不代替来源语义/可见性、完整性或原业务门。
 
 调度任一新阶段前完整读取`../../../docs/dispatch-control-contract.md`并使用共享`dispatch_guard.py`：build从输入锁生成spec，reserve仅首次允许发送，拥有副任务accept后才开始业务；错误Run/任务/输入/目录或不确定送达不得绕过。各自固定本机ledger持久去重，紧凑事件经observe核验后才进入原有业务验收。该控制器不代替完整Skill阅读、核心层级判断、人口/风险检查或完成门。
 

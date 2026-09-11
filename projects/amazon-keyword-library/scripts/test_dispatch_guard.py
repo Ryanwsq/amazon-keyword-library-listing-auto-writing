@@ -26,6 +26,8 @@ class DispatchTests(unittest.TestCase):
         self.revision = "a" * 40
         self.head_patch = patch.object(guard, "head", return_value=self.revision)
         self.head_patch.start()
+        self.root_patch = patch.object(guard, "git_root", side_effect=lambda path: self.target)
+        self.root_patch.start()
         self.ledger = self.root / "main" / ".local" / "dispatch-control" / "journal.sqlite3"
         self.receiver = self.root / "receiver" / ".local" / "dispatch-control" / "journal.sqlite3"
         spec = base_spec()
@@ -43,12 +45,18 @@ class DispatchTests(unittest.TestCase):
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(runtime.ROOT / owner, destination)
         self.observed = {"thread_id": "synthetic-task", "host": "local", "cwd": str(self.target),
+                         "app_cwd": str(self.target), "git_root": str(self.target),
                          "title": guard.TITLES["sif"], "status": "idle"}
         self.contract_path = self.root / "contract.json"
         runtime.write_json(self.contract_path, self.contract)
         self.preflight = self.root / "preflight.json"
         runtime.write_json(self.preflight, {"schema": runtime.PREFLIGHT_SCHEMA, "providers": {
             p: {"status": "authenticated", "checked_at": "fixture"} for p in ("amazon", "sif", "sellersprite")}})
+        self.query = self.root / "query-lock.json"
+        runtime.write_json(self.query, {"schema": guard.source.QUERY_SCHEMA, "run_id": self.run,
+            "marketplace": self.contract["site"], "source_provider": "SIF", "queries": ["SYNTHETIC-ASIN"], "entry_type": "web",
+            "query_period": {"kind": "rolling-30-days", "source_label": "Recent 30 days"},
+            "filters": {}, "limit_per_asin": 300})
         self.spec = {"run_id": self.run, "run_type": self.contract["run_type"], "revision": self.revision,
                      "execution_mode": "fresh-collection", "role": guard.ROLES["sif"], "stage": "sif",
                      "stage_key": self.contract["stages"]["sif"]["stage_key"],
@@ -56,12 +64,14 @@ class DispatchTests(unittest.TestCase):
                      "target": {k: v for k, v in self.observed.items() if k != "status"},
                      "output_root": str(self.target / ".local" / "runs" / self.run / guard.ROLES["sif"]),
                      "contract": guard.file_record(self.contract_path),
-                     "dependency_files": [guard.file_record(self.preflight)],
-                     "admission": {"status_dir": str(self.root / "status"), "preflight": str(self.preflight)}}
+                     "dependency_files": [guard.file_record(self.preflight), guard.file_record(self.query)],
+                     "admission": {"status_dir": str(self.root / "status"), "preflight": str(self.preflight),
+                                   "query_lock": str(self.query)}}
 
     def tearDown(self):
         os.chdir(self.cwd)
         self.head_patch.stop()
+        self.root_patch.stop()
         self.temp.cleanup()
 
     def reserve(self, spec=None, observed=None):
@@ -117,6 +127,9 @@ class DispatchTests(unittest.TestCase):
 
     def test_sent_one_branch_does_not_hide_unsent_sibling(self):
         self.complete_through("core-lock")
+        query = runtime.read_json(self.query)
+        query["source_provider"] = "Amazon"
+        runtime.write_json(self.query, query)
         target = dict(self.spec["target"], title=guard.TITLES["amazon-autocomplete"])
         request = {"contract_path": str(self.contract_path), "stage": "amazon-autocomplete",
                    "target": target, "output_root": self.spec["output_root"], "admission": self.spec["admission"]}
@@ -369,8 +382,9 @@ class DispatchTests(unittest.TestCase):
         command = [sys.executable, str(runtime.ROOT / "scripts" / "dispatch_guard.py")]
         output = subprocess.run(command + ["build", "--run", self.run, "--input", str(request)],
                                 cwd=self.root, capture_output=True, text=True)
-        self.assertEqual(output.returncode, 0, output.stdout + output.stderr)
-        self.assertEqual(json.loads(output.stdout), self.spec)
+        # The fixture directory is deliberately not a Git checkout. CLI must
+        # now reject it before trying receiver rule files or any reservation.
+        self.assertEqual(output.returncode, 2, output.stdout + output.stderr)
         output = subprocess.run(command + ["reserve", "--run", self.run, "--input", str(request),
                                            "--ledger", str(self.ledger)], cwd=self.root, capture_output=True, text=True)
         self.assertEqual(output.returncode, 2)
@@ -404,6 +418,149 @@ class DispatchTests(unittest.TestCase):
         observed = dict(self.observed, title=guard.TITLES["assembly"])
         with patch.object(runtime, "ready_for_stage", side_effect=AssertionError("fresh graph called")):
             self.assertTrue(self.reserve(changed, observed)["allowed_to_send"])
+
+    def test_root_preflight_rejects_app_root_as_business_root(self):
+        changed = copy.deepcopy(self.spec)
+        changed["target"]["cwd"] = str(self.root)
+        with self.assertRaisesRegex(runtime.ContractError, "business root"):
+            self.reserve(changed, dict(changed["target"], status="idle"))
+
+    def test_source_query_lock_is_mandatory_before_build(self):
+        request = {"contract_path": str(self.contract_path), "stage": "sif", "target": self.spec["target"],
+                   "output_root": self.spec["output_root"], "admission": {"status_dir": str(self.root / "status"),
+                   "preflight": str(self.preflight)}}
+        with self.assertRaisesRegex(runtime.ContractError, "query lock"):
+            guard.build(request, self.run)
+
+    def test_checkpoint_rejects_foreign_run_after_accept(self):
+        envelope = self.envelope()
+        os.chdir(self.target)
+        guard.accept(envelope, self.run, self.observed, self.receiver)
+        allowed = Path(envelope["output_root"]) / "checkpoint.json"
+        allowed.parent.mkdir(parents=True)
+        runtime.write_json(allowed, {"fixture": True})
+        foreign = self.target / ".local" / "runs" / "AKW-FOREIGN-01" / "old.json"
+        runtime.write_json(foreign, {"fixture": True})
+        self.assertEqual(guard.checkpoint(envelope, self.run, self.observed, self.receiver,
+                         [{"mode": "read", "path": str(allowed)}])["checkpoint"], "verified")
+        for mode in ("read", "write"):
+            with self.assertRaises(runtime.ContractError):
+                guard.checkpoint(envelope, self.run, self.observed, self.receiver,
+                                 [{"mode": mode, "path": str(foreign)}])
+        with self.assertRaisesRegex(runtime.ContractError, "wrong current Run"):
+            guard.checkpoint(envelope, "AKW-FOREIGN-01", self.observed, self.receiver,
+                             [{"mode": "read", "path": str(foreign)}])
+
+    def test_checkpoint_never_accepts_reserved_or_unfinished_login_state(self):
+        envelope = self.envelope()
+        os.chdir(self.target)
+        with self.assertRaisesRegex(runtime.ContractError, "active dispatch"):
+            guard.checkpoint(envelope, self.run, self.observed, self.ledger,
+                             [{"mode": "read", "path": str(self.query)}])
+
+    def test_actual_mcp_send_wrapper_is_not_a_planned_task_list(self):
+        envelope = self.envelope()
+        receipt = {"dispatch_id": envelope["dispatch_id"], "thread_id": self.observed["thread_id"],
+                   "response": {"content": [{"type": "text", "text": json.dumps({"threadId": self.observed["thread_id"]})}]}}
+        self.assertEqual(guard.sent(self.ledger, envelope["dispatch_id"], receipt)["state"], "sent")
+        receipt["response"] = {"planned_tasks": [self.observed["thread_id"]]}
+        with self.assertRaisesRegex(runtime.ContractError, "actual tool response"):
+            guard.sent(self.ledger, envelope["dispatch_id"], receipt)
+
+    def test_cli_reserve_output_collision_leaves_no_ledger(self):
+        folder = self.root / ".local" / "runs" / self.run
+        spec_path = folder / "spec.json"
+        observed_path = folder / "observed.json"
+        runtime.write_json(spec_path, self.spec)
+        runtime.write_json(observed_path, self.observed)
+        ledger = self.root / ".local" / "dispatch-control" / "journal.sqlite3"
+        result = subprocess.run([sys.executable, str(runtime.ROOT / "scripts" / "dispatch_guard.py"),
+            "reserve", "--run", self.run, "--input", str(spec_path), "--observed", str(observed_path),
+            "--ledger", str(ledger), "--out", str(spec_path)], cwd=self.root, capture_output=True, text=True)
+        self.assertEqual(result.returncode, 2)
+        self.assertIn("separate envelope path", result.stdout)
+        self.assertFalse(ledger.exists())
+        self.assertEqual(runtime.read_json(spec_path), self.spec)
+
+    def test_autocomplete_completion_does_not_accept_memory_only_population(self):
+        self.complete_through("core-lock")
+        query = runtime.read_json(self.query)
+        query.update(source_provider="Amazon", queries=[f"synthetic input {i}" for i in range(75)])
+        runtime.write_json(self.query, query)
+        target = dict(self.spec["target"], title=guard.TITLES["amazon-autocomplete"])
+        request = {"contract_path": str(self.contract_path), "stage": "amazon-autocomplete", "target": target,
+                   "output_root": self.spec["output_root"], "admission": self.spec["admission"]}
+        envelope = self.reserve(guard.build(request, self.run), dict(target, status="idle"))["envelope"]
+        proof = Path(envelope["output_root"]) / "source-evidence.json"
+        runtime.write_json(proof, {"run_id": self.run, "records": [{"input": q} for q in query["queries"][:10]]})
+        record = guard.file_record(proof)
+        event = self.event(envelope, "completed_with_gaps")
+        event.update(population={"inputs": 75, "events": 0}, gaps=[], verification="owner_checks_completed",
+                     source_evidence=record, artifacts=[record])
+        with self.assertRaisesRegex(runtime.ContractError, "matrix population incomplete"):
+            guard.observe(self.ledger, self.run, event)
+
+    def test_sif_fallback_binds_target_task_and_host(self):
+        query = runtime.read_json(self.query)
+        query["entry_type"] = "mcp"
+        runtime.write_json(self.query, query)
+        authentication = {"schema": "amazon-keyword-mcp-authentication/v1", "run_id": self.run,
+                          "task_id": self.observed["thread_id"], "host": self.observed["host"],
+                          "provider": "SIF", "entry_type": "mcp", "authenticated": True}
+        auth_path = self.root / "authentication.json"
+        runtime.write_json(auth_path, authentication)
+        basis = self.root / "user-approval-and-failure.json"
+        runtime.write_json(basis, {"fixture": "approved after export failure"})
+        proof = {"run_id": self.run, "task_id": self.observed["thread_id"], "host": self.observed["host"],
+                 "query_lock_sha256": runtime.sha256_file(self.query), "source_provider": "SIF",
+                 "reason": "authenticated_export_failed", "web_authenticated": True, "mcp_authenticated": True,
+                 "user_approved": True, "authorization": guard.file_record(basis),
+                 "failure_evidence": guard.file_record(basis), "authentication_evidence": guard.file_record(auth_path)}
+        fallback_path = self.root / "fallback.json"
+        runtime.write_json(fallback_path, proof)
+        request = {"contract_path": str(self.contract_path), "stage": "sif", "target": self.spec["target"],
+                   "output_root": self.spec["output_root"],
+                   "admission": dict(self.spec["admission"], fallback=str(fallback_path))}
+        guard.build(request, self.run)
+        for field in ("task_id", "host"):
+            # Even mutually matching foreign proof/auth files cannot be wrapped
+            # as this target's authentication by a current-Run query lock.
+            foreign_auth = dict(authentication, **{field: "synthetic-other"})
+            runtime.write_json(auth_path, foreign_auth)
+            foreign_proof = dict(proof, **{field: "synthetic-other"}, authentication_evidence=guard.file_record(auth_path))
+            runtime.write_json(fallback_path, foreign_proof)
+            with self.subTest(field=field), self.assertRaisesRegex(runtime.ContractError, "bind target Task/host"):
+                guard.build(request, self.run)
+
+    def test_send_errors_are_rejected_in_all_result_wrappers(self):
+        envelope = self.envelope()
+        task_id = self.observed["thread_id"]
+        error = {"threadId": task_id, "error": "synthetic send failure"}
+        is_error = {"threadId": task_id, "isError": True}
+        cases = [error, is_error, {"structuredContent": error}, {"structuredContent": is_error},
+                 {"content": [{"type": "text", "text": json.dumps(error)}]},
+                 {"content": [{"type": "text", "text": json.dumps(is_error)}]},
+                 {"threadId": task_id, "content": [{"type": "text", "error": "synthetic failure"}]},
+                 {"threadId": task_id, "content": [{"type": "text", "text": json.dumps({"structuredContent": error})}]}]
+        for response in cases:
+            receipt = {"dispatch_id": envelope["dispatch_id"], "thread_id": task_id,
+                       "tool_call_id": "synthetic-call", "response": response}
+            with self.subTest(response=response), self.assertRaisesRegex(runtime.ContractError, "reported an error"):
+                guard.sent(self.ledger, envelope["dispatch_id"], receipt)
+            with guard.journal(self.ledger) as db:
+                self.assertEqual(guard.load_job(db, envelope["dispatch_id"])[0], "reserved")
+
+    def test_send_structured_response_supports_success_but_rejects_target_conflicts(self):
+        envelope = self.envelope()
+        task_id = self.observed["thread_id"]
+        receipt = {"dispatch_id": envelope["dispatch_id"], "thread_id": task_id}
+        for response in ({"threadId": task_id, "structuredContent": {"threadId": "synthetic-other"}},
+                         {"structuredContent": {"threadId": task_id}, "content": [{"type": "text", "text": json.dumps({"threadId": "synthetic-other"})}]}):
+            with self.subTest(response=response), self.assertRaisesRegex(runtime.ContractError, "conflicting actual send response"):
+                guard.sent(self.ledger, envelope["dispatch_id"], dict(receipt, response=response))
+        result = guard.sent(self.ledger, envelope["dispatch_id"],
+                            dict(receipt, response={"structuredContent": {"threadId": task_id, "isError": False}}))
+        self.assertEqual(result["state"], "sent")
 
 
 if __name__ == "__main__":

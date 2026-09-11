@@ -37,6 +37,7 @@ Listing主任务在任何关键词业务查询前，随锁定输入发送明确�
 - `direct_competitors_raw`逐项使用`input_order、asin、benchmark_tags、stable_product_type、type_evidence`；保持原始顺序，类型未知保留null，类型证据使用来源指针。对标标签不能代替稳定类型证据。
 - `contract_locks`分别记录`listing、keyword`两方拥有合同的`path、sha256`；请求中的`keyword_run_id、keyword_revision`可为null，输入验收回执及正式交付必须填真实本项目身份，不提前拼造。
 - 无历史复用时`reuse_source`为null；适用时明确历史source Run/revision、原始最终输出时间/周期、哈希血缘，并与`product_context`当前事实源分离。其资格判断仍由原复用合同拥有。
+- 2026-09-11新执行控制请求另含`keyword_entry={policy:recent-library-reuse-first}`，默认先由关键词主任务按原30天合同判断资格并记录结论。只有用户明确要求重新采集才允许`policy=fresh-by-user-request`，并附用户指令`source`来源指针（path/sha256/locator）；普通测试、旧Run隔离或发送方自写禁止复用文本不能替代此授权。该字段不直接证明eligible，不增加原业务字段或人工门，不改历史请求。接收时原完整三组/输入哈希/站点验证仍先完成；复用资格完成前不进入关键词来源登录/业务派发。
 
 ## Keyword return and execution permission
 

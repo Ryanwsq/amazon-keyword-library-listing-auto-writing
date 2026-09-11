@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon Listing Hard Rules"
+  short_description: "Write or audit Listings with hard and soft rules"
+  default_prompt: "Use $apply-amazon-listing-hard-rules to write or audit these Amazon Listing fields under the locked marketplace; apply only that site's verified hard boundaries and leave unverified Germany-specific limits pending instead of defaulting to US rules."

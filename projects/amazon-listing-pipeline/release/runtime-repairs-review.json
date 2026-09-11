@@ -1,0 +1,24 @@
+{
+  "schema": "workflow-runtime-repairs-review/v1",
+  "maintenance_id": "RUNTIME-REPAIRS-20260911-01",
+  "reviewed_on": "2026-09-11",
+  "snapshot_phase": "pre-publication-maintenance-acceptance",
+  "candidate_version": "listing-release-candidate-20260911-rc7",
+  "checks": {
+    "listing_orchestration_tests": {"status": "pass", "count": 92},
+    "listing_package_tests": {"status": "pass", "count": 33},
+    "root_tests": {"status": "pass", "count": 26},
+    "listing_source_dependencies": {"status": "pass", "files": 140},
+    "listing_new_role_packages": {"status": "pass", "roles": 10, "files": 432, "sections": 1771},
+    "input_template_scope_and_visual_review": {"status": "pass", "changes": "SIF/SellerSprite manual login option and explanatory cells only"},
+    "keyword_regression": {"status": "pass", "dispatch_tests": 43, "source_tests": 7, "dependency_tests": 29, "runtime_fixture_groups": 6, "draft_skills": 12},
+    "unified_project_validation": {"status": "pass", "projects": 2, "authoritative_skills": 22, "release_files": 3369},
+    "skill_creator_quick_validate": {"status": "unavailable", "reason": "Bundled Python lacks PyYAML; project strict frontmatter and full dependency validators passed"}
+  },
+  "preserved": ["Existing semantic judgments, source priorities, numeric thresholds and populations", "Both human gates and owner-task session proof", "Numbered outputs, fixed workbook fields, source transfer and inline checks", "Historical Runs and immutable rc1-rc6 packages"],
+  "limitations": ["Frontier and checkpoint scripts do not intercept all app tools", "Bullet review structure does not prove language quality", "Schema validation does not replace semantic, source or visual checks", "Browser downloads, application compaction and model capacity are not repaired by repository code", "No live fallback, end-to-end speed or cross-device business run was executed"],
+  "business_run": "not_executed",
+  "P1": "not_executed",
+  "publication": "not_pushed",
+  "existing_task_reload": "not_executed"
+}

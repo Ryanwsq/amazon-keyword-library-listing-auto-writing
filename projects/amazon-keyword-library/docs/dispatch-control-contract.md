@@ -4,6 +4,8 @@
 
 本合同只拥有调度身份、幂等派发、消息增量和技术恢复；不拥有业务判断、来源选择、完成门或质量结论。入口是`scripts/dispatch_guard.py`，能力仍为`planned`。控制器不会调用Codex任务工具或外部服务，也不自动生成业务完成状态；主任务和拥有副任务必须实际执行下列接线。
 
+2026-09-11控制版本为`dispatch-guard/1.1.0`，只用于新锁；不重写历史1.0派发或账本。`target`现在固定为`thread_id、host、title、cwd、app_cwd、git_root`：`cwd`是显式关键词业务执行根，`app_cwd`来自当前应用任务元数据，`git_root`来自Git查询，三者分别记录，不能把总仓根当业务根。主任务build前校验关键词脚本/Skill入口存在、两种cwd属于同一Git根且revision匹配；接收端仍核验真实进程cwd与全部规则字节，不把磁盘存在当作实际装载。
+
 适用于fresh-collection/recent-library-reuse的新业务阶段，不把只读初始化、登录准备或approved iteration维护假装成业务Run。上述准备/维护消息也不授权开展采集或装配。
 
 ## 身份与状态隔离
@@ -16,7 +18,7 @@
 
 ## 新阶段派发与接收
 
-1. 主任务完成原有输入、固定任务身份、版本、登录和依赖门。`build`从当前合同机械生成spec，不手工抄写Run/revision/stage key/三输入哈希。request只填写`contract_path、stage、target、output_root、admission`；target字段为`thread_id、host、title、cwd`，均只在本机。
+1. 主任务完成原有输入、固定任务身份、版本、登录和依赖门。`build`从当前合同机械生成spec，不手工抄写Run/revision/stage key/三输入哈希。request只填写`contract_path、stage、target、output_root、admission`；target使用上方六字段，均只在本机。
 2. fresh的admission给出`status_dir`及来源阶段的`preflight`路径。脚本执行原有`ready`和规则校验，冻结实际依赖status/preflight文件哈希，不变更业务图。复用见下节，不强求fresh上游。
    登录preflight使用本次派发的不可变快照，不与其他分支共用可变文件；另一个提供商更新登录状态不改写本派发快照。首次真实查询前仍由来源Skill复核实际登录，快照不是持续认证保证。observed中的status从当前产品任务状态机械规范为`idle`等单值，不能用上次空闲快照替代本次读取。
 3. 主任务`reserve`在本机SQLite事务中先占位。只有第一次返回`allowed_to_send=true`才调用既有`send_message_to_thread`。相同`Run+role+stage_key`只对应一个dispatch；相同键但envelope不同阻断。同一个目标任务有未解决派发，或实时状态不为空闲时，不插入另一Run/阶段。无依赖的其他固定任务不被占用阻断。
@@ -35,6 +37,26 @@ python3 scripts/dispatch_guard.py accept --run <current-run> --ledger <owner-jou
 ```
 
 `--out`只能写当前cwd下的当前Run目录，已有不同文件拒绝覆盖。reserve之后崩溃仍保留占位；不能因为没有拿到返回值而再次发送。
+
+build规格文件和reserve envelope必须是不同文件。CLI在reserve写账本之前检查`--out`冲突，拒绝把规格覆盖成envelope；reserve后若因其他I/O失败丢回执，仍按下方查证而不重复发送。
+
+### 来源查询锁与恢复读写预检
+
+三个来源新阶段的`admission.query_lock`必填并作为依赖文件哈希冻结，不能等owner接受后再补周期/过滤人口。文件schema=`amazon-keyword-source-query/v1`，字段为`run_id、marketplace、source_provider、entry_type=web|mcp、queries、filters`。`queries`分别是获准ASIN、全部适用联想触发输入（原顺序、保留尾空格）或已锁定种子；由原Skill判断人口，脚本不生成种子/矩阵。无附加过滤明确`filters={}`。SIF/卖家精灵另含`query_period={kind:rolling-30-days,source_label:<来源实际标签>}`，SIF另含`limit_per_asin=300`。不增加工作簿列，不把滚动窗口改名完整月份。
+
+SIF改用MCP时，`admission.fallback`还必须指向当前Run的授权/失败/鉴权证据清单，包含`run_id、task_id、host、query_lock_sha256`及来源Skill规定字段并冻结；task_id/host必须等于envelope目标thread_id/host。鉴权文件内容采用来源合同的`amazon-keyword-mcp-authentication/v1`非敏感结构，Run/Task/host与清单相等且provider=SIF、entry_type=mcp、authenticated=true；其他任务证明即使hash正确也拒绝。没有已登录完整导出失败或用户无法登录的原因、当前用户批准和同提供商鉴权，不能派发MCP。更改已冻结查询/入口须关闭旧占用并形成新锁，不把新参数伪装成同一不可变envelope；本检查不替代真实授权与鉴权。
+
+`sent`同时核对工具直接结果、structuredContent和content文本解析后的实际结果。任一层声明isError/error，或实际返回threadId相互冲突/不等于锁定目标，均拒绝标记送达；有tool_call_id也不能覆盖显式失败。正常MCP包装只提取已返回的threadId，计划任务列表不算实际回执。
+
+每次新回合继续业务、压缩恢复、中断/登录恢复后，首次读取业务历史文件或写出产物前，拥有任务必须重新取得独立当前Run锁与本任务真实身份，调用`checkpoint`。`--input`为原已accept的envelope，`--observed`为当前身份，`--accesses`为待执行的`[{mode:read|write,path:<精确绝对路径>}]`。只读当前Run或envelope明确锁定的历史源文件；写入仅限原output_root。历史聊天/标题/压缩摘要不是切换产品授权，不能扩大历史文件读取根。处于reserved、awaiting_login、blocked或终态时checkpoint拒绝，先依原恢复协议处理；不新建替代派发。合法历史复用文件必须逐文件作为依赖锁，不能放开整个旧Run目录。
+
+```text
+python3 scripts/dispatch_guard.py checkpoint --run <独立当前Run> --ledger <拥有任务journal> --input <原envelope> --observed <本次身份> --accesses <本次读写清单>
+```
+
+这些预检不是对所有工具调用的全局沙箱，也不修复应用的压缩功能；绕过协议仍可能误读。必须检查真实accept/checkpoint/完成回执后才能声称当前执行有效。
+
+两个提供商一次登录恢复的机械输入仅允许`provider=SIF|SellerSprite、previously_authenticated、login_page、both_fields_autofilled、attempts、challenge、wrong_account、wrong_marketplace`，除provider和非负整数attempts外均为布尔值。不得加入账号/密码文本，也不得通过读取密码值构造观察；一次点击之后必须重新验证，未通过时停止，不自动循环。`source_execution.py login-recovery --input <非敏感观察>`只给动作建议，不认证账户。
 
 ## 网络不确定与受控恢复
 

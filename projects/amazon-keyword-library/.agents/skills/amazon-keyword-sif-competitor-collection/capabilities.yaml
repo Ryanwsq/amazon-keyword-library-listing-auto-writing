@@ -21,7 +21,7 @@ capabilities:
     risk: 不覆盖旧响应；原始返回未落盘时不得继续汇总；主任务消息不得展开原始长响应
   - id: keyword.source.competitor-traffic.query
     type: mcp
-    purpose: 仅在用户明确表示当前设备或会话无法完成SIF网页登录时，通过同提供商SIF适配器备用反查直接竞品ASIN最近30天流量关键词
+    purpose: 仅在无法网页登录或已登录但完整官网导出失败、本Run用户批准及MCP鉴权均闭合后，通过同提供商SIF适配器备用反查直接竞品ASIN最近30天流量关键词
     status: planned
     input: 站点、单个获准直接竞品ASIN、最近30天口径和300条接口上限请求
     output: 单个竞品的完整原始响应、流量关键词、周期和查询状态；接口本身不支持字段选择
