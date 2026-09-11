@@ -2,6 +2,7 @@
 
 | Topic | Status | Coverage | Last verified | Sharing | Purpose |
 |---|---|---|---:|---|---|
+| `../docs/dispatch-control-contract.md` / 来源Skill合同 | active; runtime unverified | 业务根/应用根/Git根分离、query_lock、恢复checkpoint、最近30天、获准SIF备用、一次安全登录恢复及持久化人口 | 2026-09-11 | sanitized | 验证后执行修复；机械回归不等于真实浏览器或P1 |
 | `../docs/execution-efficiency-contract.md` | active; runtime unverified | 全图防漏派、独立QA显式启用、同锁检查复用；业务规则不变 | 2026-09-07 | sanitized | 用户确认的执行减负；未执行QA不升级P1 |
 | `../docs/dispatch-control-contract.md` | active; runtime unverified | 幂等派发、当前Run双向校验、紧凑事件及网络不确定恢复；仅执行层，无业务判断变更 | 2026-09-03 | sanitized | 已确认调度方法的唯一执行合同；合成测试不等于P1 |
 | `product-keyword-library.md` | verified | V2.1 + V2.2 + Post-V2.1 contracts through 2026-09-04, including marketplace route lock, task-scoped login matrix, stage-specific source priorities, same-wave collection, test-only QA, lossless runtime, 30-day final-library reuse with new facts, and §2.6 cross-project input/library identity | 2026-09-04 | sanitized | 稳定领域对象、概念关系和已确认方法结论；跨项目执行入口见operations，双方验收见PROJECT |

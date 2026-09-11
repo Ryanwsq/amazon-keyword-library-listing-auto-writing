@@ -14,8 +14,9 @@ from contextlib import contextmanager
 from pathlib import Path
 
 import runtime_contract as runtime
+import source_execution as source
 
-VERSION = "dispatch-guard/1.0.0"
+VERSION = "dispatch-guard/1.1.0"
 ROLES = {
     "sif": "keyword-sif-collector",
     "amazon-autocomplete": "keyword-autocomplete-collector",
@@ -59,6 +60,29 @@ def head(cwd):
     ).strip()
 
 
+def git_root(cwd):
+    return Path(subprocess.check_output(
+        ["git", "-C", str(cwd), "rev-parse", "--show-toplevel"], text=True
+    ).strip()).resolve()
+
+
+def validate_target_roots(target, revision):
+    """App checkout and business execution root are independent observed facts."""
+    require(set(target) == {"thread_id", "host", "title", "cwd", "app_cwd", "git_root"},
+            "target must separate app_cwd, business cwd and git_root")
+    for field in ("cwd", "app_cwd", "git_root"):
+        value = Path(target[field])
+        require(value.is_absolute() and value.resolve() == value, "target roots must be canonical")
+    business = Path(target["cwd"])
+    repository = git_root(business)
+    require(str(repository) == target["git_root"] and git_root(target["app_cwd"]) == repository,
+            "app/business Git root mismatch")
+    require((business / "scripts" / "dispatch_guard.py").is_file()
+            and (business / ".agents" / "skills" / "amazon-keyword-library-operations" / "SKILL.md").is_file(),
+            "target cwd is not the keyword business root")
+    require(head(business) == revision, "target revision drift")
+
+
 def file_record(path):
     path = Path(path).resolve(strict=True)
     require(path.is_file(), "expected a regular file")
@@ -81,13 +105,12 @@ def validate_identity(envelope, current_run, observed):
     require(ROLES.get(envelope["stage"]) == envelope["role"], "wrong stage/role")
     expected = envelope["target"]
     require(expected.get("title") == TITLES[envelope["stage"]], "wrong fixed task title")
-    require(set(expected) == {"thread_id", "host", "title", "cwd"}, "invalid target fields")
+    validate_target_roots(expected, envelope["revision"])
     for field, value in expected.items():
         require(isinstance(value, str) and bool(value), "empty target identity")
         require(observed.get(field) == value, f"wrong target {field}")
     cwd = Path(expected["cwd"])
     require(str(cwd.resolve()) == str(cwd), "target cwd must be canonical")
-    require(head(cwd) == envelope["revision"], "target revision drift")
     run_root = cwd / ".local" / "runs" / current_run
     output = Path(envelope["output_root"])
     inside(output, run_root)
@@ -125,6 +148,23 @@ def verify_admission(envelope):
                     for s in contract["stages"][stage]["dependencies"]]
         if stage in runtime.SOURCE_PREFLIGHT:
             required.append(Path(admission["preflight"]))
+            require(admission.get("query_lock"), "source query lock required before dispatch")
+            query_path = Path(admission["query_lock"])
+            query = runtime.read_json(query_path)
+            source.validate_query_lock(query, envelope["run_id"], contract["site"], stage)
+            required.append(query_path)
+            if stage == "sif" and query["entry_type"] == "mcp":
+                require(admission.get("fallback"), "SIF MCP fallback evidence required")
+                fallback_path = Path(admission["fallback"])
+                fallback = runtime.read_json(fallback_path)
+                require(fallback.get("run_id") == envelope["run_id"]
+                        and fallback.get("query_lock_sha256") == runtime.sha256_file(query_path),
+                        "SIF fallback must bind current Run/query lock")
+                require(fallback.get("task_id") == envelope["target"]["thread_id"]
+                        and fallback.get("host") == envelope["target"]["host"],
+                        "SIF fallback must bind target Task/host")
+                source.sif_fallback(fallback)
+                required.append(fallback_path)
         locked = {x["path"] for x in envelope["dependency_files"]}
         require(all(str(p.resolve()) in locked for p in required), "unlocked dependency/preflight file")
     else:
@@ -178,6 +218,7 @@ def build(request, current_run):
     require(contract.get("run_id") == current_run, "wrong build Run")
     stage = request["stage"]
     require(stage in ROLES, "unknown dispatch stage")
+    validate_target_roots(request["target"], contract["revision"])
     mode = "fresh-collection" if contract.get("schema") == runtime.CONTRACT_SCHEMA else "recent-library-reuse"
     admission = request["admission"]
     if mode == "fresh-collection":
@@ -187,6 +228,10 @@ def build(request, current_run):
                  for s in contract["stages"][stage]["dependencies"]]
         if stage in runtime.SOURCE_PREFLIGHT:
             files.append(file_record(admission["preflight"]))
+            require(admission.get("query_lock"), "source query lock required before dispatch")
+            files.append(file_record(admission["query_lock"]))
+            if admission.get("fallback"):
+                files.append(file_record(admission["fallback"]))
     else:
         key = digest({"contract": record["sha256"], "stage": stage, "executor": VERSION})
         verify_file(admission["receipt"])
@@ -252,7 +297,34 @@ def sent(ledger, dispatch_id, receipt):
         require(receipt.get("dispatch_id") == dispatch_id
                 and receipt.get("thread_id") == envelope["target"]["thread_id"], "wrong send receipt")
         response = receipt.get("response", {})
-        require(bool(receipt.get("tool_call_id")) or response.get("threadId") == envelope["target"]["thread_id"],
+        require(isinstance(response, dict), "invalid send response")
+        returned = []
+        def inspect_result(result):
+            require(isinstance(result, dict), "invalid structured send response")
+            require(result.get("isError") is not True and not result.get("error"),
+                    "send tool reported an error")
+            if result.get("threadId"):
+                returned.append(result["threadId"])
+            if result.get("structuredContent") is not None:
+                inspect_result(result["structuredContent"])
+            # Traverse only known MCP result wrappers, not arbitrary business
+            # payloads or a planned-task list. Check every layer before mutating.
+            blocks = result.get("content", [])
+            require(isinstance(blocks, list), "invalid send content list")
+            for block in blocks:
+                require(isinstance(block, dict), "invalid send content block")
+                require(block.get("isError") is not True and not block.get("error"),
+                        "send tool reported an error")
+                if block.get("type") == "text":
+                    try:
+                        decoded = json.loads(block.get("text", ""))
+                    except (ValueError, TypeError):
+                        continue
+                    if isinstance(decoded, dict):
+                        inspect_result(decoded)
+        inspect_result(response)
+        require(not returned or set(returned) == {envelope["target"]["thread_id"]}, "conflicting actual send response")
+        require(bool(receipt.get("tool_call_id")) or bool(returned),
                 "send receipt must retain actual tool response or exact call ID")
         if state in {"reserved", "retry_authorized"}:
             db.execute("UPDATE jobs SET state='sent' WHERE id=?", (dispatch_id,))
@@ -276,6 +348,35 @@ def accept(envelope, current_run, observed, ledger):
                    (envelope["dispatch_id"], digest([current_run, envelope["role"], envelope["stage_key"]]),
                     target, "accepted", json.dumps(envelope, ensure_ascii=False)))
     return {"execute": True, "dispatch_id": envelope["dispatch_id"], "output_root": envelope["output_root"]}
+
+
+def checkpoint(envelope, current_run, observed, ledger, accesses):
+    """Revalidate an accepted dispatch before post-resume/compaction business I/O.
+
+    This is a preflight, not a global tool sandbox. Historical messages cannot
+    broaden the exact historical file locks or reopen a terminated dispatch.
+    """
+    validate(envelope, current_run, observed)
+    require(str(Path.cwd().resolve()) == envelope["target"]["cwd"], "receiver process cwd mismatch")
+    with journal(ledger) as db:
+        state, stored, _, _, _ = load_job(db, envelope["dispatch_id"])
+        require(stored == envelope and state in {"accepted", "running"}, "accepted active dispatch required")
+    locked = {envelope["contract"]["path"]} | {r["path"] for r in envelope["dependency_files"]}
+    if envelope["admission"].get("receipt"):
+        locked.add(envelope["admission"]["receipt"]["path"])
+    run_root = Path(envelope["target"]["cwd"]) / ".local" / "runs" / current_run
+    require(isinstance(accesses, list) and bool(accesses), "explicit pending accesses required")
+    for item in accesses:
+        path = Path(item["path"]).resolve()
+        require(str(path) == item["path"], "access path must be canonical")
+        if item.get("mode") == "write":
+            inside(path, envelope["output_root"])
+        else:
+            require(item.get("mode") == "read", "invalid access mode")
+            require(path.is_file() and (path.is_relative_to(run_root) or str(path) in locked),
+                    "read outside current Run/explicit source locks")
+    return {"dispatch_id": envelope["dispatch_id"], "run_id": current_run,
+            "checkpoint": "verified", "new_dispatch": False, "business_complete": False}
 
 
 def observe(ledger, current_run, event):
@@ -306,6 +407,20 @@ def observe(ledger, current_run, event):
                 verify_file(artifact)
             require(isinstance(event.get("gaps"), list), "explicit gaps list required")
             require(event.get("verification") == "owner_checks_completed", "owner verification not complete")
+            if envelope["stage"] == "amazon-autocomplete":
+                proof_record = event.get("source_evidence")
+                require(proof_record in event["artifacts"], "durable autocomplete proof must be a completion artifact")
+                query_path = str(Path(envelope["admission"]["query_lock"]).resolve())
+                query_record = next((r for r in envelope["dependency_files"] if r["path"] == query_path), None)
+                require(query_record is not None, "autocomplete query lock missing")
+                verify_file(query_record)
+                query = runtime.read_json(Path(query_path))
+                result = source.autocomplete_capture(runtime.read_json(Path(proof_record["path"])), query)
+                require(event["population"].get("inputs") == result["inputs"]
+                        and event["population"].get("events") == result["events"],
+                        "autocomplete reported population differs from durable evidence")
+                require(any(Path(r["path"]).suffix.lower() == ".xlsx" for r in event["artifacts"]),
+                        "autocomplete handoff workbook missing")
         changed = previous != meaningful
         db.execute("UPDATE jobs SET state=?,seq=?,event=?,cursor=? WHERE id=?",
                    (event["status"], seq, json.dumps(meaningful, ensure_ascii=False), event.get("cursor"), event["dispatch_id"]))
@@ -416,12 +531,13 @@ def scan_ready(request, current_run, ledger):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=["build", "reserve", "sent", "accept", "observe", "reconcile", "scan-ready"])
+    parser.add_argument("command", choices=["build", "reserve", "sent", "accept", "checkpoint", "observe", "reconcile", "scan-ready"])
     parser.add_argument("--ledger")
     parser.add_argument("--run", required=True)
     parser.add_argument("--input", required=True, help="local spec/envelope/event/receipt JSON")
     parser.add_argument("--observed", help="fresh app identity snapshot, not copied from spec")
     parser.add_argument("--out", help="write spec/envelope under the current Run and print only a compact receipt")
+    parser.add_argument("--accesses", help="checkpoint pending read/write path list, local JSON")
     args = parser.parse_args()
     try:
         payload = runtime.read_json(Path(args.input))
@@ -433,11 +549,24 @@ def main():
             result = build(payload, args.run)
         elif args.command == "scan-ready":
             result = scan_ready(payload, args.run, args.ledger)
-        elif args.command in {"reserve", "accept"}:
+        elif args.command in {"reserve", "accept", "checkpoint"}:
             require(args.observed is not None, "observed task identity required")
             observed = runtime.read_json(Path(args.observed))
-            action = reserve if args.command == "reserve" else accept
-            result = action(payload, args.run, observed, args.ledger)
+            if args.command == "checkpoint":
+                require(args.accesses, "checkpoint accesses required")
+                result = checkpoint(payload, args.run, observed, args.ledger,
+                                    runtime.read_json(Path(args.accesses)))
+            else:
+                if args.command == "reserve" and args.out:
+                    # Fail before committing a reservation when --out accidentally
+                    # names the build spec or another frozen envelope.
+                    output = inside(args.out, Path.cwd() / ".local" / "runs" / args.run)
+                    candidate = dict(payload, schema=VERSION)
+                    candidate["dispatch_id"] = digest(candidate)
+                    require(not output.exists() or runtime.read_json(output) == candidate,
+                            "reserve output conflicts; use a separate envelope path")
+                action = reserve if args.command == "reserve" else accept
+                result = action(payload, args.run, observed, args.ledger)
         elif args.command == "sent":
             with journal(args.ledger) as db:
                 _, envelope, _, _, _ = load_job(db, payload["dispatch_id"])

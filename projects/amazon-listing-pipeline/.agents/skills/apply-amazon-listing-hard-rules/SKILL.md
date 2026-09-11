@@ -7,6 +7,8 @@ description: 按项目提供的硬性规则撰写、检查或修订 Amazon Listi
 
 ## 执行原则
 
+2026-09-11执行修复：按[正文合同](../orchestrate-amazon-listing-pipeline/references/stage-copy-review.md)提交与实际Bullet绑定的逐条软性自检，不以字数短/长判断质量；按[装配合同](../orchestrate-amazon-listing-pipeline/references/stage-listing-generation.md)使用固定布局数据预检列名/顺序，检查实际采用标签和低样本展示，再完成渲染、原表保真和唯一正式回执。只修执行漏项，不重新定义写法或字段。
+
 2026-09-07执行增量：整套新版交付另读取[执行减负合同](../orchestrate-amazon-listing-pipeline/references/execution-efficiency.md)。本任务原有硬规则与软性自检在写作/装配时一次完成并回传同一检查证据，不另启动重复独立QA；不是免检。原字段、判断、两道人机确认及保真门全部保留，P1不升级。
 
 1. 先锁定`marketplace`（只允许Amazon-US或Amazon-DE）并识别用户要求处理的字段，再完整读取对应 reference；涉及整套 Listing 或跨字段一致性时，读取全部五份 reference。站点专属字符/字节/图片/A+规则不得跨站套用；缺少德国站当前规则证据时标记待确认，不能静默回退美国站默认值。

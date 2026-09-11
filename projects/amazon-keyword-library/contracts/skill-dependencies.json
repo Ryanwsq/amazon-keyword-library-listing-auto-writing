@@ -28,6 +28,8 @@
     "contracts/skill-dependencies.json",
     "scripts/runtime_contract.py",
     "scripts/dispatch_guard.py",
+    "scripts/source_execution.py",
+    "scripts/test_source_execution.py",
     "scripts/keyword_deterministic_core.py",
     "scripts/run_runtime_fixtures.py",
     "scripts/test_dispatch_guard.py",

@@ -4,9 +4,15 @@
   "purpose": "运行时只引用权威规则的内容哈希和稳定规则族，不复制或缩写业务判断边界。",
   "rules": [
     {
+      "id": "SOURCE-EXECUTION-EVIDENCE",
+      "owner": "scripts/source_execution.py",
+      "anchor": "QUERY_SCHEMA = \"amazon-keyword-source-query/v1\"",
+      "stages": ["sif", "amazon-autocomplete", "sellersprite"]
+    },
+    {
       "id": "DISPATCH-EXECUTOR-INTEGRITY",
       "owner": "scripts/dispatch_guard.py",
-      "anchor": "VERSION = \"dispatch-guard/1.0.0\"",
+      "anchor": "VERSION = \"dispatch-guard/1.1.0\"",
       "stages": ["sif", "amazon-autocomplete", "sellersprite", "cleaning", "word-frequency", "classification", "competition", "trend", "assembly", "quality-validation"]
     },
     {
