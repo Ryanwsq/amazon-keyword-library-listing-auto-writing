@@ -29,6 +29,8 @@ Listing主任务在任何关键词业务查询前，随锁定输入发送明确�
 
 ### Agreed wire names
 
+2026-09-11新请求增量：`source_policies.sif_competitor=mcp-first-error-only-20260914`，表示SIF竞品反查MCP优先/官网备用，不改变其他来源顺序。关键词新run-contract及query_lock必须带同一policy；旧已锁请求按旧合同保留，不可用缺字段的新构建绕回web-first。跨项目登录准备可接收SIF的`authenticated_mcp`或有合格MCP失败原因的`authenticated_web`；MCP不要求website domain或额外逐Run的例外许可，输入网页登录方式只是备用偏好。Listing自己的鉴权文件仍绑定Listing Run，不能直接当关键词Run证明；关键词拥有任务在当前Run/Task/host复核实际鉴权并形成SIF来源合同规定的source_access与query_lock。Listing前置门证明只表示准备状态，正式查询站点/ASIN/周期/过滤/人口仍由关键词合同锁定并验证。
+
 双方使用同一字段字典，不再分别发明别名或另一份JSON Schema。以下字段属于本机交接附加对象，不增加任何原工作簿列；实际路径、哈希、身份和值只写入本机锁定交接文件。Listing拥有发送适配，关键词拥有上述输入验收。
 
 - 顶层：`protocol_id、listing_run_id、listing_revision、keyword_run_id、keyword_revision、run_type、authorization、contract_locks、input_groups、product_context、direct_competitors_raw、reuse_source`；`protocol_id`固定为本合同接口版本。

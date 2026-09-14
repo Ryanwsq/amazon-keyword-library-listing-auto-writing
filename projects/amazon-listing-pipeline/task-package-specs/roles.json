@@ -14,11 +14,11 @@
       "sku-keywords"
     ],
     "business_run": "not_executed",
-    "id": "RUNTIME-REPAIRS-20260911-01",
-    "protocol_id": "RUNTIME-REPAIRS-v1",
-    "scope": "用户授权本轮问题修复：复用优先派发、手动登录输入兼容、确认阶段哈希、真实发送响应解析、逐条软性自检绑定、固定布局提前校验与封包执行顺序；不改业务判断/字段/双确认门，不重跑真实业务或P1"
+    "id": "MCP-ERROR-ONLY-20260914-01",
+    "protocol_id": "mcp-first-error-only-20260914",
+    "scope": "卖家精灵扩词与SIF反查均MCP优先，仅明确MCP报错后提示用户登录对应官网并认证备用；其他来源、趋势、字段、人口、判断门不变；历史Run及角色包不热改，未推送/任务重载/真实业务/P1"
   },
-  "predecessor_version": "listing-release-candidate-20260907-rc6",
+  "predecessor_version": "listing-release-candidate-20260914-rc11",
   "publication_status": "SANITIZED_CANDIDATE_NOT_PUBLISHED",
   "roles": [
     {
@@ -118,5 +118,5 @@
     "protocol_id": "AKW-LISTING-INTERFACE-v1",
     "scope": "关键词附加输入及READY回执、合法ABA缺失窄兼容、三类词表名称分离"
   },
-  "version": "listing-release-candidate-20260911-rc7"
+  "version": "listing-release-candidate-20260914-rc12"
 }

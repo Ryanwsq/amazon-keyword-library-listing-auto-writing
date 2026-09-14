@@ -1,0 +1,39 @@
+{
+  "schema": "workflow-source-priority-review/v1",
+  "maintenance_id": "SIF-MCP-FIRST-20260911-01",
+  "reviewed_on": "2026-09-11",
+  "snapshot_phase": "pre-publication-maintenance-acceptance",
+  "candidate_version": "listing-release-candidate-20260911-rc8",
+  "authorized_rule_change": "SIF competitor lookup: SIF MCP > SIF website",
+  "checks": {
+    "listing_orchestration_tests": {"status": "pass", "count": 97},
+    "listing_package_tests": {"status": "pass", "count": 33},
+    "root_tests": {"status": "pass", "count": 26},
+    "listing_source_dependencies": {"status": "pass", "files": 140},
+    "listing_new_role_packages": {"status": "pass", "roles": 10, "files": 432, "sections": 1773},
+    "input_template_scope_and_visual_review": {"status": "pass", "changes": "Only SIF default login method, explanatory cell and its validation choices; all other cells, styles and validations preserved"},
+    "keyword_regression": {"status": "pass", "dispatch_tests": 47, "source_tests": 15, "dependency_tests": 29, "runtime_fixture_groups": 6, "draft_skills": 12},
+    "other_source_owner_directories": {"status": "unchanged", "directories": ["amazon-keyword-sellersprite-expansion", "amazon-keyword-amazon-autocomplete", "amazon-keyword-trend-analysis"]},
+    "historical_role_package_hashes": {"status": "pass", "files": 3054, "changed": 0},
+    "unified_project_validation": {"status": "pass", "projects": 2, "authoritative_skills": 22, "release_files": 3817},
+    "skill_creator_quick_validate": {"status": "unavailable", "reason": "Bundled Python lacks PyYAML; project strict frontmatter and full dependency validators used"}
+  },
+  "preserved": [
+    "SellerSprite mining remains website then same-provider MCP; no Sorftime mining",
+    "Trend remains SellerSprite MCP then Sorftime MCP, one provider per Run",
+    "Amazon autocomplete browser routing and marketplace/postal-code locks",
+    "Query period, fields, limits, populations, semantic judgment boundaries and human gates",
+    "All eight owner-task authentication receipts; only SIF accepts MCP as primary",
+    "Historical Runs and immutable rc1-rc7 packages"
+  ],
+  "limitations": [
+    "Synthetic authentication receipts validate identity and hashes, not live provider availability",
+    "MCP failure or incomplete query requires persisted evidence before bounded website fallback",
+    "Actual authentication failure, wrong marketplace and unclear authorization still require intervention",
+    "Repository checks do not reload existing tasks or execute an end-to-end business validation"
+  ],
+  "business_run": "not_executed",
+  "P1": "not_executed",
+  "publication": "not_pushed",
+  "existing_task_reload": "not_executed"
+}

@@ -2,11 +2,277 @@
   "P1": "not_executed",
   "business_rules_changed": true,
   "business_run": "not_executed",
-  "candidate_registry_sha256": "97b5e295ac851b955d9dfc022b1d578da2cbdb1db0f0f04e9fc2017a37052b26",
-  "candidate_version": "listing-release-candidate-20260911-rc7",
-  "maintenance_business_rules_changed": false,
-  "maintenance_id": "RUNTIME-REPAIRS-20260911-01",
-  "maintenance_scope": "Execution repairs relative to rc6; existing semantic judgments, fields and original source hashes retained",
+  "candidate_registry_sha256": "528db8dd9cfd542257e8605741a8390c7a7e9db44cc56caaf2fd40c25fb96da5",
+  "candidate_version": "listing-release-candidate-20260914-rc12",
+  "maintenance_business_rules_changed": true,
+  "maintenance_changes": [
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/SKILL.md",
+      "previous_sha256": "52c79b99f10dd85226cb073f7bec0eefd2b50683bef418c4c9830c78aba16c1d",
+      "sha256": "2c5fe6d8524c76cab6c572e8fb72f5d84788abf47c4db3d3aa4fec853d34e54a"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/knowledge/catalog.json",
+      "previous_sha256": "fe2c731285ddc367f351cef9f68b180335e402a1cd9ad8c9b2db6a06ba7afe05",
+      "sha256": "e785bfb916e7b49cf99d9513398cb31030bc3c6d6c04c892da81d7ce5667f925"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/knowledge/index.md",
+      "previous_sha256": "52192d128f097b95a4bd7dbeeb9219dff8aef79c8fdfe712775f9272a0093e58",
+      "sha256": "b9089eaa6db32077eccc772aef53ad12c7bacc757b0359ae7b77d0d6bbb2d094"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/input-contract.md",
+      "previous_sha256": "58470bfc806da137d8861e1ec374841829780e62ed5394408ba746c09ab9db09",
+      "sha256": "cb9028b27c0f4f8884ddc71c2fefdf4bc5f4afbf3ae22827b69c8946ed075387"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/login-session-contract.md",
+      "previous_sha256": "efe8029f209affa9729b2d126b3d50fe7df102e16984786d5f4a598cc2ed5d8b",
+      "sha256": "1e2b6c71899223c909f904e6d54f4152ff1257d5ca71591135e5760c1047c561"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/pipeline-map.md",
+      "previous_sha256": "37e83eccf19a47a125577b5a0318f95e8c2b251648db1bd5e8c542d8a6a0a742",
+      "sha256": "7dfbabc90eb7fd128b7d4c763f329d4a0770eaf9ce94e04815e142cc18313141"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/pipeline_state.py",
+      "previous_sha256": "df77fe646fd1ef9f44ed2c791fef24fff01bdb4a3e5790414ac19c2dd198a8ac",
+      "sha256": "d39e4fa77604a4f96c62776b6a7b7a5368310db43c2a28cbf8f1e3be50ca5c89"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/test_marketplace_route.py",
+      "previous_sha256": "c4905a39688a50fdddec583185c25e7e70ca69b8b0b738421dd9c9da97a214af",
+      "sha256": "fe4b49abfbe7a51f4c3112aca99dbafc8c2f65a8c7a29543611f6c3ba3e3cadb"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/validate_input.py",
+      "previous_sha256": "6fad128e4fc83e6056fd3e4a90c763174c0c89aaaa59e9504f65d22d73f415d0",
+      "sha256": "97a009d3bb7baa718ee398a2a3ff44795f50c93e2a116c94ee794f34faa491ca"
+    },
+    {
+      "path": "PUBLICATION.md",
+      "previous_sha256": "ee363b4c130d81b2aa7934aa712d4fe86204915b960a315b8c2a84e882bfdad4",
+      "sha256": "808d17a881ddb8ce821b167976247079549a803fee19155b79d8254e68213d8c"
+    },
+    {
+      "path": "contracts/skill-dependencies.json",
+      "previous_sha256": "b924f42989a52baae072df2e687e910a2dc349c4dcc19e531085bf57ce4f4619",
+      "sha256": "aa3307efe7c4fec952794e415e81f2bca93cee8cb69e95e987841ddacba15793"
+    },
+    {
+      "path": "release/mcp-error-only-review.json",
+      "previous_sha256": "8f9a970ab3053c55121b6078f7647d351e5d8ecc7bf8cea31fc5cab3203a8450",
+      "sha256": "14f7c715b973355f07c0db424cb893fb982ffe894c94b6a5332c211c4ffbeb3a"
+    },
+    {
+      "path": "task-package-specs/roles.json",
+      "previous_sha256": "72997f0d446f5bbe168bb72436add03c2ff358c0e568109247b1d718bbb6fd99",
+      "sha256": "bdf76c764f6d963a8544d0e49e072a8fe23cbde23052dda29b5c9f5f2bbe0879"
+    },
+    {
+      "path": "task-packages/registry.json",
+      "previous_sha256": "ad69a9adebb40d36568b90a2b7480d052afe2024104fa72e268a5ef8806d9b8a",
+      "sha256": "528db8dd9cfd542257e8605741a8390c7a7e9db44cc56caaf2fd40c25fb96da5"
+    }
+  ],
+  "maintenance_history": [
+    {
+      "candidate_version": "listing-release-candidate-20260911-rc9",
+      "maintenance_changes": [
+        {
+          "path": ".agents/skills/apply-amazon-listing-hard-rules/SKILL.md",
+          "previous_sha256": "5dd940955a71dec2deea43de47ab7907608b1aad4488f8978d0dfdbc381ae336",
+          "sha256": "a9349237e5ff00d232c9c88b26e5ae03b7afd2e20c708a7cee844bfc51b1893e"
+        },
+        {
+          "path": ".agents/skills/apply-amazon-listing-hard-rules/knowledge/catalog.json",
+          "previous_sha256": "f6a41918834160ee441b16d3f04e53dedc27d40234a7214bbfadc1f88b675f61",
+          "sha256": "6ba9fb8be2b08d7adf72d470fecf92e3fd048ad2c37143a40d543a78117b2462"
+        },
+        {
+          "path": ".agents/skills/apply-amazon-listing-hard-rules/knowledge/index.md",
+          "previous_sha256": "d4fa793ff0b48a4113bd4f4984263b03102a274562104134f4995b8ef1333dc4",
+          "sha256": "c356bf1db01ec269ea845bef99bc7d3e9505b24d42e65718b001143985083d8d"
+        },
+        {
+          "path": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊ST硬性规则.md",
+          "previous_sha256": "349e100bac3b89af6a29b7feb5cd7bcce442e8c4f42df5ad7685ff029cdab8f9",
+          "sha256": "480ac728833c74e04a9aecf7028673d96cb38d34bf3147552f6f1dacd2f00b73"
+        },
+        {
+          "path": ".agents/skills/apply-amazon-listing-hard-rules/scripts/check_search_terms.py",
+          "previous_sha256": null,
+          "sha256": "99c6ed483c12b6cb993792e3a96d6611c38ef7cd8c51da0486c81c3f8148f6b5"
+        },
+        {
+          "path": ".agents/skills/apply-amazon-listing-hard-rules/scripts/test_search_terms.py",
+          "previous_sha256": null,
+          "sha256": "2dd29aafa09617435604ead3499d43079031628c1f809f406d300ae26df81758"
+        },
+        {
+          "path": ".agents/skills/orchestrate-amazon-listing-pipeline/knowledge/catalog.json",
+          "previous_sha256": "fe0e1354791593654d0ba83e04d1f948f2d4cf2b82ec062fa6b6917c5ef57ebe",
+          "sha256": "11133c958fc4ff5c4486b2800eb5d8151cba4b948206c6bdb56dd8b1c4c0f569"
+        },
+        {
+          "path": ".agents/skills/orchestrate-amazon-listing-pipeline/knowledge/index.md",
+          "previous_sha256": "c82bfef6d47986348db732c67a9da75ff217433de64e1f1045053356ea551a68",
+          "sha256": "51c8257e3bd9ff26fd38100999a2d92ee4e7920a3c06b23ccd9c7dce04315b40"
+        },
+        {
+          "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/keyword-allocation.md",
+          "previous_sha256": "78c9fa837d38853535d9a0085f3a9ecfbeac74b1387d5db6a4260adb59e1ab60",
+          "sha256": "59a27fa84996f870507ce090aaa775ce63415491d5751c2b80c5726fb857722b"
+        },
+        {
+          "path": "knowledge-base/listing-final-assembly-rules.md",
+          "previous_sha256": "b19ce1d3243ef129f5af8ee60e30bd72ccb415b2b4ce9a0ea14f5a337f21a170",
+          "sha256": "8fbdf4a44ba0c692c1296f500b2e786aefb1d3443d18c10d4609d42f8ffb5d64"
+        },
+        {
+          "path": "knowledge-base/listing-hard-rules/README.md",
+          "previous_sha256": "f9219b78030843083d38b45f1dbb0643ceb9d1875592da54b8b38289044e769d",
+          "sha256": "8177bcb406d3a69118b512fa311aa394594845307527a9308695b314063302fe"
+        },
+        {
+          "path": "knowledge-base/listing-hard-rules/manifest.yaml",
+          "previous_sha256": "65f55db97918d810dd497f67af2e349c5d33201a10f52e3f4d4410eda51ec2f7",
+          "sha256": "56d231069aa257101bbc3489ec39dfab3a925f9d9fac4cb1989b16e37cedaf57"
+        },
+        {
+          "path": "knowledge-base/listing-hard-rules/亚马逊ST硬性规则.md",
+          "previous_sha256": "349e100bac3b89af6a29b7feb5cd7bcce442e8c4f42df5ad7685ff029cdab8f9",
+          "sha256": "480ac728833c74e04a9aecf7028673d96cb38d34bf3147552f6f1dacd2f00b73"
+        },
+        {
+          "path": "knowledge-base/listing-search-terms-writing-rules.md",
+          "previous_sha256": null,
+          "sha256": "50916a5823da3d4e027cf7dded5d8f6812883498753fce416ca9a07c391cc7b5"
+        },
+        {
+          "path": "project-control/listing-writing-iteration-log.md",
+          "previous_sha256": "c204067427e2bc48b146b4d5b69b4e4089ebc0f4c6a6b1e6ae35d0b54ca4ddc2",
+          "sha256": "1ce7f95b6374ee3cb278ba87814a31eca4d67e4f248501ae244cc7a6932f6abd"
+        }
+      ],
+      "maintenance_id": "ST-WRITING-20260911-01",
+      "maintenance_predecessor_version": "listing-release-candidate-20260911-rc8",
+      "maintenance_scope": "ST-only source amendment, factual source triage and byte/token mechanics; all other rules and active Run locks retained"
+    },
+    {
+      "candidate_version": "listing-release-candidate-20260914-rc11",
+      "maintenance_changes": [
+        {
+          "path": ".agents/skills/apply-amazon-listing-hard-rules/SKILL.md",
+          "previous_sha256": "a9349237e5ff00d232c9c88b26e5ae03b7afd2e20c708a7cee844bfc51b1893e",
+          "sha256": "c5d4cea930f7c1be0f178bdd4c44372ea3149973ef36fe59965dfccf523204cd"
+        },
+        {
+          "path": ".agents/skills/orchestrate-amazon-listing-pipeline/SKILL.md",
+          "previous_sha256": "9c7a32af4b2dd043f7b50ebb04ad149c83c01880d420db7cd3de484fb5d478af",
+          "sha256": "52c79b99f10dd85226cb073f7bec0eefd2b50683bef418c4c9830c78aba16c1d"
+        },
+        {
+          "path": ".agents/skills/orchestrate-amazon-listing-pipeline/knowledge/catalog.json",
+          "previous_sha256": "11133c958fc4ff5c4486b2800eb5d8151cba4b948206c6bdb56dd8b1c4c0f569",
+          "sha256": "fe2c731285ddc367f351cef9f68b180335e402a1cd9ad8c9b2db6a06ba7afe05"
+        },
+        {
+          "path": ".agents/skills/orchestrate-amazon-listing-pipeline/knowledge/index.md",
+          "previous_sha256": "51c8257e3bd9ff26fd38100999a2d92ee4e7920a3c06b23ccd9c7dce04315b40",
+          "sha256": "52192d128f097b95a4bd7dbeeb9219dff8aef79c8fdfe712775f9272a0093e58"
+        },
+        {
+          "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/execution-efficiency.md",
+          "previous_sha256": "8b376bacdfe6a874aa0b7a3f52551ef1ca39c59c91c88523acd1e98439bd4ba0",
+          "sha256": "fb1318a754055197c377d5d4d3393dc16ece8c297955c402db9db710f0603ef1"
+        },
+        {
+          "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/login-session-contract.md",
+          "previous_sha256": "256fd0b4bf61e96364f4fafcf6cf2c1d244f7980ee25c3db918afadc8d1fb094",
+          "sha256": "efe8029f209affa9729b2d126b3d50fe7df102e16984786d5f4a598cc2ed5d8b"
+        },
+        {
+          "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/pipeline-map.md",
+          "previous_sha256": "deba0f9b47df7af8867d0b2e008f5a90603f4dab9aff362c064b8069bc77007c",
+          "sha256": "37e83eccf19a47a125577b5a0318f95e8c2b251648db1bd5e8c542d8a6a0a742"
+        },
+        {
+          "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/dispatch_plan.py",
+          "previous_sha256": "3b6954a09bc1de6bbe17878ff840de49c761f430fcc82da1630e27f42becbfea",
+          "sha256": "f0c7f53227208c82731155ebb140ccf1c5ca4267be5db03079f12327ed7cca42"
+        },
+        {
+          "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/pipeline_state.py",
+          "previous_sha256": "3741765dd4c8a0f880403ac32c2369d4aad5278ea3c7f96908bd469269a0f2f6",
+          "sha256": "df77fe646fd1ef9f44ed2c791fef24fff01bdb4a3e5790414ac19c2dd198a8ac"
+        },
+        {
+          "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/test_dispatch_plan.py",
+          "previous_sha256": "379a4d7d427919ed0a10bd5355993842def6a6638704ef12b46d5704128d7090",
+          "sha256": "493b5e1d0030efb7ff12dc57fc52b282a341d35a405b872a25fbe76480714236"
+        },
+        {
+          "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/test_marketplace_route.py",
+          "previous_sha256": "8a18df01a16139c9869f9f763c06e5c2816fb7b92c16ab0dcfc10de12b19a59d",
+          "sha256": "c4905a39688a50fdddec583185c25e7e70ca69b8b0b738421dd9c9da97a214af"
+        },
+        {
+          "path": "PUBLICATION.md",
+          "previous_sha256": "0d8c1ce207e1e1a37e660e828c4743de4f9b4a539ca60caafe2cc0cc05b43d01",
+          "sha256": "ee363b4c130d81b2aa7934aa712d4fe86204915b960a315b8c2a84e882bfdad4"
+        },
+        {
+          "path": "contracts/skill-dependencies.json",
+          "previous_sha256": "5b97691762ccf430403b03175febc1a3216b7779a820b80a356b9d2688ef07f7",
+          "sha256": "b924f42989a52baae072df2e687e910a2dc349c4dcc19e531085bf57ce4f4619"
+        },
+        {
+          "path": "knowledge-base/listing-search-terms-writing-rules.md",
+          "previous_sha256": "50916a5823da3d4e027cf7dded5d8f6812883498753fce416ca9a07c391cc7b5",
+          "sha256": "f7e7c5970171e0eb8b8c8481d9fd8eb8a1f3331729487e31ec471a1c77a4212b"
+        },
+        {
+          "path": "knowledge-base/listing-title-highlight-writing-rules.md",
+          "previous_sha256": "89e1a3e5e9bfd283e63278b99e1c6cd938870cee8fe13517cbd3a103a9820685",
+          "sha256": "e34e90167b2f1595cb7fe90cc6cb47bf9714ea9c6ade30be45fe19ca1703b7d3"
+        },
+        {
+          "path": "project-control/listing-writing-iteration-log.md",
+          "previous_sha256": "1ce7f95b6374ee3cb278ba87814a31eca4d67e4f248501ae244cc7a6932f6abd",
+          "sha256": "15335bec4f3cb8459a509f2e34b37570f5e1c3cec38c5cb747e1529131679610"
+        },
+        {
+          "path": "release/validation-repairs-20260914-review.json",
+          "previous_sha256": "2196ea1a29081e5f917e81748a1b6194245bef9ef3f94c1b2a0a58b81a2496be",
+          "sha256": "288715b2a9a91818ac96a2491702ced8ba73777a1889057459c6d74cbc62e279"
+        },
+        {
+          "path": "task-package-specs/dispatch-and-loading.md",
+          "previous_sha256": "6281da8511fc52269008cc4d8bf61b04c7499fa57fa5b2ab981174ccba582981",
+          "sha256": "2b1466f6b26d703ec852d1796f9a935cbc57f55f5638880305ca699b9d2c89fe"
+        },
+        {
+          "path": "task-package-specs/roles.json",
+          "previous_sha256": "40895b20f7356e1b285611f3a8f8ca252b77b77e77ca4e203e2a8178278e2d6f",
+          "sha256": "72997f0d446f5bbe168bb72436add03c2ff358c0e568109247b1d718bbb6fd99"
+        },
+        {
+          "path": "task-packages/registry.json",
+          "previous_sha256": "b06afc61ccf7d8a33b0c91573dceabf5e2183624fa0dac77c9738cec8decbf38",
+          "sha256": "ad69a9adebb40d36568b90a2b7480d052afe2024104fa72e268a5ef8806d9b8a"
+        }
+      ],
+      "maintenance_id": "VALIDATION-REPAIRS-20260914-01",
+      "maintenance_predecessor_version": "listing-release-candidate-20260911-rc9",
+      "maintenance_scope": "General front-copy writing and Listing recovery controls; keyword specialist issues remain explicitly open"
+    }
+  ],
+  "maintenance_id": "MCP-ERROR-ONLY-20260914-01",
+  "maintenance_predecessor_version": "listing-release-candidate-20260914-rc11",
+  "maintenance_scope": "SellerSprite expansion and SIF reverse lookup MCP first; explicit error and user login required for website fallback; other routing unchanged",
   "source_registry_sha256": "9351703206b6b0128598a7f76dc343e4fc45c65aa2c84f046994ceb40045c0bb",
   "source_version": "listing-release-candidate-20260903-rc1",
   "sources": [
@@ -181,13 +447,13 @@
       "sha256": "0990d298ad1bff7d3a2d7e5d8c21993d4138a86dfd7856802f827d7218fef6d6"
     },
     {
-      "bytes": 9246,
+      "bytes": 10282,
       "candidate_path": ".agents/skills/apply-amazon-listing-hard-rules/SKILL.md",
-      "candidate_sha256": "5dd940955a71dec2deea43de47ab7907608b1aad4488f8978d0dfdbc381ae336",
+      "candidate_sha256": "c5d4cea930f7c1be0f178bdd4c44372ea3149973ef36fe59965dfccf523204cd",
       "classification": "imported",
-      "operation": "authorized_20260911_runtime_repairs",
+      "operation": "authorized_20260914_validation_repairs",
       "path": ".agents/skills/apply-amazon-listing-hard-rules/SKILL.md",
-      "reason": "User-approved execution dispatch and inline-check maintenance; original source sha256 preserved",
+      "reason": "Authorized validation repair; original source hash retained; no historical Run mutation",
       "sha256": "66e034526e9f4112e346736ab84c55f4fb673d1263535dcaa175510d33458425"
     },
     {
@@ -231,23 +497,23 @@
       "sha256": "93b15bd8381e5bb554601ed9d33e70ab3fa3c13ce7f74a554a09b1899ae7b89d"
     },
     {
-      "bytes": 8322,
+      "bytes": 8676,
       "candidate_path": ".agents/skills/apply-amazon-listing-hard-rules/knowledge/catalog.json",
-      "candidate_sha256": "f6a41918834160ee441b16d3f04e53dedc27d40234a7214bbfadc1f88b675f61",
+      "candidate_sha256": "6ba9fb8be2b08d7adf72d470fecf92e3fd048ad2c37143a40d543a78117b2462",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260911_search_terms_maintenance",
       "path": ".agents/skills/apply-amazon-listing-hard-rules/knowledge/catalog.json",
-      "reason": "Unchanged complete candidate source",
+      "reason": "User-authorized ST rules, writing guide, routing or deterministic mechanics; not raw user text",
       "sha256": "f6a41918834160ee441b16d3f04e53dedc27d40234a7214bbfadc1f88b675f61"
     },
     {
-      "bytes": 6317,
+      "bytes": 6593,
       "candidate_path": ".agents/skills/apply-amazon-listing-hard-rules/knowledge/index.md",
-      "candidate_sha256": "d4fa793ff0b48a4113bd4f4984263b03102a274562104134f4995b8ef1333dc4",
+      "candidate_sha256": "c356bf1db01ec269ea845bef99bc7d3e9505b24d42e65718b001143985083d8d",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260911_search_terms_maintenance",
       "path": ".agents/skills/apply-amazon-listing-hard-rules/knowledge/index.md",
-      "reason": "Unchanged complete candidate source",
+      "reason": "User-authorized ST rules, writing guide, routing or deterministic mechanics; not raw user text",
       "sha256": "d4fa793ff0b48a4113bd4f4984263b03102a274562104134f4995b8ef1333dc4"
     },
     {
@@ -261,13 +527,13 @@
       "sha256": "5563d10257b78e5b882e111eff530fcc2f8c795db7511ac7e3204585817be290"
     },
     {
-      "bytes": 2539,
+      "bytes": 5368,
       "candidate_path": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊ST硬性规则.md",
-      "candidate_sha256": "349e100bac3b89af6a29b7feb5cd7bcce442e8c4f42df5ad7685ff029cdab8f9",
+      "candidate_sha256": "480ac728833c74e04a9aecf7028673d96cb38d34bf3147552f6f1dacd2f00b73",
       "classification": "imported",
-      "operation": "authorized_20260904_marketplace_routing_maintenance",
+      "operation": "authorized_20260911_search_terms_maintenance",
       "path": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊ST硬性规则.md",
-      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
+      "reason": "User-authorized ST rules, writing guide, routing or deterministic mechanics; not raw user text",
       "sha256": "9da4dab692df763c7f029e43572ecc95dbe5869faa447e226a553198c7ee36ac"
     },
     {
@@ -491,13 +757,13 @@
       "sha256": "ddf7c46bef56b76ae644a26a71fa0051c74a277e6bd3e6579ea4cf6373ca8452"
     },
     {
-      "bytes": 13494,
+      "bytes": 14274,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/SKILL.md",
-      "candidate_sha256": "876d4d9bbb792b3aada047966292acaf6d9798011525ff6bce954e85fbf1f020",
+      "candidate_sha256": "2c5fe6d8524c76cab6c572e8fb72f5d84788abf47c4db3d3aa4fec853d34e54a",
       "classification": "imported",
-      "operation": "authorized_20260911_runtime_repairs",
+      "operation": "authorized_20260914_mcp_error_only",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/SKILL.md",
-      "reason": "User-approved execution dispatch and inline-check maintenance; original source sha256 preserved",
+      "reason": "Authorized source routing update; original source hash retained; no historical Run mutation",
       "sha256": "172dcff1787398e4e0fcb153642ea986849d74a3cafe1b67702ac4db13f8e1a4"
     },
     {
@@ -511,13 +777,13 @@
       "sha256": "81267e76340f935510ce6ea85c3901d3d2a1a14619001057da4da8e275b2db11"
     },
     {
-      "bytes": 15071,
+      "bytes": 15145,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/assets/amazon-listing-pipeline-input-template.xlsx",
-      "candidate_sha256": "73489739a1b75083792d8d08c0841260b94da2991baf276668a29ca50c75d300",
+      "candidate_sha256": "f130ab413a7ca8d6cc997a094ffbaec84238c12ead8d13a04dbc1e846f75b7d1",
       "classification": "imported",
-      "operation": "authorized_20260911_runtime_repairs",
+      "operation": "authorized_20260911_sif_mcp_first",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/assets/amazon-listing-pipeline-input-template.xlsx",
-      "reason": "User-approved execution dispatch and inline-check maintenance; original source sha256 preserved",
+      "reason": "SIF MCP-first authentication and default routing; original source sha256 preserved",
       "sha256": "0e12595f07375c3fb601cd5c5c9c760579ebfa5ff3643842107946eefb60ed1b"
     },
     {
@@ -551,33 +817,33 @@
       "sha256": "2b0a679a9f41a0a98845ccd30d0ad3fa29f491657e5c3bc8cc74d884271272d8"
     },
     {
-      "bytes": 13083,
+      "bytes": 13815,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/knowledge/catalog.json",
-      "candidate_sha256": "fe0e1354791593654d0ba83e04d1f948f2d4cf2b82ec062fa6b6917c5ef57ebe",
+      "candidate_sha256": "e785bfb916e7b49cf99d9513398cb31030bc3c6d6c04c892da81d7ce5667f925",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260914_mcp_error_only",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/knowledge/catalog.json",
-      "reason": "Unchanged complete candidate source",
+      "reason": "Authorized source routing update; original source hash retained; no historical Run mutation",
       "sha256": "fe0e1354791593654d0ba83e04d1f948f2d4cf2b82ec062fa6b6917c5ef57ebe"
     },
     {
-      "bytes": 9232,
+      "bytes": 10232,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/knowledge/index.md",
-      "candidate_sha256": "e0fb691fb61dc37046ad54226d422f8b2ed8f6a2ac29257d431b0485a87dc7a7",
+      "candidate_sha256": "b9089eaa6db32077eccc772aef53ad12c7bacc757b0359ae7b77d0d6bbb2d094",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260914_mcp_error_only",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/knowledge/index.md",
-      "reason": "Unchanged complete candidate source",
+      "reason": "Authorized source routing update; original source hash retained; no historical Run mutation",
       "sha256": "e0fb691fb61dc37046ad54226d422f8b2ed8f6a2ac29257d431b0485a87dc7a7"
     },
     {
-      "bytes": 7924,
+      "bytes": 8387,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/execution-efficiency.md",
-      "candidate_sha256": "8b376bacdfe6a874aa0b7a3f52551ef1ca39c59c91c88523acd1e98439bd4ba0",
+      "candidate_sha256": "fb1318a754055197c377d5d4d3393dc16ece8c297955c402db9db710f0603ef1",
       "classification": "authored",
-      "operation": "authorized_20260911_runtime_repairs",
+      "operation": "authorized_20260914_validation_repairs",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/execution-efficiency.md",
-      "reason": "User-approved execution dispatch and inline-check maintenance; original source sha256 preserved",
+      "reason": "Authorized validation repair; original source hash retained; no historical Run mutation",
       "sha256": null
     },
     {
@@ -591,23 +857,23 @@
       "sha256": null
     },
     {
-      "bytes": 7730,
+      "bytes": 8246,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/input-contract.md",
-      "candidate_sha256": "324fe119f6493748adc00dd8e74679364c5bba6bf8825ff5005d3e7553aa1a51",
+      "candidate_sha256": "cb9028b27c0f4f8884ddc71c2fefdf4bc5f4afbf3ae22827b69c8946ed075387",
       "classification": "imported",
-      "operation": "authorized_20260911_runtime_repairs",
+      "operation": "authorized_20260914_mcp_error_only",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/input-contract.md",
-      "reason": "User-approved execution dispatch and inline-check maintenance; original source sha256 preserved",
+      "reason": "Authorized source routing update; original source hash retained; no historical Run mutation",
       "sha256": "716f56f90a00c399830dcca70e4915e0f8fa2993c6059334d592c4fb6d0ee402"
     },
     {
-      "bytes": 7024,
+      "bytes": 7402,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/keyword-allocation.md",
-      "candidate_sha256": "78c9fa837d38853535d9a0085f3a9ecfbeac74b1387d5db6a4260adb59e1ab60",
+      "candidate_sha256": "59a27fa84996f870507ce090aaa775ce63415491d5751c2b80c5726fb857722b",
       "classification": "imported",
-      "operation": "authorized_20260904_marketplace_routing_maintenance",
+      "operation": "authorized_20260911_search_terms_maintenance",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/keyword-allocation.md",
-      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
+      "reason": "User-authorized ST rules, writing guide, routing or deterministic mechanics; not raw user text",
       "sha256": "02c42670fde9d1950726b8f56b983b230f1beda8f0dac42fda0c6c1b61f07952"
     },
     {
@@ -621,13 +887,13 @@
       "sha256": "ec81712e0430def4d8202fced192efe3316d6eeadd0e5599f0b9f59aa4d746aa"
     },
     {
-      "bytes": 5149,
+      "bytes": 7239,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/login-session-contract.md",
-      "candidate_sha256": "d2c4ec352d6035613a51888c9b9de0b75a896646e33cea46f4f99420da6d5908",
+      "candidate_sha256": "1e2b6c71899223c909f904e6d54f4152ff1257d5ca71591135e5760c1047c561",
       "classification": "imported",
-      "operation": "authorized_20260911_runtime_repairs",
+      "operation": "authorized_20260914_mcp_error_only",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/login-session-contract.md",
-      "reason": "User-approved execution dispatch and inline-check maintenance; original source sha256 preserved",
+      "reason": "Authorized source routing update; original source hash retained; no historical Run mutation",
       "sha256": "e1cdd40319e8734f5408e6d572f1ae99ef4cc58968c73d5f8c388060a80e91bc"
     },
     {
@@ -641,13 +907,13 @@
       "sha256": "e48071b07502967f5073054506cc921f9e25657a0b0a022d949b907e74a07924"
     },
     {
-      "bytes": 6985,
+      "bytes": 7292,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/pipeline-map.md",
-      "candidate_sha256": "b5965098ad875e716242a1558f7b678327a9176f079cc51b76828ab8c0550802",
+      "candidate_sha256": "7dfbabc90eb7fd128b7d4c763f329d4a0770eaf9ce94e04815e142cc18313141",
       "classification": "imported",
-      "operation": "authorized_20260907_execution_efficiency_maintenance",
+      "operation": "authorized_20260914_mcp_error_only",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/pipeline-map.md",
-      "reason": "User-approved execution dispatch and inline-check maintenance; original source sha256 preserved",
+      "reason": "Authorized source routing update; original source hash retained; no historical Run mutation",
       "sha256": "ed03ae9fc4326e4fe22f56f00b1430f37cc7e3704ce315fee5e441b007ce0a38"
     },
     {
@@ -761,13 +1027,13 @@
       "sha256": "b51c8ff1f3c33c126316da794173aea4ed4e0f28b4d76d1a5fdf825c27733673"
     },
     {
-      "bytes": 15593,
+      "bytes": 16969,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/dispatch_plan.py",
-      "candidate_sha256": "3b6954a09bc1de6bbe17878ff840de49c761f430fcc82da1630e27f42becbfea",
+      "candidate_sha256": "f0c7f53227208c82731155ebb140ccf1c5ca4267be5db03079f12327ed7cca42",
       "classification": "authored",
-      "operation": "authorized_20260911_runtime_repairs",
+      "operation": "authorized_20260914_validation_repairs",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/dispatch_plan.py",
-      "reason": "User-approved execution dispatch and inline-check maintenance; original source sha256 preserved",
+      "reason": "Authorized validation repair; original source hash retained; no historical Run mutation",
       "sha256": null
     },
     {
@@ -781,13 +1047,13 @@
       "sha256": null
     },
     {
-      "bytes": 56750,
+      "bytes": 66157,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/pipeline_state.py",
-      "candidate_sha256": "a2b7752e59cd9f37b41bc54e5bfb80654d891ee9501e4104af71bb3fcdbdc0ad",
+      "candidate_sha256": "d39e4fa77604a4f96c62776b6a7b7a5368310db43c2a28cbf8f1e3be50ca5c89",
       "classification": "imported",
-      "operation": "authorized_20260911_runtime_repairs",
+      "operation": "authorized_20260914_mcp_error_only",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/pipeline_state.py",
-      "reason": "User-approved execution dispatch and inline-check maintenance; original source sha256 preserved",
+      "reason": "Authorized source routing update; original source hash retained; no historical Run mutation",
       "sha256": "8b97d550fee8644bfae440ae910360cc8335ce3a09a79dcb057dbb7d9d950ed3"
     },
     {
@@ -801,13 +1067,13 @@
       "sha256": "68fc80f7819fe120c9f9b48a662cbd61c4b27e79284e239ed823bf41d7855aa5"
     },
     {
-      "bytes": 9165,
+      "bytes": 11166,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/test_dispatch_plan.py",
-      "candidate_sha256": "379a4d7d427919ed0a10bd5355993842def6a6638704ef12b46d5704128d7090",
+      "candidate_sha256": "493b5e1d0030efb7ff12dc57fc52b282a341d35a405b872a25fbe76480714236",
       "classification": "authored",
-      "operation": "authorized_20260911_runtime_repairs",
+      "operation": "authorized_20260914_validation_repairs",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/test_dispatch_plan.py",
-      "reason": "User-approved execution dispatch and inline-check maintenance; original source sha256 preserved",
+      "reason": "Authorized validation repair; original source hash retained; no historical Run mutation",
       "sha256": null
     },
     {
@@ -821,13 +1087,13 @@
       "sha256": null
     },
     {
-      "bytes": 11328,
+      "bytes": 20414,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/test_marketplace_route.py",
-      "candidate_sha256": "a49f024ee8dc8d07194e9e0a4b263b2424518b1d671ac27e4a4059c8e298edf8",
+      "candidate_sha256": "fe4b49abfbe7a51f4c3112aca99dbafc8c2f65a8c7a29543611f6c3ba3e3cadb",
       "classification": "imported",
-      "operation": "authorized_20260911_runtime_repairs",
+      "operation": "authorized_20260914_mcp_error_only",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/test_marketplace_route.py",
-      "reason": "User-approved execution dispatch and inline-check maintenance; original source sha256 preserved",
+      "reason": "Authorized source routing update; original source hash retained; no historical Run mutation",
       "sha256": null
     },
     {
@@ -851,13 +1117,13 @@
       "sha256": "831075e6b151d0ef1d496695badc0cb1a33fe859a657905281723bea45b324da"
     },
     {
-      "bytes": 19553,
+      "bytes": 19724,
       "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/validate_input.py",
-      "candidate_sha256": "c21ee4cf88f5782fb5dc26ed9700276690eafdc318c17155eab44de90815371b",
+      "candidate_sha256": "97a009d3bb7baa718ee398a2a3ff44795f50c93e2a116c94ee794f34faa491ca",
       "classification": "imported",
-      "operation": "authorized_20260911_runtime_repairs",
+      "operation": "authorized_20260914_mcp_error_only",
       "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/validate_input.py",
-      "reason": "User-approved execution dispatch and inline-check maintenance; original source sha256 preserved",
+      "reason": "Authorized source routing update; original source hash retained; no historical Run mutation",
       "sha256": "9160af44dad298e30b384379a992e47aab60f512c041259d46a2200e97695a39"
     },
     {
@@ -1281,33 +1547,33 @@
       "sha256": "f4971ea1291ab0127a53b26cdc7e26fbc999df2049cbf145a55151c9e52066e9"
     },
     {
-      "bytes": 20296,
+      "bytes": 20641,
       "candidate_path": "knowledge-base/listing-final-assembly-rules.md",
-      "candidate_sha256": "b19ce1d3243ef129f5af8ee60e30bd72ccb415b2b4ce9a0ea14f5a337f21a170",
+      "candidate_sha256": "8fbdf4a44ba0c692c1296f500b2e786aefb1d3443d18c10d4609d42f8ffb5d64",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260911_search_terms_maintenance",
       "path": "knowledge-base/listing-final-assembly-rules.md",
-      "reason": "Unchanged complete candidate source",
+      "reason": "User-authorized ST rules, writing guide, routing or deterministic mechanics; not raw user text",
       "sha256": "b19ce1d3243ef129f5af8ee60e30bd72ccb415b2b4ce9a0ea14f5a337f21a170"
     },
     {
-      "bytes": 3113,
+      "bytes": 3431,
       "candidate_path": "knowledge-base/listing-hard-rules/README.md",
-      "candidate_sha256": "f9219b78030843083d38b45f1dbb0643ceb9d1875592da54b8b38289044e769d",
+      "candidate_sha256": "8177bcb406d3a69118b512fa311aa394594845307527a9308695b314063302fe",
       "classification": "imported",
-      "operation": "authorized_20260904_marketplace_routing_maintenance",
+      "operation": "authorized_20260911_search_terms_maintenance",
       "path": "knowledge-base/listing-hard-rules/README.md",
-      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
+      "reason": "User-authorized ST rules, writing guide, routing or deterministic mechanics; not raw user text",
       "sha256": "a72e0dc0261b0eab743f1f25a9401e90bdaf9dceff9cd342f3373f038d11b5c2"
     },
     {
-      "bytes": 4031,
+      "bytes": 4026,
       "candidate_path": "knowledge-base/listing-hard-rules/manifest.yaml",
-      "candidate_sha256": "65f55db97918d810dd497f67af2e349c5d33201a10f52e3f4d4410eda51ec2f7",
+      "candidate_sha256": "56d231069aa257101bbc3489ec39dfab3a925f9d9fac4cb1989b16e37cedaf57",
       "classification": "imported",
-      "operation": "authorized_20260904_marketplace_routing_maintenance",
+      "operation": "authorized_20260911_search_terms_maintenance",
       "path": "knowledge-base/listing-hard-rules/manifest.yaml",
-      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
+      "reason": "User-authorized ST rules, writing guide, routing or deterministic mechanics; not raw user text",
       "sha256": "cb9b98b08a8395dc04c951248bf01b4e9e9e2c4016f0df606b639c067c1e1a96"
     },
     {
@@ -1321,13 +1587,13 @@
       "sha256": "5563d10257b78e5b882e111eff530fcc2f8c795db7511ac7e3204585817be290"
     },
     {
-      "bytes": 2539,
+      "bytes": 5368,
       "candidate_path": "knowledge-base/listing-hard-rules/亚马逊ST硬性规则.md",
-      "candidate_sha256": "349e100bac3b89af6a29b7feb5cd7bcce442e8c4f42df5ad7685ff029cdab8f9",
+      "candidate_sha256": "480ac728833c74e04a9aecf7028673d96cb38d34bf3147552f6f1dacd2f00b73",
       "classification": "imported",
-      "operation": "authorized_20260904_marketplace_routing_maintenance",
+      "operation": "authorized_20260911_search_terms_maintenance",
       "path": "knowledge-base/listing-hard-rules/亚马逊ST硬性规则.md",
-      "reason": "Authorized marketplace routing, login-gate, German Rufus or regression maintenance",
+      "reason": "User-authorized ST rules, writing guide, routing or deterministic mechanics; not raw user text",
       "sha256": "9da4dab692df763c7f029e43572ecc95dbe5869faa447e226a553198c7ee36ac"
     },
     {
@@ -1371,13 +1637,13 @@
       "sha256": "6f8d60ceaec1b081cf6e0e863e2f8f0d1bf91d59dd1e7986495882d6042b4832"
     },
     {
-      "bytes": 13352,
+      "bytes": 16231,
       "candidate_path": "knowledge-base/listing-title-highlight-writing-rules.md",
-      "candidate_sha256": "89e1a3e5e9bfd283e63278b99e1c6cd938870cee8fe13517cbd3a103a9820685",
+      "candidate_sha256": "e34e90167b2f1595cb7fe90cc6cb47bf9714ea9c6ade30be45fe19ca1703b7d3",
       "classification": "imported",
-      "operation": "byte_identical_copy",
+      "operation": "authorized_20260914_validation_repairs",
       "path": "knowledge-base/listing-title-highlight-writing-rules.md",
-      "reason": "Unchanged complete candidate source",
+      "reason": "Authorized validation repair; original source hash retained; no historical Run mutation",
       "sha256": "89e1a3e5e9bfd283e63278b99e1c6cd938870cee8fe13517cbd3a103a9820685"
     },
     {
@@ -1391,13 +1657,13 @@
       "sha256": "3cc2dc396fa4152a709f4dc04ad900af22cccd8e12cf7ac6c342effacfe0305b"
     },
     {
-      "bytes": 5439,
+      "bytes": 7037,
       "candidate_path": "project-control/listing-writing-iteration-log.md",
-      "candidate_sha256": "7d89ac2f2f7cb2c5941e14523708f736e80bad03eac1d86f94ab2ff1dd18b773",
+      "candidate_sha256": "15335bec4f3cb8459a509f2e34b37570f5e1c3cec38c5cb747e1529131679610",
       "classification": "imported",
-      "operation": "authorized_20260911_runtime_repairs",
+      "operation": "authorized_20260914_validation_repairs",
       "path": "project-control/listing-writing-iteration-log.md",
-      "reason": "User-approved execution dispatch and inline-check maintenance; original source sha256 preserved",
+      "reason": "Authorized validation repair; original source hash retained; no historical Run mutation",
       "sha256": "bff803c8617e96dabdcfa574cd06c0c9c73121e3ad77126761e7537fb9f69b94"
     },
     {
@@ -1441,23 +1707,23 @@
       "sha256": "4969534ba03d59094247575c43772ff27b93e25c66957eaa565b48874b27618c"
     },
     {
-      "bytes": 4024,
+      "bytes": 4571,
       "candidate_path": "task-package-specs/dispatch-and-loading.md",
-      "candidate_sha256": "1564e4d5a1a08d98284a136cdfecb57aea2269adc015abf07eb74447d7cb62c9",
+      "candidate_sha256": "2b1466f6b26d703ec852d1796f9a935cbc57f55f5638880305ca699b9d2c89fe",
       "classification": "imported",
-      "operation": "authorized_20260904_task_session_login_maintenance",
+      "operation": "authorized_20260914_validation_repairs",
       "path": "task-package-specs/dispatch-and-loading.md",
-      "reason": "Authorized task-session login contract, safe input template or initialization regression maintenance",
+      "reason": "Authorized validation repair; original source hash retained; no historical Run mutation",
       "sha256": "735148be6801e7741d179f3414684a3c984c85e96e8a3318ba71478374fdbee8"
     },
     {
-      "bytes": 4455,
+      "bytes": 4441,
       "candidate_path": "task-package-specs/roles.json",
-      "candidate_sha256": "da6e00603ba63ebbfb5eeb581bbb0efb0c680f8d113f759b3b34b65ba2a97bdb",
+      "candidate_sha256": "bdf76c764f6d963a8544d0e49e072a8fe23cbde23052dda29b5c9f5f2bbe0879",
       "classification": "imported",
-      "operation": "authorized_20260911_runtime_repairs",
+      "operation": "authorized_20260914_mcp_error_only",
       "path": "task-package-specs/roles.json",
-      "reason": "User-approved execution dispatch and inline-check maintenance; original source sha256 preserved",
+      "reason": "Authorized source routing update; original source hash retained; no historical Run mutation",
       "sha256": "3f53f61d83532f3221a4be0d307204c232b7f7d1326e28414e0934112a0ba8f0"
     },
     {
@@ -1479,6 +1745,66 @@
       "path": "task-package-specs/skill-structure.json",
       "reason": "Unchanged complete candidate source",
       "sha256": "f4c45672c7ab595fac1de372c609adb260c050bf08d5d7bc8fb2c7bfcc7a93be"
+    },
+    {
+      "bytes": 3156,
+      "candidate_path": ".agents/skills/apply-amazon-listing-hard-rules/scripts/check_search_terms.py",
+      "candidate_sha256": "99c6ed483c12b6cb993792e3a96d6611c38ef7cd8c51da0486c81c3f8148f6b5",
+      "classification": "generated",
+      "operation": "authorized_20260911_search_terms_maintenance",
+      "path": ".agents/skills/apply-amazon-listing-hard-rules/scripts/check_search_terms.py",
+      "reason": "User-authorized ST rules, writing guide, routing or deterministic mechanics; not raw user text",
+      "sha256": null
+    },
+    {
+      "bytes": 3442,
+      "candidate_path": ".agents/skills/apply-amazon-listing-hard-rules/scripts/test_search_terms.py",
+      "candidate_sha256": "2dd29aafa09617435604ead3499d43079031628c1f809f406d300ae26df81758",
+      "classification": "generated",
+      "operation": "authorized_20260911_search_terms_maintenance",
+      "path": ".agents/skills/apply-amazon-listing-hard-rules/scripts/test_search_terms.py",
+      "reason": "User-authorized ST rules, writing guide, routing or deterministic mechanics; not raw user text",
+      "sha256": null
+    },
+    {
+      "bytes": 12946,
+      "candidate_path": "knowledge-base/listing-search-terms-writing-rules.md",
+      "candidate_sha256": "f7e7c5970171e0eb8b8c8481d9fd8eb8a1f3331729487e31ec471a1c77a4212b",
+      "classification": "generated",
+      "operation": "authorized_20260914_validation_repairs",
+      "path": "knowledge-base/listing-search-terms-writing-rules.md",
+      "reason": "Authorized validation repair; original source hash retained; no historical Run mutation",
+      "sha256": null
+    },
+    {
+      "bytes": 8397,
+      "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/runtime-recovery-contract.md",
+      "candidate_sha256": "1155ba393232c5885b33862ddc9b7128b567c024ac834884240fc6a116e6c1ef",
+      "classification": "authored",
+      "operation": "authorized_20260914_validation_repairs",
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/runtime-recovery-contract.md",
+      "reason": "Authorized source/control addition; synthetic tests only",
+      "sha256": null
+    },
+    {
+      "bytes": 11516,
+      "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/runtime_recovery.py",
+      "candidate_sha256": "f299ac2f7c643e531d3aa75ab6193a7b8fe46cf2c2a420e567f41a591d9e7500",
+      "classification": "authored",
+      "operation": "authorized_20260914_validation_repairs",
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/runtime_recovery.py",
+      "reason": "Authorized source/control addition; synthetic tests only",
+      "sha256": null
+    },
+    {
+      "bytes": 10496,
+      "candidate_path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/test_runtime_recovery.py",
+      "candidate_sha256": "ae527404558925fb387419095676cef7a60a9c8a78f863ef7843a765e0d26cdc",
+      "classification": "authored",
+      "operation": "authorized_20260914_validation_repairs",
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/scripts/test_runtime_recovery.py",
+      "reason": "Authorized source/control addition; synthetic tests only",
+      "sha256": null
     }
   ]
 }

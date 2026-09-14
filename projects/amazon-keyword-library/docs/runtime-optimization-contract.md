@@ -31,9 +31,9 @@
 
 ## 登录预检与来源冻结
 
-完整输入与站点锁定后，Amazon、SIF与卖家精灵在各自拥有任务会话中并行打开：Amazon由用户手动登录，SIF与卖家精灵按输入表中的非敏感账户别名/凭据引用使用已保存凭据或本机密码管理器。预检文件只记录`amazon/sif/sellersprite`的`authenticated/awaiting_login/unavailable`和检查时间，不记录账号密码、Cookie、token或可复用认证材料。三个关键词Task/host绑定回执全部完成前不得启动相应网页业务动作；统一入口仍需按Listing固定八会话矩阵完成总门。
+完整输入、站点及复用资格锁定后，需要采集的Run在各自拥有任务并行准备：Amazon用户手动登录，卖家精灵按输入表手动/已保存凭据登录，SIF首先真实核验MCP；仅合格故障才准备官网备用登录。preflight中Amazon/卖家精灵保留`authenticated/awaiting_login/unavailable`，仅SIF新增`authenticated_mcp/authenticated_web`区分当前入口；证明不记录账号密码、Cookie、token或可复用认证材料。三个关键词Task/host绑定回执全部完成前不得启动相应网页业务动作；统一入口仍需按Listing固定八会话矩阵完成总门。
 
-- SIF stage启动前必须为`authenticated`；未登录只回传主任务`awaiting_login`，保持既有网页优先与无法网页登录或已登录完整导出失败、用户批准及鉴权闭合才允许MCP的门。
+- 新SIF stage首先以`authenticated_mcp`和当前Run/Task/host的source_access/query_lock启动；官网备用必须`authenticated_web`并绑定mcp_unavailable或mcp_incomplete及原锁剩余ASIN。无先官网失败或额外逐Run批准门；错站/不明权限/实际鉴权失败阻断。旧锁可保留旧authenticated/批准备用语义，新build强制mcp-first-error-only-20260914。
 - SellerSprite stage启动前必须为`authenticated`；未登录只回传主任务，保持已登录官网完整官方导出优先、官网链路不可用才允许同提供商MCP的门。
 - 登录恢复只解冻对应来源分支，不要求重做已通过内容哈希验证的无关阶段。
 

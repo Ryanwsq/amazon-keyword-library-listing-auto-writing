@@ -1,0 +1,12 @@
+{
+  "maintenance_id": "MCP-ERROR-ONLY-20260914-01",
+  "version": "listing-release-candidate-20260914-rc12",
+  "policy": "mcp-first-error-only-20260914",
+  "scope": ["SellerSprite expansion MCP first", "SIF reverse lookup MCP first", "Explicit MCP error required for same-provider website fallback", "User login notice and current-owner website authentication required"],
+  "unchanged": ["other source priorities", "trend single-provider routing", "business fields and population", "query windows and judgment gates", "input workbook headers and layout", "frozen Runs and historical packages"],
+  "checks": {"source_tests": 18, "dispatch_tests": 47, "listing_orchestrator_tests": 113, "runtime_fixture_groups": 6, "package_tests": 33, "keyword_dependency_tests": 29, "repository_validation": "passed", "projects": 2, "authoritative_skills": 22},
+  "publication": "not_pushed",
+  "task_reload": "not_executed",
+  "business_run": "not_executed",
+  "P1": "not_executed"
+}

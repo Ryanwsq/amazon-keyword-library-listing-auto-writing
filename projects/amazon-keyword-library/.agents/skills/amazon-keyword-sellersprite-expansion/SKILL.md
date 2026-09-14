@@ -1,48 +1,46 @@
 ---
 name: amazon-keyword-sellersprite-expansion
-description: Expand the approved Amazon first-level core and optional subdivision core through the logged-in SellerSprite website with one official complete export per seed, four requested business fields and a locally assembled handoff workbook. Use for第一板块卖家精灵网页导出扩词、双层核心种子、单次完整导出、四字段表格和损失风险检查；do not use for seed selection, SIF, autocomplete, three-source merging or trend queries.
+description: Expand approved core seeds through SellerSprite MCP; official website export is allowed only after an explicit MCP error and user login. Use for卖家精灵双层核心扩词、单次完整结果、四字段工作簿及损失风险检查；not seed selection, SIF, autocomplete, source merging or trend.
 ---
 
 # Amazon Keyword SellerSprite Expansion
 
 ## 目标
 
-对主任务确认的一级品类核心大词和可选产品细分核心词，通过本长期副任务内置浏览器中的已登录卖家精灵网页分别执行一次完整官方导出，并在副任务内机械融合为四字段关键词表。同一锁定种子成功取得完整官方导出后不得为交叉验证再次导出。
+由卖家精灵MCP优先完成获准种子的扩词；仅明确报错后登录官网备用，不改变四字段及单次完整结果要求。
 
 ## 输入
 
-锁定的 `Run_ID`、`marketplace`及卖家精灵查询站点参数、最近30天查询周期、唯一一级品类核心大词、可选唯一产品细分核心词、两者层级及确认依据、锁定种子顺序、查询过滤条件、官网完整导出与MCP备用参数、本机忽略批次目录、输入表中卖家精灵的非敏感账户别名/凭据引用/登录方式，以及本Task/host对应`keyword:sellersprite-collector:sellersprite`的登录回执。`marketplace`只允许`Amazon-US`或`Amazon-DE`，网页和MCP的查询站点都必须与Run一致。存在细分核心词时，锁定种子依次为`一级品类核心大词、产品细分核心词`；不存在时只含一级品类核心大词。强等价、宽泛、卖点、配置和场景表达不得成为额外种子。开始官网挖掘前必须检查登录；未登录只回传主任务`awaiting_login`并冻结，不能把未登录解释为官网不可用。官网完整导出链路在已登录状态下仍不可用时，才允许同一卖家精灵提供商MCP备用。
+主任务锁定Run_ID、marketplace及提供商站点、最近30天、唯一一级核心、可选唯一细分核心、层级依据、种子顺序、过滤、查询参数、stage key、本机忽略目录和当前Task/host。有细分核心按一级核心、细分核心分别执行，否则只查一级核心。强等价、宽泛、卖点、配置和场景不得新增为种子，本Skill不选择、替换、遗漏或语义合并种子。
 
-## 输出
-
-逐种子原样保留的唯一成功官方XLSX、导出入口/任务/记录/完成文件证据、导出时间和页面声明总数、必要时的MCP逐页原始响应、实际返回行数、机械键重复组、四字段缺失、逐种子完成状态、损失风险、跨种子四列来源工作簿、完整事件账本及主任务紧凑回传清单。失败触发或失败下载只作技术诊断，不建立第二个业务导出版本。
+每种子MCP优先取得一个成功完整结果；仅明确MCP报错后提示用户登录本任务卖家精灵官网，认证后完整官方导出备用。网页登录偏好不覆盖该顺序；MCP正常不等网页登录。Sorftime网页和MCP均不得参与扩词。
 
 ## 可调用能力
 
-- `keyword.source.keyword-mining.query`
-- `keyword.source.sellersprite.web-query`
-- `keyword.source.sellersprite.paginate-and-verify`
+完整读取 `knowledge/index.md`、`../../../docs/keyword-judgment-boundaries.md`、`references/source-contract.md`和`../../../docs/mcp-first-source-access.md`；共享合同定义v2鉴权、报错、登录通知证明及新policy，历史合同不作为新Run入口。
+
+- `keyword.source.keyword-mining.query`：MCP首选。
+- `keyword.source.sellersprite.paginate-and-verify`：完整落盘、分页闭合、机械融合。
+- `keyword.source.sellersprite.web-query`：仅明确MCP报错、提示用户登录并验证后的网站备用。
 
 ## 执行步骤
 
-1. 完整读取 `knowledge/index.md`、`../../../docs/keyword-judgment-boundaries.md` 和 `references/source-contract.md`，核对一级核心、可选细分核心、锁定种子顺序、层级依据、站点、最近30天查询周期、过滤条件、运行合同中的sellersprite stage key、单次导出门和停止门。只有同一stage key下`completed/completed_with_gaps`状态、输出/证据哈希、逐种子唯一成功结果和人口均闭合才允许复用；失败尝试、partial或旧revision不得续跑。
-2. 在统一登录准备阶段，本任务按输入表选择浏览器已保存凭据或本机密码管理器完成卖家精灵登录；只使用账户别名和条目引用定位，绝不把密码、验证码、Cookie或令牌输出到聊天、证据、Run或Git。首选本长期副任务内置浏览器中的已登录卖家精灵官网。每Run在任何关键词查询或导出动作前先读取无凭据preflight并验证本Task/host对应`keyword:sellersprite-collector:sellersprite`已取得`authenticated_web`回执，以及卖家精灵查询站点参数与Run的`marketplace`一致。未登录时不得继续页面操作或直接切MCP，只向主任务回传`awaiting_login`、入口和受影响种子，由主任务提示用户登录；站点不一致时记录`marketplace_mismatch`并通知用户介入，不自行切成US。登录恢复并重新验证后从冻结状态继续。每个锁定种子都必须走一次完整官方导出。种子只来自主任务的核心层级锁，本 Skill 不新增、替换、语义合并或遗漏；细分核心存在时，一级核心和细分核心都必须分别完成。
-3. 对每个种子锁定站点、最近30天周期和过滤条件后，在关键词挖掘页使用当前可见语义能够确认的顶部或左上导出入口，不绑定固定CSS/XPath或坐标，也不用页面抄取替代导出。保存触发入口的页面/查询身份，随后在导出记录中按种子、参数、时间和导出任务身份确认本轮新任务完成，只下载其完成文件。每个种子的唯一成功原始XLSX分别原样保留，不覆盖历史文件；业务解析只取`keyword,keywordCn,searchRank,searches`对应四字段。
-4. 每个锁定种子只允许一个成功的完整官方导出。成功文件的种子、站点、最近30天周期、过滤条件、任务身份、实际行数和唯一机械键闭合后，立即关闭该种子，不为交叉重复验证再次触发导出。若触发失败、导出任务失败或下载文件无效，可在尚未取得成功文件前做有界技术恢复；失败事件和文件保留为诊断证据，不计作第二次业务导出，也不与成功结果合并。
-5. 只有在已登录且官网完整导出链路仍不可用时才切换同一卖家精灵提供商MCP；不得手工抄取页面结果。MCP备用的受影响种子从第1页按合同连续到短页或空页。使用`keyword.source.sellersprite.paginate-and-verify`检查页码、实际行数、重复、循环、缺失和损失风险。官网与MCP只有在种子、最近30天周期、过滤条件和稳定事件账本能够证明无遗漏/重复时才可续接，否则新建技术尝试并从第1页重启受影响种子；一旦形成一个完整成功结果即停止，不做第二轮交叉验证。
-6. 原始导出行、页边界重复和同一机械键冲突在本机事件账本中全部保留。副任务按锁定种子、页或导出行顺序机械融合，一词一行；同一词跨不同种子出现时保留全部seed来源身份。四字段冲突以首次非空原值作业务展示，不平均、不估算，并在清单记录所有冲突来源。
-7. 在副任务目录装配业务工作簿，唯一业务Sheet只含`英文关键词、中文翻译、ABA月排名、月搜索量`四列。再生成Run相对路径、工作簿/证据哈希、唯一词数、原始事件数、逐种子唯一成功导出/分页轨迹、失败技术尝试、导出证据、缺失/冲突和损失状态清单，并写匹配运行合同的sellersprite stage status；主任务只接收工作簿与该紧凑清单。
+1. 核验当前Run、输入/规则/种子/查询锁、实际Task/host和stage key。只有同stage key、completed/completed_with_gaps、输出/证据哈希和人口闭合才允许复用，失败、partial或旧revision不能冒充完成复用。
+2. 首选MCP核验真实鉴权取得authenticated_mcp，冻结admission.query_lock/source_access。站点只允许Amazon-US/Amazon-DE并与Run一致；错站记录marketplace_mismatch停止并通知用户，不自行切US，不前置打开官网。
+3. 各种子MCP从第1页连续到短页或空页，每页20条，returnFields固定keyword,keywordCn,searchRank,searches。逐页完整落盘后解析，保留请求、页码/页内序号、声明总数、原始重复、事件账本；核对实际行数、缺页、整页重复、循环及损失风险。零结果、缺字段、不完整或保存失败本身不是MCP报错，不自动切官网。
+4. 只有真实MCP明确报错才保留原始错误、错误码及已完成/未完成人口，向主任务回传官网登录需求，由主任务提示用户在对应拥有任务登录。核验authenticated_web及锁定站点才开始官网查询；未登录为awaiting_login。凭据/验证码/Cookie/令牌不进入聊天、证据、Run、Git；错站、账户冲突、权限/挑战不通过换入口绕过，需用户介入。
+5. 官网备用按当前可见语义确认关键词挖掘页顶部/左上导出入口，不绑定固定selector/坐标，不以页面抄取代替完整导出。按种子、参数、时间及导出任务身份确认记录中的本轮新完成文件，原样保存唯一成功官方XLSX。保留入口/任务/记录/完成文件、页面声明总数、实际行数与唯一机械键。失败触发/任务/下载有界恢复，只作诊断。跨入口不能证明无遗漏/重复时另批完整查询受影响种子，旧partial保留但不混装；已完成种子不重采。
+6. 每个种子只接纳一个成功完整结果，成功后不为交叉验证重复查询/导出。按种子/页/行顺序机械融合，一词一行，保留所有seed来源；字段冲突展示首次非空原值，原始冲突不删除，不平均、不估算、不精确词补拉。
+7. 在副任务内装配唯一业务Sheet，仅英文关键词、中文翻译、ABA月排名、月搜索量四列。主任务只收工作簿、Run相对路径、哈希、原始事件数/唯一词数、逐种子完成状态、完整分页或官方导出证据、失败尝试、缺失/冲突/损失风险和匹配stage status的紧凑清单。长响应只留本机忽略目录。
+
+## 输出
+
+四字段来源工作簿、逐种子完整原始证据、事件账本和带Run相对路径/哈希/人口/状态/缺口的紧凑清单。正式回传要求见步骤7和source-contract。
 
 ## 质量标准
 
-- 每个锁定种子恰有一个成功完整结果；官网路径由一份完整官方导出构成，顶部/左上导出入口、导出记录、本轮新完成文件、页面声明总数、实际行数和唯一机械键可回查；逐页仅限MCP受控备用。同种子不得为交叉验证重复导出。
-- 种子层级闭合：有细分核心词时一级核心与细分核心都执行，无细分核心词时只执行一级核心；强等价、宽泛/相邻流量、卖点、配置和场景表达不得成为额外种子。
-- 实际返回行数是闭环真值；声明总数漂移被记录。
-- 分页边界重复没有从原始证据中删除。
-- 网页原始导出可以保留提供商原字段，MCP备用固定请求四个业务字段；业务工作簿严格为四列，入口、缺失与冲突状态可识别。
-- 主任务回传不展开逐页/逐行长响应，工作簿与清单的哈希、行数和路径可核验。
-- 不执行种子选择、三来源合并、语义过滤、竞争补拉或趋势查询。
+实际返回行数是闭环真值；声明总数漂移及未解释差额如实保留，不从整数推断上限、不补造缺行。页边界重复不从原始证据删除。单行缺失保留空白并记录，零、partial、技术失败分别呈现，不能包装成MCP报错。
 
 ## 异常处理
 
-核心层级锁、种子数量/顺序或确认依据不符合输入门时不开始查询；存在细分核心却缺少任一获准种子，或出现额外种子时同样停止。未登录时只回传主任务`awaiting_login`并冻结；主任务提示用户后，登录恢复才继续，未登录不得触发MCP。已登录但官网完整导出链路不可用时才切换同一卖家精灵提供商MCP；两者均不可用，或MCP逐页无法证明完整性，或入口身份无法对齐、明确报错、限流、结构异常、缺页、整页重复、循环或无继续进展时，停止受影响种子并保留已取得数据。成功查询返回零结果时只在尚无成功完整文件的前提下复核方法、站点和必填参数后做技术恢复；全部锁定种子各自达到单次成功完成门时才标记`complete_with_residual_risk`，部分结果必须准确标记`partial/blocked`。
+核心/种子身份不符、权限不清、保存失败、结构异常、缺页、整页重复、循环或无进展时停止受影响种子并保留数据；只有明确MCP报错才按共享合同降级。全部种子满足单次完整门才标记complete_with_residual_risk，部分为partial/blocked。不执行种子选择、三源合并、语义过滤、竞争或趋势；机械检查不证明真实业务完成或P1。

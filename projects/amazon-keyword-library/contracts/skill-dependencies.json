@@ -1,6 +1,8 @@
 {
   "schema": "amazon-keyword-skill-dependencies/v1",
   "shared_files": [
+    "docs/mcp-first-source-access.md",
+    "scripts/test_mcp_first_source_access.py",
     "AGENTS.md",
     "README.md",
     "PROJECT.md",

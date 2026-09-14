@@ -7,11 +7,11 @@ description: Collect SIF traffic-keyword responses for approved direct competito
 
 ## 目标
 
-逐个反查获准直接竞品的最近30天流量词，在任何汇总前保存官网完整导出或获准备用接口的完整响应，再在副任务内装配最小字段表和核心词候选摘要。
+逐个反查获准直接竞品的最近30天流量词，按SIF MCP > SIF官网执行，在任何汇总前保存完整MCP响应或受控官网备用的完整官方导出，再在副任务内装配最小字段表和核心词候选摘要。
 
 ## 输入
 
-锁定的 `Run_ID`、`marketplace`及派生站点参数、产品事实、主任务筛选后的1–5个直接竞品 ASIN、原始/入选/排除ASIN清单及产品类型映射、每 ASIN 300条查询上限、本机忽略批次目录、输入表中SIF的非敏感账户别名/凭据引用/登录方式，以及本Task/host对应`keyword:sif-collector:sif`的登录回执。`marketplace`只允许`Amazon-US`或`Amazon-DE`，每次查询的提供商站点参数必须与Run一致。原始直接竞品超过5个时，主任务必须先按稳定竞品产品类型分组并在每类只保留输入顺序中的第一个有效ASIN；类型无法确认或每类取一后仍超过5个时，本Skill不开始外部查询。每类取一后少于3个时不得为凑数补入同类型ASIN。仅当用户明确无法完成SIF网页登录，或已登录但完整官网导出失败，并取得本Run用户批准且同提供商MCP已鉴权时，才允许使用SIF MCP备用入口。
+锁定的 `Run_ID`、`marketplace`及派生站点参数、产品事实、主任务筛选后的1–5个直接竞品 ASIN、原始/入选/排除ASIN清单及产品类型映射、每 ASIN 300条查询上限、本机忽略批次目录，以及本Run/Task/host对应`keyword:sif-collector:sif`的真实MCP鉴权回执和查询锁。MCP鉴权不要求填写密码或账户别名/凭据引用；输入中的网页登录方式仅作备用偏好。新Run固定`source_policies.sif_competitor=mcp-first-error-only-20260914`，不要求逐Run额外例外批准或先官网失败。`marketplace`只允许`Amazon-US`或`Amazon-DE`，每次查询的提供商站点参数必须与Run一致。原始直接竞品超过5个时，主任务必须先按稳定竞品产品类型分组并在每类只保留输入顺序中的第一个有效ASIN；类型无法确认或每类取一后仍超过5个时，本Skill不开始外部查询。每类取一后少于3个时不得为凑数补入同类型ASIN。
 
 ## 输出
 
@@ -27,17 +27,17 @@ description: Collect SIF traffic-keyword responses for approved direct competito
 
 1. 完整读取 `knowledge/index.md`、`../../../docs/keyword-judgment-boundaries.md` 和 `references/source-contract.md`，核对站点、竞品范围、输出目录和停止门。
 2. 在第一次查询前确认 `.local/runs/<Run_ID>/keyword-sif-collector/` 已建立且允许写入，并核对主任务运行合同中的SIF stage key；目录、Run、规则哈希或阶段身份不清时停止。只有同一stage key下`completed/completed_with_gaps`状态、输出/证据哈希和人口均闭合才允许复用，失败尝试或旧revision不得续跑。
-3. 在统一登录准备阶段，本任务按输入表选择浏览器已保存凭据或本机密码管理器完成SIF登录；只使用账户别名和条目引用定位，绝不把密码、验证码、Cookie或令牌输出到聊天、证据、Run或Git。在第一次查询前，读取本Run无凭据preflight并再次验证本Task/host对应`keyword:sif-collector:sif`已取得`authenticated_web`回执，同时逐字段核对Run的`marketplace`与SIF查询站点参数。未登录时状态进入`awaiting_login`，暂停并只向主任务回传登录状态、入口和受影响ASIN；由主任务提示用户登录，不得仅因当前未登录而切换MCP。站点不一致时记录`marketplace_mismatch`并通知用户介入，不得查询或自行改成US。登录与站点验证通过后，对每个获准竞品 ASIN 分别通过官网查询同一最近30天口径并使用完整官方导出，最多300条，不叠加7天窗口。
-4. 仅当用户明确无法完成SIF网页登录，或已登录但完整官网导出失败，且主任务登记本Run用户批准引用并验证同提供商MCP已鉴权后，才允许以`user_approved_same_provider_mcp`满足`keyword:sif-collector:sif`并切换同一SIF提供商的MCP备用入口。入口切换不得改变站点、ASIN、最近30天周期、300条上限、七列业务字段、结果顺序或数量闭环，并必须记录逐ASIN入口身份，不得把网页与MCP混成无身份续采。
-5. 网页入口取得结果后立即使用 `keyword.source.sif.persist-and-verify` 保存查询条件、完整页面/官方导出原始证据、结果顺序和数量闭环；获准MCP备用入口则立即保存完整原始响应和全部入参。两种入口都记录来源记录ID、ASIN、站点、抓取时间、数据截止日、返回行数、批次ID和入口类型，再做字段裁剪。来源未返回起始日时写`来源未返回`，不得倒推。
+3. 在统一前置鉴权阶段，验证当前Run/Task/host的SIF MCP可用且真实鉴权，形成`authenticated_mcp`非敏感证明并冻结`admission.query_lock/source_access`；完整读取source-contract的字段与验证命令。MCP主路径不以官网已登录为前提。逐字段核对Run的`marketplace`与提供商参数；站点不一致记录`marketplace_mismatch`并通知用户介入，不查询或自行改成US。每个获准ASIN分别按最近30天口径请求最多300条，不叠加7天窗口。
+4. 完整读取`../../../docs/mcp-first-source-access.md`。仅真实MCP明确报错才保存原始错误/错误码、原查询锁和未完成ASIN，向主任务回传官网备用登录需求；主任务提示用户在本拥有任务登录SIF官网并核验authenticated_web后，才处理未完成ASIN。零结果、缺字段、不完整响应本身不是报错，不自动切换。站点、权限、账户冲突或验证码需用户介入，不借换入口绕过。备用不改最近30天/过滤/300条/七列/顺序/人口；不能证明跨入口无遗漏重复时另批完整查询受影响ASIN，不混装旧partial或重采完成ASIN。凭据不输出，已填充一次登录恢复仍按合同。
+5. MCP结果立即用 `keyword.source.sif.persist-and-verify` 保存完整原始响应和全部入参；官网备用保存查询条件、完整页面/官方导出原始证据、结果顺序和数量闭环。两种入口都记录来源记录ID、ASIN、站点、抓取时间、数据截止日、返回行数、批次ID、入口类型和受控切换原因，再做字段裁剪。来源未返回起始日时写`来源未返回`，不得倒推。
 6. 从每个来源记录只映射`竞品ASIN、SIF返回序号、英文关键词、ABA排名、搜索量、Top3点击份额、Top3转化份额`七列。字段缺失留空，不填0、不估算；完整原始证据继续保留，不把长响应正文回传主任务。
 7. 在副任务目录装配工作簿：七列明细Sheet保留每个竞品记录；核心词候选摘要按机械键计算竞品覆盖数、最佳/中位返回序号并带出ABA、搜索量和Top3冲突状态。候选排序只帮助主任务审阅，不能替代产品事实和语义确认；高覆盖、高返回位置、高ABA或高搜索量只能证明竞品流量价值，不能证明候选是一级品类核心大词、产品细分核心词或强等价表达。
 8. 核对每个竞品的入口类型、查询状态、原始证据指针、返回行数、查询上限、周期和异常，生成工作簿哈希、证据清单哈希、人口、冲突/缺失和Run相对路径清单，并写匹配运行合同的SIF stage status。主任务只接收工作簿和该紧凑清单。
 
 ## 质量标准
 
-- 每次 SIF 结果先持久化后解析，完整官网导出或获准备用响应可回查。
-- 已登录SIF官网网页端是首选入口；SIF MCP仅在无法网页登录或已登录但完整官网导出失败、当前Run用户批准及MCP鉴权均闭合后作为同提供商备用，入口必须逐记录可追溯。
+- 每次 SIF 结果先持久化后解析，完整MCP响应或官网备用完整导出可回查。
+- 新Run首选SIF MCP；真实当前鉴权与查询锁闭合即可执行，不新增例外批准。官网只处理已有合格MCP失败证据的未完成ASIN，入口逐记录可追溯。旧已锁web-first协议保留原验收，不用于新Run或改写历史。
 - 实际查询ASIN为主任务完成代表筛选后的1–5个：原始输入不超过5个时全部保留；超过5个时每个稳定竞品产品类型只保留输入顺序中的第一个有效ASIN，原始/入选/排除人口及理由可追溯；不得为凑足三个而加入同类型第二个ASIN。
 - 每个竞品和来源行有稳定 ID、站点、周期、数据截止日、抓取时间和批次。
 - 300条只描述适配器上限；没有宣称 Amazon 全量。
@@ -47,4 +47,4 @@ description: Collect SIF traffic-keyword responses for approved direct competito
 
 ## 异常处理
 
-无数据时检查站点、父子体和 ASIN 状态并记录失败；不得换用未授权 ASIN。原始ASIN超过5个但类型无法可靠分组，或每类取一个后仍超过5个时，在任何登录检查之外的外部查询前回传主任务`blocked_input_lock`，不得静默删掉某一类型。未登录时进入`awaiting_login`并只回传主任务，不能直接切换MCP；`marketplace`或提供商站点参数不一致时记录`marketplace_mismatch`并等待用户介入。没有满足并留存本合同的备用原因、当前Run用户批准和MCP鉴权证据时，MCP不得执行。单个竞品失败不抹去其他竞品已取得结果。首选网页不可执行且没有满足MCP启用条件、两个入口的查询身份无法对齐、响应结构冲突、原始证据无法保存或来源授权不清时停止受影响查询，装配已取得证据并准确回传`partial/blocked/incomplete`。入口间续跑只有在稳定记录ID、查询条件、顺序和数量可证明无遗漏/重复时成立，否则从新批次完整重采受影响ASIN。
+无数据时检查站点、父子体和ASIN状态并记录；真实零与技术失败、不完整分开，不换用未授权ASIN。类型无法可靠分组或每类取一后仍超过5个时，查询前回传`blocked_input_lock`。MCP仅明确报错可按合同提示用户登录官网备用；错误站点、权限或账户/鉴权问题继续阻断并通知用户介入。官网备用未登录只向主任务回传`awaiting_login`；没有当前失败证据和网站认证不能执行官网。单个竞品失败不抹去其他已完成结果。查询身份无法对齐、结构冲突、证据无法保存或授权不清时停止受影响查询，准确回传`partial/blocked/incomplete`。机械检查不证明真实登录、查询完成或P1。

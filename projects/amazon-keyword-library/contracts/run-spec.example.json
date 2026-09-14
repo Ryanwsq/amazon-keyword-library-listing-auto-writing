@@ -1,6 +1,10 @@
 {
   "run_id": "AKW-YYYYMMDD-SLUG-01",
   "run_type": "production",
+  "source_policies": {
+    "sif_competitor": "mcp-first-error-only-20260914",
+    "sellersprite_expansion": "mcp-first-error-only-20260914"
+  },
   "revision": "0000000000000000000000000000000000000000",
   "site": "Amazon-US",
   "input_hashes": {

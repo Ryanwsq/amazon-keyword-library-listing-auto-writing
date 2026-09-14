@@ -570,9 +570,9 @@ def validate_keyword_contract_sync(errors: List[str]) -> None:
         },
         Path(".agents/skills/amazon-keyword-sellersprite-expansion/references/source-contract.md"): {
             "种子按`一级品类核心大词、产品细分核心词`锁定为两个",
-            "首选本长期副任务内置浏览器中的已登录卖家精灵官网及其完整官方导出",
+            "MCP首选，仅实际MCP明确报错时提示用户登录同提供商官网备用",
             "同一机械键跨不同种子只保留一个业务行",
-            "未登录时副任务只向主任务回传`awaiting_login`",
+            "未登录时先单独回传`awaiting_login`",
         },
         Path(".agents/skills/amazon-keyword-category-cleaning/references/workbook-contract.md"): {
             "固定十四列",
@@ -627,9 +627,9 @@ def validate_keyword_contract_sync(errors: List[str]) -> None:
             "Runtime contract audit",
         },
         Path("docs/end-to-end-workflow.md"): {
-            "一至两个卖家精灵种子",
-            "每个种子只取得一个成功完整官方导出",
-            "未登录时副任务只回传主任务`awaiting_login`",
+            "获准一级核心和存在时的细分核心",
+            "各种子一个成功完整结果",
+            "仅MCP明确报错才保存错误/未完成人口并由主任务提示用户",
             "通用词库资格",
             "固定51列加N个动态语义列",
             "最终`二类词`Sheet机械复制",

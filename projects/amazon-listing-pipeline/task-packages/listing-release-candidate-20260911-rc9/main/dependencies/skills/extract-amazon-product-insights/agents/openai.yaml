@@ -1,0 +1,6 @@
+interface:
+  display_name: "Amazon 购物助手 ASIN 双问并集 Excel"
+  short_description: "按Run站点用Alexa或Rufus执行五维双问并集"
+  default_prompt: "Use $extract-amazon-product-insights with the locked marketplace route and authenticated Amazon session; use Alexa/English for Amazon-US or Rufus/fixed German prompts for Amazon-DE, then return the two-sheet union workbook."
+policy:
+  allow_implicit_invocation: true

@@ -44,7 +44,7 @@ build规格文件和reserve envelope必须是不同文件。CLI在reserve写账�
 
 三个来源新阶段的`admission.query_lock`必填并作为依赖文件哈希冻结，不能等owner接受后再补周期/过滤人口。文件schema=`amazon-keyword-source-query/v1`，字段为`run_id、marketplace、source_provider、entry_type=web|mcp、queries、filters`。`queries`分别是获准ASIN、全部适用联想触发输入（原顺序、保留尾空格）或已锁定种子；由原Skill判断人口，脚本不生成种子/矩阵。无附加过滤明确`filters={}`。SIF/卖家精灵另含`query_period={kind:rolling-30-days,source_label:<来源实际标签>}`，SIF另含`limit_per_asin=300`。不增加工作簿列，不把滚动窗口改名完整月份。
 
-SIF改用MCP时，`admission.fallback`还必须指向当前Run的授权/失败/鉴权证据清单，包含`run_id、task_id、host、query_lock_sha256`及来源Skill规定字段并冻结；task_id/host必须等于envelope目标thread_id/host。鉴权文件内容采用来源合同的`amazon-keyword-mcp-authentication/v1`非敏感结构，Run/Task/host与清单相等且provider=SIF、entry_type=mcp、authenticated=true；其他任务证明即使hash正确也拒绝。没有已登录完整导出失败或用户无法登录的原因、当前用户批准和同提供商鉴权，不能派发MCP。更改已冻结查询/入口须关闭旧占用并形成新锁，不把新参数伪装成同一不可变envelope；本检查不替代真实授权与鉴权。
+新运行合同由runtime-contract/1.4.0强制锁定SIF及SellerSprite的mcp-first-error-only-20260914 policy，使用v2 source_access。MCP优先，只有明确MCP报错、提示用户登录并验证后才官网备用。完整字段与运行命令见[mcp-first-source-access](mcp-first-source-access.md)，拥有任务执行前必须完整读取。proof绑定当前Run/Task/host/查询锁，preflight入口不得互代；旧冻结合同按原锁兼容，新build/reserve不接受缺失/旧policy。更改入口/未完成人口必须关闭旧占用并生成含新查询哈希的合同，不覆盖原envelope。机械校验不是实际鉴权或P1。
 
 `sent`同时核对工具直接结果、structuredContent和content文本解析后的实际结果。任一层声明isError/error，或实际返回threadId相互冲突/不等于锁定目标，均拒绝标记送达；有tool_call_id也不能覆盖显式失败。正常MCP包装只提取已返回的threadId，计划任务列表不算实际回执。
 

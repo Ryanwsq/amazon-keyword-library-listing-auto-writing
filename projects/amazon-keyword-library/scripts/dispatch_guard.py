@@ -153,7 +153,25 @@ def verify_admission(envelope):
             query = runtime.read_json(query_path)
             source.validate_query_lock(query, envelope["run_id"], contract["site"], stage)
             required.append(query_path)
-            if stage == "sif" and query["entry_type"] == "mcp":
+            if stage in {"sif", "sellersprite"} and (stage == "sif" and contract.get("source_policies") or contract.get("source_policies") == runtime.SOURCE_POLICIES):
+                require(admission.get("source_access"), "Source access proof required")
+                access_path = Path(admission["source_access"])
+                access = runtime.read_json(access_path)
+                require(access.get("run_id") == envelope["run_id"]
+                        and access.get("task_id") == envelope["target"]["thread_id"]
+                        and access.get("host") == envelope["target"]["host"],
+                        "Source access must bind current Run/target Task/host")
+                result = (source.mcp_first_source_access(access, query_path, stage)
+                          if contract.get("source_policies") == runtime.SOURCE_POLICIES
+                          else source.sif_source_access(access, query_path))
+                if query["entry_type"] == "web":
+                    require(contract["locks"].get(f"{stage}_query_lock_sha256") == runtime.sha256_file(query_path),
+                            "Source web fallback needs a new query-addressed stage lock")
+                preflight = runtime.read_json(Path(admission["preflight"]))
+                require(preflight["providers"][stage]["status"] == result["status"],
+                        "Source preflight entry does not match authenticated source access")
+                required.append(access_path)
+            elif stage == "sif" and query["entry_type"] == "mcp":
                 require(admission.get("fallback"), "SIF MCP fallback evidence required")
                 fallback_path = Path(admission["fallback"])
                 fallback = runtime.read_json(fallback_path)
@@ -222,6 +240,8 @@ def build(request, current_run):
     mode = "fresh-collection" if contract.get("schema") == runtime.CONTRACT_SCHEMA else "recent-library-reuse"
     admission = request["admission"]
     if mode == "fresh-collection":
+        require(contract.get("source_policies") == runtime.SOURCE_POLICIES,
+                "new dispatch builds require the current SIF MCP-first contract")
         require(stage in contract["stages"], "stage not active")
         key = contract["stages"][stage]["stage_key"]
         files = [file_record(Path(admission["status_dir"]) / f"{s}.json")
@@ -232,6 +252,8 @@ def build(request, current_run):
             files.append(file_record(admission["query_lock"]))
             if admission.get("fallback"):
                 files.append(file_record(admission["fallback"]))
+            if admission.get("source_access"):
+                files.append(file_record(admission["source_access"]))
     else:
         key = digest({"contract": record["sha256"], "stage": stage, "executor": VERSION})
         verify_file(admission["receipt"])
@@ -267,6 +289,11 @@ def journal(path):
 
 def reserve(spec, current_run, observed, ledger):
     require("dispatch_id" not in spec, "reserve takes spec, not a previous envelope")
+    if spec.get("execution_mode") == "fresh-collection":
+        verify_file(spec["contract"])
+        contract = runtime.read_json(Path(spec["contract"]["path"]))
+        require(contract.get("source_policies") == runtime.SOURCE_POLICIES,
+                "new dispatch reservations require the current SIF MCP-first contract")
     envelope = dict(spec)
     envelope["schema"] = VERSION
     envelope["dispatch_id"] = digest(envelope)

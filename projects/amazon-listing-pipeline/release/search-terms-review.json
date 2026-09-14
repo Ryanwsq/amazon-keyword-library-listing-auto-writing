@@ -1,0 +1,129 @@
+{
+  "maintenance_id": "ST-WRITING-20260911-01",
+  "version": "listing-release-candidate-20260911-rc9",
+  "predecessor_version": "listing-release-candidate-20260911-rc8",
+  "changes": [
+    {
+      "path": ".agents/skills/apply-amazon-listing-hard-rules/SKILL.md",
+      "previous_sha256": "5dd940955a71dec2deea43de47ab7907608b1aad4488f8978d0dfdbc381ae336",
+      "sha256": "a9349237e5ff00d232c9c88b26e5ae03b7afd2e20c708a7cee844bfc51b1893e"
+    },
+    {
+      "path": ".agents/skills/apply-amazon-listing-hard-rules/knowledge/catalog.json",
+      "previous_sha256": "f6a41918834160ee441b16d3f04e53dedc27d40234a7214bbfadc1f88b675f61",
+      "sha256": "6ba9fb8be2b08d7adf72d470fecf92e3fd048ad2c37143a40d543a78117b2462"
+    },
+    {
+      "path": ".agents/skills/apply-amazon-listing-hard-rules/knowledge/index.md",
+      "previous_sha256": "d4fa793ff0b48a4113bd4f4984263b03102a274562104134f4995b8ef1333dc4",
+      "sha256": "c356bf1db01ec269ea845bef99bc7d3e9505b24d42e65718b001143985083d8d"
+    },
+    {
+      "path": ".agents/skills/apply-amazon-listing-hard-rules/references/亚马逊ST硬性规则.md",
+      "previous_sha256": "349e100bac3b89af6a29b7feb5cd7bcce442e8c4f42df5ad7685ff029cdab8f9",
+      "sha256": "480ac728833c74e04a9aecf7028673d96cb38d34bf3147552f6f1dacd2f00b73"
+    },
+    {
+      "path": ".agents/skills/apply-amazon-listing-hard-rules/scripts/check_search_terms.py",
+      "previous_sha256": null,
+      "sha256": "99c6ed483c12b6cb993792e3a96d6611c38ef7cd8c51da0486c81c3f8148f6b5"
+    },
+    {
+      "path": ".agents/skills/apply-amazon-listing-hard-rules/scripts/test_search_terms.py",
+      "previous_sha256": null,
+      "sha256": "2dd29aafa09617435604ead3499d43079031628c1f809f406d300ae26df81758"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/knowledge/catalog.json",
+      "previous_sha256": "fe0e1354791593654d0ba83e04d1f948f2d4cf2b82ec062fa6b6917c5ef57ebe",
+      "sha256": "11133c958fc4ff5c4486b2800eb5d8151cba4b948206c6bdb56dd8b1c4c0f569"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/knowledge/index.md",
+      "previous_sha256": "c82bfef6d47986348db732c67a9da75ff217433de64e1f1045053356ea551a68",
+      "sha256": "51c8257e3bd9ff26fd38100999a2d92ee4e7920a3c06b23ccd9c7dce04315b40"
+    },
+    {
+      "path": ".agents/skills/orchestrate-amazon-listing-pipeline/references/keyword-allocation.md",
+      "previous_sha256": "78c9fa837d38853535d9a0085f3a9ecfbeac74b1387d5db6a4260adb59e1ab60",
+      "sha256": "59a27fa84996f870507ce090aaa775ce63415491d5751c2b80c5726fb857722b"
+    },
+    {
+      "path": "knowledge-base/listing-final-assembly-rules.md",
+      "previous_sha256": "b19ce1d3243ef129f5af8ee60e30bd72ccb415b2b4ce9a0ea14f5a337f21a170",
+      "sha256": "8fbdf4a44ba0c692c1296f500b2e786aefb1d3443d18c10d4609d42f8ffb5d64"
+    },
+    {
+      "path": "knowledge-base/listing-hard-rules/README.md",
+      "previous_sha256": "f9219b78030843083d38b45f1dbb0643ceb9d1875592da54b8b38289044e769d",
+      "sha256": "8177bcb406d3a69118b512fa311aa394594845307527a9308695b314063302fe"
+    },
+    {
+      "path": "knowledge-base/listing-hard-rules/manifest.yaml",
+      "previous_sha256": "65f55db97918d810dd497f67af2e349c5d33201a10f52e3f4d4410eda51ec2f7",
+      "sha256": "56d231069aa257101bbc3489ec39dfab3a925f9d9fac4cb1989b16e37cedaf57"
+    },
+    {
+      "path": "knowledge-base/listing-hard-rules/亚马逊ST硬性规则.md",
+      "previous_sha256": "349e100bac3b89af6a29b7feb5cd7bcce442e8c4f42df5ad7685ff029cdab8f9",
+      "sha256": "480ac728833c74e04a9aecf7028673d96cb38d34bf3147552f6f1dacd2f00b73"
+    },
+    {
+      "path": "knowledge-base/listing-search-terms-writing-rules.md",
+      "previous_sha256": null,
+      "sha256": "50916a5823da3d4e027cf7dded5d8f6812883498753fce416ca9a07c391cc7b5"
+    },
+    {
+      "path": "project-control/listing-writing-iteration-log.md",
+      "previous_sha256": "c204067427e2bc48b146b4d5b69b4e4089ebc0f4c6a6b1e6ae35d0b54ca4ddc2",
+      "sha256": "1ce7f95b6374ee3cb278ba87814a31eca4d67e4f248501ae244cc7a6932f6abd"
+    }
+  ],
+  "previous_package_files_unchanged": 442,
+  "official_sources": "public_materials_checked_20260911",
+  "user_articles": "user_supplied_text_and_excerpt; article_URL_to_title_mapping_not_verified",
+  "runtime_and_historical_runs": "not_changed",
+  "other_writing_rules": "unchanged_against_rc8_source_lock",
+  "scope": "ST_only_and_required_packaging_metadata",
+  "mechanical_checks": "see local test receipts; not business approval",
+  "focused_tests": {
+    "search_terms_unittest": {
+      "tests": 14,
+      "result": "passed"
+    },
+    "skill_structure": {
+      "skills": 10,
+      "files": 143,
+      "links": 325,
+      "result": "passed"
+    },
+    "task_packages": {
+      "roles": 10,
+      "files": 438,
+      "sections": 1793,
+      "result": "passed"
+    },
+    "listing_package_regressions": {
+      "tests": 33,
+      "result": "passed"
+    },
+    "repository_validation": {
+      "projects": 2,
+      "authoritative_skills": 22,
+      "release_files": 4274,
+      "result": "passed",
+      "scope": "original registered checks; no live business or indexing proof"
+    },
+    "diff_whitespace": {
+      "result": "passed"
+    },
+    "skill_creator_quick_validate": {
+      "result": "not_executed_missing_dependency",
+      "dependency": "PyYAML",
+      "fallback": "repository strict frontmatter and skill structure validator passed"
+    }
+  },
+  "business_run": "not_executed",
+  "P1": "not_executed",
+  "publication": "not_committed_not_pushed"
+}

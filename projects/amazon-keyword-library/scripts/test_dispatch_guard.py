@@ -51,12 +51,23 @@ class DispatchTests(unittest.TestCase):
         runtime.write_json(self.contract_path, self.contract)
         self.preflight = self.root / "preflight.json"
         runtime.write_json(self.preflight, {"schema": runtime.PREFLIGHT_SCHEMA, "providers": {
-            p: {"status": "authenticated", "checked_at": "fixture"} for p in ("amazon", "sif", "sellersprite")}})
+            p: {"status": "authenticated_mcp" if p in {"sif", "sellersprite"} else "authenticated", "checked_at": "fixture"}
+            for p in ("amazon", "sif", "sellersprite")}})
         self.query = self.root / "query-lock.json"
         runtime.write_json(self.query, {"schema": guard.source.QUERY_SCHEMA, "run_id": self.run,
-            "marketplace": self.contract["site"], "source_provider": "SIF", "queries": ["SYNTHETIC-ASIN"], "entry_type": "web",
+            "marketplace": self.contract["site"], "source_provider": "SIF", "queries": ["SYNTHETIC-ASIN"], "entry_type": "mcp",
+            "source_policy": runtime.MCP_ERROR_ONLY_POLICY,
             "query_period": {"kind": "rolling-30-days", "source_label": "Recent 30 days"},
             "filters": {}, "limit_per_asin": 300})
+        self.authentication = self.root / "authentication.json"
+        runtime.write_json(self.authentication, {"schema": "amazon-keyword-mcp-authentication/v1",
+            "run_id": self.run, "task_id": self.observed["thread_id"], "host": self.observed["host"],
+            "provider": "SIF", "entry_type": "mcp", "authenticated": True})
+        self.access = self.root / "source-access.json"
+        runtime.write_json(self.access, {"schema": "amazon-keyword-source-access/v2",
+            "run_id": self.run, "task_id": self.observed["thread_id"], "host": self.observed["host"],
+            "source_provider": "SIF", "entry_type": "mcp", "query_lock_sha256": runtime.sha256_file(self.query),
+            "authentication_evidence": guard.file_record(self.authentication)})
         self.spec = {"run_id": self.run, "run_type": self.contract["run_type"], "revision": self.revision,
                      "execution_mode": "fresh-collection", "role": guard.ROLES["sif"], "stage": "sif",
                      "stage_key": self.contract["stages"]["sif"]["stage_key"],
@@ -64,9 +75,9 @@ class DispatchTests(unittest.TestCase):
                      "target": {k: v for k, v in self.observed.items() if k != "status"},
                      "output_root": str(self.target / ".local" / "runs" / self.run / guard.ROLES["sif"]),
                      "contract": guard.file_record(self.contract_path),
-                     "dependency_files": [guard.file_record(self.preflight), guard.file_record(self.query)],
+                     "dependency_files": [guard.file_record(p) for p in (self.preflight, self.query, self.access)],
                      "admission": {"status_dir": str(self.root / "status"), "preflight": str(self.preflight),
-                                   "query_lock": str(self.query)}}
+                                   "query_lock": str(self.query), "source_access": str(self.access)}}
 
     def tearDown(self):
         os.chdir(self.cwd)
@@ -129,6 +140,7 @@ class DispatchTests(unittest.TestCase):
         self.complete_through("core-lock")
         query = runtime.read_json(self.query)
         query["source_provider"] = "Amazon"
+        query["entry_type"] = "web"
         runtime.write_json(self.query, query)
         target = dict(self.spec["target"], title=guard.TITLES["amazon-autocomplete"])
         request = {"contract_path": str(self.contract_path), "stage": "amazon-autocomplete",
@@ -485,7 +497,7 @@ class DispatchTests(unittest.TestCase):
     def test_autocomplete_completion_does_not_accept_memory_only_population(self):
         self.complete_through("core-lock")
         query = runtime.read_json(self.query)
-        query.update(source_provider="Amazon", queries=[f"synthetic input {i}" for i in range(75)])
+        query.update(source_provider="Amazon", entry_type="web", queries=[f"synthetic input {i}" for i in range(75)])
         runtime.write_json(self.query, query)
         target = dict(self.spec["target"], title=guard.TITLES["amazon-autocomplete"])
         request = {"contract_path": str(self.contract_path), "stage": "amazon-autocomplete", "target": target,
@@ -500,37 +512,120 @@ class DispatchTests(unittest.TestCase):
         with self.assertRaisesRegex(runtime.ContractError, "matrix population incomplete"):
             guard.observe(self.ledger, self.run, event)
 
-    def test_sif_fallback_binds_target_task_and_host(self):
-        query = runtime.read_json(self.query)
-        query["entry_type"] = "mcp"
-        runtime.write_json(self.query, query)
-        authentication = {"schema": "amazon-keyword-mcp-authentication/v1", "run_id": self.run,
-                          "task_id": self.observed["thread_id"], "host": self.observed["host"],
-                          "provider": "SIF", "entry_type": "mcp", "authenticated": True}
-        auth_path = self.root / "authentication.json"
-        runtime.write_json(auth_path, authentication)
-        basis = self.root / "user-approval-and-failure.json"
-        runtime.write_json(basis, {"fixture": "approved after export failure"})
-        proof = {"run_id": self.run, "task_id": self.observed["thread_id"], "host": self.observed["host"],
-                 "query_lock_sha256": runtime.sha256_file(self.query), "source_provider": "SIF",
-                 "reason": "authenticated_export_failed", "web_authenticated": True, "mcp_authenticated": True,
-                 "user_approved": True, "authorization": guard.file_record(basis),
-                 "failure_evidence": guard.file_record(basis), "authentication_evidence": guard.file_record(auth_path)}
-        fallback_path = self.root / "fallback.json"
-        runtime.write_json(fallback_path, proof)
+    def test_sif_primary_binds_target_task_and_host_without_exception_approval(self):
+        authentication = runtime.read_json(self.authentication)
+        proof = runtime.read_json(self.access)
         request = {"contract_path": str(self.contract_path), "stage": "sif", "target": self.spec["target"],
-                   "output_root": self.spec["output_root"],
-                   "admission": dict(self.spec["admission"], fallback=str(fallback_path))}
+                   "output_root": self.spec["output_root"], "admission": self.spec["admission"]}
         guard.build(request, self.run)
         for field in ("task_id", "host"):
             # Even mutually matching foreign proof/auth files cannot be wrapped
             # as this target's authentication by a current-Run query lock.
             foreign_auth = dict(authentication, **{field: "synthetic-other"})
-            runtime.write_json(auth_path, foreign_auth)
-            foreign_proof = dict(proof, **{field: "synthetic-other"}, authentication_evidence=guard.file_record(auth_path))
-            runtime.write_json(fallback_path, foreign_proof)
-            with self.subTest(field=field), self.assertRaisesRegex(runtime.ContractError, "bind target Task/host"):
+            runtime.write_json(self.authentication, foreign_auth)
+            foreign_proof = dict(proof, **{field: "synthetic-other"}, authentication_evidence=guard.file_record(self.authentication))
+            runtime.write_json(self.access, foreign_proof)
+            with self.subTest(field=field), self.assertRaisesRegex(runtime.ContractError, "bind current Run/target Task/host"):
                 guard.build(request, self.run)
+
+    def test_new_sif_dispatch_rejects_web_login_as_mcp_authentication(self):
+        preflight = runtime.read_json(self.preflight)
+        preflight["providers"]["sif"]["status"] = "authenticated_web"
+        runtime.write_json(self.preflight, preflight)
+        self.spec["dependency_files"] = [guard.file_record(p) for p in (self.preflight, self.query, self.access)]
+        with self.assertRaisesRegex(runtime.ContractError, "preflight entry"):
+            self.reserve()
+
+    def test_mcp_to_web_fallback_relocks_stage_and_preserves_old_dispatch(self):
+        original = self.envelope()
+        original_hash = guard.file_record(self.contract_path)
+        web_query = self.root / "web-query.json"
+        query = runtime.read_json(self.query)
+        query["entry_type"] = "web"
+        runtime.write_json(web_query, query)
+        auth = runtime.read_json(self.authentication)
+        auth.update(schema="amazon-keyword-web-authentication/v1", entry_type="web")
+        auth_path = self.root / "web-auth.json"
+        runtime.write_json(auth_path, auth)
+        raw = self.root / "failure-raw.json"
+        runtime.write_json(raw, {"fixture": "MCP transport unavailable"})
+        failure_path = self.root / "failure.json"
+        runtime.write_json(failure_path, {"schema": "amazon-keyword-mcp-error/v1", "run_id": self.run,
+            "task_id": self.observed["thread_id"], "host": self.observed["host"], "provider": "SIF",
+            "entry_type": "mcp", "is_error": True, "error_code": "transport_error", "query_lock_sha256": runtime.sha256_file(self.query),
+            "evidence": [guard.file_record(raw)]})
+        notice_path = self.root / "login-notice.json"
+        runtime.write_json(notice_path, {"schema": "amazon-keyword-web-login-notice/v1", "run_id": self.run,
+            "task_id": self.observed["thread_id"], "host": self.observed["host"], "provider": "SIF", "login_requested": True})
+        web_access = self.root / "web-access.json"
+        access = runtime.read_json(self.access)
+        access.update(entry_type="web", query_lock_sha256=runtime.sha256_file(web_query),
+                      authentication_evidence=guard.file_record(auth_path), reason="mcp_error",
+                      primary_query_lock=guard.file_record(self.query), mcp_error_evidence=guard.file_record(failure_path),
+                      completed_queries=[], login_notice=guard.file_record(notice_path))
+        runtime.write_json(web_access, access)
+        web_preflight = self.root / "web-preflight.json"
+        preflight = runtime.read_json(self.preflight)
+        preflight["providers"]["sif"]["status"] = "authenticated_web"
+        runtime.write_json(web_preflight, preflight)
+        request = {"contract_path": str(self.contract_path), "stage": "sif", "target": self.spec["target"],
+                   "output_root": self.spec["output_root"], "admission": dict(self.spec["admission"],
+                       query_lock=str(web_query), source_access=str(web_access), preflight=str(web_preflight))}
+        with self.assertRaisesRegex(runtime.ContractError, "new query-addressed stage lock"):
+            guard.build(request, self.run)
+        new_spec = dict(base_spec(), run_id=self.run, revision=self.revision)
+        new_spec["locks"]["sif_query_lock_sha256"] = runtime.sha256_file(web_query)
+        next_contract = runtime.build_contract(new_spec)
+        next_path = self.root / "web-contract.json"
+        runtime.write_json(next_path, next_contract)
+        request["contract_path"] = str(next_path)
+        spec = guard.build(request, self.run)
+        self.assertNotEqual(spec["stage_key"], original["stage_key"])
+        with self.assertRaisesRegex(runtime.ContractError, "busy/unresolved"):
+            self.reserve(spec)
+        close = self.root / "close.json"
+        runtime.write_json(close, {"dispatch_id": original["dispatch_id"], "thread_id": self.observed["thread_id"],
+                                  "tool_call_id": "synthetic-call", "observed_task_status": "idle",
+                                  "outcome": "closed", "execution_stopped": True})
+        guard.reconcile(self.ledger, self.run, original["dispatch_id"], guard.file_record(close))
+        self.assertTrue(self.reserve(spec)["allowed_to_send"])
+        self.assertEqual(guard.file_record(self.contract_path), original_hash)
+
+    def test_new_dispatch_cannot_choose_missing_or_web_first_policy(self):
+        for policies in ({}, {"sif_competitor": "web-first"}):
+            with self.subTest(policies=policies), self.assertRaisesRegex(runtime.ContractError, "MCP-first"):
+                runtime.build_contract(dict(base_spec(), source_policies=policies))
+        legacy = copy.deepcopy(self.contract)
+        legacy.pop("source_policies")
+        legacy["contract_version"] = "runtime-contract/1.2.0"
+        runtime.compute_stage_keys(legacy)
+        legacy["contract_sha256"] = guard.digest({k: v for k, v in legacy.items() if k != "contract_sha256"})
+        runtime.verify_contract(legacy)  # Historical hash algorithm remains readable.
+        runtime.write_json(self.contract_path, legacy)
+        self.spec.update(contract=guard.file_record(self.contract_path), stage_key=legacy["stages"]["sif"]["stage_key"])
+        with self.assertRaisesRegex(runtime.ContractError, "new dispatch reservations"):
+            self.reserve()
+        request = {"contract_path": str(self.contract_path), "stage": "sif", "target": self.spec["target"],
+                   "output_root": self.spec["output_root"], "admission": self.spec["admission"]}
+        with self.assertRaisesRegex(runtime.ContractError, "new dispatch builds"):
+            guard.build(request, self.run)
+
+    def test_legacy_locked_web_envelope_remains_verifiable(self):
+        legacy = copy.deepcopy(self.contract)
+        legacy.pop("source_policies")
+        legacy["contract_version"] = "runtime-contract/1.2.0"
+        runtime.compute_stage_keys(legacy)
+        legacy["contract_sha256"] = guard.digest({k: v for k, v in legacy.items() if k != "contract_sha256"})
+        runtime.write_json(self.contract_path, legacy)
+        query = runtime.read_json(self.query)
+        query.pop("source_policy")
+        query["entry_type"] = "web"
+        runtime.write_json(self.query, query)
+        self.spec.update(contract=guard.file_record(self.contract_path), stage_key=legacy["stages"]["sif"]["stage_key"],
+                         dependency_files=[guard.file_record(p) for p in (self.preflight, self.query)])
+        envelope = dict(self.spec, schema=guard.VERSION)
+        envelope["dispatch_id"] = guard.digest(envelope)
+        guard.validate(envelope, self.run, self.observed)
 
     def test_send_errors_are_rejected_in_all_result_wrappers(self):
         envelope = self.envelope()

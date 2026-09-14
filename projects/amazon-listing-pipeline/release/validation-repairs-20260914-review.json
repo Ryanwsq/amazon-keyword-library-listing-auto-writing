@@ -1,0 +1,34 @@
+{
+  "schema": "listing-maintenance-review/v1",
+  "maintenance_id": "VALIDATION-REPAIRS-20260914-01",
+  "candidate_version": "listing-release-candidate-20260914-rc11",
+  "predecessor_version": "listing-release-candidate-20260914-rc10",
+  "baseline_before_batch": "listing-release-candidate-20260911-rc9",
+  "scope": "Listing runtime controls, general Title/IH writing knowledge, ST frontend dedup clarification, source routing and issue disposition",
+  "tests": {
+    "orchestrator_synthetic": {"count": 112, "result": "passed"},
+    "search_terms_mechanical": {"count": 14, "result": "passed"},
+    "package_structure_regression": {"count": 33, "result": "passed"},
+    "quick_validate": "unavailable: PyYAML missing; repository strict frontmatter and full package/dependency validation used",
+    "unified_repository_validation": "passed: 2 projects, 22 authoritative skills, 5197 release files",
+    "historical_integrity": "passed: 870 rc8/rc9 package files and both frozen final 50F workbooks unchanged"
+  },
+  "scope_boundaries": {
+    "business_sources_thresholds_population": "unchanged",
+    "human_gates": "unchanged; no default waiver",
+    "workbook_schema": "unchanged",
+    "historical_runs_and_deliveries": "not_modified",
+    "independent_qa": "not_executed",
+    "keyword_specialist_repairs": "not_completed_in_this_batch; tracked individually",
+    "global_tool_isolation": "not_implemented; explicit protocol admission only",
+    "real_runtime_speedup": "not_measured",
+    "business_run": "not_executed",
+    "P1": "not_executed",
+    "publication": "not_committed_or_pushed",
+    "live_task_reload": "not_executed"
+  },
+  "intermediate_candidate": {
+    "version": "listing-release-candidate-20260914-rc10",
+    "disposition": "preserved; superseded before deployment to correct the publication boundary text, no frozen snapshot overwritten"
+  }
+}
