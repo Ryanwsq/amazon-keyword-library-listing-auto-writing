@@ -1,0 +1,20 @@
+[
+  {
+    "content": "Alexa ASIN 五参数双问并集",
+    "id": "KB-8e5fc6ef0167",
+    "scope": "01接收；获明确采集授权后才执行固定五题双问并集",
+    "source": "dependencies/skills/extract-amazon-product-insights/SKILL.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "Alexa ASIN 五参数双问：问题、并集与 Excel 输出规则",
+    "id": "KB-3998e5865cf9",
+    "scope": "01接收；获明确采集授权后才执行固定五题双问并集",
+    "source": "dependencies/skills/extract-amazon-product-insights/references/alexa-five-questions-and-output-rules.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  }
+]

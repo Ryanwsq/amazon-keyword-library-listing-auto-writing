@@ -1,0 +1,11 @@
+[
+  {
+    "content": "Alexa Pain-Point Phrasing",
+    "id": "KB-b5281f993503",
+    "scope": "仅对合格上游痛点生成Alexa归纳表达，不写Listing正文",
+    "source": ".agents/skills/alexa-painpoint-phrasing/SKILL.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  }
+]

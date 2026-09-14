@@ -5,12 +5,12 @@ skill:
 capabilities:
   - id: keyword.source.competitor-traffic.web-query
     type: manual
-    purpose: 通过长期副任务内置浏览器中的已登录SIF官网，首选执行直接竞品最近30天查询和完整官方导出
+    purpose: 仅MCP明确报错且已提示用户登录后，通过已登录SIF官网备用查询未完成ASIN并取得完整官方导出
     status: planned
-    input: Amazon-US或Amazon-DE锁、匹配的提供商站点参数、输入表中的非敏感账户别名/凭据引用/登录方式、本Task/host对应keyword:sif-collector:sif的会话回执、获准ASIN、最近30天口径、300条上限和证据目录
+    input: 原MCP查询锁、mcp_error原始错误证据及用户登录通知、未完成ASIN、当前Run/Task/host的authenticated_web、匹配的站点/最近30天/过滤/300条上限和证据目录
     output: 登录/查询条件、页面或导出原始证据、结果顺序、七列业务字段、ASIN选择人口、数量闭环和入口状态
     permission: approved-read
-    risk: 查询前必须验证登录与站点一致；未登录只回传awaiting_login，站点不符回传marketplace_mismatch并等待用户介入；不得直接发问、切US或擅自切MCP
+    risk: 已网页登录不能跳过MCP；官网先手动或已保存凭据登录，未登录只回传awaiting_login；错站/不明权限/鉴权失败阻断，不跨入口补值或重复已完成ASIN
   - id: keyword.source.sif.persist-and-verify
     type: manual
     purpose: 在解析前保存每次SIF完整响应，再装配七列关键词明细和核心词候选摘要
@@ -21,9 +21,9 @@ capabilities:
     risk: 不覆盖旧响应；原始返回未落盘时不得继续汇总；主任务消息不得展开原始长响应
   - id: keyword.source.competitor-traffic.query
     type: mcp
-    purpose: 仅在无法网页登录或已登录但完整官网导出失败、本Run用户批准及MCP鉴权均闭合后，通过同提供商SIF适配器备用反查直接竞品ASIN最近30天流量关键词
+    purpose: 新Run首选通过SIF MCP反查直接竞品ASIN最近30天流量关键词，无先官网失败或逐Run额外例外批准要求
     status: planned
-    input: 站点、单个获准直接竞品ASIN、最近30天口径和300条接口上限请求
+    input: MCP优先policy、当前Run/Task/host/provider鉴权证明、站点、单个获准直接竞品ASIN、最近30天/过滤/300条上限查询锁
     output: 单个竞品的完整原始响应、流量关键词、周期和查询状态；接口本身不支持字段选择
     permission: approved-read
-    risk: 未满足用户明确确认门不得执行；不替换失败ASIN；不把接口上限称为Amazon全量；结构冲突时停止
+    risk: 真实鉴权与原业务门必须闭合；错误站点/权限不明不能自动降级；不替换ASIN，不把300条称Amazon全量；完整持久化、原允许缺失和P1状态不变

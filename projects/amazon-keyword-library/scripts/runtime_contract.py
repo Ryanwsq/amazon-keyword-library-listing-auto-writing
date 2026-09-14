@@ -24,7 +24,10 @@ RULE_MAP_PATH = ROOT / "contracts" / "runtime-rule-map.json"
 CONTRACT_SCHEMA = "amazon-keyword-run-contract/v1"
 STATUS_SCHEMA = "amazon-keyword-stage-status/v1"
 PREFLIGHT_SCHEMA = "amazon-keyword-source-preflight/v1"
-EXECUTOR_VERSION = "runtime-contract/1.2.0"
+EXECUTOR_VERSION = "runtime-contract/1.4.0"
+SIF_SOURCE_POLICY = "mcp-first-20260911"
+MCP_ERROR_ONLY_POLICY = "mcp-first-error-only-20260914"
+SOURCE_POLICIES = {"sif_competitor": MCP_ERROR_ONLY_POLICY, "sellersprite_expansion": MCP_ERROR_ONLY_POLICY}
 
 MARKETPLACE_ROUTES: Dict[str, Dict[str, str]] = {
     "Amazon-US": {
@@ -247,6 +250,8 @@ def rule_snapshot(rule_map: Mapping[str, Any]) -> List[Dict[str, Any]]:
 
 def validate_spec(spec: Mapping[str, Any]) -> None:
     validate_payload_safety(spec)
+    if spec.get("source_policies", SOURCE_POLICIES) != SOURCE_POLICIES:
+        raise ContractError("new contracts require SIF and SellerSprite MCP-first error-only source policies")
     if not RUN_ID_RE.fullmatch(str(spec.get("run_id", ""))):
         raise ContractError("run_id has an invalid format")
     run_type = spec.get("run_type")
@@ -351,6 +356,9 @@ def compute_stage_keys(contract: MutableMapping[str, Any]) -> None:
                     "dependencies": dependency_keys,
                     "rules": stage_rules,
                     "executor_version": stage["executor_version"],
+                    **({"source_policies": contract["source_policies"]}
+                       if "source_policies" in contract and (stage_name == "sif" or
+                           (stage_name == "sellersprite" and "sellersprite_expansion" in contract["source_policies"])) else {}),
                 }
             )
         )
@@ -387,6 +395,7 @@ def build_contract(spec: Mapping[str, Any]) -> Dict[str, Any]:
     contract: Dict[str, Any] = {
         "schema": CONTRACT_SCHEMA,
         "contract_version": EXECUTOR_VERSION,
+        "source_policies": dict(SOURCE_POLICIES),
         "run_id": spec["run_id"],
         "run_type": run_type,
         "revision": str(spec["revision"]).lower(),
@@ -421,6 +430,9 @@ def verify_contract(contract: Mapping[str, Any], check_current_rules: bool = Tru
     )
     if actual_sha != expected_sha:
         raise ContractError("run contract content hash mismatch")
+    allowed_policies = [SOURCE_POLICIES] if contract.get("contract_version") == EXECUTOR_VERSION else [SOURCE_POLICIES, {"sif_competitor": SIF_SOURCE_POLICY}]
+    if ("source_policies" in contract or contract.get("contract_version") == EXECUTOR_VERSION) and contract.get("source_policies") not in allowed_policies:
+        raise ContractError("invalid or missing SIF source policy")
     run_type = contract.get("run_type")
     if run_type not in {"production", "test-validation"}:
         raise ContractError("run contract has invalid run_type")
@@ -481,7 +493,8 @@ def validate_preflight(preflight: Mapping[str, Any]) -> None:
     for provider, record in providers.items():
         if not isinstance(record, Mapping):
             raise ContractError(f"{provider}: preflight record must be an object")
-        if record.get("status") not in PREFLIGHT_STATUSES:
+        statuses = PREFLIGHT_STATUSES | ({"authenticated_mcp", "authenticated_web"} if provider in {"sif", "sellersprite"} else set())
+        if record.get("status") not in statuses:
             raise ContractError(f"{provider}: invalid preflight status")
         if "checked_at" not in record or not str(record["checked_at"]).strip():
             raise ContractError(f"{provider}: checked_at is required")
@@ -568,10 +581,13 @@ def stage_readiness(contract, stage, statuses, preflight):
             preflight_result = "missing"
         else:
             preflight_result = preflight["providers"][provider]["status"]
-    ready = not blocked_dependencies and preflight_result in {
+    allowed_statuses = {
         "not_required",
         "authenticated",
-    }
+    } | ({"authenticated_mcp", "authenticated_web"} if provider in {"sif", "sellersprite"} else set())
+    if contract.get("source_policies") == SOURCE_POLICIES and provider in {"sif", "sellersprite"}:
+        allowed_statuses = {"authenticated_mcp", "authenticated_web"}
+    ready = not blocked_dependencies and preflight_result in allowed_statuses
     return {
         "stage": stage,
         "ready": ready,

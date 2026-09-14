@@ -1,0 +1,166 @@
+{
+  "authorized_maintenance": {
+    "P1": "not_executed",
+    "affected_roles": [
+      "main",
+      "product-audit",
+      "five-dimension-insights",
+      "tag-priority",
+      "painpoint-frequency",
+      "painpoint-phrasing",
+      "listing-writing-qa",
+      "selling-point-intake",
+      "tag-painpoint-intake",
+      "sku-keywords"
+    ],
+    "business_run": "not_executed",
+    "id": "MCP-ERROR-ONLY-20260914-01",
+    "protocol_id": "mcp-first-error-only-20260914",
+    "scope": "卖家精灵扩词与SIF反查均MCP优先，仅明确MCP报错后提示用户登录对应官网并认证备用；其他来源、趋势、字段、人口、判断门不变；历史Run及角色包不热改，未推送/任务重载/真实业务/P1"
+  },
+  "business_rules_changed": true,
+  "files": [
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/alexa-painpoint-frequency/Agent.md",
+      "sha256": "24cb59fd328cde8e919cc73cfa7aed90a136f53442478de6d6ec6415398e0c3a",
+      "source": ".agents/skills/alexa-painpoint-frequency/Agent.md",
+      "source_sha256": "24cb59fd328cde8e919cc73cfa7aed90a136f53442478de6d6ec6415398e0c3a"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+      "sha256": "45844fd30f470e71efd48505c02b1eaba120348398d8c0850a7276ab46d851d8",
+      "source": ".agents/skills/alexa-painpoint-frequency/SKILL.md",
+      "source_sha256": "45844fd30f470e71efd48505c02b1eaba120348398d8c0850a7276ab46d851d8"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/alexa-painpoint-frequency/agents/openai.yaml",
+      "sha256": "71bbd0ca627f63e9eb01c6b22a1726420de343ef0615aa020b5b6bf61cf9a645",
+      "source": ".agents/skills/alexa-painpoint-frequency/agents/openai.yaml",
+      "source_sha256": "71bbd0ca627f63e9eb01c6b22a1726420de343ef0615aa020b5b6bf61cf9a645"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/alexa-painpoint-frequency/capabilities.yaml",
+      "sha256": "7e9cb2deaba94b2a34b5a5efab753b146a3c83a21410f4b97afb90cecd971785",
+      "source": ".agents/skills/alexa-painpoint-frequency/capabilities.yaml",
+      "source_sha256": "7e9cb2deaba94b2a34b5a5efab753b146a3c83a21410f4b97afb90cecd971785"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/alexa-painpoint-frequency/evidence/cases.json",
+      "sha256": "0b405daa255967b7be77d39c69b07c8164a3c8c5b6b7d7ee67ca63c63bc814fe",
+      "source": ".agents/skills/alexa-painpoint-frequency/evidence/cases.json",
+      "source_sha256": "0b405daa255967b7be77d39c69b07c8164a3c8c5b6b7d7ee67ca63c63bc814fe"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/alexa-painpoint-frequency/evidence/index.md",
+      "sha256": "7c532400bcd085137daaf917e1f0b1c448a9aeb2d25ff5cff5969f21529ac6d7",
+      "source": ".agents/skills/alexa-painpoint-frequency/evidence/index.md",
+      "source_sha256": "7c532400bcd085137daaf917e1f0b1c448a9aeb2d25ff5cff5969f21529ac6d7"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/alexa-painpoint-frequency/knowledge/catalog.json",
+      "sha256": "fd12bcdab8aa84129f929fdaa6e94fee46d6a0ca42052d8fc23868c4b5ff2e8b",
+      "source": ".agents/skills/alexa-painpoint-frequency/knowledge/catalog.json",
+      "source_sha256": "fd12bcdab8aa84129f929fdaa6e94fee46d6a0ca42052d8fc23868c4b5ff2e8b"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": ".agents/skills/alexa-painpoint-frequency/knowledge/index.md",
+      "sha256": "8cb76b7d8a0707fa98bd5ede3e1a4490193edeaebc4c0df792701544ddbcf8cd",
+      "source": ".agents/skills/alexa-painpoint-frequency/knowledge/index.md",
+      "source_sha256": "8cb76b7d8a0707fa98bd5ede3e1a4490193edeaebc4c0df792701544ddbcf8cd"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "AGENTS.md",
+      "sha256": "a0a19ed1246bf0967020cf3bb2c131eccbaaddb09cdd17ea2f45b947386a7c64"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "Agent.md",
+      "sha256": "9c5490c9fef2ae183d700c43e9c355532a4b7cf41e23c79d71760d33fc9d921a"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "LOAD_ORDER.md",
+      "sha256": "19f295de0d3c592989e47319868d651eed58d3d6d9be05d10ef3852a3b1e8d1f"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "PUBLICATION.md",
+      "sha256": "808d17a881ddb8ce821b167976247079549a803fee19155b79d8254e68213d8c"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "contracts/dispatch-and-loading.md",
+      "sha256": "2b1466f6b26d703ec852d1796f9a935cbc57f55f5638880305ca699b9d2c89fe"
+    },
+    {
+      "operation": "generated_dependency_contract",
+      "path": "contracts/skill-dependencies.json",
+      "sha256": "5f0a6cc47470906d86ae220c2d771331b41c3e229abb832f48b0ded9317fae9a"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "docs/skill-package-standard.md",
+      "sha256": "0e66459c3a672395256e7a25156c9a02a1ed67cc924a62a21c9cc500afa2e60a",
+      "source": "docs/skill-package-standard.md",
+      "source_sha256": "0e66459c3a672395256e7a25156c9a02a1ed67cc924a62a21c9cc500afa2e60a"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "evidence/index.md",
+      "sha256": "5d7c987b528efd06653352da59a5b46649abdccaec6d2c1eb55503ec552fca4b"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "knowledge-base/index.md",
+      "sha256": "467c80336a49ce89510ecd1d77c7694a549130adee891501ece91c29d3d1593d"
+    },
+    {
+      "operation": "generated_packaging_metadata",
+      "path": "rules/index.md",
+      "sha256": "5ee7a5b305753cbc2cfdea7ded9deed5815b4d603469f662f64122b9150eaf54"
+    },
+    {
+      "operation": "generated_complete_section_map",
+      "path": "rules/rule-map.json",
+      "sha256": "d35da7941a01cc16bfecd7dd29dd07ca1a371404ef79e70080b6255bc685b008"
+    },
+    {
+      "classification": "complete_rule_or_dependency",
+      "operation": "byte_identical_copy",
+      "path": "scripts/validate_skill_packages.py",
+      "sha256": "4969534ba03d59094247575c43772ff27b93e25c66957eaa565b48874b27618c",
+      "source": "scripts/validate_skill_packages.py",
+      "source_sha256": "4969534ba03d59094247575c43772ff27b93e25c66957eaa565b48874b27618c"
+    }
+  ],
+  "kind": "specialist",
+  "new_business_run": false,
+  "original_business_skill_count": 8,
+  "owned_skills": [
+    "alexa-painpoint-frequency"
+  ],
+  "publication_status": "SANITIZED_CANDIDATE_NOT_PUBLISHED",
+  "reference_skills": [],
+  "role": "painpoint-frequency",
+  "schema_version": 1,
+  "title": "副线程｜Alexa痛点频率",
+  "version": "listing-release-candidate-20260914-rc12"
+}

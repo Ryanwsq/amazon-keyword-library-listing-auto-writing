@@ -4,148 +4,260 @@
   "purpose": "运行时只引用权威规则的内容哈希和稳定规则族，不复制或缩写业务判断边界。",
   "rules": [
     {
+      "id": "MCP-ERROR-ONLY-SOURCE-ACCESS",
+      "owner": "docs/mcp-first-source-access.md",
+      "anchor": "MCP优先、报错后官网备用",
+      "stages": [
+        "sif",
+        "sellersprite"
+      ]
+    },
+    {
       "id": "SOURCE-EXECUTION-EVIDENCE",
       "owner": "scripts/source_execution.py",
       "anchor": "QUERY_SCHEMA = \"amazon-keyword-source-query/v1\"",
-      "stages": ["sif", "amazon-autocomplete", "sellersprite"]
+      "stages": [
+        "sif",
+        "amazon-autocomplete",
+        "sellersprite"
+      ]
     },
     {
       "id": "DISPATCH-EXECUTOR-INTEGRITY",
       "owner": "scripts/dispatch_guard.py",
       "anchor": "VERSION = \"dispatch-guard/1.1.0\"",
-      "stages": ["sif", "amazon-autocomplete", "sellersprite", "cleaning", "word-frequency", "classification", "competition", "trend", "assembly", "quality-validation"]
+      "stages": [
+        "sif",
+        "amazon-autocomplete",
+        "sellersprite",
+        "cleaning",
+        "word-frequency",
+        "classification",
+        "competition",
+        "trend",
+        "assembly",
+        "quality-validation"
+      ]
     },
     {
       "id": "DISPATCH-IDENTITY-IDEMPOTENCY",
       "owner": "docs/dispatch-control-contract.md",
       "anchor": "同一个目标任务有未解决派发",
-      "stages": ["sif", "amazon-autocomplete", "sellersprite", "cleaning", "word-frequency", "classification", "competition", "trend", "assembly", "quality-validation"]
+      "stages": [
+        "sif",
+        "amazon-autocomplete",
+        "sellersprite",
+        "cleaning",
+        "word-frequency",
+        "classification",
+        "competition",
+        "trend",
+        "assembly",
+        "quality-validation"
+      ]
     },
     {
       "id": "INPUT-THREE-GROUPS",
       "owner": "AGENTS.md",
       "anchor": "用户开头输入固定为三组",
-      "stages": ["sif", "core-lock"]
+      "stages": [
+        "sif",
+        "core-lock"
+      ]
     },
     {
       "id": "MARKETPLACE-ROUTE-LOCK",
       "owner": "AGENTS.md",
       "anchor": "站点只允许锁为`Amazon-US`或`Amazon-DE`",
-      "stages": ["sif", "core-lock", "amazon-autocomplete", "sellersprite", "first-board", "cleaning", "classification", "competition", "trend", "assembly", "quality-validation"]
+      "stages": [
+        "sif",
+        "core-lock",
+        "amazon-autocomplete",
+        "sellersprite",
+        "first-board",
+        "cleaning",
+        "classification",
+        "competition",
+        "trend",
+        "assembly",
+        "quality-validation"
+      ]
     },
     {
       "id": "ASIN-REPRESENTATIVE-SELECTION",
       "owner": ".agents/skills/amazon-keyword-library-operations/SKILL.md",
       "anchor": "原始直接竞品ASIN不超过5个时全部保留",
-      "stages": ["sif", "core-lock"]
+      "stages": [
+        "sif",
+        "core-lock"
+      ]
     },
     {
-      "id": "SIF-WEBSITE-FIRST-LOGIN",
+      "id": "SIF-MCP-FIRST-AUTHENTICATION",
       "owner": ".agents/skills/amazon-keyword-sif-competitor-collection/references/source-contract.md",
-      "anchor": "每个Run在第一次查询前验证登录状态",
-      "stages": ["sif"]
+      "anchor": "SIF MCP > SIF官网",
+      "stages": [
+        "sif"
+      ]
     },
     {
       "id": "CORE-HIERARCHY",
       "owner": ".agents/skills/amazon-keyword-library-operations/SKILL.md",
       "anchor": "独立确认一个一级品类核心大词",
-      "stages": ["core-lock"]
+      "stages": [
+        "core-lock"
+      ]
     },
     {
       "id": "STRONG-EQUIVALENCE-CLOSURE",
       "owner": "docs/keyword-judgment-boundaries.md",
       "anchor": "目标细分强等价闭环",
-      "stages": ["core-lock", "cleaning", "assembly", "quality-validation"]
+      "stages": [
+        "core-lock",
+        "cleaning",
+        "assembly",
+        "quality-validation"
+      ]
     },
     {
       "id": "AUTOCOMPLETE-VISIBLE-MATRIX",
       "owner": ".agents/skills/amazon-keyword-amazon-autocomplete/references/source-contract.md",
       "anchor": "底部商品卡、价格卡和商品轮播",
-      "stages": ["amazon-autocomplete"]
+      "stages": [
+        "amazon-autocomplete"
+      ]
     },
     {
       "id": "CORE-SOURCE-PARALLEL-WAVE",
       "owner": "AGENTS.md",
       "anchor": "Amazon联想与卖家精灵扩词必须在同一调度波次派发",
-      "stages": ["amazon-autocomplete", "sellersprite", "first-board"]
+      "stages": [
+        "amazon-autocomplete",
+        "sellersprite",
+        "first-board"
+      ]
     },
     {
       "id": "SELLERSPRITE-ONE-COMPLETE-EXPORT",
       "owner": ".agents/skills/amazon-keyword-sellersprite-expansion/references/source-contract.md",
       "anchor": "取得一个完整成功结果后停止",
-      "stages": ["sellersprite"]
+      "stages": [
+        "sellersprite"
+      ]
     },
     {
       "id": "SOURCE-MECHANICAL-MERGE",
       "owner": ".agents/skills/amazon-keyword-library-operations/references/source-merge-contract.md",
       "anchor": "机械键固定为NFKC、英文小写、去首尾空格和压缩连续空格",
-      "stages": ["first-board"]
+      "stages": [
+        "first-board"
+      ]
     },
     {
       "id": "CLEANING-FULL-PHRASE",
       "owner": ".agents/skills/amazon-keyword-category-cleaning/SKILL.md",
       "anchor": "非精确锚点表达必须读取完整短语",
-      "stages": ["cleaning"]
+      "stages": [
+        "cleaning"
+      ]
     },
     {
       "id": "CLEANING-REVERSE-AUDIT",
       "owner": ".agents/skills/amazon-keyword-category-cleaning/SKILL.md",
       "anchor": "反向质检同时覆盖Sheet2误放",
-      "stages": ["cleaning", "assembly", "quality-validation"]
+      "stages": [
+        "cleaning",
+        "assembly",
+        "quality-validation"
+      ]
     },
     {
       "id": "CLASSIFICATION-F1-F5",
       "owner": ".agents/skills/amazon-keyword-classification/references/output-contract.md",
       "anchor": "F1：ABA 1–10,000",
-      "stages": ["classification"]
+      "stages": [
+        "classification"
+      ]
     },
     {
       "id": "ROW-LEVEL-DATA-GAPS",
       "owner": ".agents/skills/amazon-keyword-classification/references/output-contract.md",
       "anchor": "关键词ABA排名缺失、搜索量缺失、没有搜索量",
-      "stages": ["classification", "assembly", "quality-validation"]
+      "stages": [
+        "classification",
+        "assembly",
+        "quality-validation"
+      ]
     },
     {
       "id": "WORD-FREQUENCY-PREPOSITION-BREAKS",
       "owner": ".agents/skills/amazon-keyword-word-frequency/references/workbook-contract.md",
       "anchor": "EN_PREP_CORE_V1",
-      "stages": ["word-frequency"]
+      "stages": [
+        "word-frequency"
+      ]
     },
     {
       "id": "COMPETITION-TOP3-ONLY",
       "owner": ".agents/skills/amazon-keyword-competition-analysis/references/output-contract.md",
       "anchor": "正式输入只含同周期完整词Top3两项",
-      "stages": ["competition"]
+      "stages": [
+        "competition"
+      ]
     },
     {
       "id": "TREND-SINGLE-PROVIDER",
       "owner": ".agents/skills/amazon-keyword-trend-analysis/references/output-contract.md",
       "anchor": "来源接口优先级固定为`SellerSprite MCP -> Sorftime MCP`",
-      "stages": ["trend"]
+      "stages": [
+        "trend"
+      ]
     },
     {
       "id": "FINAL-EIGHT-SHEETS",
       "owner": ".agents/skills/amazon-keyword-final-workbook-assembly/references/workbook-contract.md",
       "anchor": "恰好八个可见Sheet",
-      "stages": ["assembly", "quality-validation"]
+      "stages": [
+        "assembly",
+        "quality-validation"
+      ]
     },
     {
       "id": "QUALITY-RUN-TYPE-ROUTING",
       "owner": ".agents/skills/amazon-keyword-quality-validation/references/quality-contract.md",
       "anchor": "独立质量验证只适用于`run_type=test-validation`",
-      "stages": ["assembly", "quality-validation"]
+      "stages": [
+        "assembly",
+        "quality-validation"
+      ]
     },
     {
       "id": "P1-STATUS-INTEGRITY",
       "owner": "AGENTS.md",
       "anchor": "P1验收未完成时不得冒充已完成或已验证能力",
-      "stages": ["assembly", "quality-validation"]
+      "stages": [
+        "assembly",
+        "quality-validation"
+      ]
     },
     {
       "id": "EXECUTION-EFFICIENCY-ROUTING",
       "owner": "docs/execution-efficiency-contract.md",
       "anchor": "防漏派循环",
-      "stages": ["sif", "core-lock", "amazon-autocomplete", "sellersprite", "first-board", "cleaning", "word-frequency", "classification", "competition", "trend", "assembly", "quality-validation"]
+      "stages": [
+        "sif",
+        "core-lock",
+        "amazon-autocomplete",
+        "sellersprite",
+        "first-board",
+        "cleaning",
+        "word-frequency",
+        "classification",
+        "competition",
+        "trend",
+        "assembly",
+        "quality-validation"
+      ]
     }
   ]
 }

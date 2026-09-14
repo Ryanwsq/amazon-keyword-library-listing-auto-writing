@@ -5,6 +5,8 @@ description: 按项目提供的硬性规则撰写、检查或修订 Amazon Listi
 
 # Amazon Listing 硬性规则
 
+2026-09-14通用补充：完整执行Title/IH知识库的FRONT-COPY-BUDGET-02与FRONT-COPY-PREFIX-01，尽可能用足75/125有效字符，同时高价值前置；不为凑长度加词，也不因搜索页截断改成极短版本。新Run随正文提交绑定实际文本和来源的front_copy_review，字段见总控[恢复合同](../orchestrate-amazon-listing-pipeline/references/runtime-recovery-contract.md)。五条覆盖完整就不凑第六条，原覆盖型政策保留。历史案例不提供当前产品事实。
+
 ## 执行原则
 
 2026-09-11执行修复：按[正文合同](../orchestrate-amazon-listing-pipeline/references/stage-copy-review.md)提交与实际Bullet绑定的逐条软性自检，不以字数短/长判断质量；按[装配合同](../orchestrate-amazon-listing-pipeline/references/stage-listing-generation.md)使用固定布局数据预检列名/顺序，检查实际采用标签和低样本展示，再完成渲染、原表保真和唯一正式回执。只修执行漏项，不重新定义写法或字段。
@@ -32,7 +34,7 @@ description: 按项目提供的硬性规则撰写、检查或修订 Amazon Listi
 - 标题与 Item Highlights：读取 [亚马逊标题硬性规则.md](references/亚马逊标题硬性规则.md)。
 - 五点描述 / Bullet Points：读取 [亚马逊五点描述硬性规则.md](references/亚马逊五点描述硬性规则.md)。
 - 标题、Item Highlights 与五点的内容组织、自然埋词和软性质量：读取[标题与五点软性写作规则](../../../knowledge-base/listing-soft-writing-rules.md)。
-- Search Terms / ST：读取 [亚马逊ST硬性规则.md](references/亚马逊ST硬性规则.md)。
+- Search Terms / ST：完整读取 [亚马逊ST硬性规则.md](references/亚马逊ST硬性规则.md)及[ST选词与写法](../../../knowledge-base/listing-search-terms-writing-rules.md)。区分官方禁限项/项目格式/卖家经验；仅以已验收06和确认正文补充未覆盖词，逐词去重不等于完整短语命中，不自动删除合法同义词或虚构流量权重。沿用07去重范围确认与正文确认门，最终串做UTF-8、格式及来源/事实复核；[机械辅助](scripts/check_search_terms.py)不替代语义判断或业务验收。不静默升级运行中或历史Run。
 - 主图、副图、尺寸图、场景图等 Listing 图片：读取 [亚马逊图片硬性规则.md](references/亚马逊图片硬性规则.md)。
 - A+ 页面、模块文案与图片：读取 [亚马逊A+硬性规则.md](references/亚马逊A+硬性规则.md)。
 

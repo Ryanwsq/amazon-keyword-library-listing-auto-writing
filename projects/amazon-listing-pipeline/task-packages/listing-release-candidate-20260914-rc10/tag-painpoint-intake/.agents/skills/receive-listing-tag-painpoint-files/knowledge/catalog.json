@@ -1,0 +1,20 @@
+[
+  {
+    "content": "标签与QA文件接收",
+    "id": "KB-a37857e02740",
+    "scope": "保留标签与QA文件接收入口，默认不重排、不生成QA/评论",
+    "source": ".agents/skills/receive-listing-tag-painpoint-files/SKILL.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  },
+  {
+    "content": "标签与QA接收合同",
+    "id": "KB-40bdfbf2c2ee",
+    "scope": "保留标签与QA文件接收入口，默认不重排、不生成QA/评论",
+    "source": ".agents/skills/receive-listing-tag-painpoint-files/references/intake-contract.md",
+    "source_updated_on": "以原文为准；未声明则未知",
+    "updated_on": "2026-09-03",
+    "use": "按所属SKILL原读取路由完整读取；本索引只导航，不改变原优先级"
+  }
+]

@@ -2,7 +2,7 @@
 
 | Topic | Status | Coverage | Last verified | Sharing | Purpose |
 |---|---|---|---:|---|---|
-| `../docs/dispatch-control-contract.md` / 来源Skill合同 | active; runtime unverified | 业务根/应用根/Git根分离、query_lock、恢复checkpoint、最近30天、获准SIF备用、一次安全登录恢复及持久化人口 | 2026-09-11 | sanitized | 验证后执行修复；机械回归不等于真实浏览器或P1 |
+| `../docs/dispatch-control-contract.md` / 来源Skill合同 | active; runtime unverified | 业务根/应用根/Git根分离、query_lock、恢复checkpoint、最近30天、SIF MCP优先/受控官网备用、一次安全登录恢复及持久化人口 | 2026-09-11 | sanitized | 验证后执行修复；机械回归不等于真实浏览器或P1 |
 | `../docs/execution-efficiency-contract.md` | active; runtime unverified | 全图防漏派、独立QA显式启用、同锁检查复用；业务规则不变 | 2026-09-07 | sanitized | 用户确认的执行减负；未执行QA不升级P1 |
 | `../docs/dispatch-control-contract.md` | active; runtime unverified | 幂等派发、当前Run双向校验、紧凑事件及网络不确定恢复；仅执行层，无业务判断变更 | 2026-09-03 | sanitized | 已确认调度方法的唯一执行合同；合成测试不等于P1 |
 | `product-keyword-library.md` | verified | V2.1 + V2.2 + Post-V2.1 contracts through 2026-09-04, including marketplace route lock, task-scoped login matrix, stage-specific source priorities, same-wave collection, test-only QA, lossless runtime, 30-day final-library reuse with new facts, and §2.6 cross-project input/library identity | 2026-09-04 | sanitized | 稳定领域对象、概念关系和已确认方法结论；跨项目执行入口见operations，双方验收见PROJECT |
@@ -11,3 +11,7 @@
 | `keyword-library-method-v0.1.md` | deprecated | historical draft | 2026-08-07 | sanitized | 追溯早期假设，不作为当前执行规则 |
 
 `verified` 只说明该文件所列结论或证据已确认，不代表知识库覆盖完整，也不代表任何新拆分 Skill 已通过 P1。当前进度与开放问题由 `../PROJECT.md` 拥有，判定门槛由 `../docs/keyword-judgment-boundaries.md` 拥有，执行流程由项目 `.agents/skills/` 拥有。资料无法确认时，输出“不确定”并交人工确认。
+
+## 2026-09-14 来源入口修订
+
+用户确认卖家精灵扩词与SIF反查均MCP优先，仅真实MCP明确报错才提示用户登录对应官网备用；零/缺字段/不完整不是错误。共同执行合同见`docs/mcp-first-source-access.md`（相对项目根），两来源Skill为业务拥有者。趋势及其他顺序不变，字段/人口/窗口/判断门不变，历史Run不热改。新规则/检查器修订后能力验证仍按full-regression，不以机械测试认定P1。

@@ -1,10 +1,14 @@
 # Amazon Keyword Library
 
+2026-09-14当前入口修订：卖家精灵扩词、SIF竞品反查均MCP优先；仅MCP明确报错后提示用户登录对应官网，认证后备用。零结果/缺字段/不完整不触发降级。下文早期日期的web-first及incomplete备用仅为历史，不用于新Run；其他来源和趋势优先级不变。新合同锁`mcp-first-error-only-20260914`，细节由关键词`docs/mcp-first-source-access.md`及两来源Skill拥有。
+
 合仓入口：本项目根为`projects/amazon-keyword-library`，本页以下原相对路径均以该目录为准。Git历史与Listing项目共用，但业务规则、任务、Run目录和Skill发现范围仍独立。迁移仅作目录/入口适配；没有重新执行业务或提升P1。
 
 本仓库是 Amazon 关键词词库项目的独立、可审查工作区，负责从用户开头提供的三组输入开始，完成三来源采集、品类清洗、分类、词频、竞争、趋势、最终装配和独立质量验证。
 
 ## 当前阶段
+
+- 2026-09-11用户变更SIF反查顺序为`SIF MCP > SIF官网`；新Run先核验当前任务MCP，无先官网登录/失败或额外逐Run批准要求。MCP明确报错才将未完成ASIN转已登录官网。详见[SIF来源合同](.agents/skills/amazon-keyword-sif-competitor-collection/references/source-contract.md)与[端到端流程](docs/end-to-end-workflow.md)；其他来源顺序和旧证据不改。
 
 - 2026-09-03新增近期词库复用：同已判定Amazon类目、条件式同稳定细分，历史最终工作簿原始输出在30天内时，可另存新Run副本、替换当前产品事实卡后直接复用；不重复采集/清洗/分析，不让旧事实覆盖新输入，不重置原始输出期限。装配检查和既有质量路由不变。
 

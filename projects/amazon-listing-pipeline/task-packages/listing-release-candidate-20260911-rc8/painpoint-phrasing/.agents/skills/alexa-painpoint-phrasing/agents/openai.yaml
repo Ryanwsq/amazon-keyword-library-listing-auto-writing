@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 购物助手痛点口语表达"
+  short_description: "按Run站点用Alexa或Rufus生成痛点自然表达"
+  default_prompt: "使用 $alexa-painpoint-phrasing 按锁定marketplace路由和已登录Amazon会话读取痛点统计；美国站用Alexa英语问题，德国站用Rufus固定德语问题，并输出口语化描述和问法。"

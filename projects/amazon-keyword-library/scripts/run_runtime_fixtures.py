@@ -115,7 +115,7 @@ def test_runtime_contract() -> None:
                     "status": "authenticated",
                     "checked_at": "2026-09-02T10:00:00+08:00",
                 },
-                "sif": {"status": "authenticated", "checked_at": "2026-09-02T10:00:00+08:00"},
+                "sif": {"status": "authenticated_mcp", "checked_at": "2026-09-02T10:00:00+08:00"},
                 "sellersprite": {
                     "status": "awaiting_login",
                     "checked_at": "2026-09-02T10:00:00+08:00",

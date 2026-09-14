@@ -33,6 +33,115 @@ class SourceTests(unittest.TestCase):
                     failure_evidence=self.record("failure.json", {"fixture": "export failure"}),
                     authentication_evidence=self.record("authentication.json", authentication))
 
+    def primary(self):
+        identity = {"run_id": self.run, "task_id": "synthetic-task", "host": "local"}
+        query = {"schema": source.QUERY_SCHEMA, "run_id": self.run, "marketplace": "Amazon-DE",
+                 "source_provider": "SIF", "source_policy": runtime.SIF_SOURCE_POLICY, "entry_type": "mcp",
+                 "queries": ["SYNTHETIC-A", "SYNTHETIC-B"], "filters": {}, "limit_per_asin": 300,
+                 "query_period": {"kind": "rolling-30-days", "source_label": "Recent 30 days"}}
+        query_record = self.record("primary-query.json", query)
+        proof = dict(identity, schema="amazon-keyword-sif-source-access/v1", source_provider="SIF",
+                     entry_type="mcp", query_lock_sha256=query_record["sha256"],
+                     authentication_evidence=self.record("primary-auth.json", dict(identity,
+                         schema="amazon-keyword-mcp-authentication/v1", provider="SIF", entry_type="mcp", authenticated=True)))
+        return proof, query_record
+
+    def web_fallback(self):
+        proof, primary = self.primary()
+        query = runtime.read_json(Path(primary["path"]))
+        query.update(entry_type="web", queries=["SYNTHETIC-B"])
+        web = self.record("web-query.json", query)
+        identity = {k: proof[k] for k in ("run_id", "task_id", "host")}
+        failure = dict(identity, schema="amazon-keyword-sif-mcp-failure/v1", provider="SIF", entry_type="mcp",
+                       reason="mcp_incomplete", query_lock_sha256=primary["sha256"], completed_asins=["SYNTHETIC-A"],
+                       pending_asins=["SYNTHETIC-B"], evidence=[self.record("raw.json", {"fixture": "incomplete response"})])
+        proof.update(entry_type="web", query_lock_sha256=web["sha256"], reason="mcp_incomplete",
+                     primary_query_lock=primary, completed_asins=["SYNTHETIC-A"],
+                     mcp_failure_evidence=self.record("mcp-failure.json", failure),
+                     authentication_evidence=self.record("web-auth.json", dict(identity,
+                         schema="amazon-keyword-web-authentication/v1", provider="SIF", entry_type="web", authenticated=True)))
+        return proof, web
+
+    def test_mcp_primary_needs_no_web_failure_or_exception_approval(self):
+        proof, query = self.primary()
+        self.assertEqual(source.sif_source_access(proof, query["path"]),
+                         {"status": "authenticated_mcp", "entry_type": "mcp", "business_complete": False})
+        for extra in ("authorization", "user_approved", "failure_evidence"):
+            with self.subTest(extra=extra), self.assertRaises(runtime.ContractError):
+                source.sif_source_access(dict(proof, **{extra: True}), query["path"])
+
+    def test_primary_current_identity_and_true_authentication_are_required(self):
+        proof, query = self.primary()
+        authentication = runtime.read_json(Path(proof["authentication_evidence"]["path"]))
+        for field, value in (("run_id", "AKW-OTHER-01"), ("task_id", "other-task"), ("host", "other-host"),
+                             ("provider", "Other"), ("entry_type", "web"), ("authenticated", False),
+                             ("schema", "other"), ("cookie", "synthetic-invalid")):
+            with self.subTest(field=field), self.assertRaises(runtime.ContractError):
+                source.sif_source_access(dict(proof, authentication_evidence=self.record(
+                    f"changed-{field}.json", dict(authentication, **{field: value}))), query["path"])
+
+    def test_primary_policy_period_population_and_hash_cannot_drift(self):
+        proof, record = self.primary()
+        query = runtime.read_json(Path(record["path"]))
+        for field, value in (("source_policy", "web-first"), ("entry_type", "web"), ("source_provider", "Other"),
+                             ("run_id", "AKW-OTHER-01"), ("marketplace", "Amazon-OTHER"),
+                             ("queries", []), ("queries", [f"SYNTHETIC-{i}" for i in range(6)]),
+                             ("limit_per_asin", 500), ("query_period", {"kind": "calendar-month"})):
+            changed = self.record(f"query-{field}.json", dict(query, **{field: value}))
+            with self.subTest(field=field), self.assertRaises(runtime.ContractError):
+                source.sif_source_access(dict(proof, query_lock_sha256=changed["sha256"]), changed["path"])
+        with self.assertRaisesRegex(runtime.ContractError, "hash drift"):
+            source.sif_source_access(dict(proof, query_lock_sha256="0" * 64), record["path"])
+
+    def test_web_fallback_only_queries_unfinished_asins_with_same_lock(self):
+        proof, query = self.web_fallback()
+        self.assertEqual(source.sif_source_access(proof, query["path"])["status"], "authenticated_web")
+        original = runtime.read_json(Path(query["path"]))
+        for field, value in (("queries", ["SYNTHETIC-A", "SYNTHETIC-B"]), ("queries", ["SYNTHETIC-C"]),
+                             ("marketplace", "Amazon-US"), ("filters", {"extra": True}), ("limit_per_asin", 301),
+                             ("query_period", {"kind": "rolling-30-days", "source_label": "different window"})):
+            changed = self.record(f"web-query-{field}.json", dict(original, **{field: value}))
+            with self.subTest(field=field), self.assertRaises(runtime.ContractError):
+                source.sif_source_access(dict(proof, query_lock_sha256=changed["sha256"]), changed["path"])
+
+    def test_web_fallback_failure_must_bind_original_query_and_current_identity(self):
+        proof, query = self.web_fallback()
+        failure = runtime.read_json(Path(proof["mcp_failure_evidence"]["path"]))
+        for field, value in (("run_id", "AKW-OTHER-01"), ("task_id", "other-task"), ("host", "other-host"),
+                             ("provider", "Other"), ("entry_type", "web"), ("query_lock_sha256", "0" * 64),
+                             ("completed_asins", []), ("pending_asins", []), ("evidence", [])):
+            changed = self.record(f"failure-{field}.json", dict(failure, **{field: value}))
+            with self.subTest(field=field), self.assertRaises(runtime.ContractError):
+                source.sif_source_access(dict(proof, mcp_failure_evidence=changed), query["path"])
+
+    def test_wrong_market_permission_auth_failure_and_allowed_gaps_are_not_fallback_reasons(self):
+        proof, query = self.web_fallback()
+        for reason in ("marketplace_mismatch", "permission_unknown", "authentication_failed", "awaiting_login",
+                       "missing_aba", "missing_search_volume", "missing_top3", "start_date_not_returned", "true_zero"):
+            with self.subTest(reason=reason), self.assertRaisesRegex(runtime.ContractError, "reason not eligible"):
+                source.sif_source_access(dict(proof, reason=reason), query["path"])
+
+    def test_mcp_unavailable_uses_same_bounded_web_fallback_not_web_first(self):
+        proof, query = self.web_fallback()
+        failure = runtime.read_json(Path(proof["mcp_failure_evidence"]["path"]))
+        proof.update(reason="mcp_unavailable", mcp_failure_evidence=self.record(
+            "unavailable.json", dict(failure, reason="mcp_unavailable")))
+        self.assertEqual(source.sif_source_access(proof, query["path"])["entry_type"], "web")
+        for missing in ("mcp_failure_evidence", "primary_query_lock", "authentication_evidence"):
+            with self.subTest(missing=missing), self.assertRaises(runtime.ContractError):
+                source.sif_source_access({k: v for k, v in proof.items() if k != missing}, query["path"])
+
+    def test_mcp_status_is_available_for_both_sources_not_amazon(self):
+        preflight = {"schema": runtime.PREFLIGHT_SCHEMA, "providers": {
+            p: {"status": "authenticated_mcp" if p in {"sif", "sellersprite"} else "authenticated", "checked_at": "fixture"}
+            for p in ("amazon", "sif", "sellersprite")}}
+        runtime.validate_preflight(preflight)
+        for provider in ("amazon",):
+            changed = runtime.read_json(Path(self.record("preflight.json", preflight)["path"]))
+            changed["providers"][provider]["status"] = "authenticated_mcp"
+            with self.subTest(provider=provider), self.assertRaises(runtime.ContractError):
+                runtime.validate_preflight(changed)
+
     def test_rolling_window_never_infers_latest_calendar_month(self):
         lock = {"schema": source.QUERY_SCHEMA, "run_id": self.run, "marketplace": "Amazon-DE",
                 "source_provider": "SellerSprite", "queries": ["synthetic seed"], "filters": {}, "entry_type": "web",

@@ -54,7 +54,7 @@ def validate_query_lock(lock, run_id, marketplace, stage):
 
 
 def sif_fallback(proof):
-    """Authorize the same-provider entry only, never substitute for source completeness."""
+    """Legacy locked web-first runs only; never used to admit a new dispatch."""
     for key in ("run_id", "task_id", "host"):
         require(isinstance(proof.get(key), str) and bool(proof[key].strip()),
                 "SIF fallback Run/Task/host identity required")
@@ -79,6 +79,121 @@ def sif_fallback(proof):
     if proof["reason"] == "authenticated_export_failed":
         require(proof.get("web_authenticated") is True, "export failure is not login failure")
     return {"entry_type": "user_approved_same_provider_mcp", "business_complete": False}
+
+
+def sif_source_access(proof, query_path):
+    """Bind MCP-first access or bounded same-provider web fallback; no live auth."""
+    common = {"schema", "run_id", "task_id", "host", "source_provider", "entry_type",
+              "query_lock_sha256", "authentication_evidence"}
+    fallback = {"reason", "primary_query_lock", "mcp_failure_evidence", "completed_asins"}
+    entry = proof.get("entry_type")
+    require(entry in {"mcp", "web"}, "invalid SIF entry type")
+    require(set(proof) == common | (fallback if entry == "web" else set()),
+            "SIF source access requires only the non-secret entry-specific fields")
+    require(proof["schema"] == "amazon-keyword-sif-source-access/v1"
+            and proof["source_provider"] == "SIF", "invalid SIF source access schema/provider")
+    for key in ("run_id", "task_id", "host"):
+        require(isinstance(proof[key], str) and bool(proof[key].strip()), "SIF Run/Task/host identity required")
+    query = runtime.read_json(Path(query_path))
+    require(proof["query_lock_sha256"] == runtime.sha256_file(Path(query_path)), "SIF query lock hash drift")
+    validate_query_lock(query, proof["run_id"], query.get("marketplace"), "sif")
+    require(query.get("marketplace") in runtime.MARKETPLACE_ROUTES
+            and query.get("source_policy") == runtime.SIF_SOURCE_POLICY
+            and query["entry_type"] == entry, "SIF MCP-first query policy/entry mismatch")
+    authentication = runtime.read_json(verify_record(proof["authentication_evidence"]))
+    auth_fields = {"schema", "run_id", "task_id", "host", "provider", "entry_type", "authenticated"}
+    require(isinstance(authentication, dict) and auth_fields <= set(authentication)
+            and set(authentication) <= auth_fields | {"checked_at"},
+            "authentication evidence must contain only non-secret identity/status fields")
+    require(authentication["schema"] == f"amazon-keyword-{entry}-authentication/v1"
+            and authentication["provider"] == "SIF" and authentication["entry_type"] == entry
+            and authentication["authenticated"] is True, "SIF current entry not authenticated")
+    require(all(authentication[key] == proof[key] for key in ("run_id", "task_id", "host")),
+            "SIF authentication evidence Run/Task/host mismatch")
+    if entry == "web":
+        require(proof["reason"] in {"mcp_unavailable", "mcp_incomplete"}, "SIF MCP failure reason not eligible for web fallback")
+        primary_path = verify_record(proof["primary_query_lock"])
+        primary = runtime.read_json(primary_path)
+        validate_query_lock(primary, proof["run_id"], query["marketplace"], "sif")
+        require(primary.get("source_policy") == runtime.SIF_SOURCE_POLICY
+                and primary["entry_type"] == "mcp", "web fallback requires the original MCP query lock")
+        # Compare every other query field, including provider-specific parameters and dates.
+        require({k: v for k, v in primary.items() if k not in {"queries", "entry_type"}} ==
+                {k: v for k, v in query.items() if k not in {"queries", "entry_type"}},
+                "web fallback must preserve the same locked query")
+        completed = proof["completed_asins"]
+        require(isinstance(completed, list) and all(isinstance(a, str) for a in completed)
+                and len(set(completed)) == len(completed) and set(completed) <= set(primary["queries"]),
+                "invalid completed ASIN population")
+        require(query["queries"] == [a for a in primary["queries"] if a not in completed],
+                "web fallback must contain exactly unfinished ASINs in original order")
+        failure = runtime.read_json(verify_record(proof["mcp_failure_evidence"]))
+        failure_fields = {"schema", "run_id", "task_id", "host", "provider", "entry_type", "reason",
+                          "query_lock_sha256", "completed_asins", "pending_asins", "evidence"}
+        require(isinstance(failure, dict) and failure_fields <= set(failure)
+                and set(failure) <= failure_fields | {"checked_at"}, "invalid non-secret SIF MCP failure evidence")
+        require(failure["schema"] == "amazon-keyword-sif-mcp-failure/v1"
+                and failure["provider"] == "SIF" and failure["entry_type"] == "mcp"
+                and all(failure[k] == proof[k] for k in ("run_id", "task_id", "host", "reason", "completed_asins"))
+                and failure["query_lock_sha256"] == proof["primary_query_lock"]["sha256"]
+                and failure["pending_asins"] == query["queries"], "SIF MCP failure identity/query/population mismatch")
+        require(isinstance(failure["evidence"], list) and bool(failure["evidence"]), "persisted MCP failure evidence required")
+        for record in failure["evidence"]:
+            verify_record(record)
+    return {"status": f"authenticated_{entry}", "entry_type": entry, "business_complete": False}
+
+
+def mcp_first_source_access(proof, query_path, stage):
+    """New runs: only a persisted explicit MCP error admits website fallback."""
+    provider = {"sif": "SIF", "sellersprite": "SellerSprite"}[stage]
+    query = runtime.read_json(Path(query_path))
+    validate_query_lock(query, proof.get("run_id"), query.get("marketplace"), stage)
+    entry = query["entry_type"]
+    common = {"schema", "run_id", "task_id", "host", "source_provider", "entry_type", "query_lock_sha256", "authentication_evidence"}
+    extra = {"reason", "primary_query_lock", "mcp_error_evidence", "completed_queries", "login_notice"} if entry == "web" else set()
+    require(set(proof) == common | extra and proof["schema"] == "amazon-keyword-source-access/v2",
+            "source access v2 non-secret schema required")
+    require(query.get("source_policy") == runtime.MCP_ERROR_ONLY_POLICY
+            and query.get("marketplace") in runtime.MARKETPLACE_ROUTES
+            and proof["source_provider"] == provider and proof["entry_type"] == entry,
+            "current MCP-first error-only policy/provider/entry required")
+    require(proof["query_lock_sha256"] == runtime.sha256_file(Path(query_path)), "query lock hash drift")
+    identity = {key: proof[key] for key in ("run_id", "task_id", "host")}
+    require(all(isinstance(v, str) and v.strip() for v in identity.values()), "current identity required")
+    auth = runtime.read_json(verify_record(proof["authentication_evidence"]))
+    expected = dict(identity, schema=f"amazon-keyword-{entry}-authentication/v1", provider=provider,
+                    entry_type=entry, authenticated=True)
+    require(set(auth) <= set(expected) | {"checked_at"} and auth.get("authenticated") is True and all(auth.get(k) == v for k, v in expected.items()),
+            "current source entry authentication required")
+    if entry == "web":
+        require(proof["reason"] == "mcp_error", "only explicit MCP error allows website fallback")
+        primary = runtime.read_json(verify_record(proof["primary_query_lock"]))
+        validate_query_lock(primary, proof["run_id"], query["marketplace"], stage)
+        require(primary["entry_type"] == "mcp" and
+                {k:v for k,v in primary.items() if k not in {"entry_type", "queries"}} ==
+                {k:v for k,v in query.items() if k not in {"entry_type", "queries"}}, "fallback query settings changed")
+        completed = proof["completed_queries"]
+        require(isinstance(completed, list) and all(isinstance(q,str) for q in completed)
+                and len(set(completed)) == len(completed) and set(completed) <= set(primary["queries"]),
+                "invalid completed query population")
+        require(query["queries"] == [q for q in primary["queries"] if q not in completed],
+                "fallback may query only unfinished population in original order")
+        error = runtime.read_json(verify_record(proof["mcp_error_evidence"]))
+        expected_error = dict(identity, schema="amazon-keyword-mcp-error/v1", provider=provider, entry_type="mcp",
+                              is_error=True, query_lock_sha256=proof["primary_query_lock"]["sha256"])
+        require(set(error) <= set(expected_error) | {"error_code", "evidence", "checked_at"}
+                and error.get("is_error") is True and all(error.get(k) == v for k,v in expected_error.items())
+                and isinstance(error.get("error_code"),str) and error["error_code"].strip(),
+                "persisted explicit MCP error identity/code required; gaps or zero are not errors")
+        require(isinstance(error.get("evidence"),list) and bool(error["evidence"]), "raw MCP error evidence required")
+        for lock in error["evidence"]:
+            verify_record(lock)
+        notice = runtime.read_json(verify_record(proof["login_notice"]))
+        expected_notice = dict(identity, schema="amazon-keyword-web-login-notice/v1", provider=provider,
+                               login_requested=True)
+        require(set(notice) <= set(expected_notice) | {"checked_at"} and notice.get("login_requested") is True and
+                all(notice.get(k) == v for k,v in expected_notice.items()), "user website login request evidence required")
+    return {"status": f"authenticated_{entry}", "entry_type": entry, "business_complete": False}
 
 
 def login_recovery_action(observation):
@@ -186,7 +301,8 @@ def export_population(proof):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=["sif-fallback", "login-recovery", "autocomplete", "export-population"])
+    parser.add_argument("command", choices=["source-access", "sif-source-access", "sif-fallback", "login-recovery", "autocomplete", "export-population"])
+    parser.add_argument("--stage", choices=["sif", "sellersprite"])
     parser.add_argument("--input", required=True)
     parser.add_argument("--query-lock")
     args = parser.parse_args()
@@ -194,7 +310,13 @@ def main():
         proof = runtime.read_json(Path(args.input))
         action = {"sif-fallback": sif_fallback, "login-recovery": login_recovery_action,
                   "export-population": export_population}
-        if args.command == "autocomplete":
+        if args.command == "source-access":
+            require(args.query_lock and args.stage, "query lock and source stage required")
+            result = mcp_first_source_access(proof, Path(args.query_lock), args.stage)
+        elif args.command == "sif-source-access":
+            require(args.query_lock, "query lock required")
+            result = sif_source_access(proof, Path(args.query_lock))
+        elif args.command == "autocomplete":
             require(args.query_lock, "query lock required")
             result = autocomplete_capture(proof, runtime.read_json(Path(args.query_lock)))
         else:

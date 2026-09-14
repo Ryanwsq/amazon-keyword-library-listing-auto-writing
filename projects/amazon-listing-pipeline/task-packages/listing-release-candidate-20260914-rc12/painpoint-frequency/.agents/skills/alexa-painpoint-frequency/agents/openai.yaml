@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon 购物助手痛点频率统计"
+  short_description: "按Run站点用Alexa或Rufus提取痛点并统计跨ASIN频率"
+  default_prompt: "使用 $alexa-painpoint-frequency 按锁定marketplace路由和已登录Amazon会话分析ASIN列表；美国站用Alexa英语问题，德国站用Rufus固定德语问题，并输出痛点明细和频率统计。"
